@@ -17,6 +17,7 @@
 
 <resources>
     <string-array name="wallpapers" translatable="false">
+        <item>wallpaper_prash_nexus_surf</item>
         <item>wallpaper_electric</item>
         <item>wallpaper_grass</item>
         <item>wallpaper_canyon</item>
