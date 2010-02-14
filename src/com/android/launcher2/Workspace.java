@@ -276,6 +276,9 @@ public class Workspace extends ViewGroup implements DropTarget, DragSource, Drag
         clearVacantCache();
         mCurrentScreen = Math.max(0, Math.min(currentScreen, getChildCount() - 1));
         scrollTo(mCurrentScreen * getWidth(), 0);
+        mPreviousIndicator.setLevel(currentScreen);
+        mNextIndicator.setLevel(currentScreen);
+        updateWallpaperOffset();
         invalidate();
     }
 
