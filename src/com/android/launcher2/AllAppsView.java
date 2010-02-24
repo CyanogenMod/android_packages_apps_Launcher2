@@ -215,8 +215,6 @@ public class AllAppsView extends RSSurfaceView
 
         mRS.mMessageCallback = mMessageProc = new AAMessage();
 
-        mRS.mMessageCallback = mMessageProc = new AAMessage();
-
         Resources res = getContext().getResources();
         int barHeight = (int)res.getDimension(R.dimen.button_bar_height);
 
