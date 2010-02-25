@@ -307,6 +307,11 @@ public class AllAppsView extends RSSurfaceView
         if (!isVisible()) {
             return false;
         }
+
+	if (mRollo == null) {
+            return false;
+        }
+
         final int iconCount = mRollo.mState.iconCount;
 
         if (keyCode == KeyEvent.KEYCODE_DPAD_CENTER || keyCode == KeyEvent.KEYCODE_ENTER) {
