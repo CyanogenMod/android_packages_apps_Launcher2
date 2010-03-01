@@ -1064,6 +1064,8 @@ public class AllAppsView extends RSSurfaceView
             mIcons = new Allocation[count];
             mIconIds = new int[allocCount];
             mAllocIconIds = Allocation.createSized(mRS, Element.USER_I32(mRS), allocCount);
+	    if (mLauncher.isInitialCreation())
+	        Allocation.createAllocationList(mRS, count);
 
             Element ie8888 = Element.RGBA_8888(mRS);
 
@@ -1117,8 +1119,12 @@ public class AllAppsView extends RSSurfaceView
 
         private void createAppIconAllocations(int index, ApplicationInfo item) {
             Bitmap bitmap = item.iconBitmap;
-            mIcons[index] = Allocation.createFromBitmap(mRS, bitmap, Element.RGBA_8888(mRS), true);
-            frameBitmapAllocMips(mIcons[index], bitmap.getWidth(), bitmap.getHeight());
+	    if (mLauncher.isInitialCreation()) {
+                mIcons[index] = Allocation.createFromBitmap(mRS, bitmap, Element.RGBA_8888(mRS), true, index);
+                frameBitmapAllocMips(mIcons[index], bitmap.getWidth(), bitmap.getHeight());
+	    }
+	    else
+                mIcons[index] = Allocation.createFromBitmap(mRS, bitmap, Element.RGBA_8888(mRS), true, index);
 
             mIconIds[index] = mIcons[index].getID();
         }
@@ -1161,6 +1167,7 @@ public class AllAppsView extends RSSurfaceView
             System.arraycopy(mIcons, index, mIcons, dest, count);
             System.arraycopy(mIconIds, index, mIconIds, dest, count);
 
+	    Allocation.addToAllocation(mRS, index);
             createAppIconAllocations(index, item);
 
             if (mHasSurface) {
@@ -1181,6 +1188,8 @@ public class AllAppsView extends RSSurfaceView
 
             System.arraycopy(mIcons, src, mIcons, index, count);
             System.arraycopy(mIconIds, src, mIconIds, index, count);
+
+	    Allocation.removeFromAllocation(mRS, index);
 
             mRollo.mState.iconCount--;
             final int last = mState.iconCount;
