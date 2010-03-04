@@ -1929,7 +1929,9 @@ public final class Launcher extends Activity
         private AddAdapter mAdapter;
 
         Dialog createDialog() {
-            mWaitingForResult = true;
+            // Enomther: This is complete FAIL for some reason ?? ...
+			//           much more harm than any notable good, that I can see anyways
+			//mWaitingForResult = true;
 
             mAdapter = new AddAdapter(Launcher.this);
 
