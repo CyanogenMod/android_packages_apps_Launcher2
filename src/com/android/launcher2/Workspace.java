@@ -54,7 +54,8 @@ public class Workspace extends ViewGroup implements DropTarget, DragSource, Drag
     /**
      * The velocity at which a fling gesture will cause us to snap to the next screen
      */
-    private static final int SNAP_VELOCITY = 1000;
+	// Faruq: Modified SNAP_VELOCITY to make it less harsh
+    private static final int SNAP_VELOCITY = 200;
 
     private final WallpaperManager mWallpaperManager;
     
@@ -930,10 +931,10 @@ public class Workspace extends ViewGroup implements DropTarget, DragSource, Drag
 
                 if (velocityX > SNAP_VELOCITY && mCurrentScreen > 0) {
                     // Fling hard enough to move left
-                    snapToScreen(mCurrentScreen - 1);
+                    snapToScreen(mCurrentScreen - 1, velocityX);
                 } else if (velocityX < -SNAP_VELOCITY && mCurrentScreen < getChildCount() - 1) {
                     // Fling hard enough to move right
-                    snapToScreen(mCurrentScreen + 1);
+                    snapToScreen(mCurrentScreen + 1, velocityX);
                 } else {
                     snapToDestination();
                 }
@@ -959,9 +960,17 @@ public class Workspace extends ViewGroup implements DropTarget, DragSource, Drag
         snapToScreen(whichScreen);
     }
 
-    void snapToScreen(int whichScreen) {
-        //if (!mScroller.isFinished()) return;
-
+	void snapToScreen(int whichScreen) {
+		//if (!mScroller.isFinished()) return;
+		int durationOffset = 1;
+		
+		// Faruq: Disable first & last screens
+		if (whichScreen == 0) {
+			whichScreen = 1;
+		} else if (whichScreen == (getChildCount() - 1)) {
+			whichScreen = getChildCount() - 2;
+		}
+		
         whichScreen = Math.max(0, Math.min(whichScreen, getChildCount() - 1));
         
         clearVacantCache();
@@ -982,6 +991,52 @@ public class Workspace extends ViewGroup implements DropTarget, DragSource, Drag
         final int newX = whichScreen * getWidth();
         final int delta = newX - mScrollX;
         final int duration = screenDelta * 300;
+        awakenScrollBars(duration);
+        mScroller.startScroll(mScrollX, 0, delta, 0, duration);
+        invalidate();
+	}
+	
+    void snapToScreen(int whichScreen, int velocityX) {
+        //if (!mScroller.isFinished()) return;
+		int durationOffset = 1;
+		
+		// Faruq: Disable first & last screens
+		if (whichScreen == 0) {
+			whichScreen = 1;
+		} else if (whichScreen == (getChildCount() - 1)) {
+			whichScreen = getChildCount() - 2;
+		}
+		
+        whichScreen = Math.max(0, Math.min(whichScreen, getChildCount() - 1));
+        
+        clearVacantCache();
+        enableChildrenCache(mCurrentScreen, whichScreen);
+
+        final int screenDelta = Math.abs(whichScreen - mCurrentScreen);
+
+		// Faruq: Added to allow easing even when Screen doesn't changed (when revert happens)
+		//Log.d("Workspace", "whichScreen: "+whichScreen+"; mCurrentScreen: "+mCurrentScreen+"; getChildCount: "+(getChildCount()-1));
+        if (screenDelta == 0) {
+			durationOffset = 400;
+			//Log.d("Workspace", "Increasing duration by "+durationOffset+" times");
+		}
+		
+       	mNextScreen = whichScreen;
+
+        mPreviousIndicator.setLevel(mNextScreen);
+        mNextIndicator.setLevel(mNextScreen);
+        
+        View focusedChild = getFocusedChild();
+        if (focusedChild != null && screenDelta != 0 && focusedChild == getChildAt(mCurrentScreen)) {
+            focusedChild.clearFocus();
+        }
+        
+        final int newX = whichScreen * getWidth();
+        final int delta = newX - mScrollX;
+		// Faruq: Modified to let fling follow Velocity of fling
+		Log.d("Workspace", "velocityX: "+velocityX+"; delta: "+delta+"; duration: "+((Math.abs(delta) / (Math.abs(velocityX) / 100))*20));
+        final int duration = ((Math.abs(delta) / (Math.abs(velocityX) / 100))*20) + durationOffset; // Faruq: Modified to make duration longer.. and for revert, much more longer
+		//Log.d("Workspace", "duration: "+ duration);
         awakenScrollBars(duration);
         mScroller.startScroll(mScrollX, 0, delta, 0, duration);
         invalidate();
