@@ -121,6 +121,8 @@ public class AllAppsView extends RSSurfaceView
     private float mVelocity;
     private AAMessage mMessageProc;
 
+    private boolean mCreatedList = false;
+
     static class Defines {
         public static final int ALLOC_PARAMS = 0;
         public static final int ALLOC_STATE = 1;
@@ -1064,8 +1066,15 @@ public class AllAppsView extends RSSurfaceView
             mIcons = new Allocation[count];
             mIconIds = new int[allocCount];
             mAllocIconIds = Allocation.createSized(mRS, Element.USER_I32(mRS), allocCount);
-	    if (mLauncher.isInitialCreation())
+	    if (mLauncher.isInitialCreation()) {
 	        Allocation.createAllocationList(mRS, count);
+		if (count > 0)
+		    mCreatedList = true;
+            }
+	    else {
+		if (count > 0)
+		    mCreatedList = true;
+            }
 
             Element ie8888 = Element.RGBA_8888(mRS);
 
@@ -1399,6 +1408,10 @@ public class AllAppsView extends RSSurfaceView
             Log.d(TAG, "mRollo.mParams.homeButtonTextureWidth=" + mParams.homeButtonTextureWidth);
             Log.d(TAG, "mRollo.mParams.homeButtonTextureHeight=" + mParams.homeButtonTextureHeight);
         }
+    }
+
+    public boolean IsAllocationListCreated() {
+        return mCreatedList;
     }
 
     public void dumpState() {

@@ -1525,5 +1525,6 @@ public class Workspace extends ViewGroup implements DropTarget, DragSource, Drag
     }
 
     void hide() {
+        setVisibility(GONE);
     }
 }
