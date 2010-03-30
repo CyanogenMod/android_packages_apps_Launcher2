@@ -152,10 +152,6 @@ public final class Launcher extends Activity
     private static final String RUNTIME_STATE_PENDING_FOLDER_RENAME = "launcher.rename_folder";
     // Type: long
     private static final String RUNTIME_STATE_PENDING_FOLDER_RENAME_ID = "launcher.rename_folder_id";
-    // Type: boolean
-    private static final String RUNTIME_INITIAL_CREATION = "launcher.initial_creation";
-
-    private boolean initialCreation = true;
 
     static final int APPWIDGET_HOST_ID = 1024;
 
@@ -531,8 +527,6 @@ public final class Launcher extends Activity
             mFolderInfo = mModel.getFolderById(this, mFolders, id);
             mRestoring = true;
         }
-
-	initialCreation = savedState.getBoolean(RUNTIME_INITIAL_CREATION, true);
     }
 
     /**
@@ -920,8 +914,6 @@ public final class Launcher extends Activity
             outState.putBoolean(RUNTIME_STATE_PENDING_FOLDER_RENAME, true);
             outState.putLong(RUNTIME_STATE_PENDING_FOLDER_RENAME_ID, mFolderInfo.id);
         }
-
-	outState.putBoolean(RUNTIME_INITIAL_CREATION, false);
     }
 
     @Override
@@ -2280,9 +2272,5 @@ public final class Launcher extends Activity
         mModel.dumpState();
         mAllAppsGrid.dumpState();
         Log.d(TAG, "END launcher2 dump state");
-    }
-
-    public boolean isInitialCreation() {
-        return initialCreation;
     }
 }
