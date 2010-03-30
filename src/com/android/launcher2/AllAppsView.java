@@ -1247,9 +1247,12 @@ public class AllAppsView extends RSSurfaceView
             mTouchYBorders[3] = centerY + cellHeight;
             mTouchYBorders[4] = centerY + (cellHeight * 2);
 
-           for (int i = 0; i < (Defines.COLUMNS_PER_PAGE+1); i++) {
-                mTouchXBorders[i] = i * cellWidth;
-            }
+            int centerX = (width / 2);
+            mTouchXBorders[0] = 0;
+            mTouchXBorders[1] = centerX - (width / 4);
+            mTouchXBorders[2] = centerX;
+            mTouchXBorders[3] = centerX + (width / 4);
+            mTouchXBorders[4] = width;
         }
 
         void fling() {
@@ -1267,6 +1270,8 @@ public class AllAppsView extends RSSurfaceView
         }
 
         int chooseTappedIcon(int x, int y, float pos) {
+            // Adjust for scroll position if not zero.
+            y += (pos - ((int)pos)) * (mTouchYBorders[1] - mTouchYBorders[0]);
 
             int col = -1;
             int row = -1;
@@ -1287,7 +1292,8 @@ public class AllAppsView extends RSSurfaceView
                 return -1;
             }
 
-            int index = ((row + (int)pos) * Defines.COLUMNS_PER_PAGE) + col;
+            int index = (((int)pos) * Defines.COLUMNS_PER_PAGE)
+                    + (row * Defines.ROWS_PER_PAGE) + col;
 
             if (index >= mState.iconCount) {
                 return -1;
