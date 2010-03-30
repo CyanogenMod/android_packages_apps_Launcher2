@@ -61,7 +61,6 @@ public class LauncherModel extends BroadcastReceiver {
     private WeakReference<Callbacks> mCallbacks;
 
     private AllAppsList mAllAppsList = new AllAppsList();
-    private boolean mAllAppsVisible = false;
 
     public interface Callbacks {
         public int getCurrentWorkspaceScreen();
@@ -477,192 +476,97 @@ public class LauncherModel extends BroadcastReceiver {
                             ? Process.THREAD_PRIORITY_DEFAULT : Process.THREAD_PRIORITY_BACKGROUND);
                 }
 
-                if (!mAllAppsVisible) {
-                    // Load the workspace only if it's dirty.
-                    int workspaceSeq;
-                    boolean workspaceDirty;
-                    synchronized (mLock) {
-                        workspaceSeq = mWorkspaceSeq;
-                        workspaceDirty = mWorkspaceSeq != mLastWorkspaceSeq;
+                // Load the workspace only if it's dirty.
+                int workspaceSeq;
+                boolean workspaceDirty;
+                synchronized (mLock) {
+                    workspaceSeq = mWorkspaceSeq;
+                    workspaceDirty = mWorkspaceSeq != mLastWorkspaceSeq;
+                }
+                if (workspaceDirty) {
+                    loadWorkspace();
+                }
+                synchronized (mLock) {
+                    // If we're not stopped, and nobody has incremented mWorkspaceSeq.
+                    if (mStopped) {
+                        return;
                     }
-                    if (workspaceDirty) {
-                        loadWorkspace();
+                    if (workspaceSeq == mWorkspaceSeq) {
+                        mLastWorkspaceSeq = mWorkspaceSeq;
                     }
-                    synchronized (mLock) {
-                        // If we're not stopped, and nobody has incremented mWorkspaceSeq.
-                        if (mStopped) {
-                            return;
-                        }
-                        if (workspaceSeq == mWorkspaceSeq) {
-                            mLastWorkspaceSeq = mWorkspaceSeq;
-                        }
-                    }
-    
-                    // Bind the workspace
-                    bindWorkspace();
-                    
-                    // Wait until the either we're stopped or the other threads are done.
-                    // This way we don't start loading all apps until the workspace has settled
-                    // down.
-                    synchronized (LoaderThread.this) {
-                        mHandler.postIdle(new Runnable() {
-                                public void run() {
-                                    synchronized (LoaderThread.this) {
-                                        mWorkspaceDoneBinding = true;
-                                        if (DEBUG_LOADERS) {
-                                            Log.d(TAG, "done with workspace");
-                                            }
-                                        LoaderThread.this.notify();
-                                    }
-                                }
-                            });
-                        if (DEBUG_LOADERS) {
-                            Log.d(TAG, "waiting to be done with workspace");
-                        }
-                        while (!mStopped && !mWorkspaceDoneBinding) {
-                            try {
-                                this.wait();
-                            } catch (InterruptedException ex) {
-                                // Ignore
-                            }
-                        }
-                        if (DEBUG_LOADERS) {
-                            Log.d(TAG, "done waiting to be done with workspace");
-                        }
-                    }
-    
-                    // Load all apps if they're dirty
-                    int allAppsSeq;
-                    boolean allAppsDirty;
-                    synchronized (mLock) {
-                        allAppsSeq = mAllAppsSeq;
-                        allAppsDirty = mAllAppsSeq != mLastAllAppsSeq;
-                        if (DEBUG_LOADERS) {
-                            Log.d(TAG, "mAllAppsSeq=" + mAllAppsSeq
-                                    + " mLastAllAppsSeq=" + mLastAllAppsSeq + " allAppsDirty");
-                        }
-                    }
-                    if (allAppsDirty) {
-                        loadAllApps();
-                    }
-                    synchronized (mLock) {
-                        // If we're not stopped, and nobody has incremented mAllAppsSeq.
-                        if (mStopped) {
-                            return;
-                        }
-                        if (allAppsSeq == mAllAppsSeq) {
-                            mLastAllAppsSeq = mAllAppsSeq;
-                        }
-                    }
-    
-                    // Bind all apps
-                    if (allAppsDirty) {
-                        bindAllApps();
-                    }
-    
-                    // Clear out this reference, otherwise we end up holding it until all of the
-                    // callback runnables are done.
-                    mContext = null;
-    
-                    synchronized (mLock) {
-                        // Setting the reference is atomic, but we can't do it inside the other critical
-                        // sections.
-                        mLoaderThread = null;
-                    }
-    		}
-		else {
-                    // Load all apps if they're dirty
-                    int allAppsSeq;
-                    boolean allAppsDirty;
-                    synchronized (mLock) {
-                        allAppsSeq = mAllAppsSeq;
-                        allAppsDirty = mAllAppsSeq != mLastAllAppsSeq;
-                        if (DEBUG_LOADERS) {
-                            Log.d(TAG, "mAllAppsSeq=" + mAllAppsSeq
-                                    + " mLastAllAppsSeq=" + mLastAllAppsSeq + " allAppsDirty");
-                        }
-                    }
-                    if (allAppsDirty) {
-                        loadAllApps();
-                    }
-                    synchronized (mLock) {
-                        // If we're not stopped, and nobody has incremented mAllAppsSeq.
-                        if (mStopped) {
-                            return;
-                        }
-                        if (allAppsSeq == mAllAppsSeq) {
-                            mLastAllAppsSeq = mAllAppsSeq;
-                        }
-                    }
-    
-                    // Bind all apps
-                    if (allAppsDirty) {
-                        bindAllApps();
-                    }
+                }
 
-                    // Wait until the either we're stopped or the other threads are done.
-                    // This way we don't start loading all apps until the workspace has settled
-                    // down.
-                    synchronized (LoaderThread.this) {
-                        mHandler.postIdle(new Runnable() {
-                                public void run() {
-                                    synchronized (LoaderThread.this) {
-                                        mWorkspaceDoneBinding = true;
-                                        if (DEBUG_LOADERS) {
-                                            Log.d(TAG, "done with workspace");
-                                            }
-                                        LoaderThread.this.notify();
-                                    }
+                // Bind the workspace
+                bindWorkspace();
+                
+                // Wait until the either we're stopped or the other threads are done.
+                // This way we don't start loading all apps until the workspace has settled
+                // down.
+                synchronized (LoaderThread.this) {
+                    mHandler.postIdle(new Runnable() {
+                            public void run() {
+                                synchronized (LoaderThread.this) {
+                                    mWorkspaceDoneBinding = true;
+                                    if (DEBUG_LOADERS) {
+                                        Log.d(TAG, "done with workspace");
+                                        }
+                                    LoaderThread.this.notify();
                                 }
-                            });
-                        if (DEBUG_LOADERS) {
-                            Log.d(TAG, "waiting to be done with workspace");
-                        }
-                        while (!mStopped && !mWorkspaceDoneBinding) {
-                            try {
-                                this.wait();
-                            } catch (InterruptedException ex) {
-                                // Ignore
                             }
-                        }
-                        if (DEBUG_LOADERS) {
-                            Log.d(TAG, "done waiting to be done with workspace");
+                        });
+                    if (DEBUG_LOADERS) {
+                        Log.d(TAG, "waiting to be done with workspace");
+                    }
+                    while (!mStopped && !mWorkspaceDoneBinding) {
+                        try {
+                            this.wait();
+                        } catch (InterruptedException ex) {
+                            // Ignore
                         }
                     }
+                    if (DEBUG_LOADERS) {
+                        Log.d(TAG, "done waiting to be done with workspace");
+                    }
+                }
 
-                    // Load the workspace only if it's dirty.
-                    int workspaceSeq;
-                    boolean workspaceDirty;
-                    synchronized (mLock) {
-                        workspaceSeq = mWorkspaceSeq;
-                        workspaceDirty = mWorkspaceSeq != mLastWorkspaceSeq;
+                // Load all apps if they're dirty
+                int allAppsSeq;
+                boolean allAppsDirty;
+                synchronized (mLock) {
+                    allAppsSeq = mAllAppsSeq;
+                    allAppsDirty = mAllAppsSeq != mLastAllAppsSeq;
+                    if (DEBUG_LOADERS) {
+                        Log.d(TAG, "mAllAppsSeq=" + mAllAppsSeq
+                                + " mLastAllAppsSeq=" + mLastAllAppsSeq + " allAppsDirty");
                     }
-                    if (workspaceDirty) {
-                        loadWorkspace();
+                }
+                if (allAppsDirty) {
+                    loadAllApps();
+                }
+                synchronized (mLock) {
+                    // If we're not stopped, and nobody has incremented mAllAppsSeq.
+                    if (mStopped) {
+                        return;
                     }
-                    synchronized (mLock) {
-                        // If we're not stopped, and nobody has incremented mWorkspaceSeq.
-                        if (mStopped) {
-                            return;
-                        }
-                        if (workspaceSeq == mWorkspaceSeq) {
-                            mLastWorkspaceSeq = mWorkspaceSeq;
-                        }
+                    if (allAppsSeq == mAllAppsSeq) {
+                        mLastAllAppsSeq = mAllAppsSeq;
                     }
-    
-                    // Bind the workspace
-                    bindWorkspace();
-    
-                    // Clear out this reference, otherwise we end up holding it until all of the
-                    // callback runnables are done.
-                    mContext = null;
-    
-                    synchronized (mLock) {
-                        // Setting the reference is atomic, but we can't do it inside the other critical
-                        // sections.
-                        mLoaderThread = null;
-                    }
-    		}
+                }
+
+                // Bind all apps
+                if (allAppsDirty) {
+                    bindAllApps();
+                }
+
+                // Clear out this reference, otherwise we end up holding it until all of the
+                // callback runnables are done.
+                mContext = null;
+
+                synchronized (mLock) {
+                    // Setting the reference is atomic, but we can't do it inside the other critical
+                    // sections.
+                    mLoaderThread = null;
+                }
             }
 
             public void stopLocked() {
@@ -1322,10 +1226,6 @@ public class LauncherModel extends BroadcastReceiver {
             return sCollator.compare(a.title.toString(), b.title.toString());
         }
     };
-
-    public void setModelAllAppsVisible(boolean visible) {
-        mAllAppsVisible = visible;
-    }
 
     public void dumpState() {
         Log.d(TAG, "mBeforeFirstLoad=" + mBeforeFirstLoad);
