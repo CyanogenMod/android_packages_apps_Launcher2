@@ -128,7 +128,7 @@ public class AllAppsView extends RSSurfaceView
         public static final int ALLOC_STATE = 1;
         public static final int ALLOC_ICON_IDS = 3;
 
-        public static final int COLUMNS_PER_PAGE = 5;
+        public static final int COLUMNS_PER_PAGE = 4;
         public static final int ROWS_PER_PAGE = 4;
 
         public static final int ICON_TEXTURE_WIDTH_PX = 128;
