@@ -1890,6 +1890,7 @@ public final class Launcher extends Activity
      */
     void closeAllApps(boolean animated) {
         if (mAllAppsGrid.isVisible()) {
+            mWorkspace.hideWallpaper(false);
             mAllAppsGrid.zoom(0.0f, animated);
             mAllAppsGrid.setFocusable(false);
             mWorkspace.getChildAt(mWorkspace.getCurrentScreen()).requestFocus();
