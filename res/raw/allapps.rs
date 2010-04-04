@@ -135,9 +135,9 @@ void setZoom() {
 
 void fling() {
     g_LastTouchDown = 0;
-    g_PosVelocity = -state->flingVelocity * 4;
+    g_PosVelocity = -state->flingVelocity * 5;
     float av = fabsf(g_PosVelocity);
-    float minVel = 3.5f;
+    float minVel = 7.5f;
 
     minVel *= 1.f - (fabsf(fracf(g_PosPage + 0.5f) - 0.5f) * 0.45f);
 
@@ -277,21 +277,24 @@ draw_home_button()
 
 void drawFrontGrid(float rowOffset, float p)
 {
-    float h = getHeight();
-    float w = getWidth();
 
-    int intRowOffset = rowOffset;
-    float rowFrac = rowOffset - intRowOffset;
-    float colWidth = 120.f;//getWidth() / 4;
-    float rowHeight = colWidth + 25.f;
-    float yoff = 0.5f * h + 1.5f * rowHeight;
 
     int row, col;
-    int colCount = 4;
+    int colCount = 5;
+    int intRowOffset = rowOffset;
+    float h = getHeight();
+    float w = getWidth();
+    float colWidth = w/colCount; 
+    float rowHeight = colWidth + 25.f;
+    float yoff = 0.5f * h + 1.5f * rowHeight * 5/4;
+    float rowFrac = rowOffset - intRowOffset;
+
+
     if (w > h) {
-        colCount = 6;
-        rowHeight -= 12.f;
-        yoff = 0.47f * h + 1.0f * rowHeight;
+        colCount = 7;
+        colWidth = w/colCount; 
+        rowHeight = colWidth;
+        yoff = 0.47f * h + 1.f * rowHeight;
     }
 
     int iconNum = (intRowOffset - 5) * colCount;
@@ -386,12 +389,29 @@ main(int launchID)
     }
 
     // icons & labels
+    //Decide if in portrait or landscape
     int iconCount = state->iconCount;
-    g_PosMax = ((iconCount + 3) / 4) - 4;
-    if (g_PosMax < 0) g_PosMax = 0;
+    int colCount = -1;
 
-    updatePos(0.1f);
-    updateReadback();
+    if (getWidth() > getHeight()) {
+        colCount = 7;
+	// last number = number of rows
+        g_PosMax = ((iconCount + colCount - 1) / colCount) - 3;
+
+        if (g_PosMax < 0) g_PosMax = 0;
+    	updatePos(0.1f);
+   	updateReadback();
+    }
+    else {
+	colCount = 5;
+        g_PosMax = ((iconCount + colCount - 1) / colCount) - 4; 
+
+        if (g_PosMax < 0) g_PosMax = 0;
+    	updatePos(0.1f);
+   	updateReadback();
+    }
+    
+    
 
     //debugF("    draw g_PosPage", g_PosPage);
 
@@ -399,7 +419,9 @@ main(int launchID)
     drawFrontGrid(g_PosPage, g_Animation);
 
     bindProgramFragment(NAMED_PFTexNearest);
-    draw_home_button();
+    
+    //Disable drawing the home button on landscape
+    if(getWidth()<getHeight()) draw_home_button();
 
     // This is a WAR to do a rendering pass without drawing during init to
     // force the driver to preload and compile its shaders.
