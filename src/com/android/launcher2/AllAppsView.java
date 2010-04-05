@@ -1183,9 +1183,9 @@ public class AllAppsView extends RSSurfaceView
         }
 
         private void createAppIconAllocations(int index, ApplicationInfo item) {
-            mIcons[index] = Allocation.createFromBitmapStretched(mRS, item.iconBitmap,
+            mIcons[index] = Allocation.createFromBitmap(mRS, item.iconBitmap,
                     Element.RGBA_8888(mRS), true);
-            mLabels[index] = Allocation.createFromBitmapStretched(mRS, item.titleBitmap,
+            mLabels[index] = Allocation.createFromBitmap(mRS, item.titleBitmap,
                     Element.A_8(mRS), true);
             mIconIds[index] = mIcons[index].getID();
             mLabelIds[index] = mLabels[index].getID();
