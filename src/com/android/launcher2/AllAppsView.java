@@ -24,6 +24,7 @@ import android.graphics.Canvas;
 import android.graphics.PixelFormat;
 import android.graphics.Rect;
 import android.os.SystemClock;
+import android.provider.Settings;
 import android.renderscript.Allocation;
 import android.renderscript.Dimension;
 import android.renderscript.Element;
@@ -116,31 +117,14 @@ public class AllAppsView extends RSSurfaceView
 
     private boolean mHaveSurface = false;
     private boolean mZoomDirty = false;
+    private static int columns = 5;
     private boolean mAnimateNextZoom;
     private float mNextZoom;
     private float mZoom;
     private float mPosX;
     private float mVelocity;
     private AAMessage mMessageProc;
-
-    static class Defines {
-        public static final int ALLOC_PARAMS = 0;
-        public static final int ALLOC_STATE = 1;
-        public static final int ALLOC_ICON_IDS = 3;
-        public static final int ALLOC_LABEL_IDS = 4;
-        public static final int ALLOC_VP_CONSTANTS = 5;
-
-        public static int COLUMNS_PER_PAGE = 5;
-        public static int ROWS_PER_PAGE = 4;
-
-        public static final int ICON_WIDTH_PX = 64;
-        public static final int ICON_TEXTURE_WIDTH_PX = 74;
-        public static final int SELECTION_TEXTURE_WIDTH_PX = 74 + 20;
-
-        public static final int ICON_HEIGHT_PX = 64;
-        public static final int ICON_TEXTURE_HEIGHT_PX = 74;
-        public static final int SELECTION_TEXTURE_HEIGHT_PX = 74 + 20;
-    }
+    public boolean testFunc() {return (true);}
 
     public AllAppsView(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -157,6 +141,26 @@ public class AllAppsView extends RSSurfaceView
         getHolder().setFormat(PixelFormat.TRANSLUCENT);
 
         mRS = createRenderScript(true);
+
+    }
+    static class Defines {
+        public static final boolean = (boolean)testFunc();
+        public static final int ALLOC_PARAMS = 0;
+        public static final int ALLOC_STATE = 1;
+        public static final int ALLOC_ICON_IDS = 3;
+        public static final int ALLOC_LABEL_IDS = 4;
+        public static final int ALLOC_VP_CONSTANTS = 5;
+
+        public static int COLUMNS_PER_PAGE = columns;
+        public static int ROWS_PER_PAGE = 4;
+
+        public static final int ICON_WIDTH_PX = 64;
+        public static final int ICON_TEXTURE_WIDTH_PX = 74;
+        public static final int SELECTION_TEXTURE_WIDTH_PX = 74 + 20;
+
+        public static final int ICON_HEIGHT_PX = 64;
+        public static final int ICON_TEXTURE_HEIGHT_PX = 74;
+        public static final int SELECTION_TEXTURE_HEIGHT_PX = 74 + 20;
     }
 
     /**
@@ -878,6 +882,8 @@ public class AllAppsView extends RSSurfaceView
             public int homeButtonHeight;
             public int homeButtonTextureWidth;
             public int homeButtonTextureHeight;
+
+            public int launcherCols;
         }
 
         class State extends BaseAlloc {
@@ -1095,6 +1101,13 @@ public class AllAppsView extends RSSurfaceView
             mParams.homeButtonHeight = 68;
             mParams.homeButtonTextureWidth = 128;
             mParams.homeButtonTextureHeight = 128;
+       
+
+	    if (Settings.System.getInt(mContext.getContentResolver(),         Settings.System.LAUNCHER_COLUMN_NUMBER, 0) == 1){
+            	mParams.launcherCols = 5;
+	    } else {
+                mParams.launcherCols = 4;
+            }
 
             mState.homeButtonId = mHomeButtonNormal.getID();
 

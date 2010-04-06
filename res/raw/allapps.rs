@@ -137,7 +137,7 @@ void fling() {
     g_LastTouchDown = 0;
     g_PosVelocity = -state->flingVelocity * 5;
     float av = fabsf(g_PosVelocity);
-    float minVel = 7.5f;
+    float minVel = 3.5f;
 
     minVel *= 1.f - (fabsf(fracf(g_PosPage + 0.5f) - 0.5f) * 0.45f);
 
@@ -280,13 +280,13 @@ void drawFrontGrid(float rowOffset, float p)
 
 
     int row, col;
-    int colCount = 5;
+    int colCount = params->launcherCols;
     int intRowOffset = rowOffset;
     float h = getHeight();
     float w = getWidth();
     float colWidth = w/colCount; 
     float rowHeight = colWidth + 25.f;
-    float yoff = 0.5f * h + 1.5f * rowHeight * 5/4;
+    float yoff = 0.5f * h + 1.5f * rowHeight * colCount/(colCount-1);
     float rowFrac = rowOffset - intRowOffset;
 
 
@@ -403,8 +403,8 @@ main(int launchID)
    	updateReadback();
     }
     else {
-	colCount = 5;
-        g_PosMax = ((iconCount + colCount - 1) / colCount) - 4; 
+	colCount = params->launcherCols;
+        g_PosMax = ((iconCount + colCount - 1) / colCount) - (colCount-1); 
 
         if (g_PosMax < 0) g_PosMax = 0;
     	updatePos(0.1f);
