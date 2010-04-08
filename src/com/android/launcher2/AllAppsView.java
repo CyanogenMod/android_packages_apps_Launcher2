@@ -73,6 +73,8 @@ public class AllAppsView extends RSSurfaceView
     private static final int SELECTION_ICONS = 1;
     private static final int SELECTION_HOME = 2;
 
+    private static final int DEFAULT_LAUNCHER_COLUMNS = 5;
+    
     private Launcher mLauncher;
     private DragController mDragController;
 
@@ -480,7 +482,8 @@ public class AllAppsView extends RSSurfaceView
         int action = ev.getAction();
         switch (action) {
         case MotionEvent.ACTION_DOWN:
-            if (y > mRollo.mTouchYBorders[Settings.System.getInt(mContext.getContentResolver(),Settings.System.LAUNCHER_COLUMN_NUMBER, 4)]) {
+            if (y > mRollo.mTouchYBorders[Settings.System.getInt(mContext.getContentResolver(),
+                    Settings.System.LAUNCHER_COLUMN_NUMBER, DEFAULT_LAUNCHER_COLUMNS)]) {
                 mTouchTracking = TRACKING_HOME;
                 mRollo.setHomeSelected(SELECTED_PRESSED);
                 mRollo.mState.save();
@@ -514,7 +517,8 @@ public class AllAppsView extends RSSurfaceView
         case MotionEvent.ACTION_MOVE:
         case MotionEvent.ACTION_OUTSIDE:
             if (mTouchTracking == TRACKING_HOME) {
-                mRollo.setHomeSelected(y > mRollo.mTouchYBorders[Settings.System.getInt(mContext.getContentResolver(),Settings.System.LAUNCHER_COLUMN_NUMBER, 4)]
+                mRollo.setHomeSelected(y > mRollo.mTouchYBorders[Settings.System.getInt(
+                        mContext.getContentResolver(),Settings.System.LAUNCHER_COLUMN_NUMBER, DEFAULT_LAUNCHER_COLUMNS)]
                         ? SELECTED_PRESSED : SELECTED_NONE);
                 mRollo.mState.save();
             } else if (mTouchTracking == TRACKING_FLING) {
@@ -553,7 +557,8 @@ public class AllAppsView extends RSSurfaceView
         case MotionEvent.ACTION_CANCEL:
             if (mTouchTracking == TRACKING_HOME) {
                 if (action == MotionEvent.ACTION_UP) {
-                    if (y > mRollo.mTouchYBorders[Settings.System.getInt(mContext.getContentResolver(),Settings.System.LAUNCHER_COLUMN_NUMBER, 4)]) {
+                    if (y > mRollo.mTouchYBorders[Settings.System.getInt(mContext.getContentResolver(),
+                            Settings.System.LAUNCHER_COLUMN_NUMBER, DEFAULT_LAUNCHER_COLUMNS)]) {
                         reallyPlaySoundEffect(SoundEffectConstants.CLICK);
                         mLauncher.closeAllApps(true);
                     }
