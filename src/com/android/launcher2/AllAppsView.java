@@ -114,6 +114,8 @@ public class AllAppsView extends RSSurfaceView
     private int mDownIconIndex = -1;
     private int mCurrentIconIndex = -1;
 
+    private int mLauncherColumns = DEFAULT_LAUNCHER_COLUMNS;
+    
     private boolean mShouldGainFocus;
 
     private boolean mHaveSurface = false;
@@ -159,6 +161,8 @@ public class AllAppsView extends RSSurfaceView
         getHolder().setFormat(PixelFormat.TRANSLUCENT);
 
         mRS = createRenderScript(true);
+        mLauncherColumns = Settings.System.getInt(mContext.getContentResolver(), 
+                Settings.System.LAUNCHER_COLUMN_NUMBER, DEFAULT_LAUNCHER_COLUMNS);
     }
 
     /**
@@ -482,8 +486,7 @@ public class AllAppsView extends RSSurfaceView
         int action = ev.getAction();
         switch (action) {
         case MotionEvent.ACTION_DOWN:
-            if (y > mRollo.mTouchYBorders[Settings.System.getInt(mContext.getContentResolver(),
-                    Settings.System.LAUNCHER_COLUMN_NUMBER, DEFAULT_LAUNCHER_COLUMNS)]) {
+            if (y > mRollo.mTouchYBorders[mLauncherColumns]) {
                 mTouchTracking = TRACKING_HOME;
                 mRollo.setHomeSelected(SELECTED_PRESSED);
                 mRollo.mState.save();
@@ -517,8 +520,7 @@ public class AllAppsView extends RSSurfaceView
         case MotionEvent.ACTION_MOVE:
         case MotionEvent.ACTION_OUTSIDE:
             if (mTouchTracking == TRACKING_HOME) {
-                mRollo.setHomeSelected(y > mRollo.mTouchYBorders[Settings.System.getInt(
-                        mContext.getContentResolver(),Settings.System.LAUNCHER_COLUMN_NUMBER, DEFAULT_LAUNCHER_COLUMNS)]
+                mRollo.setHomeSelected(y > mRollo.mTouchYBorders[mLauncherColumns]
                         ? SELECTED_PRESSED : SELECTED_NONE);
                 mRollo.mState.save();
             } else if (mTouchTracking == TRACKING_FLING) {
@@ -557,8 +559,7 @@ public class AllAppsView extends RSSurfaceView
         case MotionEvent.ACTION_CANCEL:
             if (mTouchTracking == TRACKING_HOME) {
                 if (action == MotionEvent.ACTION_UP) {
-                    if (y > mRollo.mTouchYBorders[Settings.System.getInt(mContext.getContentResolver(),
-                            Settings.System.LAUNCHER_COLUMN_NUMBER, DEFAULT_LAUNCHER_COLUMNS)]) {
+                    if (y > mRollo.mTouchYBorders[mLauncherColumns]) {
                         reallyPlaySoundEffect(SoundEffectConstants.CLICK);
                         mLauncher.closeAllApps(true);
                     }
@@ -1103,12 +1104,7 @@ public class AllAppsView extends RSSurfaceView
             mParams.homeButtonTextureWidth = 128;
             mParams.homeButtonTextureHeight = 128;
        
-
-	    if (Settings.System.getInt(mContext.getContentResolver(),Settings.System.LAUNCHER_COLUMN_NUMBER, 4) == 5){
-            	mParams.launcherCols = 5;
-	    } else {
-                mParams.launcherCols = 4;
-            }
+            mParams.launcherCols = mLauncherColumns;
 
             mState.homeButtonId = mHomeButtonNormal.getID();
 
