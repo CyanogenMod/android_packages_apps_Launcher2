@@ -1306,20 +1306,26 @@ public class AllAppsView extends RSSurfaceView
             int width = getWidth();
             int height = getHeight();
 
-	    if (getWidth()>getHeight()) {
-			Defines.COLUMNS_PER_PAGE = 7;
-	    }
-        else if (mParams.launcherCols == 5){
-			Defines.COLUMNS_PER_PAGE = 5;
-		}
-		else {
-			Defines.COLUMNS_PER_PAGE = 4;
-		}
-            int cellHeight = 580 / (mParams.launcherCols); //iconsSize / Defines.ROWS_PER_PAGE;
+            int rowsPerPage;
+            if (getWidth()>getHeight()) {
+                Defines.COLUMNS_PER_PAGE = 7;
+                rowsPerPage = 3;
+            }
+            else if (mParams.launcherCols == 5){
+                Defines.COLUMNS_PER_PAGE = 5;
+                rowsPerPage = 5;
+            }
+            else {
+                Defines.COLUMNS_PER_PAGE = 4;
+                rowsPerPage = 4;
+            }
+
             int cellWidth = width / (Defines.COLUMNS_PER_PAGE);
+            int cellHeight = cellWidth + 20; // 20 is the height of the text
+            int slack = (height - (cellHeight * rowsPerPage)) / 2;
 			
             for (int i = 0; i < (Defines.ROWS_PER_PAGE+1); i++) {
-                mTouchYBorders[i] = (64)+ (i * cellHeight);
+                mTouchYBorders[i] = slack + (i * cellHeight);
             }
 
             for (int i = 0; i < (Defines.COLUMNS_PER_PAGE+1); i++) {
