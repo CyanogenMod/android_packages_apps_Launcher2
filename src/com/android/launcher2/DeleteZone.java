@@ -137,7 +137,6 @@ public class DeleteZone extends ImageView implements DropTarget, DragController.
     	//show uninstall message - ADW
         final ItemInfo item = (ItemInfo) dragInfo;
         if (item instanceof ApplicationInfo){
-        	Log.d("DeleteZone","dragEnter");
         	mTransition.reverseTransition(TRANSITION_DURATION);
         	mUninstallTarget = true;
         	mHandler.removeCallbacks(mShowUninstaller);
