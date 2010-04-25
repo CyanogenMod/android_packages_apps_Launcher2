@@ -17,13 +17,21 @@
 package com.android.launcher2;
 
 import android.widget.ImageView;
+import android.widget.Toast;
 import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.content.res.TypedArray;
 import android.graphics.Paint;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffColorFilter;
 import android.graphics.Rect;
+import android.net.Uri;
+import android.os.Handler;
+import android.os.SystemClock;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.TranslateAnimation;
 import android.view.animation.Animation;
@@ -55,6 +63,10 @@ public class DeleteZone extends ImageView implements DropTarget, DragController.
     private TransitionDrawable mTransition;
     private View mHandle;
     private final Paint mTrashPaint = new Paint();
+    private boolean shouldUninstall=false;
+    private Handler mHandler = new Handler();
+    private boolean mUninstallTarget=false;
+    String UninstallPkg = null;
 
     public DeleteZone(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
@@ -122,7 +134,15 @@ public class DeleteZone extends ImageView implements DropTarget, DragController.
 
     public void onDragEnter(DragSource source, int x, int y, int xOffset, int yOffset,
             DragView dragView, Object dragInfo) {
-        mTransition.reverseTransition(TRANSITION_DURATION);
+    	//show uninstall message - ADW
+        final ItemInfo item = (ItemInfo) dragInfo;
+        if (item instanceof ApplicationInfo){
+        	Log.d("DeleteZone","dragEnter");
+        	mTransition.reverseTransition(TRANSITION_DURATION);
+        	mUninstallTarget = true;
+        	mHandler.removeCallbacks(mShowUninstaller);
+        	mHandler.postDelayed(mShowUninstaller, 1000);
+        }
         dragView.setPaint(mTrashPaint);
     }
 
@@ -133,6 +153,13 @@ public class DeleteZone extends ImageView implements DropTarget, DragController.
     public void onDragExit(DragSource source, int x, int y, int xOffset, int yOffset,
             DragView dragView, Object dragInfo) {
         mTransition.reverseTransition(TRANSITION_DURATION);
+        //ADW: not show uninstall message
+        //ADW We need to call this delayed cause onDragExit is always called just before onDragEnd :(
+        mHandler.removeCallbacks(mShowUninstaller);
+        if(shouldUninstall){
+        	mUninstallTarget = false;
+        	mHandler.postDelayed(mShowUninstaller, 100);
+        }
         dragView.setPaint(null);
     }
 
@@ -150,6 +177,14 @@ public class DeleteZone extends ImageView implements DropTarget, DragController.
             startAnimation(mInAnimation);
             mHandle.startAnimation(mHandleOutAnimation);
             setVisibility(VISIBLE);
+            try {
+            	final ApplicationInfo appInfo=(ApplicationInfo) item;
+            	PackageManager mgr = DeleteZone.this.getContext().getPackageManager();
+            	ResolveInfo res = mgr.resolveActivity(appInfo.intent, 0);
+            	UninstallPkg = res.activityInfo.packageName;
+            } catch (Exception e) {
+            	UninstallPkg=null;
+            }
         }
     }
 
@@ -160,6 +195,10 @@ public class DeleteZone extends ImageView implements DropTarget, DragController.
             startAnimation(mOutAnimation);
             mHandle.startAnimation(mHandleInAnimation);
             setVisibility(GONE);
+        }
+        if(shouldUninstall && UninstallPkg!=null){
+        	Intent uninstallIntent = new Intent(Intent.ACTION_DELETE, Uri.parse("package:"+UninstallPkg));
+        	DeleteZone.this.getContext().startActivity(uninstallIntent);
         }
     }
 
@@ -268,4 +307,14 @@ public class DeleteZone extends ImageView implements DropTarget, DragController.
             return false;
         }
     }
+    //ADW Runnable to show the uninstall message (or reset the uninstall status)
+    private Runnable mShowUninstaller = new Runnable() {
+    	public void run() {
+    		shouldUninstall=mUninstallTarget;
+    		CharSequence msg="Drop to Uninstall";
+    		if(shouldUninstall){
+    			Toast.makeText(mContext, msg, 500).show();
+    		}
+    	}
+    };
 }
