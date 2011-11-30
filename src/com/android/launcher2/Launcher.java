@@ -92,7 +92,7 @@ import android.widget.Toast;
 import com.android.common.Search;
 import com.android.launcher.R;
 import com.android.launcher2.DropTarget.DragObject;
-import com.android.launcher2.preference.Preferences;
+import com.android.launcher2.preference.*;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -548,6 +548,10 @@ public final class Launcher extends Activity
     protected void onResume() {
         super.onResume();
         mPaused = false;
+        // Reboot when preferences are changed
+        if (preferencesChanged()) {
+            android.os.Process.killProcess(android.os.Process.myPid());
+        }
         if (mRestoring || mOnResumeNeedsLoad) {
             mWorkspaceLoading = true;
             mModel.startLoader(this, true);
@@ -3144,7 +3148,7 @@ public final class Launcher extends Activity
     }
 
     /* Cling related */
-    private static final String PREFS_KEY = "com.android.launcher2.prefs";
+    private static final String PREFS_KEY = "com.android.launcher_preferences";
     private boolean isClingsEnabled() {
         // TEMPORARY: DISABLE CLINGS ON LARGE UI
         if (LauncherApplication.isScreenLarge()) return false;
@@ -3254,6 +3258,18 @@ public final class Launcher extends Activity
     public void dismissFolderCling(View v) {
         Cling cling = (Cling) findViewById(R.id.folder_cling);
         dismissCling(cling, Cling.FOLDER_CLING_DISMISSED_KEY, DISMISS_CLING_DURATION);
+    }
+
+    public boolean preferencesChanged() {
+        SharedPreferences prefs =
+            getSharedPreferences(PREFS_KEY, Context.MODE_PRIVATE);
+        boolean preferencesChanged = prefs.getBoolean(PreferencesProvider.PREFERENCES_CHANGED, false);
+        if (preferencesChanged) {
+            SharedPreferences.Editor editor = prefs.edit();
+                    editor.putBoolean(PreferencesProvider.PREFERENCES_CHANGED, false);
+                    editor.commit();
+        }
+        return preferencesChanged;
     }
 
     /**
