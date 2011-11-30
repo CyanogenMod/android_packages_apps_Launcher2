@@ -59,8 +59,7 @@ public class InfoDropTarget extends ButtonDropTarget {
         mDrawable.setCrossFadeEnabled(true);
 
         // Remove the text in the Phone UI in landscape
-        int orientation = getResources().getConfiguration().orientation;
-        if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
+        if (mLauncher.getCurrentOrientation() == Configuration.ORIENTATION_LANDSCAPE) {
             if (!LauncherApplication.isScreenLarge()) {
                 setText("");
             }

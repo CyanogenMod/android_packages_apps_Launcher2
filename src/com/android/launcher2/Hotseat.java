@@ -53,7 +53,7 @@ public class Hotseat extends FrameLayout {
                 R.styleable.Hotseat, defStyle, 0);
         mCellCountX = a.getInt(R.styleable.Hotseat_cellCountX, -1);
         mCellCountY = a.getInt(R.styleable.Hotseat_cellCountY, -1);
-        mIsLandscape = context.getResources().getConfiguration().orientation ==
+        mIsLandscape = mLauncher.getCurrentOrientation() ==
             Configuration.ORIENTATION_LANDSCAPE;
     }
 
