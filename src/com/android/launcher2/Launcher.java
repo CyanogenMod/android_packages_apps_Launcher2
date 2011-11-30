@@ -3183,7 +3183,7 @@ public final class Launcher extends Activity
                     cling.setVisibility(View.GONE);
                     cling.cleanup();
                     SharedPreferences prefs =
-                        getSharedPreferences("com.android.launcher2.prefs", Context.MODE_PRIVATE);
+                        getSharedPreferences(PREFS_KEY, Context.MODE_PRIVATE);
                     SharedPreferences.Editor editor = prefs.edit();
                     editor.putBoolean(flag, true);
                     editor.commit();
