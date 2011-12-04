@@ -65,6 +65,7 @@
     <string name="menu_search" msgid="4826514464423239041">"搜索"</string>
     <string name="menu_notifications" msgid="6424587053194766192">"通知"</string>
     <string name="menu_settings" msgid="3946232973327980394">"系统设置"</string>
+    <string name="menu_preferences">首选项</string>
     <string name="menu_help" msgid="4901160661634590633">"帮助"</string>
     <string name="cab_menu_delete_app" msgid="1242619904941293871">"卸载应用程序"</string>
     <string name="cab_menu_app_info" msgid="5180426909324882018">"应用程序详细信息"</string>
@@ -93,4 +94,25 @@
     <string name="folder_cling_move_item" msgid="270598675060435169">"要移动应用程序，请触摸并按住该应用程序。"</string>
     <string name="folder_cling_create_folder" msgid="289412698047625601">"要在主屏幕上创建新文件夹，请将一个应用程序叠放到另一个上。"</string>
     <string name="cling_dismiss" msgid="2780907108735868381">"确定"</string>
+
+    <string name="preferences_title">首选项</string>
+    <string name="preferences_interface_title">界面</string>
+    <string name="preferences_application_title">应用程序</string>
+
+    <string name="preferences_interface_homescreen_title">主界面</string>
+    <string name="preferences_interface_homescreen_general_category">常规</string>
+    <string name="preferences_interface_homescreen_general_search_title">搜索条</string>
+    <string name="preferences_interface_homescreen_general_search_summary">开启持续的搜索条</string>
+    <string name="preferences_interface_homescreen_general_resize_any_widget_title">调整所有小部件的大小</string>
+    <string name="preferences_interface_homescreen_general_resize_any_widget_summary">允许调整正常情况下不可调整的小部件的大小</string>
+
+    <string name="preferences_interface_drawer_title">抽屉</string>
+    <string name="preferences_interface_drawer_widgets_category">小部件</string>
+    <string name="preferences_interface_drawer_widgets_join_apps_title">加入应用程序</string>
+    <string name="preferences_interface_drawer_widgets_join_apps_summary">不改变标签从应用程序抽屉点击切换到小部件抽屉</string>
+
+    <string name="preferences_interface_dock_title">底座</string>
+
+    <string name="preferences_interface_icons_title">图标</string>
+
 </resources>
