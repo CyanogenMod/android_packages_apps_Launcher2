@@ -48,7 +48,6 @@ public class AppsCustomizeTabHost extends TabHost implements LauncherTransitiona
     private ViewGroup mTabs;
     private ViewGroup mTabsContainer;
     private AppsCustomizePagedView mAppsCustomizePane;
-    private boolean mSuppressContentCallback = false;
     private ImageView mAnimationBuffer;
 
     private boolean mInTransition;
@@ -75,6 +74,8 @@ public class AppsCustomizeTabHost extends TabHost implements LauncherTransitiona
     }
     void selectWidgetsTab() {
         setContentTypeImmediate(AppsCustomizePagedView.ContentType.Widgets);
+        mAppsCustomizePane.setCurrentPageToWidgets();
+
         setCurrentTabByTag(WIDGETS_TAB_TAG);
     }
 
@@ -182,69 +183,62 @@ public class AppsCustomizeTabHost extends TabHost implements LauncherTransitiona
     @Override
     public void onTabChanged(String tabId) {
         final AppsCustomizePagedView.ContentType type = getContentTypeForTabTag(tabId);
-        if (mSuppressContentCallback) {
-            mSuppressContentCallback = false;
-            return;
-        }
+        if (!mAppsCustomizePane.isContentType(type)) {
 
-        // Animate the changing of the tab content by fading pages in and out
-        final Resources res = getResources();
-        final int duration = res.getInteger(R.integer.config_tabTransitionDuration);
+            // Animate the changing of the tab content by fading pages in and out
+            final Resources res = getResources();
+            final int duration = res.getInteger(R.integer.config_tabTransitionDuration);
 
-        // We post a runnable here because there is a delay while the first page is loading and
-        // the feedback from having changed the tab almost feels better than having it stick
-        post(new Runnable() {
-            @Override
-            public void run() {
-                if (mAppsCustomizePane.getMeasuredWidth() <= 0 ||
-                        mAppsCustomizePane.getMeasuredHeight() <= 0) {
-                    reloadCurrentPage();
-                    return;
-                }
-
-                // Setup the animation buffer
-                Bitmap b = Bitmap.createBitmap(mAppsCustomizePane.getMeasuredWidth(),
-                        mAppsCustomizePane.getMeasuredHeight(), Bitmap.Config.ARGB_8888);
-                Canvas c = new Canvas(b);
-                mAppsCustomizePane.draw(c);
-                mAppsCustomizePane.setAlpha(0f);
-                mAnimationBuffer.setImageBitmap(b);
-                mAnimationBuffer.setAlpha(1f);
-                mAnimationBuffer.setVisibility(View.VISIBLE);
-                c.setBitmap(null);
-                b = null;
-
-                // Toggle the new content
-                onTabChangedStart();
-                onTabChangedEnd(type);
-
-                // Animate the transition
-                ObjectAnimator outAnim = ObjectAnimator.ofFloat(mAnimationBuffer, "alpha", 0f);
-                outAnim.addListener(new AnimatorListenerAdapter() {
-                    @Override
-                    public void onAnimationEnd(Animator animation) {
-                        mAnimationBuffer.setVisibility(View.GONE);
-                        mAnimationBuffer.setImageBitmap(null);
-                    }
-                });
-                ObjectAnimator inAnim = ObjectAnimator.ofFloat(mAppsCustomizePane, "alpha", 1f);
-                inAnim.addListener(new AnimatorListenerAdapter() {
-                    @Override
-                    public void onAnimationEnd(Animator animation) {
+            // We post a runnable here because there is a delay while the first page is loading and
+            // the feedback from having changed the tab almost feels better than having it stick
+            post(new Runnable() {
+                @Override
+                public void run() {
+                    if (mAppsCustomizePane.getMeasuredWidth() <= 0 ||
+                            mAppsCustomizePane.getMeasuredHeight() <= 0) {
                         reloadCurrentPage();
+                        return;
                     }
-                });
-                AnimatorSet animSet = new AnimatorSet();
-                animSet.playTogether(outAnim, inAnim);
-                animSet.setDuration(duration);
-                animSet.start();
-            }
-        });
-    }
 
-    public void setCurrentTabFromContent(AppsCustomizePagedView.ContentType type) {
-        mSuppressContentCallback = true;
-        setCurrentTabByTag(getTabTagForContentType(type));
+                    // Setup the animation buffer
+                    Bitmap b = Bitmap.createBitmap(mAppsCustomizePane.getMeasuredWidth(),
+                            mAppsCustomizePane.getMeasuredHeight(), Bitmap.Config.ARGB_8888);
+                    Canvas c = new Canvas(b);
+                    mAppsCustomizePane.draw(c);
+                    mAppsCustomizePane.setAlpha(0f);
+                    mAnimationBuffer.setImageBitmap(b);
+                    mAnimationBuffer.setAlpha(1f);
+                    mAnimationBuffer.setVisibility(View.VISIBLE);
+                    c.setBitmap(null);
+                    b = null;
+
+                    // Toggle the new content
+                    onTabChangedStart();
+                    onTabChangedEnd(type);
+
+                    // Animate the transition
+                    ObjectAnimator outAnim = ObjectAnimator.ofFloat(mAnimationBuffer, "alpha", 0f);
+                    outAnim.addListener(new AnimatorListenerAdapter() {
+                        @Override
+                        public void onAnimationEnd(Animator animation) {
+                            mAnimationBuffer.setVisibility(View.GONE);
+                            mAnimationBuffer.setImageBitmap(null);
+                        }
+                    });
+                    ObjectAnimator inAnim = ObjectAnimator.ofFloat(mAppsCustomizePane, "alpha", 1f);
+                    inAnim.addListener(new AnimatorListenerAdapter() {
+                        @Override
+                        public void onAnimationEnd(Animator animation) {
+                            reloadCurrentPage();
+                        }
+                    });
+                    AnimatorSet animSet = new AnimatorSet();
+                    animSet.playTogether(outAnim, inAnim);
+                    animSet.setDuration(duration);
+                    animSet.start();
+                }
+            });
+        }
     }
 
     /**
