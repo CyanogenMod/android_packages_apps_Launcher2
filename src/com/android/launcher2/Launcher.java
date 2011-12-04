@@ -248,6 +248,7 @@ public final class Launcher extends Activity
 
     // Preferences
     private boolean mShowSearchBar;
+    private boolean mDisableRotation;
 
     private Runnable mBuildLayersRunnable = new Runnable() {
         public void run() {
@@ -2573,10 +2574,14 @@ public final class Launcher extends Activity
     /** Maps the current orientation to an index for referencing orientation correct global icons */
     private int getCurrentOrientationIndexForGlobalIcons() {
         // default - 0, landscape - 1
-        switch (getCurrentOrientation()) {
-        case Configuration.ORIENTATION_LANDSCAPE:
-            return 1;
-        default:
+        if (!mDisableRotation) {
+            switch (getCurrentOrientation()) {
+            case Configuration.ORIENTATION_LANDSCAPE:
+                return 1;
+            default:
+                return 0;
+            }
+        } else {
             return 0;
         }
     }

@@ -241,6 +241,7 @@ public class Workspace extends SmoothPagedView
     // Preferences
     private boolean mShowSearchBar;
     private boolean mResizeAnyWidget;
+    private boolean mDisableRotation;
 
     /**
      * Used to inflate the Workspace from XML.
@@ -316,6 +317,7 @@ public class Workspace extends SmoothPagedView
         // Preferences
         mShowSearchBar = PreferencesProvider.Interface.Homescreen.getShowSearchBar(context);
         mResizeAnyWidget = PreferencesProvider.Interface.Homescreen.getResizeAnyWidget(context);
+        mDisableRotation = PreferencesProvider.General.getDisableRotation(context);
 
         mLauncher = (Launcher) context;
         initWorkspace();

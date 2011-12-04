@@ -52,5 +52,7 @@
 
     <!-- General -->
     <PreferenceCategory android:title="@string/preferences_general_title">
+        <CheckBoxPreference android:key="ui_general_disable_rotation"
+            android:title="@string/preferences_general_disable_rotation_title" />
     </PreferenceCategory>
 </PreferenceScreen>

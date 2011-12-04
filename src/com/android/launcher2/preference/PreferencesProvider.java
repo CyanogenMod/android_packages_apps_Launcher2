@@ -34,6 +34,9 @@ public final class PreferencesProvider {
     }
 
     public static class General {
-
+        public static boolean getDisableRotation(Context context) {
+            final SharedPreferences preferences = context.getSharedPreferences(PREFERENCES_KEY, 0);
+            return preferences.getBoolean("ui_general_disable_rotation", true);
+       }
     }
 }

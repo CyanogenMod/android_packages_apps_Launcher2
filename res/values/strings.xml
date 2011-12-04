@@ -267,4 +267,7 @@ s -->
     <!-- Icons -->
     <string name="preferences_interface_icons_title">Icons</string>
 
+    <!-- General -->
+    <string name="preferences_general_disable_rotation_title">Disable Rotation</string>
+
 </resources>
