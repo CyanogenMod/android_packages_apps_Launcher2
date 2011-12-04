@@ -93,4 +93,22 @@
     <string name="folder_cling_move_item" msgid="270598675060435169">"要移动应用程序，请触摸并按住该应用程序。"</string>
     <string name="folder_cling_create_folder" msgid="289412698047625601">"要在主屏幕上创建新文件夹，请将一个应用程序叠放到另一个上。"</string>
     <string name="cling_dismiss" msgid="2780907108735868381">"确定"</string>
+
+    <string name="preferences_title">首选项</string>
+    <string name="preferences_interface_title">界面</string>
+    <string name="preferences_general_title">常规</string>
+
+    <string name="preferences_interface_homescreen_title">主界面</string>
+    <string name="preferences_interface_homescreen_general_category">常规</string>
+    <string name="preferences_interface_homescreen_general_search_title">搜索条</string>
+    <string name="preferences_interface_homescreen_general_search_summary">开启持续的搜索条</string>
+    <string name="preferences_interface_homescreen_general_resize_any_widget_title">调整所有小部件的大小</string>
+    <string name="preferences_interface_homescreen_general_resize_any_widget_summary">允许调整正常情况下不可调整的小部件的大小</string>
+
+    <string name="preferences_interface_drawer_title">抽屉</string>
+
+    <string name="preferences_interface_dock_title">底座</string>
+
+    <string name="preferences_interface_icons_title">图标</string>
+
 </resources>
