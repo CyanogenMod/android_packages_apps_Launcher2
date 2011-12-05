@@ -93,4 +93,30 @@
     <string name="folder_cling_move_item" msgid="270598675060435169">"Чтобы переместить значок приложения, нажмите на него и удерживайте."</string>
     <string name="folder_cling_create_folder" msgid="289412698047625601">"Чтобы создать папку на главном экране, перенесите одно приложение на другое."</string>
     <string name="cling_dismiss" msgid="2780907108735868381">"ОК"</string>
+
+    <string name="preferences_title">Предпочтения</string>
+    <!-- UI -->
+    <string name="preferences_interface_title">Интерфейс</string>
+    <!-- General -->
+    <string name="preferences_general_title">Главный</string>
+
+    <!-- UI -->
+    <!-- Homescreen -->
+    <string name="preferences_interface_homescreen_title">Домашний экран</string>
+    <string name="preferences_interface_homescreen_general_category">Главный</string>
+    <string name="preferences_interface_homescreen_general_search_title">Строка поиска</string>
+    <string name="preferences_interface_homescreen_general_search_summary">Включение строки поиска на всех экранах</string>
+    <string name="preferences_interface_homescreen_general_resize_any_widget_title">Изм. размера любого виджета</string>
+    <string name="preferences_interface_homescreen_general_resize_any_widget_summary">Позволяет изменять размер виджетов, которые не поддерживают изменение</string>
+
+    <!-- Drawer -->
+    <string name="preferences_interface_drawer_title">Приложения</string>
+
+    <!-- Dock -->
+    <string name="preferences_interface_dock_title">Док</string>
+
+    <!-- Icons -->
+    <string name="preferences_interface_icons_title">Иконки</string>
+
+
 </resources>
