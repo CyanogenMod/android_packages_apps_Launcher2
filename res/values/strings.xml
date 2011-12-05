@@ -248,6 +248,8 @@ s -->
     <string name="preferences_interface_title">Interface</string>
     <!-- General -->
     <string name="preferences_general_title">General</string>
+    <string name="preferences_general_orientation_title">Enable sensor orientation</string>
+    <string name="preferences_general_orientation_summary">Rotates launcher based on sensor</string>
 
     <!-- UI -->
     <!-- Homescreen -->
@@ -257,6 +259,10 @@ s -->
     <string name="preferences_interface_homescreen_general_search_summary">Enable persistent search bar</string>
     <string name="preferences_interface_homescreen_general_resize_any_widget_title">Resize any widget</string>
     <string name="preferences_interface_homescreen_general_resize_any_widget_summary">Allow resizing of widgets that normally aren\'t resizeable</string>
+    <string name="preferences_interface_homescreen_general_count_title">Number of homescreens</string>
+    <string name="preferences_interface_homescreen_general_count_summary">Number of homescreens : </string>
+    <string name="preferences_interface_homescreen_general_count_dialog_title">Choose number of homescreens</string>
+    <string name="preferences_interface_homescreen_general_homescreen_count_default">5</string>
 
     <!-- Drawer -->
     <string name="preferences_interface_drawer_title">Drawer</string>

@@ -350,9 +350,10 @@ public final class Launcher extends Activity
         }
         mSearchDropTargetBar.onSearchPackagesChanged(searchVisible, voiceVisible);
 
-        // On large interfaces, we want the screen to auto-rotate based on the current orientation
-        if (LauncherApplication.isScreenLarge()) {
+        if (PreferencesProvider.Interface.Homescreen.getOrientation(getApplicationContext())) {
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED);
+        } else {
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         }
     }
 
