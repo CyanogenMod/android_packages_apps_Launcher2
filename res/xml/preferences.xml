@@ -28,6 +28,14 @@
                 <CheckBoxPreference android:key="ui_homescreen_general_resize_any_widget"
                     android:title="@string/preferences_interface_homescreen_general_resize_any_widget_title"
                     android:summary="@string/preferences_interface_homescreen_general_resize_any_widget_summary" />
+                <ListPreference
+                    android:key="ui_homescreen_general_count"
+                    android:defaultValue="@string/preferences_interface_homescreen_general_homescreen_count_default"
+                    android:title="@string/preferences_interface_homescreen_general_count_title"
+                    android:summary="@string/preferences_interface_homescreen_general_count_summary"
+                    android:entries="@array/homescreen_count"
+                    android:entryValues="@array/homescreen_count"
+                    android:dialogTitle="@string/preferences_interface_homescreen_general_count_dialog_title" />
             </PreferenceCategory>
         </PreferenceScreen>
 
@@ -52,5 +60,8 @@
 
     <!-- General -->
     <PreferenceCategory android:title="@string/preferences_general_title">
+        <CheckBoxPreference android:key="ui_general_orientation"
+            android:title="@string/preferences_general_orientation_title"
+            android:summary="@string/preferences_general_orientation_summary" />
     </PreferenceCategory>
 </PreferenceScreen>

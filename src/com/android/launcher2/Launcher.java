@@ -350,9 +350,10 @@ public final class Launcher extends Activity
         }
         mSearchDropTargetBar.onSearchPackagesChanged(searchVisible, voiceVisible);
 
-        // On large interfaces, we want the screen to auto-rotate based on the current orientation
-        if (LauncherApplication.isScreenLarge()) {
+        if (PreferencesProvider.Interface.Homescreen.getOrientation(getApplicationContext())) {
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED);
+        } else {
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         }
     }
 
@@ -737,7 +738,11 @@ public final class Launcher extends Activity
 
         mDragLayer = (DragLayer) findViewById(R.id.drag_layer);
         mWorkspace = (Workspace) mDragLayer.findViewById(R.id.workspace);
-
+        int numScreens = PreferencesProvider.Interface.Homescreen.getHomescreenCount(getBaseContext());
+        while (numScreens>0) {
+            mInflater.inflate(R.layout.workspace_screen,mWorkspace);
+            numScreens--;
+        }
         // Setup the drag layer
         mDragLayer.setup(this, dragController);
 
