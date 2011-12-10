@@ -1353,15 +1353,17 @@ public class AppsCustomizePagedView extends PagedViewWithDraggableItems implemen
         return getChildCount() - index - 1;
     }
 
-    // In apps customize, we have a scrolling effect which emulates pulling cards off of a stack.
+    // Transition effects
     @Override
-    protected void screenScrolled(int screenCenter) {
-        super.screenScrolled(screenCenter);
+    protected void screenScrolled(int screenScroll) {
+        super.screenScrolled(screenScroll);
 
-        for (int i = 0; i < getChildCount(); i++) {
+        int currentScreen = (int) Math.floor((double) (screenScroll / (float) getMeasuredWidth()));
+
+        for (int i = currentScreen; i <= Math.min(getChildCount(), currentScreen + 1); i++) {
             View v = getPageAt(i);
             if (v != null) {
-                float scrollProgress = getScrollProgress(screenCenter, v, i);
+                float scrollProgress = getScrollProgress(screenScroll, v, i);
 
                 float interpolatedProgress =
                         mZInterpolator.getInterpolation(Math.abs(Math.min(scrollProgress, 0)));
@@ -1447,10 +1449,6 @@ public class AppsCustomizePagedView extends PagedViewWithDraggableItems implemen
     public void setup(Launcher launcher, DragController dragController) {
         mLauncher = launcher;
         mDragController = dragController;
-    }
-    @Override
-    public void zoom(float zoom, boolean animate) {
-        // TODO-APPS_CUSTOMIZE: Call back to mLauncher.zoomed()
     }
     @Override
     public boolean isVisible() {
