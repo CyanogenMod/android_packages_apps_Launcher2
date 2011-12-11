@@ -267,6 +267,9 @@ s -->
     <string name="preferences_interface_homescreen_indicator_enable_summary">Show current page indicator at the bottom of the screen</string>
     <string name="preferences_interface_homescreen_indicator_fade_title">Fade Indicator</string>
     <string name="preferences_interface_homescreen_indicator_fade_summary">Fade the indicator after the homescreen has changed</string>
+    <string name="preferences_interface_homescreen_folders_category">Folders</string>
+    <string name="preferences_interface_homescreen_folders_hide_label_title">Hide Folder Label</string>
+    <string name="preferences_interface_homescreen_folders_hide_label_summary">Hide the folder label when showing its contents</string>
 
     <!-- Drawer -->
     <string name="preferences_interface_drawer_title">Drawer</string>
