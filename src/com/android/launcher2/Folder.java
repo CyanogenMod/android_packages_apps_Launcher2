@@ -46,6 +46,7 @@ import android.widget.TextView;
 
 import com.android.launcher.R;
 import com.android.launcher2.FolderInfo.FolderListener;
+import com.android.launcher2.preference.PreferencesProvider;
 
 import java.util.ArrayList;
 
@@ -163,6 +164,11 @@ public class Folder extends LinearLayout implements DragSource, View.OnClickList
         mFolderName.setSelectAllOnFocus(true);
         mFolderName.setInputType(mFolderName.getInputType() |
                 InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS | InputType.TYPE_TEXT_FLAG_CAP_WORDS);
+
+        if (PreferencesProvider.Interface.Homescreen.getHideFolderName(getContext())) {
+            mFolderName.setVisibility(View.GONE);
+            mFolderNameHeight = getPaddingBottom();
+        }
     }
 
     private ActionMode.Callback mActionModeCallback = new ActionMode.Callback() {
