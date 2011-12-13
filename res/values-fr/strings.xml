@@ -92,4 +92,58 @@
     <string name="folder_cling_move_item" msgid="270598675060435169">"Pour déplacer une application, appuyez dessus de manière prolongée."</string>
     <string name="folder_cling_create_folder" msgid="289412698047625601">"Pour créer un dossier sur votre écran d\'accueil, superposez les applications les unes sur les autres."</string>
     <string name="cling_dismiss" msgid="2780907108735868381">"OK"</string>
+    <string name="folder_opened" msgid="4129072635480822768">"Dossier ouvert, %1$d par %2$d"</string>
+    <string name="folder_tap_to_close" msgid="4076794242530255812">"Appuyez pour fermer le dossier."</string>
+    <string name="folder_tap_to_rename" msgid="2125528923948315223">"Appuyez pour confirmer le nouveau nom."</string>
+    <string name="folder_closed" msgid="3130534551370511932">"Dossier fermé"</string>
+    <string name="folder_renamed" msgid="781234745487414781">"Nouveau nom du dossier : %1$s"</string>
+    <string name="folder_name_format" msgid="4513766553514769310">"Dossier : %1$s"</string>
+
+    <skip />
+    <!--             -->
+    <!-- Preferences -->
+    <!--             -->
+    <string name="menu_preferences">Préférences</string>
+
+    <string name="preferences_title">Préférences Accueil</string>
+    <!-- UI -->
+    <string name="preferences_interface_title">Interface</string>
+    <!-- Application -->
+    <string name="preferences_application_title">Application</string>
+
+    <!-- UI -->
+    <!-- Homescreen -->
+    <string name="preferences_interface_homescreen_title">Homescreen</string>
+    <string name="preferences_interface_homescreen_general_category">Général</string>
+    <string name="preferences_interface_homescreen_general_search_title">Barre de recherche</string>
+    <string name="preferences_interface_homescreen_general_search_summary">Activer la barre de recherche persistante</string>
+    <string name="preferences_interface_homescreen_general_resize_any_widget_title">Redimensionner tous les widgets</string>
+    <string name="preferences_interface_homescreen_general_resize_any_widget_summary">Permettre de redimensionner les widgets qui normalement n\'en sont pas capables</string>
+    <string name="preferences_interface_homescreen_indicator_category">Indicateur</string>
+    <string name="preferences_interface_homescreen_indicator_enable_title">Indicateur de page</string>
+    <string name="preferences_interface_homescreen_indicator_enable_summary">Afficher l\'indicateur en bas de l\'écran</string>
+    <string name="preferences_interface_homescreen_indicator_fade_title">Fondu</string>
+    <string name="preferences_interface_homescreen_indicator_fade_summary">Faire disparaître l\'indicateur après le changement d\'écran</string>
+
+    <!-- Drawer -->
+    <string name="preferences_interface_drawer_title">Drawer</string>
+    <string name="preferences_interface_drawer_widgets_category">Widgets</string>
+    <string name="preferences_interface_drawer_widgets_join_apps_title">Inclure dans les applications</string>
+    <string name="preferences_interface_drawer_widgets_join_apps_summary">Sauter des applications aux widgets sans changer d\'onglet (swipe)</string>
+    <string name="preferences_interface_drawer_indicator_category">Indicateur</string>
+    <string name="preferences_interface_drawer_indicator_enable_title">Indicateur de page</string>
+    <string name="preferences_interface_drawer_indicator_enable_summary">Afficher l\'indicateur en bas de l\'écran</string>
+    <string name="preferences_interface_drawer_indicator_fade_title">Fondu</string>
+    <string name="preferences_interface_drawer_indicator_fade_summary">Faire disparaître l\'indicateur après le changement de page</string>
+
+    <!-- Dock -->
+    <string name="preferences_interface_dock_title">Dock</string>
+
+    <!-- Icons -->
+    <string name="preferences_interface_icons_title">Icônes</string>
+
+    <!-- General -->
+    <string name="preferences_interface_general_title">Général</string>
+    <string name="preferences_interface_general_orientation_title">Auto-rotation</string>
+
 </resources>
