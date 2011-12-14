@@ -55,6 +55,7 @@ import android.util.Log;
 import android.util.Pair;
 import android.view.Display;
 import android.view.DragEvent;
+import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -243,6 +244,8 @@ public class Workspace extends SmoothPagedView
     private boolean mResizeAnyWidget;
     private boolean mShowScrollingIndicator;
     private boolean mFadeScrollingIndicator;
+    private int mNumberHomescreens;
+    private int mDefaultHomescreen;
 
     /**
      * Used to inflate the Workspace from XML.
@@ -309,7 +312,6 @@ public class Workspace extends SmoothPagedView
         // if the value is manually specified, use that instead
         cellCountX = a.getInt(R.styleable.Workspace_cellCountX, cellCountX);
         cellCountY = a.getInt(R.styleable.Workspace_cellCountY, cellCountY);
-        mDefaultPage = a.getInt(R.styleable.Workspace_defaultScreen, 1);
         a.recycle();
 
         LauncherModel.updateWorkspaceLayoutCells(cellCountX, cellCountY);
@@ -320,6 +322,14 @@ public class Workspace extends SmoothPagedView
         mResizeAnyWidget = PreferencesProvider.Interface.Homescreen.getResizeAnyWidget(context);
         mShowScrollingIndicator = PreferencesProvider.Interface.Homescreen.getShowScrollingIndicator(context);
         mFadeScrollingIndicator = PreferencesProvider.Interface.Homescreen.getFadeScrollingIndicator(context);
+        mNumberHomescreens = PreferencesProvider.Interface.Homescreen.getNumberHomescreens(context);
+        mDefaultHomescreen = PreferencesProvider.Interface.Homescreen.getDefaultHomescreen(context,
+                (int) Math.floor((double) mNumberHomescreens / 2.0) + 1) - 1;
+        if (mDefaultHomescreen >= mNumberHomescreens) {
+            mDefaultHomescreen = (int) Math.floor((double) mNumberHomescreens / 2.0);
+        }
+
+        mDefaultPage = mDefaultHomescreen;
 
         mLauncher = (Launcher) context;
         initWorkspace();
@@ -364,6 +374,12 @@ public class Workspace extends SmoothPagedView
         setChildrenDrawnWithCacheEnabled(true);
 
         final Resources res = getResources();
+
+        LayoutInflater inflater =
+                (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        for (int i = 0; i < mNumberHomescreens; i++) {
+            inflater.inflate(R.layout.workspace_screen, this);
+        }
 
         try {
             mBackground = res.getDrawable(R.drawable.apps_customize_bg);
