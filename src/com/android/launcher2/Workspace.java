@@ -310,8 +310,8 @@ public class Workspace extends SmoothPagedView
         mDragViewMultiplyColor = res.getColor(R.color.drag_view_multiply_color);
 
         // if the value is manually specified, use that instead
-        cellCountX = a.getInt(R.styleable.Workspace_cellCountX, cellCountX);
-        cellCountY = a.getInt(R.styleable.Workspace_cellCountY, cellCountY);
+        cellCountX = PreferencesProvider.Interface.Homescreen.getGridColumnCount(context);
+        cellCountY = PreferencesProvider.Interface.Homescreen.getGridRowCount(context);
         a.recycle();
 
         LauncherModel.updateWorkspaceLayoutCells(cellCountX, cellCountY);
