@@ -2235,7 +2235,9 @@ public class Workspace extends SmoothPagedView
 
                         final LauncherAppWidgetHostView hostView = (LauncherAppWidgetHostView) cell;
                         AppWidgetProviderInfo pinfo = hostView.getAppWidgetInfo();
-                        if (pinfo.resizeMode != AppWidgetProviderInfo.RESIZE_NONE || mResizeAnyWidget) {
+                        boolean hasMovedCell = ((mTargetCell[0] != mDragInfo.cellX) || (mTargetCell[1] != mDragInfo.cellY));
+
+                        if (!hasMovedCell && (pinfo.resizeMode != AppWidgetProviderInfo.RESIZE_NONE || mResizeAnyWidget)) {
                             final Runnable resizeRunnable = new Runnable() {
                                 public void run() {
                                     DragLayer dragLayer = mLauncher.getDragLayer();
