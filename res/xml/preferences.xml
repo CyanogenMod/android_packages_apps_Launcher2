@@ -35,6 +35,12 @@
                     launcher:maxExternal="ui_homescreen_screens"
                     launcher:max="7"
                     launcher:min="1" />
+                <ListPreference
+                      android:key="ui_homescreen_general_grid_count"
+                      android:title="@string/preferences_interface_homescreen_general_default_grid_title"
+                      android:summary="@string/preferences_interface_homescreen_general_default_grid_summary"
+                      android:entries="@array/homescreen_grid"
+                      android:entryValues="@array/homescreen_grid" />
                 <CheckBoxPreference android:key="ui_homescreen_general_search"
                     android:title="@string/preferences_interface_homescreen_general_search_title"
                     android:summary="@string/preferences_interface_homescreen_general_search_summary"

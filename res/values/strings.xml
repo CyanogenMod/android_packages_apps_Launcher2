@@ -262,6 +262,8 @@ s -->
     <string name="preferences_interface_homescreen_general_screens_summary">Number of screens on the homescreen</string>
     <string name="preferences_interface_homescreen_general_default_screen_title">Default Screen</string>
     <string name="preferences_interface_homescreen_general_default_screen_summary">Choose the default homescreen</string>
+    <string name="preferences_interface_homescreen_general_default_grid_title">Choose grid size</string>
+    <string name="preferences_interface_homescreen_general_default_grid_summary">Choose grid size for homescreen</string>
     <string name="preferences_interface_homescreen_general_search_title">Search Bar</string>
     <string name="preferences_interface_homescreen_general_search_summary">Enable persistent search bar</string>
     <string name="preferences_interface_homescreen_general_resize_any_widget_title">Resize any widget</string>

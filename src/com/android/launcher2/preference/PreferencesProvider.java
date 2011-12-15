@@ -34,6 +34,16 @@ public final class PreferencesProvider {
                 final SharedPreferences preferences = context.getSharedPreferences(PREFERENCES_KEY, 0);
                 return preferences.getInt("ui_homescreen_default_screen", def);
             }
+            public static int getCellCount(Context context, int grid) {
+                final SharedPreferences preferences = context.getSharedPreferences(PREFERENCES_KEY, 0);
+                String storedGrid = preferences.getString("ui_homescreen_general_grid_count", "4x4");
+                int returnValue = Character.getNumericValue(storedGrid.charAt(grid*2));
+                if (returnValue < 0) {
+                    return 4;
+                } else {
+                    return returnValue;
+                }
+            }
         }
 
         public static class Drawer {
