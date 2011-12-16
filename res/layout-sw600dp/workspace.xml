@@ -16,8 +16,8 @@
 
 <!-- The workspace contains 5 screens of cells -->
 
-<com.android.launcher2.Workspace
+<com.cyanogenmod.trebuchet.Workspace
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:launcher="http://schemas.android.com/apk/res/com.android.launcher"
+    xmlns:launcher="http://schemas.android.com/apk/res/com.cyanogenmod.trebuchet"
     android:paddingTop="@dimen/workspace_content_large_only_top_margin"
     launcher:pageSpacing="@dimen/workspace_page_spacing" />
