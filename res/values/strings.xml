@@ -21,9 +21,9 @@
     <!-- Manifest configuration. -->
     <skip />
     <!-- Do not translate. android:sharedUserId of this application. -->
-    <string name="sharedUserId" translate="false"><xliff:g id="x"></xliff:g></string>
+    <string name="sharedUserId" translatable="false"><xliff:g id="x"></xliff:g></string>
     <!-- Do not translate. android:process of this application. -->
-    <string name="process" translate="false"><xliff:g id="x"></xliff:g></string>
+    <string name="process" translatable="false"><xliff:g id="x"></xliff:g></string>
     
     <!-- General -->
     <skip />
