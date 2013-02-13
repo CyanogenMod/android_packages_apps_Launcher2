@@ -51,7 +51,6 @@ import android.util.Log;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AccelerateInterpolator;
@@ -500,9 +499,10 @@ public class AppsCustomizePagedView extends PagedViewWithDraggableItems implemen
             int[] pos = mWidgetSpacingLayout.estimateCellPosition(mClingFocusedX, mClingFocusedY);
             mLauncher.getDragLayer().getLocationInDragLayer(this, offset);
             // PagedViews are centered horizontally but top aligned
+            // Note we have to shift the items up now that Launcher sits under the status bar
             pos[0] += (getMeasuredWidth() - mWidgetSpacingLayout.getMeasuredWidth()) / 2 +
                     offset[0];
-            pos[1] += offset[1];
+            pos[1] += offset[1] - mLauncher.getDragLayer().getPaddingTop();
             mLauncher.showFirstRunAllAppsCling(pos);
         }
     }

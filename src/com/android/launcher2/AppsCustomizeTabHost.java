@@ -282,10 +282,15 @@ public class AppsCustomizeTabHost extends TabHost implements LauncherTransitiona
                         reloadCurrentPage();
                     }
                 });
-                AnimatorSet animSet = LauncherAnimUtils.createAnimatorSet();
+
+                final AnimatorSet animSet = LauncherAnimUtils.createAnimatorSet();
                 animSet.playTogether(outAnim, inAnim);
                 animSet.setDuration(duration);
-                animSet.start();
+                post(new Runnable() {
+                    public void run() {
+                        animSet.start();
+                    }
+                });
             }
         });
     }
@@ -413,11 +418,9 @@ public class AppsCustomizeTabHost extends TabHost implements LauncherTransitiona
         }
 
         if (!toWorkspace) {
-            // Going from Workspace -> All Apps
-            setVisibilityOfSiblingsWithLowerZOrder(INVISIBLE);
-
-            // Dismiss the workspace cling and show the all apps cling (if not already shown)
+            // Dismiss the workspace cling
             l.dismissWorkspaceCling(null);
+            // Show the all apps cling (if not already shown)
             mAppsCustomizePane.showAllAppsCling();
             // Make sure adjacent pages are loaded (we wait until after the transition to
             // prevent slowing down the animation)
@@ -426,6 +429,11 @@ public class AppsCustomizeTabHost extends TabHost implements LauncherTransitiona
             if (!LauncherApplication.isScreenLarge()) {
                 mAppsCustomizePane.hideScrollingIndicator(false);
             }
+
+            // Going from Workspace -> All Apps
+            // NOTE: We should do this at the end since we check visibility state in some of the
+            // cling initialization/dismiss code above.
+            setVisibilityOfSiblingsWithLowerZOrder(INVISIBLE);
         }
     }
 
