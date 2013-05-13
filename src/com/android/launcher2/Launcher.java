@@ -1,6 +1,7 @@
 
 /*
  * Copyright (C) 2008 The Android Open Source Project
+ * Copyright (c) 2013, The Linux Foundation. All rights reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -96,6 +97,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.common.Search;
+import com.android.internal.telephony.cat.AppInterface;
 import com.android.launcher.R;
 import com.android.launcher2.DropTarget.DragObject;
 
@@ -821,6 +823,12 @@ public final class Launcher extends Activity
         if (DEBUG_RESUME_TIME) {
             Log.d(TAG, "Time spent in onResume: " + (System.currentTimeMillis() - startTime));
         }
+
+        // Notify that Home or Idle Screen is being started or resumed
+        Intent idleScreenIntent = new Intent(AppInterface.CAT_IDLE_SCREEN_ACTION);
+        idleScreenIntent.putExtra("SCREEN_IDLE",true);
+        Log.d(TAG,"Broadcasting Home Idle Screen Intent ...");
+        sendBroadcast(idleScreenIntent);
     }
 
     @Override
