@@ -58,7 +58,7 @@
     <string name="delete_target_label" msgid="665300185123139530">"አስወግድ"</string>
     <string name="delete_target_uninstall_label" msgid="748894921183769150">"አራግፍ"</string>
     <string name="info_target_label" msgid="4019495079517426980">"የትግበራ መረጃ"</string>
-    <string name="accessibility_search_button" msgid="816822994629942611">"ፈልግ"</string>
+    <string name="accessibility_search_button" msgid="816822994629942611">"ፍለጋ"</string>
     <string name="accessibility_voice_search_button" msgid="3938249215065842475">"የድምፅ ፍለጋ"</string>
     <string name="accessibility_all_apps_button" msgid="8803738611398979849">"መተግበሪያዎች"</string>
     <string name="accessibility_delete_button" msgid="3628162007991023603">"አስወግድ"</string>
@@ -66,7 +66,7 @@
     <string name="menu_add" msgid="3065046628354640854">"አክል"</string>
     <string name="menu_manage_apps" msgid="2308685199463588895">"ትግበራዎች አደራጅ"</string>
     <string name="menu_wallpaper" msgid="5837429080911269832">"ልጣፍ"</string>
-    <string name="menu_search" msgid="4826514464423239041">" ፈልግ"</string>
+    <string name="menu_search" msgid="4826514464423239041">"ፍለጋ"</string>
     <string name="menu_notifications" msgid="6424587053194766192">"ማሳወቂያዎች"</string>
     <string name="menu_settings" msgid="3946232973327980394">"የስርዓት ቅንብሮች"</string>
     <string name="menu_help" msgid="4901160661634590633">"እገዛ"</string>
