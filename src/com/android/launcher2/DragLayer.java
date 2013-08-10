@@ -771,7 +771,7 @@ public class DragLayer extends FrameLayout implements ViewGroup.OnHierarchyChang
     /**
      * Note: this is a reimplementation of View.isLayoutRtl() since that is currently hidden api.
      */
-    private boolean isLayoutRtl() {
+    private boolean isLayoutDirectionRtl() {
         return (getLayoutDirection() == LAYOUT_DIRECTION_RTL);
     }
 
@@ -786,7 +786,7 @@ public class DragLayer extends FrameLayout implements ViewGroup.OnHierarchyChang
             getDescendantRectRelativeToSelf(workspace.getChildAt(0), childRect);
 
             int page = workspace.getNextPage();
-            final boolean isRtl = isLayoutRtl();
+            final boolean isRtl = isLayoutDirectionRtl();
             CellLayout leftPage = (CellLayout) workspace.getChildAt(isRtl ? page + 1 : page - 1);
             CellLayout rightPage = (CellLayout) workspace.getChildAt(isRtl ? page - 1 : page + 1);
 
