@@ -35,7 +35,7 @@
     <string name="external_drop_widget_pick_title" msgid="7040647073452295370">"बनाने के लिए विजेट चुनें"</string>
     <string name="rename_folder_label" msgid="5646236631298452787">"फ़ोल्‍डर का नाम"</string>
     <string name="rename_folder_title" msgid="4544573104191526550">"फ़ोल्‍डर का नाम बदलें"</string>
-    <string name="rename_action" msgid="6016003384693240896">"ठीक"</string>
+    <string name="rename_action" msgid="6016003384693240896">"ठीक है"</string>
     <string name="cancel_action" msgid="3811860427489435048">"रद्द करें"</string>
     <string name="menu_item_add_item" msgid="6233177331075781114">"होम स्‍क्रीन में जोड़ें"</string>
     <string name="group_applications" msgid="2103752818818161976">"एप्लिकेशन"</string>
@@ -101,7 +101,7 @@
     <string name="folder_cling_title" msgid="4308949882377840953">"अपने एप्लिकेशन को फ़ोल्डर के साथ व्‍यवस्थित करें"</string>
     <string name="folder_cling_move_item" msgid="270598675060435169">"किसी एप्लिकेशन को ले जाने के लिए, उसे स्‍पर्श करके रखें."</string>
     <string name="folder_cling_create_folder" msgid="8352867485656129478">"अपनी मुखपृष्ठ स्‍क्रीन पर कोई नया फ़ोल्डर बनाने के लिए, एक एप्लिकेशन को दूसरे के शीर्ष पर स्‍टैक करें."</string>
-    <string name="cling_dismiss" msgid="2780907108735868381">"ठीक"</string>
+    <string name="cling_dismiss" msgid="2780907108735868381">"ठीक है"</string>
     <string name="folder_opened" msgid="1262064100943801533">"फ़ोल्डर खोला गया, <xliff:g id="WIDTH">%1$d</xliff:g> गुणा <xliff:g id="HEIGHT">%2$d</xliff:g>"</string>
     <string name="folder_tap_to_close" msgid="1335478160661137579">"फ़ोल्‍डर बंद करने के लिए स्‍पर्श करें"</string>
     <string name="folder_tap_to_rename" msgid="5201612989905472442">"परिवर्तित नाम सहेजने के लिए स्पर्श करें"</string>
