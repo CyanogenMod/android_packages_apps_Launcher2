@@ -20,7 +20,7 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="application_name" msgid="8424725141379931883">"लॉन्चर"</string>
-    <string name="home" msgid="5921706419368316758">"मुखपृष्ठ"</string>
+    <string name="home" msgid="5921706419368316758">"मुख्यपृष्ठ"</string>
     <string name="uid_name" msgid="3371120195364560632">"Android मुख्य एप्लिकेशन"</string>
     <string name="folder_name" msgid="8551881338202938211"></string>
     <string name="chooser_wallpaper" msgid="6063168087625352235">"वॉलपेपर यहां से चुनें:"</string>
@@ -31,7 +31,7 @@
     <string name="long_press_widget_to_add" msgid="7395697462851217506">"किसी विजेट को चुनने के लिए स्‍पर्श करके रखें."</string>
     <string name="market" msgid="2652226429823445833">"दुकान"</string>
     <string name="widget_dims_format" msgid="1386418557719032947">"%1$d × %2$d"</string>
-    <string name="external_drop_widget_error" msgid="2285187188524172774">"इस मुखपृष्ठ स्‍क्रीन पर आइटम को नहीं छोड़ा जा सका."</string>
+    <string name="external_drop_widget_error" msgid="2285187188524172774">"इस मुख्यपृष्ठ स्‍क्रीन पर आइटम को नहीं छोड़ा जा सका."</string>
     <string name="external_drop_widget_pick_title" msgid="7040647073452295370">"बनाने के लिए विजेट चुनें"</string>
     <string name="rename_folder_label" msgid="5646236631298452787">"फ़ोल्‍डर का नाम"</string>
     <string name="rename_folder_title" msgid="4544573104191526550">"फ़ोल्‍डर का नाम बदलें"</string>
@@ -42,7 +42,7 @@
     <string name="group_shortcuts" msgid="9133529424900391877">"शॉर्टकट"</string>
     <string name="group_widgets" msgid="6704978494073105844">"विजेट"</string>
     <string name="group_wallpapers" msgid="1568191644272224858">"वॉलपेपर"</string>
-    <string name="completely_out_of_space" msgid="1759078539443491182">"आपकी मुखपृष्ठ स्‍क्रीन पर अधिक स्थान नहीं है."</string>
+    <string name="completely_out_of_space" msgid="1759078539443491182">"आपकी मुख्यपृष्ठ स्‍क्रीन पर अधिक स्थान नहीं है."</string>
     <string name="out_of_space" msgid="8365249326091984698">"इस होम स्‍क्रीन पर और स्थान नहीं है."</string>
     <string name="hotseat_out_of_space" msgid="6304886797358479361">"हॉटसीट पर अधिक स्‍थान नहीं है."</string>
     <string name="invalid_hotseat_item" msgid="6545340627805449250">"हॉटसीट के लि‍ए यह वि‍जेट बहुत बड़ा है."</string>
@@ -81,9 +81,9 @@
     <string name="permlab_uninstall_shortcut" msgid="7696645932555926449">"शॉर्टकट अनइंस्टॉल करें"</string>
     <string name="permdesc_uninstall_shortcut" msgid="274355570620220977">"एप्लिकेशन को उपयोगकर्ता के हस्‍तक्षेप के बिना शॉर्टकट निकालने देता है."</string>
     <string name="permlab_read_settings" msgid="3452408290738106747">"होम सेटिंग और शॉर्टकट पढ़ें"</string>
-    <string name="permdesc_read_settings" msgid="5788109303585403679">"एप्लिकेशन को मुखपृष्ठ पर सेटिंग और शॉर्टकट पढ़ने देता है."</string>
+    <string name="permdesc_read_settings" msgid="5788109303585403679">"एप्लिकेशन को मुख्यपृष्ठ पर सेटिंग और शॉर्टकट पढ़ने देता है."</string>
     <string name="permlab_write_settings" msgid="1360567537236705628">"होम सेटिंग और शॉर्टकट लिखें"</string>
-    <string name="permdesc_write_settings" msgid="8530105489115785531">"एप्लिकेशन को मुखपृष्ठ पर सेटिंग और शॉर्टकट बदलने देता है."</string>
+    <string name="permdesc_write_settings" msgid="8530105489115785531">"एप्लिकेशन को मुख्यपृष्ठ पर सेटिंग और शॉर्टकट बदलने देता है."</string>
     <string name="gadget_error_text" msgid="8359351016167075858">"विजेट लोड करने में समस्‍या"</string>
     <string name="uninstall_system_app_text" msgid="6429814133777046491">"यह सिस्‍टम एप्लिकेशन है और इसे अनइंस्‍टॉल नहीं किया जा सकता."</string>
     <string name="dream_name" msgid="2847171357608437154">"रॉकेट लॉन्‍चर"</string>
@@ -97,10 +97,10 @@
     <string name="workspace_cling_move_item" msgid="791013895761065070">"आप अपने पसंदीदा एप्लिकेशन यहां रख सकते हैं."</string>
     <string name="workspace_cling_open_all_apps" msgid="2459977609848572588">"अपने सभी एप्लिकेशन देखने के लिए, वृत्त को स्‍पर्श करें."</string>
     <string name="all_apps_cling_title" msgid="2559734712581447107">"कुछ एप्लिकेशन चुनें"</string>
-    <string name="all_apps_cling_add_item" msgid="5665035103260318891">"किसी एप्लिकेशन को अपनी मुखपृष्ठ स्‍क्रीन से जोड़ने के लिए, उसे स्‍पर्श करके रखें."</string>
+    <string name="all_apps_cling_add_item" msgid="5665035103260318891">"किसी एप्लिकेशन को अपनी मुख्यपृष्ठ स्‍क्रीन से जोड़ने के लिए, उसे स्‍पर्श करके रखें."</string>
     <string name="folder_cling_title" msgid="4308949882377840953">"अपने एप्लिकेशन को फ़ोल्डर के साथ व्‍यवस्थित करें"</string>
     <string name="folder_cling_move_item" msgid="270598675060435169">"किसी एप्लिकेशन को ले जाने के लिए, उसे स्‍पर्श करके रखें."</string>
-    <string name="folder_cling_create_folder" msgid="8352867485656129478">"अपनी मुखपृष्ठ स्‍क्रीन पर कोई नया फ़ोल्डर बनाने के लिए, एक एप्लिकेशन को दूसरे के शीर्ष पर स्‍टैक करें."</string>
+    <string name="folder_cling_create_folder" msgid="8352867485656129478">"अपने मुख्यपृष्ठ स्‍क्रीन पर कोई नया फ़ोल्डर बनाने के लिए, एक एप्लिकेशन को दूसरे के शीर्ष पर स्‍टैक करें."</string>
     <string name="cling_dismiss" msgid="2780907108735868381">"ठीक है"</string>
     <string name="folder_opened" msgid="1262064100943801533">"फ़ोल्डर खोला गया, <xliff:g id="WIDTH">%1$d</xliff:g> गुणा <xliff:g id="HEIGHT">%2$d</xliff:g>"</string>
     <string name="folder_tap_to_close" msgid="1335478160661137579">"फ़ोल्‍डर बंद करने के लिए स्‍पर्श करें"</string>
