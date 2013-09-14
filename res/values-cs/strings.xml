@@ -76,7 +76,7 @@
     <string name="cab_widget_selection_text" msgid="962527270506951955">"Vybrán 1 widget"</string>
     <string name="cab_folder_selection_text" msgid="8916111874189565067">"Vybrána 1 složka"</string>
     <string name="cab_shortcut_selection_text" msgid="8115847384500412878">"Vybrán 1 zástupce"</string>
-    <string name="permlab_install_shortcut" msgid="1201690825493376489">"instalovat zástupce"</string>
+    <string name="permlab_install_shortcut" msgid="1201690825493376489">"instalace zástupce"</string>
     <string name="permdesc_install_shortcut" msgid="8634424803272077038">"Umožňuje aplikaci přidat zástupce bez zásahu uživatele."</string>
     <string name="permlab_uninstall_shortcut" msgid="7696645932555926449">"odinstalace zástupců"</string>
     <string name="permdesc_uninstall_shortcut" msgid="274355570620220977">"Umožňuje aplikaci odstranit zástupce bez zásahu uživatele."</string>
