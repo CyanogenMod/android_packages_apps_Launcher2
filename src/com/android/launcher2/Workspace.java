@@ -1831,7 +1831,7 @@ public class Workspace extends SmoothPagedView
      * Responsibility for the bitmap is transferred to the caller.
      */
     private Bitmap createDragOutline(View v, Canvas canvas, int padding) {
-        final int outlineColor = getResources().getColor(android.R.color.holo_blue_light);
+        final int outlineColor = getResources().getColor(android.R.color.white);
         final Bitmap b = Bitmap.createBitmap(
                 v.getWidth() + padding, v.getHeight() + padding, Bitmap.Config.ARGB_8888);
 
@@ -1848,7 +1848,7 @@ public class Workspace extends SmoothPagedView
      */
     private Bitmap createDragOutline(Bitmap orig, Canvas canvas, int padding, int w, int h,
             boolean clipAlpha) {
-        final int outlineColor = getResources().getColor(android.R.color.holo_blue_light);
+        final int outlineColor = getResources().getColor(android.R.color.white);
         final Bitmap b = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888);
         canvas.setBitmap(b);
 
