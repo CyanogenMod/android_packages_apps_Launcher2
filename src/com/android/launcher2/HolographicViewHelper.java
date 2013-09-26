@@ -34,7 +34,7 @@ public class HolographicViewHelper {
 
     public HolographicViewHelper(Context context) {
         Resources res = context.getResources();
-        mHighlightColor = res.getColor(android.R.color.holo_blue_light);
+        mHighlightColor = res.getColor(android.R.color.white);
     }
 
     /**
