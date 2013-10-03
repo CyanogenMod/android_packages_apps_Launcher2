@@ -19,7 +19,7 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="application_name" msgid="8424725141379931883">"Kizinduzi"</string>
+    <string name="application_name" msgid="8424725141379931883">"Kifungua Programu"</string>
     <string name="home" msgid="5921706419368316758">"Nyumbani"</string>
     <string name="uid_name" msgid="3371120195364560632">"Programu Kuu za Android"</string>
     <string name="folder_name" msgid="8551881338202938211"></string>
@@ -96,13 +96,13 @@
     <string name="apps_customize_apps_scroll_format" msgid="5494241912377704885">"Ukurasa wa programu %1$d ya %2$d"</string>
     <string name="apps_customize_widgets_scroll_format" msgid="5383009742241717437">"Ukurasa wa wijeti %1$d ya %2$d"</string>
     <string name="workspace_cling_title" msgid="738396473989890567">"Jisikie huru"</string>
-    <string name="workspace_cling_move_item" msgid="791013895761065070">"Unaweza kuweka programu zako uzipendazo hapa."</string>
+    <string name="workspace_cling_move_item" msgid="791013895761065070">"Unaweza kuweka programu unazozipenda hapa."</string>
     <string name="workspace_cling_open_all_apps" msgid="2459977609848572588">"Kutazama programu zako zote, gusa mduara."</string>
     <string name="all_apps_cling_title" msgid="2559734712581447107">"Chagua programu kadhaa"</string>
-    <string name="all_apps_cling_add_item" msgid="5665035103260318891">"Ili kuongeza programu kwenye skrini yako ya Kuu, iguse na uishikilie."</string>
-    <string name="folder_cling_title" msgid="4308949882377840953">"Panga programu zako na folda"</string>
+    <string name="all_apps_cling_add_item" msgid="5665035103260318891">"Ili kuongeza programu kwenye skrini yako Kuu, iguse na uishikilie."</string>
+    <string name="folder_cling_title" msgid="4308949882377840953">"Panga programu zako ukitumia folda"</string>
     <string name="folder_cling_move_item" msgid="270598675060435169">"Kuhamisha programu, gusa na; uishikilie."</string>
-    <string name="folder_cling_create_folder" msgid="8352867485656129478">"Kuunda folda mpya katika skrini yako ya nyumbani, rundika programu moja juu ya nyingine."</string>
+    <string name="folder_cling_create_folder" msgid="8352867485656129478">"Kuunda folda mpya katika skrini yako Kuu, rundika programu moja juu ya nyingine."</string>
     <string name="cling_dismiss" msgid="2780907108735868381">"Sawa"</string>
     <string name="folder_opened" msgid="1262064100943801533">"Folda imefunguliwa, <xliff:g id="WIDTH">%1$d</xliff:g> kwa <xliff:g id="HEIGHT">%2$d</xliff:g>"</string>
     <string name="folder_tap_to_close" msgid="1335478160661137579">"Gusa ili ufunge folda"</string>
