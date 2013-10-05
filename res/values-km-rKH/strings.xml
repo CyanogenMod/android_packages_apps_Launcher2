@@ -93,11 +93,11 @@
     <string name="workspace_scroll_format" msgid="1704767047951143301">"អេក្រង់​ដើម %1$d នៃ %2$d"</string>
     <string name="apps_customize_apps_scroll_format" msgid="5494241912377704885">"ទំព័រ​កម្មវិធី %1$d នៃ %2$d"</string>
     <string name="apps_customize_widgets_scroll_format" msgid="5383009742241717437">"ទំព័រ​ធាតុ​ក្រាហ្វិក ​%1$d នៃ %2$d"</string>
-    <string name="workspace_cling_title" msgid="738396473989890567">"ធ្វើ​ដោយ​ខ្លួន​ឯង​នៅ​ផ្ទះ"</string>
+    <string name="workspace_cling_title" msgid="738396473989890567">"ចាត់ទុកនេះជា​ផ្ទះរបស់អ្នក"</string>
     <string name="workspace_cling_move_item" msgid="791013895761065070">"អ្នក​អាច​ដាក់​កម្មវិធី​ដែល​អ្នក​ពេញ​ចិត្ត​នៅ​ទីនេះ។"</string>
-    <string name="workspace_cling_open_all_apps" msgid="2459977609848572588">"ដើម្បី​មើល​​កម្មវិធី​របស់​អ្នក​ទាំងអស់ ប៉ះ​រង្វង់។"</string>
+    <string name="workspace_cling_open_all_apps" msgid="2459977609848572588">"ប៉ះ​រង្វង់ ដើម្បី​មើល​​កម្មវិធី​របស់​អ្នក​ទាំងអស់។"</string>
     <string name="all_apps_cling_title" msgid="2559734712581447107">"ជ្រើស​កម្មវិធី​មួយ​ចំនួន"</string>
-    <string name="all_apps_cling_add_item" msgid="5665035103260318891">"ដើម្បី​បន្ថែម​កម្មវិធី​ទៅ​​​អេក្រង់​ដើម​របស់​អ្នក, ប៉ះ​ &amp; សង្កត់​វា"</string>
+    <string name="all_apps_cling_add_item" msgid="5665035103260318891">"ប៉ះ​ &amp; សង្កត់​វា ដើម្បី​បន្ថែម​កម្មវិធី​ទៅ​​​អេក្រង់​ដើម​របស់​អ្នក"</string>
     <string name="folder_cling_title" msgid="4308949882377840953">"រៀបចំ​កម្មវិធី​របស់​អ្នក​ដាក់​ក្នុង​​​ថត"</string>
     <string name="folder_cling_move_item" msgid="270598675060435169">"ដើម្បី​ផ្លាស់ទី​កម្មវិធី ប៉ះ &amp; សង្កត់​វា។"</string>
     <string name="folder_cling_create_folder" msgid="8352867485656129478">"ដើម្បី​បង្កើត​ថត​ថ្មី​លើ​អេក្រង់​ដើម​របស់​អ្នក ដាក់​កម្មវិធី​មួយ​​ត្រួត​លើ​កម្មវិធី​ផ្សេង​ទៀត។"</string>
