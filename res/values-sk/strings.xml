@@ -19,7 +19,7 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="application_name" msgid="8424725141379931883">"Spúšťač"</string>
+    <string name="application_name" msgid="8424725141379931883">"Launcher"</string>
     <string name="home" msgid="5921706419368316758">"Plocha"</string>
     <string name="uid_name" msgid="3371120195364560632">"Android Core Apps"</string>
     <string name="folder_name" msgid="8551881338202938211"></string>
@@ -93,7 +93,7 @@
     <string name="workspace_scroll_format" msgid="1704767047951143301">"Plocha %1$d z %2$d"</string>
     <string name="apps_customize_apps_scroll_format" msgid="5494241912377704885">"Stránka aplikácií %1$d z %2$d"</string>
     <string name="apps_customize_widgets_scroll_format" msgid="5383009742241717437">"Stránka miniaplikácií %1$d z %2$d"</string>
-    <string name="workspace_cling_title" msgid="738396473989890567">"Cíťte sa ako doma"</string>
+    <string name="workspace_cling_title" msgid="738396473989890567">"Cíťte sa tu ako doma"</string>
     <string name="workspace_cling_move_item" msgid="791013895761065070">"Tu môžete umiestniť svoje obľúbené aplikácie."</string>
     <string name="workspace_cling_open_all_apps" msgid="2459977609848572588">"Ak chcete zobraziť všetky aplikácie, dotknite sa kruhu."</string>
     <string name="all_apps_cling_title" msgid="2559734712581447107">"Vyberte niektoré aplikácie"</string>
