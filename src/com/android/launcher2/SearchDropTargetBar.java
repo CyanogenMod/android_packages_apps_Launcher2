@@ -110,14 +110,12 @@ public class SearchDropTargetBar extends FrameLayout implements DragController.D
         // Create the various fade animations
         if (mEnableDropDownDropTargets) {
             mDropTargetBar.setTranslationY(-mBarHeight);
-            mDropTargetBarAnim = LauncherAnimUtils.ofFloat(mDropTargetBar, "translationY",
-                    -mBarHeight, 0f);
-            mQSBSearchBarAnim = LauncherAnimUtils.ofFloat(mQSBSearchBar, "translationY", 0,
-                    -mBarHeight);
+            mDropTargetBarAnim = ObjectAnimator.ofFloat(mDropTargetBar, "translationY", -mBarHeight, 0f);
+            mQSBSearchBarAnim = ObjectAnimator.ofFloat(mQSBSearchBar, "translationY", 0f, -mBarHeight);
         } else {
             mDropTargetBar.setAlpha(0f);
-            mDropTargetBarAnim = LauncherAnimUtils.ofFloat(mDropTargetBar, "alpha", 0f, 1f);
-            mQSBSearchBarAnim = LauncherAnimUtils.ofFloat(mQSBSearchBar, "alpha", 1f, 0f);
+            mDropTargetBarAnim = ObjectAnimator.ofFloat(mDropTargetBar, "alpha", 0f, 1f);
+            mQSBSearchBarAnim = ObjectAnimator.ofFloat(mQSBSearchBar, "alpha", 1f, 0f);
         }
         setupAnimation(mDropTargetBarAnim, mDropTargetBar);
         setupAnimation(mQSBSearchBarAnim, mQSBSearchBar);
