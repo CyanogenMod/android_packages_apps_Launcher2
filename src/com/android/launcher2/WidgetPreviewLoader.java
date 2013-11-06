@@ -4,6 +4,7 @@ import android.appwidget.AppWidgetProviderInfo;
 import android.content.ComponentName;
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.content.res.Resources;
@@ -102,6 +103,7 @@ class BitmapFactoryOptionsCache extends SoftReferenceThreadLocal<BitmapFactory.O
 
 public class WidgetPreviewLoader {
     static final String TAG = "WidgetPreviewLoader";
+    static final String ANDROID_INCREMENTAL_VERSION_NAME_KEY = "android.incremental.version";
 
     private int mPreviewBitmapWidth;
     private int mPreviewBitmapHeight;
@@ -148,6 +150,19 @@ public class WidgetPreviewLoader {
         mDb = app.getWidgetPreviewCacheDb();
         mLoadedPreviews = new HashMap<String, WeakReference<Bitmap>>();
         mUnusedBitmaps = new ArrayList<SoftReference<Bitmap>>();
+
+        SharedPreferences sp = launcher.getSharedPreferences(
+                LauncherApplication.getSharedPreferencesKey(), Context.MODE_PRIVATE);
+        final String lastVersionName = sp.getString(ANDROID_INCREMENTAL_VERSION_NAME_KEY, null);
+        final String versionName = android.os.Build.VERSION.INCREMENTAL;
+        if (!versionName.equals(lastVersionName)) {
+            // clear all the previews whenever the system version changes, to ensure that previews
+            // are up-to-date for any apps that might have been updated with the system
+            clearDb();
+            SharedPreferences.Editor editor = sp.edit();
+            editor.putString(ANDROID_INCREMENTAL_VERSION_NAME_KEY, versionName);
+            editor.commit();
+        }
     }
 
     public void setPreviewSize(int previewWidth, int previewHeight,
@@ -332,6 +347,12 @@ public class WidgetPreviewLoader {
         values.put(CacheDb.COLUMN_PREVIEW_BITMAP, stream.toByteArray());
         values.put(CacheDb.COLUMN_SIZE, mSize);
         db.insert(CacheDb.TABLE_NAME, null, values);
+    }
+
+    private void clearDb() {
+        SQLiteDatabase db = mDb.getWritableDatabase();
+        // Delete everything
+        db.delete(CacheDb.TABLE_NAME, null, null);
     }
 
     public static void removeFromDb(final CacheDb cacheDb, final String packageName) {
