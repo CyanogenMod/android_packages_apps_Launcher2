@@ -48,7 +48,7 @@ public class LauncherApplication extends Application {
         sIsScreenLarge = getResources().getBoolean(R.bool.is_large_screen);
         sScreenDensity = getResources().getDisplayMetrics().density;
 
-        mWidgetPreviewCacheDb = new WidgetPreviewLoader.CacheDb(this);
+        recreateWidgetPreviewDb();
         mIconCache = new IconCache(this);
         mModel = new LauncherModel(this, mIconCache);
 
@@ -75,6 +75,10 @@ public class LauncherApplication extends Application {
         ContentResolver resolver = getContentResolver();
         resolver.registerContentObserver(LauncherSettings.Favorites.CONTENT_URI, true,
                 mFavoritesObserver);
+    }
+
+    public void recreateWidgetPreviewDb() {
+        mWidgetPreviewCacheDb = new WidgetPreviewLoader.CacheDb(this);
     }
 
     /**
