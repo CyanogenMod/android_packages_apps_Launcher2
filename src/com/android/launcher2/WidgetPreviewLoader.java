@@ -10,6 +10,7 @@ import android.content.pm.ResolveInfo;
 import android.content.res.Resources;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteDiskIOException;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.Config;
@@ -163,6 +164,12 @@ public class WidgetPreviewLoader {
             editor.putString(ANDROID_INCREMENTAL_VERSION_NAME_KEY, versionName);
             editor.commit();
         }
+    }
+
+    public void recreateDb() {
+        LauncherApplication app = (LauncherApplication) mLauncher.getApplication();
+        app.recreateWidgetPreviewDb();
+        mDb = app.getWidgetPreviewCacheDb();
     }
 
     public void setPreviewSize(int previewWidth, int previewHeight,
@@ -346,13 +353,20 @@ public class WidgetPreviewLoader {
         preview.compress(Bitmap.CompressFormat.PNG, 100, stream);
         values.put(CacheDb.COLUMN_PREVIEW_BITMAP, stream.toByteArray());
         values.put(CacheDb.COLUMN_SIZE, mSize);
-        db.insert(CacheDb.TABLE_NAME, null, values);
+        try {
+            db.insert(CacheDb.TABLE_NAME, null, values);
+        } catch (SQLiteDiskIOException e) {
+            recreateDb();
+        }
     }
 
     private void clearDb() {
         SQLiteDatabase db = mDb.getWritableDatabase();
         // Delete everything
-        db.delete(CacheDb.TABLE_NAME, null, null);
+        try {
+            db.delete(CacheDb.TABLE_NAME, null, null);
+        } catch (SQLiteDiskIOException e) {
+        }
     }
 
     public static void removeFromDb(final CacheDb cacheDb, final String packageName) {
@@ -362,15 +376,18 @@ public class WidgetPreviewLoader {
         new AsyncTask<Void, Void, Void>() {
             public Void doInBackground(Void ... args) {
                 SQLiteDatabase db = cacheDb.getWritableDatabase();
-                db.delete(CacheDb.TABLE_NAME,
-                        CacheDb.COLUMN_NAME + " LIKE ? OR " +
-                        CacheDb.COLUMN_NAME + " LIKE ?", // SELECT query
-                        new String[] {
-                            WIDGET_PREFIX + packageName + "/%",
-                            SHORTCUT_PREFIX + packageName + "/%"} // args to SELECT query
-                            );
-                synchronized(sInvalidPackages) {
-                    sInvalidPackages.remove(packageName);
+                try {
+                    db.delete(CacheDb.TABLE_NAME,
+                              CacheDb.COLUMN_NAME + " LIKE ? OR " +
+                              CacheDb.COLUMN_NAME + " LIKE ?", // SELECT query
+                              new String[] {
+                                  WIDGET_PREFIX + packageName + "/%",
+                                  SHORTCUT_PREFIX + packageName + "/%"} // args to SELECT query
+                              );
+                    synchronized(sInvalidPackages) {
+                        sInvalidPackages.remove(packageName);
+                    }
+                } catch (SQLiteDiskIOException e) {
                 }
                 return null;
             }
@@ -383,14 +400,20 @@ public class WidgetPreviewLoader {
                     CacheDb.COLUMN_SIZE + " = ?";
         }
         SQLiteDatabase db = mDb.getReadableDatabase();
-        Cursor result = db.query(CacheDb.TABLE_NAME,
-                new String[] { CacheDb.COLUMN_PREVIEW_BITMAP }, // cols to return
-                mCachedSelectQuery, // select query
-                new String[] { name, mSize }, // args to select query
-                null,
-                null,
-                null,
-                null);
+        Cursor result;
+        try {
+            result = db.query(CacheDb.TABLE_NAME,
+                    new String[] { CacheDb.COLUMN_PREVIEW_BITMAP }, // cols to return
+                    mCachedSelectQuery, // select query
+                    new String[] { name, mSize }, // args to select query
+                    null,
+                    null,
+                    null,
+                    null);
+        } catch (SQLiteDiskIOException e) {
+            recreateDb();
+            return null;
+        }
         if (result.getCount() > 0) {
             result.moveToFirst();
             byte[] blob = result.getBlob(0);
