@@ -18,10 +18,12 @@ package com.android.launcher2;
 
 import android.content.ComponentName;
 import android.content.Intent;
-import android.content.pm.PackageManager;
+import android.content.pm.LauncherActivityInfo;
+import android.content.pm.LauncherApps;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.ResolveInfo;
 import android.graphics.Bitmap;
+import android.os.UserHandle;
 import android.util.Log;
 
 import java.util.ArrayList;
@@ -62,30 +64,28 @@ class ApplicationInfo extends ItemInfo {
     /**
      * Must not hold the Context.
      */
-    public ApplicationInfo(PackageManager pm, ResolveInfo info, IconCache iconCache,
+    public ApplicationInfo(LauncherActivityInfo info, UserHandle user, IconCache iconCache,
             HashMap<Object, CharSequence> labelCache) {
-        final String packageName = info.activityInfo.applicationInfo.packageName;
 
-        this.componentName = new ComponentName(packageName, info.activityInfo.name);
+        this.componentName = info.getComponentName();
         this.container = ItemInfo.NO_ID;
         this.setActivity(componentName,
                 Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED);
 
-        try {
-            int appFlags = pm.getApplicationInfo(packageName, 0).flags;
-            if ((appFlags & android.content.pm.ApplicationInfo.FLAG_SYSTEM) == 0) {
-                flags |= DOWNLOADED_FLAG;
-
-                if ((appFlags & android.content.pm.ApplicationInfo.FLAG_UPDATED_SYSTEM_APP) != 0) {
-                    flags |= UPDATED_SYSTEM_APP_FLAG;
-                }
-            }
-            firstInstallTime = pm.getPackageInfo(packageName, 0).firstInstallTime;
-        } catch (NameNotFoundException e) {
-            Log.d(TAG, "PackageManager.getApplicationInfo failed for " + packageName);
+        int appFlags = info.getApplicationFlags();
+        if ((appFlags & android.content.pm.ApplicationInfo.FLAG_SYSTEM) == 0) {
+            flags |= DOWNLOADED_FLAG;
         }
-
+        if ((appFlags & android.content.pm.ApplicationInfo.FLAG_UPDATED_SYSTEM_APP) != 0) {
+            flags |= UPDATED_SYSTEM_APP_FLAG;
+        }
+        firstInstallTime = info.getFirstInstallTime();
         iconCache.getTitleAndIcon(this, info, labelCache);
+        intent = new Intent(Intent.ACTION_MAIN);
+        intent.addCategory(Intent.CATEGORY_LAUNCHER);
+        intent.setComponent(info.getComponentName());
+        intent.putExtra(EXTRA_PROFILE, user);
+        updateUser(intent);
     }
 
     public ApplicationInfo(ApplicationInfo info) {
@@ -114,7 +114,7 @@ class ApplicationInfo extends ItemInfo {
 
     @Override
     public String toString() {
-        return "ApplicationInfo(title=" + title.toString() + ")";
+        return "ApplicationInfo(title=" + title.toString() + " P=" + user + ")";
     }
 
     public static void dumpApplicationInfoList(String tag, String label,

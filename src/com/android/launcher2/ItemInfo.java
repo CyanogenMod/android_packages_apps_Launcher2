@@ -17,8 +17,11 @@
 package com.android.launcher2;
 
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.os.UserHandle;
+import android.os.UserManager;
 import android.util.Log;
 
 import java.io.ByteArrayOutputStream;
@@ -28,9 +31,14 @@ import java.io.IOException;
  * Represents an item in the launcher.
  */
 class ItemInfo {
-    
+
+    /**
+     * Intent extra to store the profile. Format: UserHandle
+     */
+    static final String EXTRA_PROFILE = "profile";
+
     static final int NO_ID = -1;
-    
+
     /**
      * The id in the settings database for this item
      */
@@ -53,7 +61,7 @@ class ItemInfo {
     long container = NO_ID;
     
     /**
-     * Iindicates the screen in which the shortcut appears.
+     * Indicates the screen in which the shortcut appears.
      */
     int screen = -1;
     
@@ -102,7 +110,10 @@ class ItemInfo {
      */
     int[] dropPos = null;
 
+    UserHandle user;
+
     ItemInfo() {
+        user = android.os.Process.myUserHandle();
     }
 
     ItemInfo(ItemInfo info) {
@@ -114,6 +125,7 @@ class ItemInfo {
         screen = info.screen;
         itemType = info.itemType;
         container = info.container;
+        user = info.user;
         // tempdebug:
         LauncherModel.checkItemInfo(this);
     }
@@ -133,12 +145,20 @@ class ItemInfo {
         return "";
     }
 
+    protected void updateUser(Intent intent) {
+        if (intent != null && intent.hasExtra(EXTRA_PROFILE)) {
+            user = (UserHandle) intent.getParcelableExtra(EXTRA_PROFILE);
+        }
+    }
+
     /**
      * Write the fields of this item to the DB
      * 
+     * @param context A context object to use for getting a UserManager
+     *            instance.
      * @param values
      */
-    void onAddToDatabase(ContentValues values) { 
+    void onAddToDatabase(Context context, ContentValues values) {
         values.put(LauncherSettings.BaseLauncherColumns.ITEM_TYPE, itemType);
         values.put(LauncherSettings.Favorites.CONTAINER, container);
         values.put(LauncherSettings.Favorites.SCREEN, screen);
@@ -146,6 +166,9 @@ class ItemInfo {
         values.put(LauncherSettings.Favorites.CELLY, cellY);
         values.put(LauncherSettings.Favorites.SPANX, spanX);
         values.put(LauncherSettings.Favorites.SPANY, spanY);
+        long serialNumber = ((UserManager) context.getSystemService(Context.USER_SERVICE))
+                .getSerialNumberForUser(user);
+        values.put(LauncherSettings.Favorites.PROFILE_ID, serialNumber);
     }
 
     void updateValuesWithCoordinates(ContentValues values, int cellX, int cellY) {
@@ -189,6 +212,7 @@ class ItemInfo {
     public String toString() {
         return "Item(id=" + this.id + " type=" + this.itemType + " container=" + this.container
             + " screen=" + screen + " cellX=" + cellX + " cellY=" + cellY + " spanX=" + spanX
-            + " spanY=" + spanY + " dropPos=" + dropPos + ")";
+                + " spanY=" + spanY + " dropPos=" + dropPos + " user=" + user
+                + ")";
     }
 }

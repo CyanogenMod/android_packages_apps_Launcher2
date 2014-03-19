@@ -19,6 +19,7 @@ package com.android.launcher2;
 import android.appwidget.AppWidgetHostView;
 import android.content.ComponentName;
 import android.content.ContentValues;
+import android.content.Context;
 
 /**
  * Represents a widget (either instantiated or about to be) in the Launcher.
@@ -62,8 +63,8 @@ class LauncherAppWidgetInfo extends ItemInfo {
     }
 
     @Override
-    void onAddToDatabase(ContentValues values) {
-        super.onAddToDatabase(values);
+    void onAddToDatabase(Context context, ContentValues values) {
+        super.onAddToDatabase(context, values);
         values.put(LauncherSettings.Favorites.APPWIDGET_ID, appWidgetId);
     }
 
