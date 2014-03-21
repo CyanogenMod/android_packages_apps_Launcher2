@@ -1275,7 +1275,7 @@ public class LauncherModel extends BroadcastReceiver {
             final boolean isSafeMode = manager.isSafeMode();
 
             // Make sure the default workspace is loaded, if needed
-            mApp.getLauncherProvider().loadDefaultFavoritesIfNecessary(0);
+            mApp.getLauncherProvider().loadDefaultFavoritesIfNecessary(0, false);
 
             synchronized (sBgLock) {
                 sBgWorkspaceItems.clear();
