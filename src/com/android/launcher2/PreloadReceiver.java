@@ -28,6 +28,8 @@ public class PreloadReceiver extends BroadcastReceiver {
 
     public static final String EXTRA_WORKSPACE_NAME =
             "com.android.launcher.action.EXTRA_WORKSPACE_NAME";
+    public static final String EXTRA_OVERRIDE_PREVIOUS =
+            "com.android.launcher.action.EXTRA_OVERRIDE_PREVIOUS";
 
     @Override
     public void onReceive(Context context, Intent intent) {
@@ -37,13 +39,16 @@ public class PreloadReceiver extends BroadcastReceiver {
             String name = intent.getStringExtra(EXTRA_WORKSPACE_NAME);
             final int workspaceResId = !TextUtils.isEmpty(name)
                     ? context.getResources().getIdentifier(name, "xml", "com.android.launcher") : 0;
+
+            final boolean overridePrevious =
+                    intent.getBooleanExtra(EXTRA_OVERRIDE_PREVIOUS, false);
             if (LOGD) {
                 Log.d(TAG, "workspace name: " + name + " id: " + workspaceResId);
             }
             new Thread(new Runnable() {
                 @Override
                 public void run() {
-                    provider.loadDefaultFavoritesIfNecessary(workspaceResId);
+                    provider.loadDefaultFavoritesIfNecessary(workspaceResId, overridePrevious);
                 }
             }).start();
         }
