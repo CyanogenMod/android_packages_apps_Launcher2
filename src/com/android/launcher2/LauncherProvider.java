@@ -55,6 +55,7 @@ import com.android.launcher2.LauncherSettings.Favorites;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
@@ -208,10 +209,13 @@ public class LauncherProvider extends ContentProvider {
     /**
      * @param workspaceResId that can be 0 to use default or non-zero for specific resource
      */
-    synchronized public void loadDefaultFavoritesIfNecessary(int origWorkspaceResId) {
+    synchronized public void loadDefaultFavoritesIfNecessary(int origWorkspaceResId,
+            boolean overridePrevious) {
         String spKey = LauncherApplication.getSharedPreferencesKey();
         SharedPreferences sp = getContext().getSharedPreferences(spKey, Context.MODE_PRIVATE);
-        if (sp.getBoolean(DB_CREATED_BUT_DEFAULT_WORKSPACE_NOT_LOADED, false)) {
+        boolean dbCreatedNoWorkspace =
+                sp.getBoolean(DB_CREATED_BUT_DEFAULT_WORKSPACE_NOT_LOADED, false);
+        if (dbCreatedNoWorkspace || overridePrevious) {
             int workspaceResId = origWorkspaceResId;
 
             // Use default workspace resource if none provided
@@ -225,9 +229,25 @@ public class LauncherProvider extends ContentProvider {
             if (origWorkspaceResId != 0) {
                 editor.putInt(DEFAULT_WORKSPACE_RESOURCE_ID, origWorkspaceResId);
             }
+            if (!dbCreatedNoWorkspace && overridePrevious) {
+                if (LOGD) Log.d(TAG, "Clearing old launcher database");
+                // Workspace has already been loaded, clear the database.
+                deleteDatabase();
+            }
             mOpenHelper.loadFavorites(mOpenHelper.getWritableDatabase(), workspaceResId);
             editor.commit();
         }
+    }
+
+    public void deleteDatabase() {
+        // Are you sure? (y/n)
+        final SQLiteDatabase db = mOpenHelper.getWritableDatabase();
+        final File dbFile = new File(db.getPath());
+        mOpenHelper.close();
+        if (dbFile.exists()) {
+            SQLiteDatabase.deleteDatabase(dbFile);
+        }
+        mOpenHelper = new DatabaseHelper(getContext());
     }
 
     private static class DatabaseHelper extends SQLiteOpenHelper {
