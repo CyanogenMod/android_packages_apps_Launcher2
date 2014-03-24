@@ -24,7 +24,7 @@
     <string name="uid_name" msgid="3371120195364560632">"Android-kerneprogrammer"</string>
     <string name="folder_name" msgid="8551881338202938211"></string>
     <string name="chooser_wallpaper" msgid="6063168087625352235">"Vælg baggrund fra"</string>
-    <string name="wallpaper_instructions" msgid="4215640646180727542">"Angiv tapet"</string>
+    <string name="wallpaper_instructions" msgid="4215640646180727542">"Angiv baggrund"</string>
     <string name="pick_wallpaper" msgid="5630222540525626723">"Tapeter"</string>
     <string name="activity_not_found" msgid="217823393239365967">"Appen er ikke installeret."</string>
     <string name="widgets_tab_label" msgid="9145860100000983599">"Widgets"</string>
@@ -65,7 +65,7 @@
     <string name="delete_zone_label_all_apps_system_app" msgid="3683920959591819044">"Afinstaller opdatering"</string>
     <string name="menu_add" msgid="3065046628354640854">"Tilføj"</string>
     <string name="menu_manage_apps" msgid="2308685199463588895">"Administrer apps"</string>
-    <string name="menu_wallpaper" msgid="5837429080911269832">"Tapet"</string>
+    <string name="menu_wallpaper" msgid="5837429080911269832">"Baggrund"</string>
     <string name="menu_search" msgid="4826514464423239041">"Søg"</string>
     <string name="menu_notifications" msgid="6424587053194766192">"Underretninger"</string>
     <string name="menu_settings" msgid="3946232973327980394">"Systemindstillinger"</string>
