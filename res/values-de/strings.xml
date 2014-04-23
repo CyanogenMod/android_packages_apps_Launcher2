@@ -81,9 +81,9 @@
     <string name="permlab_uninstall_shortcut" msgid="7696645932555926449">"Verknüpfungen deinstallieren"</string>
     <string name="permdesc_uninstall_shortcut" msgid="274355570620220977">"Ermöglicht einer App das Entfernen von Verknüpfungen ohne Eingriff des Nutzers"</string>
     <string name="permlab_read_settings" msgid="3452408290738106747">"Einstellungen und Shortcuts für Startseite lesen"</string>
-    <string name="permdesc_read_settings" msgid="5788109303585403679">"Ermöglicht einer App, die Einstellungen und Verknüpfungen auf dem Startbildschirm zu lesen"</string>
+    <string name="permdesc_read_settings" msgid="5788109303585403679">"Ermöglicht der App, die Einstellungen und Verknüpfungen auf dem Startbildschirm zu lesen"</string>
     <string name="permlab_write_settings" msgid="1360567537236705628">"Einstellungen und Shortcuts für Startseite schreiben"</string>
-    <string name="permdesc_write_settings" msgid="8530105489115785531">"Ermöglicht einer App, die Einstellungen und Verknüpfungen auf dem Startbildschirm zu ändern"</string>
+    <string name="permdesc_write_settings" msgid="8530105489115785531">"Ermöglicht der App, die Einstellungen und Verknüpfungen auf dem Startbildschirm zu ändern"</string>
     <string name="gadget_error_text" msgid="8359351016167075858">"Fehler beim Laden des Widgets"</string>
     <string name="uninstall_system_app_text" msgid="6429814133777046491">"Dies ist eine Systemanwendung, die nicht deinstalliert werden kann."</string>
     <string name="dream_name" msgid="2847171357608437154">"Raketenstartgerät"</string>
