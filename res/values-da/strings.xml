@@ -19,12 +19,12 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="application_name" msgid="8424725141379931883">"Launcher"</string>
-    <string name="home" msgid="5921706419368316758">"Startside"</string>
+    <string name="application_name" msgid="8424725141379931883">"Appliste"</string>
+    <string name="home" msgid="5921706419368316758">"Startskærm"</string>
     <string name="uid_name" msgid="3371120195364560632">"Android-kerneprogrammer"</string>
     <string name="folder_name" msgid="8551881338202938211"></string>
     <string name="chooser_wallpaper" msgid="6063168087625352235">"Vælg baggrund fra"</string>
-    <string name="wallpaper_instructions" msgid="4215640646180727542">"Angiv tapet"</string>
+    <string name="wallpaper_instructions" msgid="4215640646180727542">"Angiv baggrund"</string>
     <string name="pick_wallpaper" msgid="5630222540525626723">"Tapeter"</string>
     <string name="activity_not_found" msgid="217823393239365967">"Appen er ikke installeret."</string>
     <string name="widgets_tab_label" msgid="9145860100000983599">"Widgets"</string>
@@ -65,7 +65,7 @@
     <string name="delete_zone_label_all_apps_system_app" msgid="3683920959591819044">"Afinstaller opdatering"</string>
     <string name="menu_add" msgid="3065046628354640854">"Tilføj"</string>
     <string name="menu_manage_apps" msgid="2308685199463588895">"Administrer apps"</string>
-    <string name="menu_wallpaper" msgid="5837429080911269832">"Tapet"</string>
+    <string name="menu_wallpaper" msgid="5837429080911269832">"Baggrund"</string>
     <string name="menu_search" msgid="4826514464423239041">"Søg"</string>
     <string name="menu_notifications" msgid="6424587053194766192">"Underretninger"</string>
     <string name="menu_settings" msgid="3946232973327980394">"Systemindstillinger"</string>
@@ -94,10 +94,10 @@
     <string name="apps_customize_apps_scroll_format" msgid="5494241912377704885">"Apps-side %1$d ud af %2$d"</string>
     <string name="apps_customize_widgets_scroll_format" msgid="5383009742241717437">"Widgets-side %1$d ud af %2$d"</string>
     <string name="workspace_cling_title" msgid="738396473989890567">"Føl dig hjemme"</string>
-    <string name="workspace_cling_move_item" msgid="791013895761065070">"Du kan sætte dine yndlingsapps her."</string>
-    <string name="workspace_cling_open_all_apps" msgid="2459977609848572588">"Tryk på cirklen for at få vist alle dine apps."</string>
+    <string name="workspace_cling_move_item" msgid="791013895761065070">"Her kan du placere dine yndlingsapps."</string>
+    <string name="workspace_cling_open_all_apps" msgid="2459977609848572588">"Tryk på cirklen for at se alle dine apps."</string>
     <string name="all_apps_cling_title" msgid="2559734712581447107">"Vælg nogle apps"</string>
-    <string name="all_apps_cling_add_item" msgid="5665035103260318891">"Hvis du vil føje en app til startskærmen, skal du trykke på den og holde den nede."</string>
+    <string name="all_apps_cling_add_item" msgid="5665035103260318891">"Tryk på en app, og hold den nede for at føje den til startskærmen."</string>
     <string name="folder_cling_title" msgid="4308949882377840953">"Organiser dine apps med mapper"</string>
     <string name="folder_cling_move_item" msgid="270598675060435169">"Tryk på en app, og hold den nede for at flytte den."</string>
     <string name="folder_cling_create_folder" msgid="8352867485656129478">"Du kan oprette en ny mappe på din startskærm ved at stable apps oven på hinanden."</string>

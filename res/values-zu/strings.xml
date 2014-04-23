@@ -38,7 +38,7 @@
     <string name="rename_action" msgid="6016003384693240896">"KULUNGILE"</string>
     <string name="cancel_action" msgid="3811860427489435048">"Khansela"</string>
     <string name="menu_item_add_item" msgid="6233177331075781114">"Faka kwisikrini saseKhaya"</string>
-    <string name="group_applications" msgid="2103752818818161976">"Izinsiza"</string>
+    <string name="group_applications" msgid="2103752818818161976">"Izinhlelo zokusebenza"</string>
     <string name="group_shortcuts" msgid="9133529424900391877">"Izinqamuleli"</string>
     <string name="group_widgets" msgid="6704978494073105844">"Izinqunjwana"</string>
     <string name="group_wallpapers" msgid="1568191644272224858">"Amaphephadonga"</string>
@@ -60,7 +60,7 @@
     <string name="info_target_label" msgid="4019495079517426980">"Ulwazi lohlelo lokusebenza"</string>
     <string name="accessibility_search_button" msgid="816822994629942611">"Sesha"</string>
     <string name="accessibility_voice_search_button" msgid="3938249215065842475">"Ukusesha Ngezwi"</string>
-    <string name="accessibility_all_apps_button" msgid="8803738611398979849">"Izinsiza"</string>
+    <string name="accessibility_all_apps_button" msgid="8803738611398979849">"Izinhlelo zokusebenza"</string>
     <string name="accessibility_delete_button" msgid="3628162007991023603">"Susa"</string>
     <string name="delete_zone_label_all_apps_system_app" msgid="3683920959591819044">"Khipha isibuyekezo"</string>
     <string name="menu_add" msgid="3065046628354640854">"Engeza"</string>
@@ -96,10 +96,10 @@
     <string name="workspace_cling_title" msgid="738396473989890567">"Zizwe usekhaya"</string>
     <string name="workspace_cling_move_item" msgid="791013895761065070">"Ungafaka izinhlelo zakho zokusebenza ozithandayo lapha."</string>
     <string name="workspace_cling_open_all_apps" msgid="2459977609848572588">"Ukubona zonke izinhlelo zakho zokusebenza, thinta indingiliza."</string>
-    <string name="all_apps_cling_title" msgid="2559734712581447107">"Khetha ezinye izinsiza"</string>
-    <string name="all_apps_cling_add_item" msgid="5665035103260318891">"Ukwengeza insiza eskrinini sakho sasekhaya, thinta &amp;uyibambe."</string>
+    <string name="all_apps_cling_title" msgid="2559734712581447107">"Khetha izinhlelo zokusebenza"</string>
+    <string name="all_apps_cling_add_item" msgid="5665035103260318891">"Ukwengeza uhlelo lokusebenza eskrinini sakho sasekhaya, luthinte ulibambe."</string>
     <string name="folder_cling_title" msgid="4308949882377840953">"Hlela izinhlelo zakho zokusebenza ngamafolda"</string>
-    <string name="folder_cling_move_item" msgid="270598675060435169">"Ukususa insiza, thinta &amp; uyibambe."</string>
+    <string name="folder_cling_move_item" msgid="270598675060435169">"Ukususa uhlelo lokusebenza, thinta &amp; uyibambe."</string>
     <string name="folder_cling_create_folder" msgid="8352867485656129478">"Ukwenza ifolda entsha eskrinini sakho sasekhaya, beka uhlelo lokusebenza olulodwa phezulu kolunye."</string>
     <string name="cling_dismiss" msgid="2780907108735868381">"KULUNGILE"</string>
     <string name="folder_opened" msgid="1262064100943801533">"Ifolda ivulwe, <xliff:g id="WIDTH">%1$d</xliff:g> by <xliff:g id="HEIGHT">%2$d</xliff:g>"</string>
