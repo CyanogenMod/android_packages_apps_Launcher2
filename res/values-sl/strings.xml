@@ -80,7 +80,7 @@
     <string name="permdesc_install_shortcut" msgid="8634424803272077038">"Programu omogoča dodajanje bližnjic brez posredovanja uporabnika."</string>
     <string name="permlab_uninstall_shortcut" msgid="7696645932555926449">"odstrani bližnjice"</string>
     <string name="permdesc_uninstall_shortcut" msgid="274355570620220977">"Programu omogoča odstranjevanje bližnjic brez posredovanja uporabnika."</string>
-    <string name="permlab_read_settings" msgid="3452408290738106747">"branje nastavitev in bližnjic začetnega zaslona"</string>
+    <string name="permlab_read_settings" msgid="3452408290738106747">"branje nastavitev in bližnjic na začetnem zaslonu"</string>
     <string name="permdesc_read_settings" msgid="5788109303585403679">"Dovoli programu branje nastavitev in bližnjic na začetnem zaslonu."</string>
     <string name="permlab_write_settings" msgid="1360567537236705628">"zapis nastavitev in bližnjic začetnega zaslona"</string>
     <string name="permdesc_write_settings" msgid="8530105489115785531">"Dovoli programu spreminjanje nastavitev in bližnjic na začetnem zaslonu."</string>
