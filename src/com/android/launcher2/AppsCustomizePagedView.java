@@ -24,6 +24,8 @@ import android.appwidget.AppWidgetProviderInfo;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.LauncherActivityInfo;
+import android.content.pm.LauncherApps;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.content.res.Configuration;
@@ -40,6 +42,7 @@ import android.os.Bundle;
 import android.os.Process;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.util.SparseArray;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -433,7 +436,7 @@ public class AppsCustomizePagedView extends PagedViewWithDraggableItems implemen
         int width = MeasureSpec.getSize(widthMeasureSpec);
         int height = MeasureSpec.getSize(heightMeasureSpec);
         if (!isDataReady()) {
-            if (!mApps.isEmpty() && !mWidgets.isEmpty()) {
+            if (mApps.size() > 0 && !mWidgets.isEmpty()) {
                 setDataIsReady();
                 setMeasuredDimension(width, height);
                 onDataReady(width, height);
@@ -752,7 +755,10 @@ public class AppsCustomizePagedView extends PagedViewWithDraggableItems implemen
             }
         } else {
             PendingAddShortcutInfo createShortcutInfo = (PendingAddShortcutInfo) v.getTag();
-            Drawable icon = mIconCache.getFullResIcon(createShortcutInfo.shortcutActivityInfo);
+            // Widgets are only supported for current user, not for other profiles.
+            // Hence use myUserHandle().
+            Drawable icon = mIconCache.getFullResIcon(createShortcutInfo.shortcutActivityInfo,
+                    android.os.Process.myUserHandle());
             preview = Bitmap.createBitmap(icon.getIntrinsicWidth(),
                     icon.getIntrinsicHeight(), Bitmap.Config.ARGB_8888);
 
@@ -1550,6 +1556,7 @@ public class AppsCustomizePagedView extends PagedViewWithDraggableItems implemen
         Collections.sort(mApps, LauncherModel.getAppNameComparator());
         updatePageCountsAndInvalidateData();
     }
+
     private void addAppsWithoutInvalidate(ArrayList<ApplicationInfo> list) {
         // We add it in place, in alphabetical order
         int count = list.size();
@@ -1570,7 +1577,8 @@ public class AppsCustomizePagedView extends PagedViewWithDraggableItems implemen
         int length = list.size();
         for (int i = 0; i < length; ++i) {
             ApplicationInfo info = list.get(i);
-            if (info.intent.getComponent().equals(removeComponent)) {
+            if (info.user.equals(item.user)
+                    && info.intent.getComponent().equals(removeComponent)) {
                 return i;
             }
         }

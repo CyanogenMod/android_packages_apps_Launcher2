@@ -20,6 +20,7 @@ import java.util.ArrayList;
 
 import android.content.ComponentName;
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.util.Log;
@@ -94,7 +95,7 @@ class ShortcutInfo extends ItemInfo {
     }
 
     public void updateIcon(IconCache iconCache) {
-        mIcon = iconCache.getIcon(intent);
+        mIcon = iconCache.getIcon(intent, user);
         usingFallbackIcon = iconCache.isDefaultIcon(mIcon);
     }
 
@@ -105,17 +106,21 @@ class ShortcutInfo extends ItemInfo {
      * @param className the class name of the component representing the intent
      * @param launchFlags the launch flags
      */
-    final void setActivity(ComponentName className, int launchFlags) {
-        intent = new Intent(Intent.ACTION_MAIN);
-        intent.addCategory(Intent.CATEGORY_LAUNCHER);
-        intent.setComponent(className);
-        intent.setFlags(launchFlags);
+    final void setActivity(Intent intent) {
+        int launchFlags = Intent.FLAG_ACTIVITY_NEW_TASK |
+                Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED;
+        this.intent = new Intent();
+        this.intent.setFlags(launchFlags);
+        this.intent.addCategory(Intent.CATEGORY_LAUNCHER);
+        this.intent.setComponent(intent.getComponent());
+        this.intent.putExtras(intent.getExtras());
         itemType = LauncherSettings.BaseLauncherColumns.ITEM_TYPE_APPLICATION;
+        updateUser(this.intent);
     }
 
     @Override
-    void onAddToDatabase(ContentValues values) {
-        super.onAddToDatabase(values);
+    void onAddToDatabase(Context context, ContentValues values) {
+        super.onAddToDatabase(context, values);
 
         String titleStr = title != null ? title.toString() : null;
         values.put(LauncherSettings.BaseLauncherColumns.TITLE, titleStr);

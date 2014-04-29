@@ -43,6 +43,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.UserManager;
 import android.provider.Settings;
 import android.text.TextUtils;
 import android.util.AttributeSet;
@@ -67,7 +68,7 @@ public class LauncherProvider extends ContentProvider {
 
     private static final String DATABASE_NAME = "launcher.db";
 
-    private static final int DATABASE_VERSION = 12;
+    private static final int DATABASE_VERSION = 13;
 
     static final String AUTHORITY = "com.android.launcher2.settings";
 
@@ -311,7 +312,8 @@ public class LauncherProvider extends ContentProvider {
                     "iconResource TEXT," +
                     "icon BLOB," +
                     "uri TEXT," +
-                    "displayMode INTEGER" +
+                    "displayMode INTEGER," +
+                    "profileId INTEGER" +
                     ");");
 
             // Database was just created, so wipe any previous widgets
@@ -523,10 +525,41 @@ public class LauncherProvider extends ContentProvider {
                 version = 12;
             }
 
+            if (version < 13) {
+                // Add userId column
+                if (addProfileColumn(db)) {
+                    version = 13;
+                }
+            }
+
             if (version != DATABASE_VERSION) {
                 Log.w(TAG, "Destroying all old data.");
                 db.execSQL("DROP TABLE IF EXISTS " + TABLE_FAVORITES);
                 onCreate(db);
+            }
+        }
+
+        private boolean addProfileColumn(SQLiteDatabase db) {
+            db.beginTransaction();
+            try {
+                final UserManager um =
+                        (UserManager) mContext.getSystemService(Context.USER_SERVICE);
+                // Default to the serial number of this user, for older
+                // shortcuts.
+                long userSerialNumber = um.getSerialNumberForUser(
+                        android.os.Process.myUserHandle());
+                // Insert new column for holding user serial number
+                db.execSQL("ALTER TABLE favorites " +
+                        "ADD COLUMN profileId INTEGER DEFAULT "
+                        + userSerialNumber + ";");
+                db.setTransactionSuccessful();
+                return true;
+            } catch (SQLException ex) {
+                // Old version remains, which means we wipe old data
+                Log.e(TAG, ex.getMessage(), ex);
+                return false;
+            } finally {
+                db.endTransaction();
             }
         }
 

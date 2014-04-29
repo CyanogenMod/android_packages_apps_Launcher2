@@ -19,6 +19,7 @@ package com.android.launcher2;
 import java.util.ArrayList;
 
 import android.content.ContentValues;
+import android.content.Context;
 
 /**
  * Represents a folder containing shortcuts or apps.
@@ -75,8 +76,8 @@ class FolderInfo extends ItemInfo {
     }
 
     @Override
-    void onAddToDatabase(ContentValues values) {
-        super.onAddToDatabase(values);
+    void onAddToDatabase(Context context, ContentValues values) {
+        super.onAddToDatabase(context, values);
         values.put(LauncherSettings.Favorites.TITLE, title.toString());
     }
 

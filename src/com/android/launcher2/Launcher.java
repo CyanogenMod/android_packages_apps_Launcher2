@@ -43,6 +43,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
+import android.content.pm.LauncherApps;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.Configuration;
@@ -63,6 +64,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.os.StrictMode;
 import android.os.SystemClock;
+import android.os.UserHandle;
 import android.os.UserManager;
 import android.provider.Settings;
 import android.speech.RecognizerIntent;
@@ -1082,11 +1084,13 @@ public final class Launcher extends Activity
             return;
         }
 
-        final ShortcutInfo info = mModel.getShortcutInfo(getPackageManager(), data, this);
+        final ShortcutInfo info = mModel.getShortcutInfo(getPackageManager(), data,
+                android.os.Process.myUserHandle(), this);
 
         if (info != null) {
-            info.setActivity(data.getComponent(), Intent.FLAG_ACTIVITY_NEW_TASK |
-                    Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED);
+            // Necessary flags are added when the activity is launched via
+            // LauncherApps
+            info.setActivity(data);
             info.container = ItemInfo.NO_ID;
             mWorkspace.addApplicationShortcut(info, layout, container, screen, cellXY[0], cellXY[1],
                     isWorkspaceLocked(), cellX, cellY);
@@ -2144,13 +2148,27 @@ public final class Launcher extends Activity
             // private contract between launcher and may be ignored in the future).
             boolean useLaunchAnimation = (v != null) &&
                     !intent.hasExtra(INTENT_EXTRA_IGNORE_LAUNCH_ANIMATION);
+            UserHandle user = (UserHandle) intent.getParcelableExtra(ApplicationInfo.EXTRA_PROFILE);
+            LauncherApps launcherApps = (LauncherApps)
+                    this.getSystemService(Context.LAUNCHER_APPS_SERVICE);
             if (useLaunchAnimation) {
                 ActivityOptions opts = ActivityOptions.makeScaleUpAnimation(v, 0, 0,
                         v.getMeasuredWidth(), v.getMeasuredHeight());
-
-                startActivity(intent, opts.toBundle());
+                if (user == null || user.equals(android.os.Process.myUserHandle())) {
+                    // Could be launching some bookkeeping activity
+                    startActivity(intent, opts.toBundle());
+                } else {
+                    launcherApps.startActivityForProfile(intent.getComponent(),
+                            intent.getSourceBounds(),
+                            opts.toBundle(), user);
+                }
             } else {
-                startActivity(intent);
+                if (user == null || user.equals(android.os.Process.myUserHandle())) {
+                    startActivity(intent);
+                } else {
+                    launcherApps.startActivityForProfile(intent.getComponent(),
+                            intent.getSourceBounds(), null, user);
+                }
             }
             return true;
         } catch (SecurityException e) {
@@ -3771,19 +3789,19 @@ public final class Launcher extends Activity
      */
     public void bindComponentsRemoved(final ArrayList<String> packageNames,
                                       final ArrayList<ApplicationInfo> appInfos,
-                                      final boolean matchPackageNamesOnly) {
+            final boolean matchPackageNamesOnly, final UserHandle user) {
         if (waitUntilResume(new Runnable() {
             public void run() {
-                bindComponentsRemoved(packageNames, appInfos, matchPackageNamesOnly);
+                bindComponentsRemoved(packageNames, appInfos, matchPackageNamesOnly, user);
             }
         })) {
             return;
         }
 
         if (matchPackageNamesOnly) {
-            mWorkspace.removeItemsByPackageName(packageNames);
+            mWorkspace.removeItemsByPackageName(packageNames, user);
         } else {
-            mWorkspace.removeItemsByApplicationInfo(appInfos);
+            mWorkspace.removeItemsByApplicationInfo(appInfos, user);
         }
 
         if (mAppsCustomizeContent != null) {

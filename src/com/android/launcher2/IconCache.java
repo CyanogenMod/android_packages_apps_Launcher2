@@ -21,12 +21,16 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.content.pm.LauncherActivityInfo;
+import android.content.pm.LauncherApps;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
+import android.os.UserHandle;
+import android.os.UserManager;
 
 import java.util.HashMap;
 
@@ -44,11 +48,32 @@ public class IconCache {
         public String title;
     }
 
+    private static class CacheKey {
+        public ComponentName componentName;
+        public UserHandle user;
+
+        CacheKey(ComponentName componentName, UserHandle user) {
+            this.componentName = componentName;
+            this.user = user;
+        }
+
+        @Override
+        public int hashCode() {
+            return componentName.hashCode() + user.hashCode();
+        }
+
+        @Override
+        public boolean equals(Object o) {
+            CacheKey other = (CacheKey) o;
+            return other.componentName.equals(componentName) && other.user.equals(user);
+        }
+    }
+
     private final Bitmap mDefaultIcon;
     private final LauncherApplication mContext;
     private final PackageManager mPackageManager;
-    private final HashMap<ComponentName, CacheEntry> mCache =
-            new HashMap<ComponentName, CacheEntry>(INITIAL_ICON_CACHE_CAPACITY);
+    private final HashMap<CacheKey, CacheEntry> mCache =
+            new HashMap<CacheKey, CacheEntry>(INITIAL_ICON_CACHE_CAPACITY);
     private int mIconDpi;
 
     public IconCache(LauncherApplication context) {
@@ -65,10 +90,10 @@ public class IconCache {
 
     public Drawable getFullResDefaultActivityIcon() {
         return getFullResIcon(Resources.getSystem(),
-                android.R.mipmap.sym_def_app_icon);
+                android.R.mipmap.sym_def_app_icon, android.os.Process.myUserHandle());
     }
 
-    public Drawable getFullResIcon(Resources resources, int iconId) {
+    public Drawable getFullResIcon(Resources resources, int iconId, UserHandle user) {
         Drawable d;
         try {
             d = resources.getDrawableForDensity(iconId, mIconDpi);
@@ -76,30 +101,36 @@ public class IconCache {
             d = null;
         }
 
-        return (d != null) ? d : getFullResDefaultActivityIcon();
+        if (d == null) {
+            d = getFullResDefaultActivityIcon();
+        }
+        return ((UserManager) mContext.getSystemService(Context.USER_SERVICE))
+                .getBadgedDrawableForUser(d, user);
     }
 
-    public Drawable getFullResIcon(String packageName, int iconId) {
+    public Drawable getFullResIcon(String packageName, int iconId, UserHandle user) {
         Resources resources;
         try {
+            // TODO: Check if this needs to use the user param if we support
+            // shortcuts/widgets from other profiles. It won't work as is
+            // for packages that are only available in a different user profile.
             resources = mPackageManager.getResourcesForApplication(packageName);
         } catch (PackageManager.NameNotFoundException e) {
             resources = null;
         }
         if (resources != null) {
             if (iconId != 0) {
-                return getFullResIcon(resources, iconId);
+                return getFullResIcon(resources, iconId, user);
             }
         }
         return getFullResDefaultActivityIcon();
     }
 
-    public Drawable getFullResIcon(ResolveInfo info) {
-        return getFullResIcon(info.activityInfo);
+    public Drawable getFullResIcon(ResolveInfo info, UserHandle user) {
+        return getFullResIcon(info.activityInfo, user);
     }
 
-    public Drawable getFullResIcon(ActivityInfo info) {
-
+    public Drawable getFullResIcon(ActivityInfo info, UserHandle user) {
         Resources resources;
         try {
             resources = mPackageManager.getResourcesForApplication(
@@ -110,7 +141,7 @@ public class IconCache {
         if (resources != null) {
             int iconId = info.getIconResource();
             if (iconId != 0) {
-                return getFullResIcon(resources, iconId);
+                return getFullResIcon(resources, iconId, user);
             }
         }
         return getFullResDefaultActivityIcon();
@@ -149,38 +180,42 @@ public class IconCache {
     /**
      * Fill in "application" with the icon and label for "info."
      */
-    public void getTitleAndIcon(ApplicationInfo application, ResolveInfo info,
+    public void getTitleAndIcon(ApplicationInfo application, LauncherActivityInfo info,
             HashMap<Object, CharSequence> labelCache) {
         synchronized (mCache) {
-            CacheEntry entry = cacheLocked(application.componentName, info, labelCache);
+            CacheEntry entry = cacheLocked(application.componentName, info, labelCache,
+                    info.getUser());
 
             application.title = entry.title;
             application.iconBitmap = entry.icon;
         }
     }
 
-    public Bitmap getIcon(Intent intent) {
+    public Bitmap getIcon(Intent intent, UserHandle user) {
         synchronized (mCache) {
-            final ResolveInfo resolveInfo = mPackageManager.resolveActivity(intent, 0);
+            LauncherApps launcherApps = (LauncherApps)
+                    mContext.getSystemService(Context.LAUNCHER_APPS_SERVICE);
+            final LauncherActivityInfo launcherActInfo =
+                    launcherApps.resolveActivity(intent, user);
             ComponentName component = intent.getComponent();
 
-            if (resolveInfo == null || component == null) {
+            if (launcherActInfo == null || component == null) {
                 return mDefaultIcon;
             }
 
-            CacheEntry entry = cacheLocked(component, resolveInfo, null);
+            CacheEntry entry = cacheLocked(component, launcherActInfo, null, user);
             return entry.icon;
         }
     }
 
-    public Bitmap getIcon(ComponentName component, ResolveInfo resolveInfo,
+    public Bitmap getIcon(ComponentName component, LauncherActivityInfo info,
             HashMap<Object, CharSequence> labelCache) {
         synchronized (mCache) {
-            if (resolveInfo == null || component == null) {
+            if (info == null || component == null) {
                 return null;
             }
 
-            CacheEntry entry = cacheLocked(component, resolveInfo, labelCache);
+            CacheEntry entry = cacheLocked(component, info, labelCache, info.getUser());
             return entry.icon;
         }
     }
@@ -189,41 +224,29 @@ public class IconCache {
         return mDefaultIcon == icon;
     }
 
-    private CacheEntry cacheLocked(ComponentName componentName, ResolveInfo info,
-            HashMap<Object, CharSequence> labelCache) {
+    private CacheEntry cacheLocked(ComponentName componentName, LauncherActivityInfo info,
+            HashMap<Object, CharSequence> labelCache, UserHandle user) {
         CacheEntry entry = mCache.get(componentName);
         if (entry == null) {
             entry = new CacheEntry();
 
-            mCache.put(componentName, entry);
+            mCache.put(new CacheKey(componentName, user), entry);
 
-            ComponentName key = LauncherModel.getComponentNameFromResolveInfo(info);
+            ComponentName key = info.getComponentName();
             if (labelCache != null && labelCache.containsKey(key)) {
                 entry.title = labelCache.get(key).toString();
             } else {
-                entry.title = info.loadLabel(mPackageManager).toString();
+                entry.title = info.getLabel().toString();
                 if (labelCache != null) {
                     labelCache.put(key, entry.title);
                 }
             }
             if (entry.title == null) {
-                entry.title = info.activityInfo.name;
+                entry.title = info.getComponentName().getShortClassName();
             }
 
-            entry.icon = Utilities.createIconBitmap(
-                    getFullResIcon(info), mContext);
+            entry.icon = Utilities.createIconBitmap(info.getBadgedIcon(mIconDpi), mContext);
         }
         return entry;
-    }
-
-    public HashMap<ComponentName,Bitmap> getAllIcons() {
-        synchronized (mCache) {
-            HashMap<ComponentName,Bitmap> set = new HashMap<ComponentName,Bitmap>();
-            for (ComponentName cn : mCache.keySet()) {
-                final CacheEntry e = mCache.get(cn);
-                set.put(cn, e.icon);
-            }
-            return set;
-        }
     }
 }
