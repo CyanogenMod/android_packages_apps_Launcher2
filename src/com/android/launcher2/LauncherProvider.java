@@ -293,6 +293,11 @@ public class LauncherProvider extends ContentProvider {
             if (LOGD) Log.d(TAG, "creating new launcher database");
 
             mMaxId = 1;
+            final UserManager um =
+                    (UserManager) mContext.getSystemService(Context.USER_SERVICE);
+            // Default profileId to the serial number of this user.
+            long userSerialNumber = um.getSerialNumberForUser(
+                    android.os.Process.myUserHandle());
 
             db.execSQL("CREATE TABLE favorites (" +
                     "_id INTEGER PRIMARY KEY," +
@@ -313,7 +318,7 @@ public class LauncherProvider extends ContentProvider {
                     "icon BLOB," +
                     "uri TEXT," +
                     "displayMode INTEGER," +
-                    "profileId INTEGER" +
+                    "profileId INTEGER DEFAULT " + userSerialNumber +
                     ");");
 
             // Database was just created, so wipe any previous widgets

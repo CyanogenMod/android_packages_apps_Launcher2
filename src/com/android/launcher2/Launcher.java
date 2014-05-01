@@ -1292,6 +1292,9 @@ public final class Launcher extends Activity
             } else if (Intent.ACTION_USER_PRESENT.equals(action)) {
                 mUserPresent = true;
                 updateRunning();
+            } else if (Intent.ACTION_MANAGED_PROFILE_ADDED.equals(action)
+                    || Intent.ACTION_MANAGED_PROFILE_REMOVED.equals(action)) {
+                getModel().startLoader(false, -1);
             }
         }
     };
@@ -1304,6 +1307,8 @@ public final class Launcher extends Activity
         final IntentFilter filter = new IntentFilter();
         filter.addAction(Intent.ACTION_SCREEN_OFF);
         filter.addAction(Intent.ACTION_USER_PRESENT);
+        filter.addAction(Intent.ACTION_MANAGED_PROFILE_ADDED);
+        filter.addAction(Intent.ACTION_MANAGED_PROFILE_REMOVED);
         registerReceiver(mReceiver, filter);
         FirstFrameAnimatorHelper.initializeDrawListener(getWindow().getDecorView());
         mAttached = true;

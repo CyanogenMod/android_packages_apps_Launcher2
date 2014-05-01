@@ -31,6 +31,7 @@ import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
 import android.os.UserHandle;
 import android.os.UserManager;
+import android.util.Log;
 
 import java.util.HashMap;
 
@@ -226,11 +227,12 @@ public class IconCache {
 
     private CacheEntry cacheLocked(ComponentName componentName, LauncherActivityInfo info,
             HashMap<Object, CharSequence> labelCache, UserHandle user) {
-        CacheEntry entry = mCache.get(componentName);
+        CacheKey cacheKey = new CacheKey(componentName, user);
+        CacheEntry entry = mCache.get(cacheKey);
         if (entry == null) {
             entry = new CacheEntry();
 
-            mCache.put(new CacheKey(componentName, user), entry);
+            mCache.put(cacheKey, entry);
 
             ComponentName key = info.getComponentName();
             if (labelCache != null && labelCache.containsKey(key)) {
