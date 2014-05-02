@@ -879,7 +879,7 @@ public class LauncherModel extends BroadcastReceiver
         }
     }
 
-    private void forceReload() {
+    void forceReload() {
         resetLoadedState(true, true);
 
         // Do this here because if the launcher activity is running it will be restarted.
@@ -1918,9 +1918,9 @@ public class LauncherModel extends BroadcastReceiver
 
             final List<UserHandle> profiles = mUserManager.getUserProfiles();
 
-            // Clear the list
-            oldCallbacks.bindAllApplications(new ArrayList<ApplicationInfo>());
-            for (UserHandle user : profiles) {
+            final int profileCount = profiles.size();
+            for (int p = 0; p < profileCount; p++) {
+                UserHandle user = profiles.get(p);
                 List<LauncherActivityInfo> apps = null;
                 int N = Integer.MAX_VALUE;
 
@@ -1974,12 +1974,17 @@ public class LauncherModel extends BroadcastReceiver
 
                     final Callbacks callbacks = tryGetCallbacks(oldCallbacks);
                     final ArrayList<ApplicationInfo> added = mBgAllAppsList.added;
+                    final boolean firstProfile = p == 0;
                     mBgAllAppsList.added = new ArrayList<ApplicationInfo>();
                     mHandler.post(new Runnable() {
                         public void run() {
                             final long t = SystemClock.uptimeMillis();
                             if (callbacks != null) {
-                                callbacks.bindAppsAdded(added);
+                                if (firstProfile) {
+                                    callbacks.bindAllApplications(added);
+                                } else {
+                                    callbacks.bindAppsAdded(added);
+                                }
                                 if (DEBUG_LOADERS) {
                                     Log.d(TAG, "bound " + added.size() + " apps in "
                                         + (SystemClock.uptimeMillis() - t) + "ms");

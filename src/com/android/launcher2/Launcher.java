@@ -1294,7 +1294,7 @@ public final class Launcher extends Activity
                 updateRunning();
             } else if (Intent.ACTION_MANAGED_PROFILE_ADDED.equals(action)
                     || Intent.ACTION_MANAGED_PROFILE_REMOVED.equals(action)) {
-                getModel().startLoader(false, -1);
+                getModel().forceReload();
             }
         }
     };
