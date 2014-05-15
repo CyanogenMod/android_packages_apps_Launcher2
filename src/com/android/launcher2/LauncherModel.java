@@ -2529,7 +2529,7 @@ public class LauncherModel extends BroadcastReceiver
                     return result;
                 } else {
                     // TODO: Order this based on profile type rather than string compares.
-                    return b.user.toString().compareTo(a.user.toString());
+                    return a.user.toString().compareTo(b.user.toString());
                 }
             }
         };
