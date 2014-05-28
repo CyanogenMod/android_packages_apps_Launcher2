@@ -72,7 +72,7 @@ class ApplicationInfo extends ItemInfo {
         this.setActivity(componentName,
                 Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED);
 
-        int appFlags = info.getApplicationFlags();
+        int appFlags = info.getApplicationInfo().flags;
         if ((appFlags & android.content.pm.ApplicationInfo.FLAG_SYSTEM) == 0) {
             flags |= DOWNLOADED_FLAG;
         }

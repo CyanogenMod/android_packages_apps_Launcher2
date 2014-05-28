@@ -2163,16 +2163,16 @@ public final class Launcher extends Activity
                     // Could be launching some bookkeeping activity
                     startActivity(intent, opts.toBundle());
                 } else {
-                    launcherApps.startActivityForProfile(intent.getComponent(),
+                    launcherApps.startActivityForProfile(intent.getComponent(), user,
                             intent.getSourceBounds(),
-                            opts.toBundle(), user);
+                            opts.toBundle());
                 }
             } else {
                 if (user == null || user.equals(android.os.Process.myUserHandle())) {
                     startActivity(intent);
                 } else {
-                    launcherApps.startActivityForProfile(intent.getComponent(),
-                            intent.getSourceBounds(), null, user);
+                    launcherApps.startActivityForProfile(intent.getComponent(), user,
+                            intent.getSourceBounds(), null);
                 }
             }
             return true;
