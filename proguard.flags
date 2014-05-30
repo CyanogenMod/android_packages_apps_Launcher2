@@ -44,6 +44,10 @@
   public int getY();
 }
 
+-keep class com.android.launcher2.LauncherModel {
+  *;
+}
+
 -keep class com.android.launcher2.Workspace {
   public float getBackgroundAlpha();
   public void setBackgroundAlpha(float);
