@@ -1937,6 +1937,7 @@ public class LauncherModel extends BroadcastReceiver
 
             final List<UserHandle> profiles = mUserManager.getUserProfiles();
 
+            mBgAllAppsList.clear();
             final int profileCount = profiles.size();
             for (int p = 0; p < profileCount; p++) {
                 UserHandle user = profiles.get(p);
@@ -1948,7 +1949,6 @@ public class LauncherModel extends BroadcastReceiver
                 int batchSize = -1;
                 while (i < N && !mStopped) {
                     if (i == 0) {
-                        mBgAllAppsList.clear();
                         final long qiaTime = DEBUG_LOADERS ? SystemClock.uptimeMillis() : 0;
                         apps = mLauncherApps.getActivityList(null, user);
                         if (DEBUG_LOADERS) {
