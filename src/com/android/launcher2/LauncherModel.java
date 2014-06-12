@@ -795,49 +795,29 @@ public class LauncherModel extends BroadcastReceiver
         }
     }
 
-    // TODO: Remove before ship
-    public void onPackageChanged(UserHandle user, String packageName) {
-    }
-
-    // TODO: Remove before ship
-    public void onPackageRemoved(UserHandle user, String packageName) {
-    }
-
-    // TODO: Remove before ship
-    public void onPackageAdded(UserHandle user, String packageName) {
-    }
-
-    // TODO: Remove before ship
-    public void onPackagesAvailable(UserHandle user, String[] packageNames, boolean replacing) {
-    }
-
-    // TODO: Remove before ship
-    public void onPackagesUnavailable(UserHandle user, String[] packageNames, boolean replacing) {
-    }
-
     @Override
-    public void onPackageChanged(String packageName, UserHandle user) {
+    public void onPackageChanged(UserHandle user, String packageName) {
         int op = PackageUpdatedTask.OP_UPDATE;
         enqueuePackageUpdated(new PackageUpdatedTask(op, new String[] { packageName },
                 user));
     }
 
     @Override
-    public void onPackageRemoved(String packageName, UserHandle user) {
+    public void onPackageRemoved(UserHandle user, String packageName) {
         int op = PackageUpdatedTask.OP_REMOVE;
         enqueuePackageUpdated(new PackageUpdatedTask(op, new String[] { packageName },
                 user));
     }
 
     @Override
-    public void onPackageAdded(String packageName, UserHandle user) {
+    public void onPackageAdded(UserHandle user, String packageName) {
         int op = PackageUpdatedTask.OP_ADD;
         enqueuePackageUpdated(new PackageUpdatedTask(op, new String[] { packageName },
                 user));
     }
 
     @Override
-    public void onPackagesAvailable(String[] packageNames, UserHandle user, boolean replacing) {
+    public void onPackagesAvailable(UserHandle user, String[] packageNames, boolean replacing) {
         if (!replacing) {
             enqueuePackageUpdated(new PackageUpdatedTask(PackageUpdatedTask.OP_ADD, packageNames,
                     user));
@@ -855,7 +835,7 @@ public class LauncherModel extends BroadcastReceiver
     }
 
     @Override
-    public void onPackagesUnavailable(String[] packageNames, UserHandle user, boolean replacing) {
+    public void onPackagesUnavailable(UserHandle user, String[] packageNames, boolean replacing) {
         if (!replacing) {
             enqueuePackageUpdated(new PackageUpdatedTask(
                     PackageUpdatedTask.OP_UNAVAILABLE, packageNames,
