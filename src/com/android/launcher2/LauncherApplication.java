@@ -23,7 +23,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.LauncherApps;
-import android.content.pm.LauncherApps.OnAppsChangedListener;
 import android.content.res.Configuration;
 import android.database.ContentObserver;
 import android.os.Handler;
@@ -57,7 +56,7 @@ public class LauncherApplication extends Application {
         mModel = new LauncherModel(this, mIconCache);
         LauncherApps launcherApps = (LauncherApps)
                 getSystemService(Context.LAUNCHER_APPS_SERVICE);
-        launcherApps.addOnAppsChangedListener(mModel);
+        launcherApps.addOnAppsChangedCallback(mModel.getLauncherAppsCallback());
 
         // Register intent receivers
         IntentFilter filter = new IntentFilter();

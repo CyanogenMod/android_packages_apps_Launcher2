@@ -73,8 +73,7 @@ import java.util.Set;
  * LauncherModel object held in a static. Also provide APIs for updating the database state
  * for the Launcher.
  */
-public class LauncherModel extends BroadcastReceiver
-        implements LauncherApps.OnAppsChangedListener {
+public class LauncherModel extends BroadcastReceiver {
     static final boolean DEBUG_LOADERS = false;
     static final String TAG = "Launcher.Model";
 
@@ -156,6 +155,7 @@ public class LauncherModel extends BroadcastReceiver
 
     private final LauncherApps mLauncherApps;
     final UserManager mUserManager;
+    private final LauncherApps.OnAppsChangedCallback mLauncherAppsCallback;
 
     public interface Callbacks {
         public boolean setLoadOnResume();
@@ -194,7 +194,7 @@ public class LauncherModel extends BroadcastReceiver
         mPreviousConfigMcc = config.mcc;
         mLauncherApps = (LauncherApps) app.getSystemService(Context.LAUNCHER_APPS_SERVICE);
         mUserManager = (UserManager) app.getSystemService(Context.USER_SERVICE);
-
+        mLauncherAppsCallback = new LauncherAppsCallback();
     }
 
     /** Runs the specified runnable immediately if called from the main thread, otherwise it is
@@ -795,51 +795,53 @@ public class LauncherModel extends BroadcastReceiver
         }
     }
 
-    @Override
-    public void onPackageChanged(UserHandle user, String packageName) {
-        int op = PackageUpdatedTask.OP_UPDATE;
-        enqueuePackageUpdated(new PackageUpdatedTask(op, new String[] { packageName },
-                user));
+    public LauncherApps.OnAppsChangedCallback getLauncherAppsCallback() {
+        return mLauncherAppsCallback;
     }
 
-    @Override
-    public void onPackageRemoved(UserHandle user, String packageName) {
-        int op = PackageUpdatedTask.OP_REMOVE;
-        enqueuePackageUpdated(new PackageUpdatedTask(op, new String[] { packageName },
-                user));
-    }
-
-    @Override
-    public void onPackageAdded(UserHandle user, String packageName) {
-        int op = PackageUpdatedTask.OP_ADD;
-        enqueuePackageUpdated(new PackageUpdatedTask(op, new String[] { packageName },
-                user));
-    }
-
-    @Override
-    public void onPackagesAvailable(UserHandle user, String[] packageNames, boolean replacing) {
-        if (!replacing) {
-            enqueuePackageUpdated(new PackageUpdatedTask(PackageUpdatedTask.OP_ADD, packageNames,
-                    user));
-            if (mAppsCanBeOnRemoveableStorage) {
-                // Only rebind if we support removable storage. It catches the
-                // case where
-                // apps on the external sd card need to be reloaded
-                startLoaderFromBackground();
-            }
-        } else {
-            // If we are replacing then just update the packages in the list
-            enqueuePackageUpdated(new PackageUpdatedTask(PackageUpdatedTask.OP_UPDATE,
-                    packageNames, user));
-        }
-    }
-
-    @Override
-    public void onPackagesUnavailable(UserHandle user, String[] packageNames, boolean replacing) {
-        if (!replacing) {
+    private class LauncherAppsCallback extends LauncherApps.OnAppsChangedCallback {
+        @Override
+        public void onPackageChanged(String packageName, UserHandle user) {
             enqueuePackageUpdated(new PackageUpdatedTask(
-                    PackageUpdatedTask.OP_UNAVAILABLE, packageNames,
-                    user));
+                    PackageUpdatedTask.OP_UPDATE, new String[] { packageName }, user));
+        }
+
+        @Override
+        public void onPackageRemoved(String packageName, UserHandle user) {
+            enqueuePackageUpdated(new PackageUpdatedTask(
+                    PackageUpdatedTask.OP_REMOVE, new String[] { packageName }, user));
+        }
+
+        @Override
+        public void onPackageAdded(String packageName, UserHandle user) {
+            enqueuePackageUpdated(new PackageUpdatedTask(
+                    PackageUpdatedTask.OP_ADD, new String[] { packageName }, user));
+        }
+
+        @Override
+        public void onPackagesAvailable(String[] packageNames, UserHandle user, boolean replacing) {
+            if (!replacing) {
+                enqueuePackageUpdated(new PackageUpdatedTask(
+                        PackageUpdatedTask.OP_ADD, packageNames, user));
+                if (mAppsCanBeOnRemoveableStorage) {
+                    // Only rebind if we support removable storage. It catches the
+                    // case where apps on the external sd card need to be reloaded.
+                    startLoaderFromBackground();
+                }
+            } else {
+                // If we are replacing then just update the packages in the list
+                enqueuePackageUpdated(new PackageUpdatedTask(
+                        PackageUpdatedTask.OP_UPDATE, packageNames, user));
+            }
+        }
+
+        @Override
+        public void onPackagesUnavailable(String[] packageNames, UserHandle user,
+                boolean replacing) {
+            if (!replacing) {
+                enqueuePackageUpdated(new PackageUpdatedTask(
+                        PackageUpdatedTask.OP_UNAVAILABLE, packageNames, user));
+            }
         }
     }
 
