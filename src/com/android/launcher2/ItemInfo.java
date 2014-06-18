@@ -106,6 +106,11 @@ class ItemInfo {
     CharSequence title;
 
     /**
+     * Content description for the item.
+     */
+    String contentDescription;
+
+    /**
      * The position of the item in a drag-and-drop operation.
      */
     int[] dropPos = null;
@@ -126,6 +131,7 @@ class ItemInfo {
         itemType = info.itemType;
         container = info.container;
         user = info.user;
+        contentDescription = info.contentDescription;
         // tempdebug:
         LauncherModel.checkItemInfo(this);
     }

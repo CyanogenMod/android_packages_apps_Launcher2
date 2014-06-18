@@ -590,6 +590,8 @@ public class LauncherModel extends BroadcastReceiver {
                 }
 
                 folderInfo.title = c.getString(titleIndex);
+                folderInfo.contentDescription = mUserManager.getBadgedLabelForUser(
+                        folderInfo.title.toString(), folderInfo.user);
                 folderInfo.id = id;
                 folderInfo.container = c.getInt(containerIndex);
                 folderInfo.screen = c.getInt(screenIndex);
@@ -1449,6 +1451,8 @@ public class LauncherModel extends BroadcastReceiver {
                                 folderInfo.screen = c.getInt(screenIndex);
                                 folderInfo.cellX = c.getInt(cellXIndex);
                                 folderInfo.cellY = c.getInt(cellYIndex);
+                                folderInfo.contentDescription = mUserManager.getBadgedLabelForUser(
+                                        folderInfo.title.toString(), folderInfo.user);
 
                                 // check & update map of what's occupied
                                 if (!checkItemPlacement(occupied, folderInfo)) {
@@ -2240,6 +2244,8 @@ public class LauncherModel extends BroadcastReceiver {
         if (info.title == null) {
             info.title = componentName.getClassName();
         }
+
+        info.contentDescription = mUserManager.getBadgedLabelForUser(info.title.toString(), user);
         info.itemType = LauncherSettings.Favorites.ITEM_TYPE_APPLICATION;
         return info;
     }
@@ -2276,6 +2282,8 @@ public class LauncherModel extends BroadcastReceiver {
         // TODO: If there's an explicit component and we can't install that, delete it.
 
         info.title = c.getString(titleIndex);
+        info.contentDescription = mUserManager.getBadgedLabelForUser(
+                info.title.toString(), info.user);
 
         int iconType = c.getInt(iconTypeIndex);
         switch (iconType) {
@@ -2457,6 +2465,7 @@ public class LauncherModel extends BroadcastReceiver {
         info.setIcon(icon);
 
         info.title = name;
+        info.contentDescription = mUserManager.getBadgedLabelForUser(name, info.user);
         info.intent = intent;
         info.customIcon = customIcon;
         info.iconResource = iconResource;

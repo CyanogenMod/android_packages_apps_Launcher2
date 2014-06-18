@@ -94,6 +94,9 @@ public class BubbleTextView extends TextView {
                 new FastBitmapDrawable(b),
                 null, null);
         setText(info.title);
+        if (info.contentDescription != null) {
+            setContentDescription(info.contentDescription);
+        }
         setTag(info);
     }
 
