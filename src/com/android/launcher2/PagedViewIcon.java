@@ -58,6 +58,9 @@ public class PagedViewIcon extends TextView {
         mPressedCallback = cb;
         setCompoundDrawablesWithIntrinsicBounds(null, new FastBitmapDrawable(mIcon), null, null);
         setText(info.title);
+        if (info.contentDescription != null) {
+            setContentDescription(info.contentDescription);
+        }
         setTag(info);
     }
 

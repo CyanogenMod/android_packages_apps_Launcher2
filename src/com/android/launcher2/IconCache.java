@@ -47,6 +47,7 @@ public class IconCache {
     private static class CacheEntry {
         public Bitmap icon;
         public String title;
+        public String contentDescription;
     }
 
     private static class CacheKey {
@@ -73,6 +74,7 @@ public class IconCache {
     private final Bitmap mDefaultIcon;
     private final LauncherApplication mContext;
     private final PackageManager mPackageManager;
+    private final UserManager mUserManager;
     private final HashMap<CacheKey, CacheEntry> mCache =
             new HashMap<CacheKey, CacheEntry>(INITIAL_ICON_CACHE_CAPACITY);
     private int mIconDpi;
@@ -84,7 +86,7 @@ public class IconCache {
         mContext = context;
         mPackageManager = context.getPackageManager();
         mIconDpi = activityManager.getLauncherLargeIconDensity();
-
+        mUserManager = (UserManager) mContext.getSystemService(Context.USER_SERVICE);
         // need to set mIconDpi before getting default icon
         mDefaultIcon = makeDefaultIcon();
     }
@@ -105,8 +107,7 @@ public class IconCache {
         if (d == null) {
             d = getFullResDefaultActivityIcon();
         }
-        return ((UserManager) mContext.getSystemService(Context.USER_SERVICE))
-                .getBadgedDrawableForUser(d, user);
+        return mUserManager.getBadgedDrawableForUser(d, user);
     }
 
     public Drawable getFullResIcon(String packageName, int iconId, UserHandle user) {
@@ -189,6 +190,7 @@ public class IconCache {
 
             application.title = entry.title;
             application.iconBitmap = entry.icon;
+            application.contentDescription = entry.contentDescription;
         }
     }
 
@@ -246,7 +248,7 @@ public class IconCache {
             if (entry.title == null) {
                 entry.title = info.getComponentName().getShortClassName();
             }
-
+            entry.contentDescription = mUserManager.getBadgedLabelForUser(entry.title, user);
             entry.icon = Utilities.createIconBitmap(info.getBadgedIcon(mIconDpi), mContext);
         }
         return entry;

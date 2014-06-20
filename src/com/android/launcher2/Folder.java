@@ -524,6 +524,9 @@ public class Folder extends LinearLayout implements DragSource, View.OnClickList
         textView.setCompoundDrawablesWithIntrinsicBounds(null,
                 new FastBitmapDrawable(item.getIcon(mIconCache)), null, null);
         textView.setText(item.title);
+        if (item.contentDescription != null) {
+            textView.setContentDescription(item.contentDescription);
+        }
         textView.setTag(item);
 
         textView.setOnClickListener(this);
