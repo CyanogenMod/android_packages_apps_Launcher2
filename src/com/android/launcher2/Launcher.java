@@ -3914,6 +3914,11 @@ public final class Launcher extends Activity
                return false;
             }
         }
+        // Check if the system has requested skipping of first-use hints.
+        if (Settings.Secure.getInt(getContentResolver(),
+                Settings.Secure.SKIP_FIRST_USE_HINTS, 0) == 1) {
+            return false;
+        }
         return true;
     }
 
