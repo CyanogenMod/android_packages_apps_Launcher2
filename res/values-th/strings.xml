@@ -21,7 +21,7 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="application_name" msgid="8424725141379931883">"Launcher"</string>
     <string name="home" msgid="5921706419368316758">"หน้าแรก"</string>
-    <string name="uid_name" msgid="3371120195364560632">"แอปหลัก Android"</string>
+    <string name="uid_name" msgid="3371120195364560632">"แอปหลักแอนดรอยด์"</string>
     <string name="folder_name" msgid="8551881338202938211"></string>
     <string name="chooser_wallpaper" msgid="6063168087625352235">"เลือกวอลเปเปอร์จาก"</string>
     <string name="wallpaper_instructions" msgid="4215640646180727542">"ตั้งค่าวอลเปเปอร์"</string>
