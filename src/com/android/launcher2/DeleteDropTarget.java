@@ -26,6 +26,7 @@ import android.content.res.Resources;
 import android.graphics.PointF;
 import android.graphics.Rect;
 import android.graphics.drawable.TransitionDrawable;
+import android.os.UserManager;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewConfiguration;
@@ -149,6 +150,14 @@ public class DeleteDropTarget extends ButtonDropTarget {
             if ((appInfo.flags & ApplicationInfo.DOWNLOADED_FLAG) != 0) {
                 isUninstall = true;
             } else {
+                isVisible = false;
+            }
+            // If the user is not allowed to access the app details page or uninstall, then don't
+            // let them uninstall from here either.
+            UserManager userManager = (UserManager)
+                    getContext().getSystemService(Context.USER_SERVICE);
+            if (userManager.hasUserRestriction(UserManager.DISALLOW_APPS_CONTROL)
+                    || userManager.hasUserRestriction(UserManager.DISALLOW_UNINSTALL_APPS)) {
                 isVisible = false;
             }
         }
