@@ -590,8 +590,6 @@ public class LauncherModel extends BroadcastReceiver {
                 }
 
                 folderInfo.title = c.getString(titleIndex);
-                folderInfo.contentDescription = mUserManager.getBadgedLabelForUser(
-                        folderInfo.title.toString(), folderInfo.user);
                 folderInfo.id = id;
                 folderInfo.container = c.getInt(containerIndex);
                 folderInfo.screen = c.getInt(screenIndex);
@@ -1451,8 +1449,6 @@ public class LauncherModel extends BroadcastReceiver {
                                 folderInfo.screen = c.getInt(screenIndex);
                                 folderInfo.cellX = c.getInt(cellXIndex);
                                 folderInfo.cellY = c.getInt(cellYIndex);
-                                folderInfo.contentDescription = mUserManager.getBadgedLabelForUser(
-                                        folderInfo.title.toString(), folderInfo.user);
 
                                 // check & update map of what's occupied
                                 if (!checkItemPlacement(occupied, folderInfo)) {
