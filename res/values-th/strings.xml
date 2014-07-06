@@ -21,7 +21,7 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="application_name" msgid="8424725141379931883">"Launcher"</string>
     <string name="home" msgid="5921706419368316758">"หน้าแรก"</string>
-    <string name="uid_name" msgid="3371120195364560632">"แอปหลักแอนดรอยด์"</string>
+    <string name="uid_name" msgid="3371120195364560632">"แอปหลัก Android"</string>
     <string name="folder_name" msgid="8551881338202938211"></string>
     <string name="chooser_wallpaper" msgid="6063168087625352235">"เลือกวอลเปเปอร์จาก"</string>
     <string name="wallpaper_instructions" msgid="4215640646180727542">"ตั้งค่าวอลเปเปอร์"</string>
@@ -61,7 +61,7 @@
     <string name="accessibility_search_button" msgid="816822994629942611">"ค้นหา"</string>
     <string name="accessibility_voice_search_button" msgid="3938249215065842475">"Voice Search"</string>
     <string name="accessibility_all_apps_button" msgid="8803738611398979849">"แอปพลิเคชัน"</string>
-    <string name="accessibility_delete_button" msgid="3628162007991023603">"ลบ"</string>
+    <string name="accessibility_delete_button" msgid="3628162007991023603">"นำออก"</string>
     <string name="delete_zone_label_all_apps_system_app" msgid="3683920959591819044">"ถอนการติดตั้งการอัปเดต"</string>
     <string name="menu_add" msgid="3065046628354640854">"เพิ่ม"</string>
     <string name="menu_manage_apps" msgid="2308685199463588895">"จัดการแอปพลิเคชัน"</string>
