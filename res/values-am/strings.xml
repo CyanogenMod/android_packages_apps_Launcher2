@@ -36,13 +36,13 @@
     <string name="rename_folder_label" msgid="5646236631298452787">"አቃፊ ስም"</string>
     <string name="rename_folder_title" msgid="4544573104191526550">"አቃፊ እንደገና ሰይም"</string>
     <string name="rename_action" msgid="6016003384693240896">"እሺ"</string>
-    <string name="cancel_action" msgid="3811860427489435048">"ሰርዝ"</string>
+    <string name="cancel_action" msgid="3811860427489435048">"ይቅር"</string>
     <string name="menu_item_add_item" msgid="6233177331075781114">"ወደ መነሻ ማያ አክል"</string>
     <string name="group_applications" msgid="2103752818818161976">"መተግበሪያዎች"</string>
     <string name="group_shortcuts" msgid="9133529424900391877">"አቋራጮች"</string>
     <string name="group_widgets" msgid="6704978494073105844">"ፍርግሞች"</string>
     <string name="group_wallpapers" msgid="1568191644272224858">"ልጣፍ"</string>
-    <string name="completely_out_of_space" msgid="1759078539443491182">"የመነሻ ማያ ገጾችህ ላይ ተጨማሪ ቦታ የለም።"</string>
+    <string name="completely_out_of_space" msgid="1759078539443491182">"የመነሻ ማያ ገጾችዎ ላይ ተጨማሪ ቦታ የለም።"</string>
     <string name="out_of_space" msgid="8365249326091984698">"በዚህ መነሻ ማያ ላይ ምንም ቦታ የለም።"</string>
     <string name="hotseat_out_of_space" msgid="6304886797358479361">"በመትከያ ቦታው ላይ ተጨማሪ ክፍል የለም።"</string>
     <string name="invalid_hotseat_item" msgid="6545340627805449250">"ይህ ፍርግም ለማስቀመጫው በጣም ትልቅ ነው።"</string>
