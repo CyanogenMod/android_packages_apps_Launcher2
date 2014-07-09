@@ -143,7 +143,7 @@ class AllAppsList {
                 final LauncherActivityInfo info = matches.get(i);
                 ApplicationInfo applicationInfo = findApplicationInfoLocked(
                         info.getComponentName().getPackageName(),
-                        info.getComponentName().getShortClassName(),
+                        info.getComponentName().getClassName(),
                         user);
                 if (applicationInfo == null) {
                     add(new ApplicationInfo(info, user,
