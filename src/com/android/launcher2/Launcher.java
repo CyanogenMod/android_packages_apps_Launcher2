@@ -2128,7 +2128,7 @@ public final class Launcher extends Activity
         startActivitySafely(null, intent, "startApplicationDetailsActivity");
     }
 
-    void startApplicationUninstallActivity(ApplicationInfo appInfo) {
+    void startApplicationUninstallActivity(ApplicationInfo appInfo, UserHandle user) {
         if ((appInfo.flags & ApplicationInfo.DOWNLOADED_FLAG) == 0) {
             // System applications cannot be installed. For now, show a toast explaining that.
             // We may give them the option of disabling apps this way.
@@ -2141,6 +2141,9 @@ public final class Launcher extends Activity
                     Intent.ACTION_DELETE, Uri.fromParts("package", packageName, className));
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK |
                     Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
+            if (user != null) {
+                intent.putExtra(Intent.EXTRA_USER, user);
+            }
             startActivity(intent);
         }
     }
