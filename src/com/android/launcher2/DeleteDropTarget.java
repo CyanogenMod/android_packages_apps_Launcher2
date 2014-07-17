@@ -229,7 +229,7 @@ public class DeleteDropTarget extends ButtonDropTarget {
 
         if (isAllAppsApplication(d.dragSource, item)) {
             // Uninstall the application if it is being dragged from AppsCustomize
-            mLauncher.startApplicationUninstallActivity((ApplicationInfo) item);
+            mLauncher.startApplicationUninstallActivity((ApplicationInfo) item, item.user);
         } else if (isWorkspaceOrFolderApplication(d)) {
             LauncherModel.deleteItemFromDatabase(mLauncher, item);
         } else if (isWorkspaceFolder(d)) {
