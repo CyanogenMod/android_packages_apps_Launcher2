@@ -108,7 +108,7 @@ class ItemInfo {
     /**
      * Content description for the item.
      */
-    String contentDescription;
+    CharSequence contentDescription;
 
     /**
      * The position of the item in a drag-and-drop operation.

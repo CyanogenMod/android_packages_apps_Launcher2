@@ -47,7 +47,7 @@ public class IconCache {
     private static class CacheEntry {
         public Bitmap icon;
         public String title;
-        public String contentDescription;
+        public CharSequence contentDescription;
     }
 
     private static class CacheKey {
