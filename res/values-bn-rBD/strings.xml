@@ -93,7 +93,7 @@
     <string name="workspace_scroll_format" msgid="1704767047951143301">"%2$dটির %1$d নম্বর হোম স্ক্রীন"</string>
     <string name="apps_customize_apps_scroll_format" msgid="5494241912377704885">"%2$dটির মধ্যে %1$dটি অ্যাপ্লিকেশান পৃষ্ঠা"</string>
     <string name="apps_customize_widgets_scroll_format" msgid="5383009742241717437">"%2$dটির মধ্যে %1$dটি উইজেট পৃষ্ঠা"</string>
-    <string name="workspace_cling_title" msgid="738396473989890567">"নিজের বাড়ির মতো করে তুলুন"</string>
+    <string name="workspace_cling_title" msgid="738396473989890567">"নিজের মতো করে সাজান"</string>
     <string name="workspace_cling_move_item" msgid="791013895761065070">"আপনি এখানে আপনার পছন্দসই অ্যাপ্লিকেশানগুলি রাখতে পারেন৷"</string>
     <string name="workspace_cling_open_all_apps" msgid="2459977609848572588">"আপনার সমস্ত অ্যাপ্লিকেশান দেখতে, বৃত্তটি স্পর্শ করুন৷"</string>
     <string name="all_apps_cling_title" msgid="2559734712581447107">"কিছু অ্যাপ্লিকেশান চয়ন করুন"</string>
