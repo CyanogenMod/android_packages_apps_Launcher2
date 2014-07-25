@@ -2241,7 +2241,7 @@ public class LauncherModel extends BroadcastReceiver {
             info.title = componentName.getClassName();
         }
 
-        info.contentDescription = mUserManager.getBadgedLabelForUser(info.title.toString(), user);
+        info.contentDescription = mUserManager.getBadgedLabelForUser(info.title, user);
         info.itemType = LauncherSettings.Favorites.ITEM_TYPE_APPLICATION;
         return info;
     }
@@ -2279,7 +2279,7 @@ public class LauncherModel extends BroadcastReceiver {
 
         info.title = c.getString(titleIndex);
         info.contentDescription = mUserManager.getBadgedLabelForUser(
-                info.title.toString(), info.user);
+                info.title, info.user);
 
         int iconType = c.getInt(iconTypeIndex);
         switch (iconType) {
