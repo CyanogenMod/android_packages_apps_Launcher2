@@ -107,7 +107,7 @@ public class IconCache {
         if (d == null) {
             d = getFullResDefaultActivityIcon();
         }
-        return mUserManager.getBadgedDrawableForUser(d, user);
+        return mUserManager.getBadgedIconForUser(d, user);
     }
 
     public Drawable getFullResIcon(String packageName, int iconId, UserHandle user) {

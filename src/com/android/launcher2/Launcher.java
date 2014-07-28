@@ -51,10 +51,8 @@ import android.content.res.Resources;
 import android.database.ContentObserver;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.Rect;
-import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -1176,12 +1174,13 @@ public final class Launcher extends Activity
     }
 
     static int[] getSpanForWidget(Context context, PendingAddWidgetInfo info) {
-        return getSpanForWidget(context, info.componentName, info.minWidth, info.minHeight);
+        return getSpanForWidget(context, info.componentName, info.info.minWidth,
+                info.info.minHeight);
     }
 
     static int[] getMinSpanForWidget(Context context, PendingAddWidgetInfo info) {
-        return getSpanForWidget(context, info.componentName, info.minResizeWidth,
-                info.minResizeHeight);
+        return getSpanForWidget(context, info.componentName, info.info.minResizeWidth,
+                info.info.minResizeHeight);
     }
 
     /**
@@ -1248,6 +1247,7 @@ public final class Launcher extends Activity
         launcherInfo.spanY = spanXY[1];
         launcherInfo.minSpanX = mPendingAddInfo.minSpanX;
         launcherInfo.minSpanY = mPendingAddInfo.minSpanY;
+        launcherInfo.user = appWidgetInfo.getProfile();
 
         LauncherModel.addItemToDatabase(this, launcherInfo,
                 container, screen, cellXY[0], cellXY[1], false);
@@ -1791,7 +1791,9 @@ public final class Launcher extends Activity
             Intent intent = new Intent(AppWidgetManager.ACTION_APPWIDGET_CONFIGURE);
             intent.setComponent(appWidgetInfo.configure);
             intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId);
-            startActivityForResultSafely(intent, REQUEST_CREATE_APPWIDGET);
+            intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_PROVIDER_PROFILE,
+                    appWidgetInfo.getProfile());
+            startAppWidgetConfigureActivitySafely(intent);
         } else {
             // Otherwise just add it
             completeAddAppWidget(appWidgetId, info.container, info.screen, boundWidget,
@@ -1861,16 +1863,9 @@ public final class Launcher extends Activity
             // In this case, we either need to start an activity to get permission to bind
             // the widget, or we need to start an activity to configure the widget, or both.
             appWidgetId = getAppWidgetHost().allocateAppWidgetId();
-            Bundle options = info.bindOptions;
 
-            boolean success = false;
-            if (options != null) {
-                success = mAppWidgetManager.bindAppWidgetIdIfAllowed(appWidgetId,
-                        info.componentName, options);
-            } else {
-                success = mAppWidgetManager.bindAppWidgetIdIfAllowed(appWidgetId,
-                        info.componentName);
-            }
+            boolean success = mAppWidgetManager.bindAppWidgetIdIfAllowed(appWidgetId,
+                    info.info.getProfile(), info.componentName, info.bindOptions);
             if (success) {
                 addAppWidgetImpl(appWidgetId, info, null, info.info);
             } else {
@@ -1878,6 +1873,8 @@ public final class Launcher extends Activity
                 Intent intent = new Intent(AppWidgetManager.ACTION_APPWIDGET_BIND);
                 intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId);
                 intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_PROVIDER, info.componentName);
+                intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_PROVIDER_PROFILE,
+                        info.info.getProfile());
                 // TODO: we need to make sure that this accounts for the options bundle.
                 // intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_OPTIONS, options);
                 startActivityForResult(intent, REQUEST_BIND_APPWIDGET);
@@ -2203,6 +2200,15 @@ public final class Launcher extends Activity
             Log.e(TAG, "Unable to launch. tag=" + tag + " intent=" + intent, e);
         }
         return success;
+    }
+
+    void startAppWidgetConfigureActivitySafely(Intent intent) {
+        try {
+            mAppWidgetHost.startAppWidgetConfigureActivityForResult(this, intent,
+                    REQUEST_CREATE_APPWIDGET);
+        } catch (ActivityNotFoundException e) {
+            Toast.makeText(this, R.string.activity_not_found, Toast.LENGTH_SHORT).show();
+        }
     }
 
     void startActivityForResultSafely(Intent intent, int requestCode) {
