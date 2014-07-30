@@ -2146,12 +2146,17 @@ public final class Launcher extends Activity
         }
     }
 
-    void startApplicationDetailsActivity(ComponentName componentName) {
-        String packageName = componentName.getPackageName();
-        Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
-                Uri.fromParts("package", packageName, null));
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
-        startActivitySafely(null, intent, "startApplicationDetailsActivity");
+    void startApplicationDetailsActivity(ComponentName componentName, UserHandle user) {
+        LauncherApps launcherApps = (LauncherApps) getSystemService(Context.LAUNCHER_APPS_SERVICE);
+        try {
+            launcherApps.showAppDetailsForProfile(componentName, user, null, null);
+        } catch (SecurityException e) {
+            Toast.makeText(this, R.string.activity_not_found, Toast.LENGTH_SHORT).show();
+            Log.e(TAG, "Launcher does not have permission to launch settings");
+        } catch (ActivityNotFoundException e) {
+            Toast.makeText(this, R.string.activity_not_found, Toast.LENGTH_SHORT).show();
+            Log.e(TAG, "Unable to launch settings");
+        }
     }
 
     void startApplicationUninstallActivity(ApplicationInfo appInfo, UserHandle user) {
