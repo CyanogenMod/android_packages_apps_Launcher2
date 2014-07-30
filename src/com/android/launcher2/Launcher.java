@@ -101,11 +101,13 @@ import com.android.common.Search;
 import com.android.launcher.R;
 import com.android.launcher2.DropTarget.DragObject;
 
+import java.io.BufferedReader;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.FileDescriptor;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -268,6 +270,9 @@ public final class Launcher extends Activity
     private boolean mUserPresent = true;
     private boolean mVisible = false;
     private boolean mAttached = false;
+
+    private enum HostDevice { UNKNOWN, EMULATOR, REAL_DEVICE};
+    private HostDevice mHostDevice = HostDevice.UNKNOWN;
 
     private static LocaleConfiguration sLocaleConfiguration = null;
 
@@ -433,6 +438,27 @@ public final class Launcher extends Activity
 
         // On large interfaces, we want the screen to auto-rotate based on the current orientation
         unlockScreenOrientation(true);
+    }
+
+    private String getSystemPropertyFromShell(String propertyName) {
+        if (propertyName == null || propertyName.trim().equals("")) return "";
+        String propertyValue = "";
+        try {
+            java.lang.Process process =
+                    new ProcessBuilder("/system/bin/getprop", propertyName).start();
+            // try-with-resources
+            try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(
+                            process.getInputStream()))) {
+                    String line = bufferedReader.readLine();
+                    if (line != null) propertyValue = line.trim();
+            }
+            finally {
+                process.destroy();
+            }
+        } catch (java.io.IOException e) {
+            Log.e(TAG, "Couldn't find the property value for '" + propertyName + "'");
+        }
+        return propertyValue;
     }
 
     protected void onUserLeaveHint() {
@@ -3904,6 +3930,13 @@ public final class Launcher extends Activity
     private boolean isClingsEnabled() {
         // disable clings when running in a test harness
         if(ActivityManager.isRunningInTestHarness()) return false;
+
+        if (mHostDevice == HostDevice.UNKNOWN) {
+            mHostDevice = "1".equals(getSystemPropertyFromShell("ro.kernel.qemu")) ?
+                    HostDevice.EMULATOR : HostDevice.REAL_DEVICE;
+        }
+        // disable clings when running inside emulator
+        if (mHostDevice == HostDevice.EMULATOR) return false;
 
         // Restricted secondary users (child mode) will potentially have very few apps
         // seeded when they start up for the first time. Clings won't work well with that
