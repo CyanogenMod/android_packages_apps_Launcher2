@@ -22,6 +22,7 @@ import android.content.res.ColorStateList;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.drawable.TransitionDrawable;
+import android.os.UserHandle;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
@@ -81,8 +82,14 @@ public class InfoDropTarget extends ButtonDropTarget {
         } else if (d.dragInfo instanceof PendingAddItemInfo) {
             componentName = ((PendingAddItemInfo) d.dragInfo).componentName;
         }
+        final UserHandle user;
+        if (d.dragInfo instanceof ItemInfo) {
+            user = ((ItemInfo) d.dragInfo).user;
+        } else {
+            user = android.os.Process.myUserHandle();
+        }
         if (componentName != null) {
-            mLauncher.startApplicationDetailsActivity(componentName);
+            mLauncher.startApplicationDetailsActivity(componentName, user);
         }
 
         // There is no post-drop animation, so clean up the DragView now
