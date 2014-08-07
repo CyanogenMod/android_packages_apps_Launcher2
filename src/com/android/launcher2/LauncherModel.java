@@ -30,9 +30,7 @@ import android.content.Intent.ShortcutIconResource;
 import android.content.pm.ActivityInfo;
 import android.content.pm.LauncherActivityInfo;
 import android.content.pm.LauncherApps;
-import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
-import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.ResolveInfo;
 import android.content.res.Configuration;
 import android.content.res.Resources;
@@ -40,7 +38,6 @@ import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
-import android.os.Debug;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.HandlerThread;
@@ -2165,13 +2162,29 @@ public class LauncherModel extends BroadcastReceiver {
 
     // Returns a list of ResolveInfos/AppWindowInfos in sorted order
     public static ArrayList<Object> getSortedWidgetsAndShortcuts(Context context) {
+        ArrayList<Object> widgetsAndShortcuts = new ArrayList<Object>();
+
+        // Get all user profiles.
+        UserManager userManager = (UserManager) context.getSystemService(Context.USER_SERVICE);
+        List<UserHandle> profileList = userManager.getUserProfiles();
+        UserHandle[] profileArray = new UserHandle[profileList.size()];
+        profileList.toArray(profileArray);
+
+        // Add the widget providers for all user profiles.
+        AppWidgetManager widgetManager = (AppWidgetManager) context.getSystemService(
+                Context.APPWIDGET_SERVICE);
+        List<AppWidgetProviderInfo> providers = widgetManager.getInstalledProvidersForProfiles(
+                profileArray);
+        widgetsAndShortcuts.addAll(providers);
+
+        // Add all shortcuts for the user.
         PackageManager packageManager = context.getPackageManager();
-        final ArrayList<Object> widgetsAndShortcuts = new ArrayList<Object>();
-        widgetsAndShortcuts.addAll(AppWidgetManager.getInstance(context).getInstalledProviders());
         Intent shortcutsIntent = new Intent(Intent.ACTION_CREATE_SHORTCUT);
         widgetsAndShortcuts.addAll(packageManager.queryIntentActivities(shortcutsIntent, 0));
-        Collections.sort(widgetsAndShortcuts,
-            new LauncherModel.WidgetAndShortcutNameComparator(packageManager));
+
+        Collections.sort(widgetsAndShortcuts, new LauncherModel
+                .WidgetAndShortcutNameComparator(packageManager));
+
         return widgetsAndShortcuts;
     }
 
@@ -2604,6 +2617,7 @@ public class LauncherModel extends BroadcastReceiver {
         private Collator mCollator;
         private PackageManager mPackageManager;
         private HashMap<Object, String> mLabelCache;
+
         WidgetAndShortcutNameComparator(PackageManager pm) {
             mPackageManager = pm;
             mLabelCache = new HashMap<Object, String>();
@@ -2615,7 +2629,7 @@ public class LauncherModel extends BroadcastReceiver {
                 labelA = mLabelCache.get(a);
             } else {
                 labelA = (a instanceof AppWidgetProviderInfo) ?
-                    ((AppWidgetProviderInfo) a).label :
+                    ((AppWidgetProviderInfo) a).loadLabel(mPackageManager) :
                     ((ResolveInfo) a).loadLabel(mPackageManager).toString();
                 mLabelCache.put(a, labelA);
             }
@@ -2623,11 +2637,15 @@ public class LauncherModel extends BroadcastReceiver {
                 labelB = mLabelCache.get(b);
             } else {
                 labelB = (b instanceof AppWidgetProviderInfo) ?
-                    ((AppWidgetProviderInfo) b).label :
+                    ((AppWidgetProviderInfo) b).loadLabel(mPackageManager) :
                     ((ResolveInfo) b).loadLabel(mPackageManager).toString();
                 mLabelCache.put(b, labelB);
             }
-            return mCollator.compare(labelA, labelB);
+            final int compareResult = mCollator.compare(labelA, labelB);
+            if (compareResult != 0) {
+                return compareResult;
+            }
+            return 0;
         }
     };
 
