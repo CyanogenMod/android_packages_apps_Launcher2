@@ -3028,8 +3028,8 @@ public class CellLayout extends ViewGroup {
             minWidth = ((LauncherAppWidgetInfo) info).minWidth;
             minHeight = ((LauncherAppWidgetInfo) info).minHeight;
         } else if (info instanceof PendingAddWidgetInfo) {
-            minWidth = ((PendingAddWidgetInfo) info).minWidth;
-            minHeight = ((PendingAddWidgetInfo) info).minHeight;
+            minWidth = ((PendingAddWidgetInfo) info).info.minWidth;
+            minHeight = ((PendingAddWidgetInfo) info).info.minHeight;
         } else {
             // It's not a widget, so it must be 1x1
             info.spanX = info.spanY = 1;
