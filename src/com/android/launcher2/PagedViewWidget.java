@@ -113,7 +113,7 @@ public class PagedViewWidget extends LinearLayout {
             image.setMaxWidth(maxWidth);
         }
         final TextView name = (TextView) findViewById(R.id.widget_name);
-        name.setText(info.label);
+        name.setText(info.loadLabel(getContext().getPackageManager()));
         final TextView dims = (TextView) findViewById(R.id.widget_dims);
         if (dims != null) {
             int hSpan = Math.min(cellSpan[0], LauncherModel.getCellCountX());

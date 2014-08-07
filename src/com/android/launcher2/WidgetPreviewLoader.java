@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
+import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -24,9 +25,10 @@ import android.graphics.Rect;
 import android.graphics.Shader;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
-import android.os.AsyncTask;
-import android.util.Log;
 
+import android.os.AsyncTask;
+import android.os.UserManager;
+import android.view.View;
 import com.android.launcher.R;
 
 import java.io.ByteArrayOutputStream;
@@ -128,6 +130,9 @@ public class WidgetPreviewLoader {
     private BitmapFactoryOptionsCache mCachedBitmapFactoryOptions = new BitmapFactoryOptionsCache();
 
     private int mAppIconSize;
+    private int mProfileBadgeSize;
+    private int mProfileBadgeMargin;
+
     private IconCache mIconCache;
 
     private final float sWidgetPreviewIconPaddingPercentage = 0.25f;
@@ -146,6 +151,10 @@ public class WidgetPreviewLoader {
         mContext = mLauncher = launcher;
         mPackageManager = mContext.getPackageManager();
         mAppIconSize = mContext.getResources().getDimensionPixelSize(R.dimen.app_icon_size);
+        mProfileBadgeSize = mContext.getResources().getDimensionPixelSize(
+                R.dimen.profile_badge_size);
+        mProfileBadgeMargin = mContext.getResources().getDimensionPixelSize(
+                R.dimen.profile_badge_margin);
         LauncherApplication app = (LauncherApplication) launcher.getApplicationContext();
         mIconCache = app.getIconCache();
         mDb = app.getWidgetPreviewCacheDb();
@@ -318,8 +327,11 @@ public class WidgetPreviewLoader {
         StringBuilder sb = new StringBuilder();
         String output;
         if (o instanceof AppWidgetProviderInfo) {
+            AppWidgetProviderInfo info = (AppWidgetProviderInfo) o;
             sb.append(WIDGET_PREFIX);
-            sb.append(((AppWidgetProviderInfo) o).provider.flattenToString());
+            sb.append(info.getProfile());
+            sb.append('/');
+            sb.append(info.provider.flattenToString());
             output = sb.toString();
             sb.setLength(0);
         } else {
@@ -447,8 +459,8 @@ public class WidgetPreviewLoader {
         int[] cellSpans = Launcher.getSpanForWidget(mLauncher, info);
         int maxWidth = maxWidthForWidgetPreview(cellSpans[0]);
         int maxHeight = maxHeightForWidgetPreview(cellSpans[1]);
-        return generateWidgetPreview(info.provider, info.previewImage, info.icon,
-                cellSpans[0], cellSpans[1], maxWidth, maxHeight, preview, null);
+        return generateWidgetPreview(info, cellSpans[0], cellSpans[1], maxWidth,
+                maxHeight, preview, null);
     }
 
     public int maxWidthForWidgetPreview(int spanX) {
@@ -461,22 +473,14 @@ public class WidgetPreviewLoader {
                 mWidgetSpacingLayout.estimateCellHeight(spanY));
     }
 
-    public Bitmap generateWidgetPreview(ComponentName provider, int previewImage,
-            int iconId, int cellHSpan, int cellVSpan, int maxPreviewWidth, int maxPreviewHeight,
-            Bitmap preview, int[] preScaledWidthOut) {
+    public Bitmap generateWidgetPreview(AppWidgetProviderInfo info, int cellHSpan,
+            int cellVSpan, int maxPreviewWidth, int maxPreviewHeight, Bitmap preview,
+            int[] preScaledWidthOut) {
         // Load the preview image if possible
-        String packageName = provider.getPackageName();
         if (maxPreviewWidth < 0) maxPreviewWidth = Integer.MAX_VALUE;
         if (maxPreviewHeight < 0) maxPreviewHeight = Integer.MAX_VALUE;
 
-        Drawable drawable = null;
-        if (previewImage != 0) {
-            drawable = mPackageManager.getDrawable(packageName, previewImage, null);
-            if (drawable == null) {
-                Log.w(TAG, "Can't load widget preview drawable 0x" +
-                        Integer.toHexString(previewImage) + " for provider: " + provider);
-            }
-        }
+        Drawable drawable = info.loadPreviewImage(mContext, 0);
 
         int previewWidth;
         int previewHeight;
@@ -521,9 +525,9 @@ public class WidgetPreviewLoader {
                         (int) ((previewDrawableWidth - mAppIconSize * iconScale) / 2);
                 int yoffset =
                         (int) ((previewDrawableHeight - mAppIconSize * iconScale) / 2);
-                if (iconId > 0)
-                    icon = mIconCache.getFullResIcon(packageName, iconId,
-                            android.os.Process.myUserHandle());
+                if (info.icon > 0)
+                    icon = mIconCache.getFullResIcon(info.provider.getPackageName(),
+                            info.icon, info.getProfile());
                 if (icon != null) {
                     renderDrawableToBitmap(icon, defaultPreview, hoffset,
                             yoffset, (int) (mAppIconSize * iconScale),
@@ -574,6 +578,44 @@ public class WidgetPreviewLoader {
             c.drawBitmap(defaultPreview, src, dest, p);
             c.setBitmap(null);
         }
+
+        // Finally, if the preview is for a managed profile, badge it.
+        if (!info.getProfile().equals(android.os.Process.myUserHandle())) {
+            final int previewBitmapWidth = preview.getWidth();
+            final int previewBitmapHeight = preview.getHeight();
+
+            // Figure out the badge location.
+            final Rect badgeLocation;
+            Configuration configuration = mContext.getResources().getConfiguration();
+            if (configuration.getLayoutDirection() == View.LAYOUT_DIRECTION_LTR) {
+                final int badgeLeft = previewBitmapWidth - mProfileBadgeSize - mProfileBadgeMargin;
+                final int badgeTop = previewBitmapHeight - mProfileBadgeSize - mProfileBadgeMargin;
+                final int badgeRight = badgeLeft + mProfileBadgeSize;
+                final int badgeBottom = badgeTop + mProfileBadgeSize;
+                badgeLocation = new Rect(badgeLeft, badgeTop, badgeRight, badgeBottom);
+            } else {
+                final int badgeLeft = mProfileBadgeMargin;
+                final int badgeTop = previewBitmapHeight - mProfileBadgeSize - mProfileBadgeMargin;
+                final int badgeRight = badgeLeft + mProfileBadgeSize;
+                final int badgeBottom = badgeTop + mProfileBadgeSize;
+                badgeLocation = new Rect(badgeLeft, badgeTop, badgeRight, badgeBottom);
+            }
+
+            // Badge the preview.
+            UserManager userManager = (UserManager) mContext.getSystemService(
+                    Context.USER_SERVICE);
+            BitmapDrawable previewDrawable = new BitmapDrawable(
+                    mContext.getResources(), preview);
+            Drawable badgedPreviewDrawable = userManager.getBadgedDrawableForUser(
+                    previewDrawable, info.getProfile(), badgeLocation, 0);
+
+            // Reture the nadged bitmap.
+            if (badgedPreviewDrawable instanceof BitmapDrawable) {
+                BitmapDrawable bitmapDrawable = (BitmapDrawable) badgedPreviewDrawable;
+                return bitmapDrawable.getBitmap();
+            }
+        }
+
         return preview;
     }
 
@@ -651,5 +693,4 @@ public class WidgetPreviewLoader {
             c.setBitmap(null);
         }
     }
-
 }

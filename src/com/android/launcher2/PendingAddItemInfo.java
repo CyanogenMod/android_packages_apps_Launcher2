@@ -48,12 +48,6 @@ class PendingAddShortcutInfo extends PendingAddItemInfo {
 }
 
 class PendingAddWidgetInfo extends PendingAddItemInfo {
-    int minWidth;
-    int minHeight;
-    int minResizeWidth;
-    int minResizeHeight;
-    int previewImage;
-    int icon;
     AppWidgetProviderInfo info;
     AppWidgetHostView boundWidget;
     Bundle bindOptions = null;
@@ -67,12 +61,6 @@ class PendingAddWidgetInfo extends PendingAddItemInfo {
         itemType = LauncherSettings.Favorites.ITEM_TYPE_APPWIDGET;
         this.info = i;
         componentName = i.provider;
-        minWidth = i.minWidth;
-        minHeight = i.minHeight;
-        minResizeWidth = i.minResizeWidth;
-        minResizeHeight = i.minResizeHeight;
-        previewImage = i.previewImage;
-        icon = i.icon;
         if (dataMimeType != null && data != null) {
             mimeType = dataMimeType;
             configurationData = data;
@@ -81,12 +69,6 @@ class PendingAddWidgetInfo extends PendingAddItemInfo {
 
     // Copy constructor
     public PendingAddWidgetInfo(PendingAddWidgetInfo copy) {
-        minWidth = copy.minWidth;
-        minHeight = copy.minHeight;
-        minResizeWidth = copy.minResizeWidth;
-        minResizeHeight = copy.minResizeHeight;
-        previewImage = copy.previewImage;
-        icon = copy.icon;
         info = copy.info;
         boundWidget = copy.boundWidget;
         mimeType = copy.mimeType;

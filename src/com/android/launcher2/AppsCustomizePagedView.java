@@ -452,7 +452,6 @@ public class AppsCustomizePagedView extends PagedViewWithDraggableItems implemen
         for (Object o : widgetsAndShortcuts) {
             if (o instanceof AppWidgetProviderInfo) {
                 AppWidgetProviderInfo widget = (AppWidgetProviderInfo) o;
-                widget.label = widget.label.trim();
                 if (widget.minWidth > 0 && widget.minHeight > 0) {
                     // Ensure that all widgets we show can be added on a workspace of this size
                     int[] spanXY = Launcher.getSpanForWidget(mLauncher, widget);
@@ -598,18 +597,9 @@ public class AppsCustomizePagedView extends PagedViewWithDraggableItems implemen
             @Override
             public void run() {
                 mWidgetLoadingId = mLauncher.getAppWidgetHost().allocateAppWidgetId();
-                // Options will be null for platforms with JB or lower, so this serves as an
-                // SDK level check.
-                if (options == null) {
-                    if (AppWidgetManager.getInstance(mLauncher).bindAppWidgetIdIfAllowed(
-                            mWidgetLoadingId, info.componentName)) {
-                        mWidgetCleanupState = WIDGET_BOUND;
-                    }
-                } else {
-                    if (AppWidgetManager.getInstance(mLauncher).bindAppWidgetIdIfAllowed(
-                            mWidgetLoadingId, info.componentName, options)) {
-                        mWidgetCleanupState = WIDGET_BOUND;
-                    }
+                if (AppWidgetManager.getInstance(mLauncher).bindAppWidgetIdIfAllowed(
+                        mWidgetLoadingId, info.info.getProfile(), info.componentName, options)) {
+                    mWidgetCleanupState = WIDGET_BOUND;
                 }
             }
         };
@@ -737,9 +727,8 @@ public class AppsCustomizePagedView extends PagedViewWithDraggableItems implemen
 
             int[] previewSizeBeforeScale = new int[1];
 
-            preview = mWidgetPreviewLoader.generateWidgetPreview(createWidgetInfo.componentName,
-                    createWidgetInfo.previewImage, createWidgetInfo.icon, spanX, spanY,
-                    maxWidth, maxHeight, null, previewSizeBeforeScale);
+            preview = mWidgetPreviewLoader.generateWidgetPreview(createWidgetInfo.info, spanX,
+                    spanY, maxWidth, maxHeight, null, previewSizeBeforeScale);
 
             // Compare the size of the drag preview to the preview in the AppsCustomize tray
             int previewWidthInAppsCustomize = Math.min(previewSizeBeforeScale[0],
@@ -773,7 +762,7 @@ public class AppsCustomizePagedView extends PagedViewWithDraggableItems implemen
 
         // Don't clip alpha values for the drag outline if we're using the default widget preview
         boolean clipAlpha = !(createItemInfo instanceof PendingAddWidgetInfo &&
-                (((PendingAddWidgetInfo) createItemInfo).previewImage == 0));
+                (((PendingAddWidgetInfo) createItemInfo).info.previewImage == 0));
 
         // Save the preview for the outline generation, then dim the preview
         outline = Bitmap.createScaledBitmap(preview, preview.getWidth(), preview.getHeight(),
