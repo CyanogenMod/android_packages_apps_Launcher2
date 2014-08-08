@@ -1814,12 +1814,7 @@ public final class Launcher extends Activity
             mPendingAddWidgetId = appWidgetId;
 
             // Launch over to configure widget, if needed
-            Intent intent = new Intent(AppWidgetManager.ACTION_APPWIDGET_CONFIGURE);
-            intent.setComponent(appWidgetInfo.configure);
-            intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId);
-            intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_PROVIDER_PROFILE,
-                    appWidgetInfo.getProfile());
-            startAppWidgetConfigureActivitySafely(intent);
+            startAppWidgetConfigureActivitySafely(appWidgetId);
         } else {
             // Otherwise just add it
             completeAddAppWidget(appWidgetId, info.container, info.screen, boundWidget,
@@ -2228,10 +2223,10 @@ public final class Launcher extends Activity
         return success;
     }
 
-    void startAppWidgetConfigureActivitySafely(Intent intent) {
+    void startAppWidgetConfigureActivitySafely(int appWidgetId) {
         try {
-            mAppWidgetHost.startAppWidgetConfigureActivityForResult(this, intent,
-                    REQUEST_CREATE_APPWIDGET);
+            mAppWidgetHost.startAppWidgetConfigureActivityForResult(this, appWidgetId, 0,
+                    REQUEST_CREATE_APPWIDGET, null);
         } catch (ActivityNotFoundException e) {
             Toast.makeText(this, R.string.activity_not_found, Toast.LENGTH_SHORT).show();
         }
