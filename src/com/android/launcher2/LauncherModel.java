@@ -2165,17 +2165,22 @@ public class LauncherModel extends BroadcastReceiver {
         ArrayList<Object> widgetsAndShortcuts = new ArrayList<Object>();
 
         // Get all user profiles.
-        UserManager userManager = (UserManager) context.getSystemService(Context.USER_SERVICE);
-        List<UserHandle> profileList = userManager.getUserProfiles();
-        UserHandle[] profileArray = new UserHandle[profileList.size()];
-        profileList.toArray(profileArray);
-
-        // Add the widget providers for all user profiles.
         AppWidgetManager widgetManager = (AppWidgetManager) context.getSystemService(
                 Context.APPWIDGET_SERVICE);
-        List<AppWidgetProviderInfo> providers = widgetManager.getInstalledProvidersForProfiles(
-                profileArray);
-        widgetsAndShortcuts.addAll(providers);
+        UserManager userManager = (UserManager) context.getSystemService(
+                Context.USER_SERVICE);
+
+        List<UserHandle> profiles = userManager.getUserProfiles();
+
+        // Add the widgets for the managed profiles next.
+        final int profileCount = profiles.size();
+        for (int i = 0; i < profileCount; i++) {
+            UserHandle profile = profiles.get(i);
+            // Add the widget providers for the profile.
+            List<AppWidgetProviderInfo> providers = widgetManager
+                    .getInstalledProvidersForProfile(profile);
+            widgetsAndShortcuts.addAll(providers);
+        }
 
         // Add all shortcuts for the user.
         PackageManager packageManager = context.getPackageManager();
