@@ -47,21 +47,21 @@
     <string name="hotseat_out_of_space" msgid="6304886797358479361">"ไม่มีที่ว่างใน hotseat"</string>
     <string name="invalid_hotseat_item" msgid="6545340627805449250">"วิดเจ็ตนี้มีขนาดใหญ่เกินไปสำหรับ hotseat"</string>
     <string name="shortcut_installed" msgid="7071557296331322355">"สร้างทางลัด \"<xliff:g id="NAME">%s</xliff:g>\" แล้ว"</string>
-    <string name="shortcut_uninstalled" msgid="2129499669449749995">"ทางลัด \"<xliff:g id="NAME">%s</xliff:g>\" ถูกนำออกแล้ว"</string>
+    <string name="shortcut_uninstalled" msgid="2129499669449749995">"ทางลัด \"<xliff:g id="NAME">%s</xliff:g>\" ถูกลบแล้ว"</string>
     <string name="shortcut_duplicate" msgid="4757756326465060694">"ทางลัด \"<xliff:g id="NAME">%s</xliff:g>\" มีอยู่แล้ว"</string>
     <string name="title_select_shortcut" msgid="1873670208166882222">"เลือกทางลัด"</string>
     <string name="title_select_application" msgid="1793455815754848652">"เลือกแอปพลิเคชัน"</string>
     <string name="all_apps_button_label" msgid="2578400570124163469">"แอปพลิเคชัน"</string>
     <string name="all_apps_home_button_label" msgid="1022222300329398558">"บ้าน"</string>
-    <string name="delete_zone_label_workspace" msgid="7153615831493049150">"นำออก"</string>
+    <string name="delete_zone_label_workspace" msgid="7153615831493049150">"ลบ"</string>
     <string name="delete_zone_label_all_apps" msgid="6664588234817475108">"ถอนการติดตั้ง"</string>
-    <string name="delete_target_label" msgid="665300185123139530">"นำออก"</string>
+    <string name="delete_target_label" msgid="665300185123139530">"ลบ"</string>
     <string name="delete_target_uninstall_label" msgid="748894921183769150">"ถอนการติดตั้ง"</string>
     <string name="info_target_label" msgid="4019495079517426980">"ข้อมูลแอปพลิเคชัน"</string>
     <string name="accessibility_search_button" msgid="816822994629942611">"ค้นหา"</string>
     <string name="accessibility_voice_search_button" msgid="3938249215065842475">"Voice Search"</string>
     <string name="accessibility_all_apps_button" msgid="8803738611398979849">"แอปพลิเคชัน"</string>
-    <string name="accessibility_delete_button" msgid="3628162007991023603">"นำออก"</string>
+    <string name="accessibility_delete_button" msgid="3628162007991023603">"ลบ"</string>
     <string name="delete_zone_label_all_apps_system_app" msgid="3683920959591819044">"ถอนการติดตั้งการอัปเดต"</string>
     <string name="menu_add" msgid="3065046628354640854">"เพิ่ม"</string>
     <string name="menu_manage_apps" msgid="2308685199463588895">"จัดการแอปพลิเคชัน"</string>
