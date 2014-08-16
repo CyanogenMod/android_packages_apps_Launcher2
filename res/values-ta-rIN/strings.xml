@@ -68,7 +68,7 @@
     <string name="menu_wallpaper" msgid="5837429080911269832">"வால்பேப்பர்"</string>
     <string name="menu_search" msgid="4826514464423239041">"தேடு"</string>
     <string name="menu_notifications" msgid="6424587053194766192">"அறிவிப்புகள்"</string>
-    <string name="menu_settings" msgid="3946232973327980394">"முறைமை அமைப்புகள்"</string>
+    <string name="menu_settings" msgid="3946232973327980394">"முறைமை அமைப்பு"</string>
     <string name="menu_help" msgid="4901160661634590633">"உதவி"</string>
     <string name="cab_menu_delete_app" msgid="4089398025537640349">"பயன்பாட்டை நிறுவல் நீக்கு"</string>
     <string name="cab_menu_app_info" msgid="914548323652698884">"பயன்பாட்டின் விவரங்கள்"</string>
@@ -80,10 +80,10 @@
     <string name="permdesc_install_shortcut" msgid="8634424803272077038">"பயனரின் அனுமதி இல்லாமல் குறுக்குவழிகளைச் சேர்க்கப் பயன்பாட்டை அனுமதிக்கிறது."</string>
     <string name="permlab_uninstall_shortcut" msgid="7696645932555926449">"குறுக்குவழிகளை நிறுவல் நீக்குதல்"</string>
     <string name="permdesc_uninstall_shortcut" msgid="274355570620220977">"பயனரின் அனுமதி இல்லாமல் குறுக்குவழிகளை அகற்ற பயன்பாட்டை அனுமதிக்கிறது."</string>
-    <string name="permlab_read_settings" msgid="3452408290738106747">"முகப்பின் அமைப்புகள் மற்றும் குறுக்குவழிகளைப் படித்தல்"</string>
-    <string name="permdesc_read_settings" msgid="5788109303585403679">"முகப்பில் உள்ள அமைப்புகள் மற்றும் குறுக்குவழிகளைப் படிப்பதற்கு பயன்பாட்டை அனுமதிக்கிறது."</string>
-    <string name="permlab_write_settings" msgid="1360567537236705628">"முகப்பின் அமைப்புகள் மற்றும் குறுக்குவழிகளை எழுதுதல்"</string>
-    <string name="permdesc_write_settings" msgid="8530105489115785531">"முகப்பில் உள்ள அமைப்புகள் மற்றும் குறுக்குவழிகளை மாற்றுவதற்கு பயன்பாட்டை அனுமதிக்கிறது."</string>
+    <string name="permlab_read_settings" msgid="3452408290738106747">"முகப்பின் அமைப்பு மற்றும் குறுக்குவழிகளைப் படித்தல்"</string>
+    <string name="permdesc_read_settings" msgid="5788109303585403679">"முகப்பில் உள்ள அமைப்பு மற்றும் குறுக்குவழிகளைப் படிப்பதற்கு பயன்பாட்டை அனுமதிக்கிறது."</string>
+    <string name="permlab_write_settings" msgid="1360567537236705628">"முகப்பின் அமைப்பு மற்றும் குறுக்குவழிகளை எழுதுதல்"</string>
+    <string name="permdesc_write_settings" msgid="8530105489115785531">"முகப்பில் உள்ள அமைப்பு மற்றும் குறுக்குவழிகளை மாற்றுவதற்கு பயன்பாட்டை அனுமதிக்கிறது."</string>
     <string name="gadget_error_text" msgid="8359351016167075858">"விட்ஜெட்டை ஏற்றுவதில் சிக்கல்"</string>
     <string name="uninstall_system_app_text" msgid="6429814133777046491">"இது ஒரு முறைமை பயன்பாடு என்பதால் நிறுவல் நீக்கம் செய்ய முடியாது."</string>
     <string name="dream_name" msgid="2847171357608437154">"ராக்கெட் லாஞ்சர்"</string>
