@@ -26,6 +26,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.ColorFilter;
+import android.graphics.Matrix;
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -323,6 +324,7 @@ public class WallpaperChooserDialogFragment extends DialogFragment implements
         Bitmap mBitmap;
         int mIntrinsicWidth;
         int mIntrinsicHeight;
+        Matrix mMatrix;
 
         /* package */void setBitmap(Bitmap bitmap) {
             mBitmap = bitmap;
@@ -330,16 +332,35 @@ public class WallpaperChooserDialogFragment extends DialogFragment implements
                 return;
             mIntrinsicWidth = mBitmap.getWidth();
             mIntrinsicHeight = mBitmap.getHeight();
+            mMatrix = null;
         }
 
         @Override
         public void draw(Canvas canvas) {
             if (mBitmap == null) return;
-            int width = canvas.getWidth();
-            int height = canvas.getHeight();
-            int x = (width - mIntrinsicWidth) / 2;
-            int y = (height - mIntrinsicHeight) / 2;
-            canvas.drawBitmap(mBitmap, x, y, null);
+ 
+            if (mMatrix == null) {
+                final int vwidth = canvas.getWidth();
+                final int vheight = canvas.getHeight();
+                final int dwidth = mIntrinsicWidth;
+                final int dheight = mIntrinsicHeight;
+
+                float scale = 1.0f;
+
+                if (dwidth < vwidth || dheight < vheight) {
+                    scale = Math.max((float) vwidth / (float) dwidth,
+                            (float) vheight / (float) dheight);
+                }
+
+                float dx = (vwidth - dwidth * scale) * 0.5f + 0.5f;
+                float dy = (vheight - dheight * scale) * 0.5f + 0.5f;
+
+                mMatrix = new Matrix();
+                mMatrix.setScale(scale, scale);
+                mMatrix.postTranslate((int) dx, (int) dy);
+            }
+
+            canvas.drawBitmap(mBitmap, mMatrix, null);
         }
 
         @Override
