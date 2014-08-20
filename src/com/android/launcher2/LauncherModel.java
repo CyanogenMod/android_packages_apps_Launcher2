@@ -152,7 +152,7 @@ public class LauncherModel extends BroadcastReceiver {
 
     private final LauncherApps mLauncherApps;
     final UserManager mUserManager;
-    private final LauncherApps.OnAppsChangedCallback mLauncherAppsCallback;
+    private final LauncherApps.Callback mLauncherAppsCallback;
 
     public interface Callbacks {
         public boolean setLoadOnResume();
@@ -792,11 +792,11 @@ public class LauncherModel extends BroadcastReceiver {
         }
     }
 
-    public LauncherApps.OnAppsChangedCallback getLauncherAppsCallback() {
+    public LauncherApps.Callback getLauncherAppsCallback() {
         return mLauncherAppsCallback;
     }
 
-    private class LauncherAppsCallback extends LauncherApps.OnAppsChangedCallback {
+    private class LauncherAppsCallback extends LauncherApps.Callback {
         @Override
         public void onPackageChanged(String packageName, UserHandle user) {
             enqueuePackageUpdated(new PackageUpdatedTask(

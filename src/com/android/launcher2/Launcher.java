@@ -2141,7 +2141,7 @@ public final class Launcher extends Activity
     void startApplicationDetailsActivity(ComponentName componentName, UserHandle user) {
         LauncherApps launcherApps = (LauncherApps) getSystemService(Context.LAUNCHER_APPS_SERVICE);
         try {
-            launcherApps.showAppDetailsForProfile(componentName, user, null, null);
+            launcherApps.startAppDetailsActivity(componentName, user, null, null);
         } catch (SecurityException e) {
             Toast.makeText(this, R.string.activity_not_found, Toast.LENGTH_SHORT).show();
             Log.e(TAG, "Launcher does not have permission to launch settings");
@@ -2189,7 +2189,7 @@ public final class Launcher extends Activity
                     // Could be launching some bookkeeping activity
                     startActivity(intent, opts.toBundle());
                 } else {
-                    launcherApps.startActivityForProfile(intent.getComponent(), user,
+                    launcherApps.startMainActivity(intent.getComponent(), user,
                             intent.getSourceBounds(),
                             opts.toBundle());
                 }
@@ -2197,7 +2197,7 @@ public final class Launcher extends Activity
                 if (user == null || user.equals(android.os.Process.myUserHandle())) {
                     startActivity(intent);
                 } else {
-                    launcherApps.startActivityForProfile(intent.getComponent(), user,
+                    launcherApps.startMainActivity(intent.getComponent(), user,
                             intent.getSourceBounds(), null);
                 }
             }
