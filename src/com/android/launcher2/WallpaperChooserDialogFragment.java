@@ -27,6 +27,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.ColorFilter;
 import android.graphics.Matrix;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -55,7 +56,6 @@ public class WallpaperChooserDialogFragment extends DialogFragment implements
             + "WallpaperChooserDialogFragment.EMBEDDED_KEY";
 
     private boolean mEmbedded;
-    private Bitmap mBitmap = null;
 
     private ArrayList<Integer> mThumbs;
     private ArrayList<Integer> mImages;
@@ -266,21 +266,22 @@ public class WallpaperChooserDialogFragment extends DialogFragment implements
     }
 
     class WallpaperLoader extends AsyncTask<Integer, Void, Bitmap> {
-        BitmapFactory.Options mOptions;
-
         WallpaperLoader() {
-            mOptions = new BitmapFactory.Options();
-            mOptions.inDither = false;
-            mOptions.inPreferredConfig = Bitmap.Config.ARGB_8888;
         }
 
         @Override
         protected Bitmap doInBackground(Integer... params) {
             if (isCancelled()) return null;
             try {
-                return BitmapFactory.decodeResource(getResources(),
-                        mImages.get(params[0]), mOptions);
+                final Drawable d = getResources().getDrawable(mImages.get(params[0]));
+                if (d instanceof BitmapDrawable) {
+                    return ((BitmapDrawable)d).getBitmap();
+                }
+                return null;
             } catch (OutOfMemoryError e) {
+                Log.w(TAG, String.format(
+                        "Out of memory trying to load wallpaper res=%08x", params[0]),
+                        e);
                 return null;
             }
         }
@@ -289,19 +290,12 @@ public class WallpaperChooserDialogFragment extends DialogFragment implements
         protected void onPostExecute(Bitmap b) {
             if (b == null) return;
 
-            if (!isCancelled() && !mOptions.mCancel) {
-                // Help the GC
-                if (mBitmap != null) {
-                    mBitmap.recycle();
-                }
-
+            if (!isCancelled()) {
                 View v = getView();
                 if (v != null) {
-                    mBitmap = b;
                     mWallpaperDrawable.setBitmap(b);
                     v.postInvalidate();
                 } else {
-                    mBitmap = null;
                     mWallpaperDrawable.setBitmap(null);
                 }
                 mLoader = null;
@@ -311,7 +305,6 @@ public class WallpaperChooserDialogFragment extends DialogFragment implements
         }
 
         void cancel() {
-            mOptions.requestCancelDecode();
             super.cancel(true);
         }
     }
