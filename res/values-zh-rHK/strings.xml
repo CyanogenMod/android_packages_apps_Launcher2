@@ -93,9 +93,9 @@
     <string name="workspace_scroll_format" msgid="1704767047951143301">"主畫面 %1$d，共 %2$d 個"</string>
     <string name="apps_customize_apps_scroll_format" msgid="5494241912377704885">"第 %1$d 個應用程式頁面，共 %2$d 頁"</string>
     <string name="apps_customize_widgets_scroll_format" msgid="5383009742241717437">"第 %1$d 個小工具頁面，共 %2$d 頁"</string>
-    <string name="workspace_cling_title" msgid="738396473989890567">"隨便一點，當作自己家"</string>
+    <string name="workspace_cling_title" msgid="738396473989890567">"隨心自訂"</string>
     <string name="workspace_cling_move_item" msgid="791013895761065070">"您可以將最愛的應用程式放在這裡。"</string>
-    <string name="workspace_cling_open_all_apps" msgid="2459977609848572588">"如要查看您所有的應用程式，請輕觸圓圈。"</string>
+    <string name="workspace_cling_open_all_apps" msgid="2459977609848572588">"輕觸圓圈，即可查看所有應用程式。"</string>
     <string name="all_apps_cling_title" msgid="2559734712581447107">"選擇一些應用程式"</string>
     <string name="all_apps_cling_add_item" msgid="5665035103260318891">"如要把應用程式加到主畫面，請輕觸並按住目標。"</string>
     <string name="folder_cling_title" msgid="4308949882377840953">"使用資料夾整理應用程式"</string>
