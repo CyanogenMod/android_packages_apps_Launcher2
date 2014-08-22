@@ -209,14 +209,17 @@ public class WallpaperChooserDialogFragment extends DialogFragment implements
         for (String extra : extras) {
             int res = resources.getIdentifier(extra, "drawable", packageName);
             if (res != 0) {
-                final int thumbRes = resources.getIdentifier(extra + "_small",
+                int thumbRes = resources.getIdentifier(extra + "_small",
                         "drawable", packageName);
 
-                if (thumbRes != 0) {
-                    mThumbs.add(thumbRes);
-                    mImages.add(res);
-                    // Log.d(TAG, "add: [" + packageName + "]: " + extra + " (" + res + ")");
+                //Log.d(TAG, "add: [" + packageName + "]: " + extra + " (res=" + res + " thumb=" + thumbRes + ")");
+                if (thumbRes == 0) {
+                    Log.w(TAG, "warning: built-in wallpaper " + extra
+                            + " without " + extra + "_thumb");
+                    thumbRes = R.mipmap.ic_launcher_wallpaper;
                 }
+                mThumbs.add(thumbRes);
+                mImages.add(res);
             }
         }
     }
