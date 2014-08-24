@@ -35,8 +35,8 @@
     <string name="external_drop_widget_pick_title" msgid="7040647073452295370">"ជ្រើស​ធាតុ​ក្រាហ្វិក ដើម្បី​​​បង្កើត"</string>
     <string name="rename_folder_label" msgid="5646236631298452787">"ឈ្មោះ​ថត"</string>
     <string name="rename_folder_title" msgid="4544573104191526550">"ប្ដូរ​ឈ្មោះ​ថត"</string>
-    <string name="rename_action" msgid="6016003384693240896">"យល់​ព្រម"</string>
-    <string name="cancel_action" msgid="3811860427489435048">"បោះ​បង់"</string>
+    <string name="rename_action" msgid="6016003384693240896">"យល់​ព្រម​"</string>
+    <string name="cancel_action" msgid="3811860427489435048">"បោះ​បង់​"</string>
     <string name="menu_item_add_item" msgid="6233177331075781114">"បន្ថែម​ទៅ​អេក្រង់​ដើម"</string>
     <string name="group_applications" msgid="2103752818818161976">"កម្មវិធី"</string>
     <string name="group_shortcuts" msgid="9133529424900391877">"ផ្លូវកាត់"</string>
@@ -101,7 +101,7 @@
     <string name="folder_cling_title" msgid="4308949882377840953">"រៀបចំ​កម្មវិធី​របស់​អ្នក​ដាក់​ក្នុង​​​ថត"</string>
     <string name="folder_cling_move_item" msgid="270598675060435169">"ដើម្បី​ផ្លាស់ទី​កម្មវិធី ប៉ះ &amp; សង្កត់​វា។"</string>
     <string name="folder_cling_create_folder" msgid="8352867485656129478">"ដើម្បី​បង្កើត​ថត​ថ្មី​លើ​អេក្រង់​ដើម​របស់​អ្នក ដាក់​កម្មវិធី​មួយ​​ត្រួត​លើ​កម្មវិធី​ផ្សេង​ទៀត។"</string>
-    <string name="cling_dismiss" msgid="2780907108735868381">"យល់​ព្រម"</string>
+    <string name="cling_dismiss" msgid="2780907108735868381">"យល់​ព្រម​"</string>
     <string name="folder_opened" msgid="1262064100943801533">"បាន​បើក​ថត <xliff:g id="WIDTH">%1$d</xliff:g> ដោយ <xliff:g id="HEIGHT">%2$d</xliff:g>"</string>
     <string name="folder_tap_to_close" msgid="1335478160661137579">"ប៉ះ ដើម្បី​បិទ​ថត"</string>
     <string name="folder_tap_to_rename" msgid="5201612989905472442">"ប៉ះ ដើម្បី​រក្សាទុក​ការ​ប្ដូរ​ឈ្មោះ"</string>
