@@ -2259,7 +2259,7 @@ public class LauncherModel extends BroadcastReceiver {
             info.title = componentName.getClassName();
         }
 
-        info.contentDescription = mUserManager.getBadgedLabelForUser(info.title, user);
+        info.contentDescription = mApp.getPackageManager().getUserBadgedLabel(info.title, user);
         info.itemType = LauncherSettings.Favorites.ITEM_TYPE_APPLICATION;
         return info;
     }
@@ -2296,7 +2296,7 @@ public class LauncherModel extends BroadcastReceiver {
         // TODO: If there's an explicit component and we can't install that, delete it.
 
         info.title = c.getString(titleIndex);
-        info.contentDescription = mUserManager.getBadgedLabelForUser(
+        info.contentDescription = mApp.getPackageManager().getUserBadgedLabel(
                 info.title, info.user);
 
         int iconType = c.getInt(iconTypeIndex);
@@ -2479,7 +2479,7 @@ public class LauncherModel extends BroadcastReceiver {
         info.setIcon(icon);
 
         info.title = name;
-        info.contentDescription = mUserManager.getBadgedLabelForUser(name, info.user);
+        info.contentDescription = mApp.getPackageManager().getUserBadgedLabel(name, info.user);
         info.intent = intent;
         info.customIcon = customIcon;
         info.iconResource = iconResource;

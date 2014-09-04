@@ -30,8 +30,6 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
 import android.os.UserHandle;
-import android.os.UserManager;
-import android.util.Log;
 
 import java.util.HashMap;
 
@@ -74,7 +72,6 @@ public class IconCache {
     private final Bitmap mDefaultIcon;
     private final LauncherApplication mContext;
     private final PackageManager mPackageManager;
-    private final UserManager mUserManager;
     private final HashMap<CacheKey, CacheEntry> mCache =
             new HashMap<CacheKey, CacheEntry>(INITIAL_ICON_CACHE_CAPACITY);
     private int mIconDpi;
@@ -86,7 +83,6 @@ public class IconCache {
         mContext = context;
         mPackageManager = context.getPackageManager();
         mIconDpi = activityManager.getLauncherLargeIconDensity();
-        mUserManager = (UserManager) mContext.getSystemService(Context.USER_SERVICE);
         // need to set mIconDpi before getting default icon
         mDefaultIcon = makeDefaultIcon();
     }
@@ -107,7 +103,7 @@ public class IconCache {
         if (d == null) {
             d = getFullResDefaultActivityIcon();
         }
-        return mUserManager.getBadgedIconForUser(d, user);
+        return mPackageManager.getUserBadgedIcon(d, user);
     }
 
     public Drawable getFullResIcon(String packageName, int iconId, UserHandle user) {
@@ -248,7 +244,7 @@ public class IconCache {
             if (entry.title == null) {
                 entry.title = info.getComponentName().getShortClassName();
             }
-            entry.contentDescription = mUserManager.getBadgedLabelForUser(entry.title, user);
+            entry.contentDescription = mPackageManager.getUserBadgedLabel(entry.title, user);
             entry.icon = Utilities.createIconBitmap(info.getBadgedIcon(mIconDpi), mContext);
         }
         return entry;
