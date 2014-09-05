@@ -73,6 +73,7 @@
             android:launchMode="singleTask"
             android:clearTaskOnLaunch="true"
             android:stateNotNeeded="true"
+            android:resumeWhilePausing="true"
             android:theme="@style/Theme"
             android:windowSoftInputMode="adjustPan"
             android:screenOrientation="nosensor">
