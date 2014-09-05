@@ -27,7 +27,6 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 
 import android.os.AsyncTask;
-import android.os.UserManager;
 import android.view.View;
 import com.android.launcher.R;
 
@@ -602,11 +601,9 @@ public class WidgetPreviewLoader {
             }
 
             // Badge the preview.
-            UserManager userManager = (UserManager) mContext.getSystemService(
-                    Context.USER_SERVICE);
             BitmapDrawable previewDrawable = new BitmapDrawable(
                     mContext.getResources(), preview);
-            Drawable badgedPreviewDrawable = userManager.getBadgedDrawableForUser(
+            Drawable badgedPreviewDrawable = mContext.getPackageManager().getUserBadgedDrawableForDensity(
                     previewDrawable, info.getProfile(), badgeLocation, 0);
 
             // Reture the nadged bitmap.
