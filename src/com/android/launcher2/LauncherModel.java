@@ -1116,11 +1116,6 @@ public class LauncherModel extends BroadcastReceiver {
             synchronized (mLock) {
                 mIsLoaderTaskRunning = true;
             }
-            // Optimize for end-user experience: if the Launcher is up and // running with the
-            // All Apps interface in the foreground, load All Apps first. Otherwise, load the
-            // workspace first (default).
-            final Callbacks cbk = mCallbacks.get();
-            final boolean loadWorkspaceFirst = cbk != null ? (!cbk.isAllAppsVisible()) : true;
 
             keep_running: {
                 // Elevate priority when Home launches for the first time to avoid
@@ -1131,13 +1126,11 @@ public class LauncherModel extends BroadcastReceiver {
                     Process.setThreadPriority(mIsLaunching
                             ? Process.THREAD_PRIORITY_DEFAULT : Process.THREAD_PRIORITY_BACKGROUND);
                 }
-                if (loadWorkspaceFirst) {
-                    if (DEBUG_LOADERS) Log.d(TAG, "step 1: loading workspace");
-                    loadAndBindWorkspace();
-                } else {
-                    if (DEBUG_LOADERS) Log.d(TAG, "step 1: special: loading all apps");
-                    loadAndBindAllApps();
-                }
+
+                // First step. Load workspace first, this is necessary since adding of apps from
+                // managed profile in all apps is deferred until onResume. See http://b/17336902.
+                if (DEBUG_LOADERS) Log.d(TAG, "step 1: loading workspace");
+                loadAndBindWorkspace();
 
                 if (mStopped) {
                     break keep_running;
@@ -1153,14 +1146,9 @@ public class LauncherModel extends BroadcastReceiver {
                 }
                 waitForIdle();
 
-                // second step
-                if (loadWorkspaceFirst) {
-                    if (DEBUG_LOADERS) Log.d(TAG, "step 2: loading all apps");
-                    loadAndBindAllApps();
-                } else {
-                    if (DEBUG_LOADERS) Log.d(TAG, "step 2: special: loading workspace");
-                    loadAndBindWorkspace();
-                }
+                // Second step. Load all apps.
+                if (DEBUG_LOADERS) Log.d(TAG, "step 2: loading all apps");
+                loadAndBindAllApps();
 
                 // Restore the default thread priority after we are done loading items
                 synchronized (mLock) {
