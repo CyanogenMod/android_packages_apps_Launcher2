@@ -100,7 +100,7 @@
     <string name="all_apps_cling_add_item" msgid="5665035103260318891">"Per aggiungere un\'applicazione alla schermata Home, tocca e tieni premuto."</string>
     <string name="folder_cling_title" msgid="4308949882377840953">"Organizza le tue applicazioni in cartelle"</string>
     <string name="folder_cling_move_item" msgid="270598675060435169">"Per spostare un\'applicazione, tocca e tieni premuto."</string>
-    <string name="folder_cling_create_folder" msgid="8352867485656129478">"Per creare una nuova cartella sulla schermata Home, impila un\'applicazione su un\'altra."</string>
+    <string name="folder_cling_create_folder" msgid="8352867485656129478">"Per creare una nuova cartella nella schermata Home, sovrapponi un\'applicazione a un\'altra."</string>
     <string name="cling_dismiss" msgid="2780907108735868381">"OK"</string>
     <string name="folder_opened" msgid="1262064100943801533">"Cartella aperta, <xliff:g id="WIDTH">%1$d</xliff:g> per <xliff:g id="HEIGHT">%2$d</xliff:g>"</string>
     <string name="folder_tap_to_close" msgid="1335478160661137579">"Tocca per chiudere la cartella"</string>
