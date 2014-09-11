@@ -56,7 +56,7 @@ public class LauncherApplication extends Application {
         mModel = new LauncherModel(this, mIconCache);
         LauncherApps launcherApps = (LauncherApps)
                 getSystemService(Context.LAUNCHER_APPS_SERVICE);
-        launcherApps.addCallback(mModel.getLauncherAppsCallback());
+        launcherApps.registerCallback(mModel.getLauncherAppsCallback());
 
         // Register intent receivers
         IntentFilter filter = new IntentFilter();
