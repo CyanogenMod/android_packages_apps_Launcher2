@@ -26,7 +26,7 @@
     <string name="chooser_wallpaper" msgid="6063168087625352235">"בחר טפט מ-"</string>
     <string name="wallpaper_instructions" msgid="4215640646180727542">"הגדר טפט"</string>
     <string name="pick_wallpaper" msgid="5630222540525626723">"טפטים"</string>
-    <string name="activity_not_found" msgid="217823393239365967">"האפליקציה לא מותקן."</string>
+    <string name="activity_not_found" msgid="217823393239365967">"האפליקציה לא מותקנת."</string>
     <string name="widgets_tab_label" msgid="9145860100000983599">"‏רכיבי Widget"</string>
     <string name="long_press_widget_to_add" msgid="7395697462851217506">"‏גע בפריט והחזק בו כדי לבחור Widget."</string>
     <string name="market" msgid="2652226429823445833">"קנה"</string>
