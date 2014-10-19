@@ -59,7 +59,7 @@
     <string name="delete_target_uninstall_label" msgid="748894921183769150">"Afinstaller"</string>
     <string name="info_target_label" msgid="4019495079517426980">"Oplysninger om appen"</string>
     <string name="accessibility_search_button" msgid="816822994629942611">"Søg"</string>
-    <string name="accessibility_voice_search_button" msgid="3938249215065842475">"Stemmesøgning"</string>
+    <string name="accessibility_voice_search_button" msgid="3938249215065842475">"Talesøgning"</string>
     <string name="accessibility_all_apps_button" msgid="8803738611398979849">"Apps"</string>
     <string name="accessibility_delete_button" msgid="3628162007991023603">"Fjern"</string>
     <string name="delete_zone_label_all_apps_system_app" msgid="3683920959591819044">"Afinstaller opdatering"</string>
