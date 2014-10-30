@@ -24,9 +24,9 @@
     <string name="uid_name" msgid="3371120195364560632">"Служби Android Core"</string>
     <string name="folder_name" msgid="8551881338202938211"></string>
     <string name="chooser_wallpaper" msgid="6063168087625352235">"Вибрати фоновий малюнок з"</string>
-    <string name="wallpaper_instructions" msgid="4215640646180727542">"Устан. фон. мал."</string>
-    <string name="pick_wallpaper" msgid="5630222540525626723">"Фонові мал."</string>
-    <string name="activity_not_found" msgid="217823393239365967">"Програму не встановлено."</string>
+    <string name="wallpaper_instructions" msgid="4215640646180727542">"Зробити фоном"</string>
+    <string name="pick_wallpaper" msgid="5630222540525626723">"Фонові малюнки"</string>
+    <string name="activity_not_found" msgid="217823393239365967">"Додаток видалено."</string>
     <string name="widgets_tab_label" msgid="9145860100000983599">"Віджети"</string>
     <string name="long_press_widget_to_add" msgid="7395697462851217506">"Торкніться й утримуйте, щоб вибрати віджет."</string>
     <string name="market" msgid="2652226429823445833">"Магазин"</string>
@@ -38,10 +38,10 @@
     <string name="rename_action" msgid="6016003384693240896">"OK"</string>
     <string name="cancel_action" msgid="3811860427489435048">"Скасувати"</string>
     <string name="menu_item_add_item" msgid="6233177331075781114">"Додати до Головної"</string>
-    <string name="group_applications" msgid="2103752818818161976">"Програми"</string>
+    <string name="group_applications" msgid="2103752818818161976">"Додатки"</string>
     <string name="group_shortcuts" msgid="9133529424900391877">"Ярлики"</string>
     <string name="group_widgets" msgid="6704978494073105844">"Віджети"</string>
-    <string name="group_wallpapers" msgid="1568191644272224858">"Фонові мал."</string>
+    <string name="group_wallpapers" msgid="1568191644272224858">"Фонові малюнки"</string>
     <string name="completely_out_of_space" msgid="1759078539443491182">"На головних екранах більше немає місця."</string>
     <string name="out_of_space" msgid="8365249326091984698">"На цьому екрані немає місця."</string>
     <string name="hotseat_out_of_space" msgid="6304886797358479361">"На гарячій панелі більше немає місця."</string>
@@ -57,10 +57,10 @@
     <string name="delete_zone_label_all_apps" msgid="6664588234817475108">"Видалити"</string>
     <string name="delete_target_label" msgid="665300185123139530">"Вилучити"</string>
     <string name="delete_target_uninstall_label" msgid="748894921183769150">"Видалити"</string>
-    <string name="info_target_label" msgid="4019495079517426980">"Інформація про програму"</string>
+    <string name="info_target_label" msgid="4019495079517426980">"Про додаток"</string>
     <string name="accessibility_search_button" msgid="816822994629942611">"Пошук"</string>
     <string name="accessibility_voice_search_button" msgid="3938249215065842475">"Голосовий пошук"</string>
-    <string name="accessibility_all_apps_button" msgid="8803738611398979849">"Програми"</string>
+    <string name="accessibility_all_apps_button" msgid="8803738611398979849">"Додатки"</string>
     <string name="accessibility_delete_button" msgid="3628162007991023603">"Видалити"</string>
     <string name="delete_zone_label_all_apps_system_app" msgid="3683920959591819044">"Видалити оновлення"</string>
     <string name="menu_add" msgid="3065046628354640854">"Додати"</string>
@@ -95,9 +95,9 @@
     <string name="apps_customize_widgets_scroll_format" msgid="5383009742241717437">"Сторінка віджетів %1$d з %2$d"</string>
     <string name="workspace_cling_title" msgid="738396473989890567">"Влаштовуйтеся зручніше"</string>
     <string name="workspace_cling_move_item" msgid="791013895761065070">"Тут можна розмістити вибрані програми."</string>
-    <string name="workspace_cling_open_all_apps" msgid="2459977609848572588">"Щоб побачити всі свої програми, торкніться кола."</string>
-    <string name="all_apps_cling_title" msgid="2559734712581447107">"Виберіть програми"</string>
-    <string name="all_apps_cling_add_item" msgid="5665035103260318891">"Щоб додати програму на головний екран, торкніться й утримуйте її."</string>
+    <string name="workspace_cling_open_all_apps" msgid="2459977609848572588">"Щоб побачити всі свої додатки, торкніться кола."</string>
+    <string name="all_apps_cling_title" msgid="2559734712581447107">"Виберіть додатки"</string>
+    <string name="all_apps_cling_add_item" msgid="5665035103260318891">"Щоб перенести додаток на головний екран, торкніться значка й утримуйте його."</string>
     <string name="folder_cling_title" msgid="4308949882377840953">"Організовуйте програми за допомогою папок"</string>
     <string name="folder_cling_move_item" msgid="270598675060435169">"Щоб перемістити програму, торкніться й утримуйте її."</string>
     <string name="folder_cling_create_folder" msgid="8352867485656129478">"Щоб створити нову папку на головному екрані, помістіть одну програму на іншу."</string>

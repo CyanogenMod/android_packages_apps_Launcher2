@@ -93,10 +93,10 @@
     <string name="workspace_scroll_format" msgid="1704767047951143301">"Pantalla de inicio %1$d de %2$d"</string>
     <string name="apps_customize_apps_scroll_format" msgid="5494241912377704885">"Páxina de aplicacións %1$d de %2$d"</string>
     <string name="apps_customize_widgets_scroll_format" msgid="5383009742241717437">"Páxina de widgets %1$d de %2$d"</string>
-    <string name="workspace_cling_title" msgid="738396473989890567">"Síntete coma na túa casa"</string>
+    <string name="workspace_cling_title" msgid="738396473989890567">"Personaliza o teu escritorio"</string>
     <string name="workspace_cling_move_item" msgid="791013895761065070">"Podes poñer aquí as túas aplicacións favoritas."</string>
     <string name="workspace_cling_open_all_apps" msgid="2459977609848572588">"Para ver todas as aplicacións, toca o círculo."</string>
-    <string name="all_apps_cling_title" msgid="2559734712581447107">"Escolle algunhas aplicacións"</string>
+    <string name="all_apps_cling_title" msgid="2559734712581447107">"Selecciona algunhas aplicacións"</string>
     <string name="all_apps_cling_add_item" msgid="5665035103260318891">"Para engadir unha aplicación á pantalla de inicio, mantena premida."</string>
     <string name="folder_cling_title" msgid="4308949882377840953">"Organiza as aplicacións en cartafoles"</string>
     <string name="folder_cling_move_item" msgid="270598675060435169">"Para mover unha aplicación, mantena premida."</string>

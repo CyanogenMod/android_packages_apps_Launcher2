@@ -59,7 +59,7 @@
     <string name="delete_target_uninstall_label" msgid="748894921183769150">"അണ്‍ഇസ്റ്റാളുചെയ്യുക"</string>
     <string name="info_target_label" msgid="4019495079517426980">"അപ്ലിക്കേഷൻ വിവരം"</string>
     <string name="accessibility_search_button" msgid="816822994629942611">"തിരയുക"</string>
-    <string name="accessibility_voice_search_button" msgid="3938249215065842475">"വോയ്‌സ് തിരയൽ"</string>
+    <string name="accessibility_voice_search_button" msgid="3938249215065842475">"ശബ്ദ തിരയൽ"</string>
     <string name="accessibility_all_apps_button" msgid="8803738611398979849">"അപ്ലിക്കേഷനുകൾ"</string>
     <string name="accessibility_delete_button" msgid="3628162007991023603">"നീക്കംചെയ്യുക"</string>
     <string name="delete_zone_label_all_apps_system_app" msgid="3683920959591819044">"അപ്‌ഡേറ്റ് അൺഇൻസ്റ്റാളുചെയ്യുക"</string>
