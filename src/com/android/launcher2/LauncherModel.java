@@ -26,6 +26,7 @@ import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.Intent.ShortcutIconResource;
 import android.content.pm.ActivityInfo;
 import android.content.pm.LauncherActivityInfo;
@@ -72,7 +73,14 @@ import java.util.Set;
  */
 public class LauncherModel extends BroadcastReceiver {
     static final boolean DEBUG_LOADERS = false;
+    static final boolean DEBUG_MP_SHORTCUT = false; // logging shorcut creation in managed profile
     static final String TAG = "Launcher.Model";
+
+    private static final String PACKAGES_SHORTCUT_SENT =
+            "packages_with_shortcut_intent_sent_for_user";
+
+    private static final String SHORTCUT_PREFS = "shortcut_prefs";
+
 
     private static final int ITEMS_CHUNK = 6; // batch size for the workspace icons
     private int mBatchSize; // 0 is all apps at once
@@ -621,6 +629,7 @@ public class LauncherModel extends BroadcastReceiver {
         }
 
         final ContentValues values = new ContentValues();
+
         final ContentResolver cr = context.getContentResolver();
         item.onAddToDatabase(context, values);
 
@@ -876,6 +885,84 @@ public class LauncherModel extends BroadcastReceiver {
             }
         }
     }
+
+    public void addShortcutsForNewInstalledManagedApps() {
+        final List<UserHandle> profiles = mUserManager.getUserProfiles();
+        for (UserHandle user : profiles) {
+            if (DEBUG_MP_SHORTCUT) Log.d(TAG, "addShortcutsForNewInstalledManagedApps");
+            if (Process.myUserHandle().equals(user)) {
+                continue;
+            }
+            long userSerial = mUserManager.getSerialNumberForUser(user);
+            String prefKey = PACKAGES_SHORTCUT_SENT + userSerial;
+
+            // Get installed packages.
+            List<LauncherActivityInfo> installedActivities =
+                    mLauncherApps.getActivityList(null, user);
+
+            // Get installed packages with the shortcut intent already sent.
+            SharedPreferences shortcutSentPref = mApp.getSharedPreferences(SHORTCUT_PREFS,
+                    Context.MODE_PRIVATE);
+            Set<String> installedAppsWithIntentSent = shortcutSentPref
+                    .getStringSet(prefKey,Collections.<String>emptySet());
+
+            // Send intents for newly installed packages.
+            HashSet<String> newInstalledAppsWithIntentSent = new HashSet<String>();
+            for (LauncherActivityInfo info : installedActivities) {
+                String packageName = info.getApplicationInfo().packageName;
+                if (!installedAppsWithIntentSent.contains(packageName)
+                        && !newInstalledAppsWithIntentSent.contains(packageName)) {
+                    sendInstallShortcutIntentForPackage(packageName, user);
+                }
+                newInstalledAppsWithIntentSent.add(packageName);
+            }
+
+           shortcutSentPref.edit().putStringSet(prefKey, newInstalledAppsWithIntentSent).apply();
+        }
+    }
+
+    private void sendInstallShortcutIntentForPackage(String packageName, UserHandle user) {
+        try {
+            List<LauncherActivityInfo> activityList =
+                    mLauncherApps.getActivityList(packageName, user);
+
+            if (activityList.isEmpty()) {
+                return;
+            }
+
+            // Pick the first main activity. The exact main activity doesn't matter,
+            // as we use startMainActivity from LauncherApps.
+            LauncherActivityInfo info = activityList.get(0);
+
+            Intent launchIntent = new Intent(Intent.ACTION_MAIN);
+            launchIntent.addCategory(Intent.CATEGORY_LAUNCHER);
+            launchIntent.setPackage(packageName);
+            launchIntent.setComponent(info.getComponentName());
+            CharSequence shortcutName = info.getLabel();
+
+            // Package this up into the magic shortcut-installing intent and send it.
+            Intent installShortcut = new Intent(InstallShortcutReceiver.ACTION_INSTALL_SHORTCUT);
+            installShortcut.putExtra(Intent.EXTRA_SHORTCUT_NAME, shortcutName);
+            installShortcut.putExtra(Intent.EXTRA_SHORTCUT_INTENT, launchIntent);
+            installShortcut.putExtra(Launcher.EXTRA_SHORTCUT_DUPLICATE, false);
+            installShortcut.putExtra(LauncherSettings.Favorites.ITEM_TYPE,
+                    LauncherSettings.Favorites.ITEM_TYPE_APPLICATION);
+            installShortcut.putExtra(ItemInfo.EXTRA_PROFILE, user);
+            installShortcut.setPackage(mApp.getPackageName());
+
+            mApp.sendBroadcast(installShortcut);
+            if (DEBUG_MP_SHORTCUT) {
+                Log.d(TAG, "send INSTALL_SHORTCUT for " + packageName + " with user " + user);
+            }
+        } catch (Resources.NotFoundException e) {
+            // Necessary resources were not found - log it but don't crash
+            Log.e(TAG, "Unable to load resources", e);
+        } catch (Exception e) {
+            // Unexpected externally-generated error - log it but don't crash
+            Log.e(TAG, "Unable to add shortcut", e);
+        }
+    }
+
 
     void forceReload() {
         resetLoadedState(true, true);
@@ -1283,6 +1370,7 @@ public class LauncherModel extends BroadcastReceiver {
                 sBgDbIconCache.clear();
 
                 final ArrayList<Long> itemsToRemove = new ArrayList<Long>();
+                final Set<Integer> usersToRemove = new HashSet<Integer>();
 
                 final Cursor c = contentResolver.query(
                         LauncherSettings.Favorites.CONTENT_URI, null, null, null, null);
@@ -1348,6 +1436,7 @@ public class LauncherModel extends BroadcastReceiver {
                                 user = mUserManager.getUserForSerialNumber(serialNumber);
                                 // If the user doesn't exist anymore, skip.
                                 if (user == null) {
+                                    usersToRemove.add(serialNumber);
                                     itemsToRemove.add(c.getLong(idIndex));
                                     continue;
                                 }
@@ -1520,6 +1609,20 @@ public class LauncherModel extends BroadcastReceiver {
                             Log.w(TAG, "Could not remove id = " + id);
                         }
                     }
+                }
+
+                if (usersToRemove.size() > 0) {
+                    SharedPreferences shortcutSentPref = mApp.getSharedPreferences(
+                            SHORTCUT_PREFS, Context.MODE_PRIVATE);
+                    SharedPreferences.Editor edit = shortcutSentPref.edit();
+                    for (int userSerial : usersToRemove) {
+                        if (DEBUG_MP_SHORTCUT) {
+                            Log.d(TAG, "remove app list for user " + userSerial);
+                        }
+                        String prefKey = PACKAGES_SHORTCUT_SENT + userSerial;
+                        edit.remove(prefKey);
+                    }
+                    edit.apply();
                 }
 
                 if (DEBUG_LOADERS) {
@@ -1899,6 +2002,8 @@ public class LauncherModel extends BroadcastReceiver {
                 return;
             }
 
+            addShortcutsForNewInstalledManagedApps();
+
             final Intent mainIntent = new Intent(Intent.ACTION_MAIN, null);
             mainIntent.addCategory(Intent.CATEGORY_LAUNCHER);
 
@@ -2046,6 +2151,31 @@ public class LauncherModel extends BroadcastReceiver {
                     for (int i=0; i<N; i++) {
                         if (DEBUG_LOADERS) Log.d(TAG, "mAllAppsList.addPackage " + packages[i]);
                         mBgAllAppsList.addPackage(context, packages[i], mUser);
+
+                        if (!Process.myUserHandle().equals(mUser)) {
+
+                            // If package added on a non-owner profile,
+                            // then send the install shortcut intent,
+                            // and add it to the persisted list.
+                            if (DEBUG_MP_SHORTCUT) Log.d(TAG, "managed app added, add shorcut");
+                            long userSerial = mUserManager.getSerialNumberForUser(mUser);
+                            String prefKey = PACKAGES_SHORTCUT_SENT + userSerial;
+
+                            SharedPreferences shortcutSentPref = mApp.getSharedPreferences(
+                                    SHORTCUT_PREFS, Context.MODE_PRIVATE);
+                            Set<String> installedAppsWithIntentSent = shortcutSentPref
+                                    .getStringSet(prefKey,Collections.<String>emptySet());
+
+                            // We will modify the set, so make a copy.
+                            installedAppsWithIntentSent =
+                                    new HashSet<String>(installedAppsWithIntentSent);
+                            boolean added = installedAppsWithIntentSent.add(packages[i]);
+                            if (added) {
+                                shortcutSentPref.edit()
+                                        .putStringSet(prefKey, installedAppsWithIntentSent).apply();
+                                sendInstallShortcutIntentForPackage(packages[i], mUser);
+                            }
+                        }
                     }
                     break;
                 case OP_UPDATE:
@@ -2059,6 +2189,29 @@ public class LauncherModel extends BroadcastReceiver {
                     }
                     break;
                 case OP_REMOVE:
+                    if (!Process.myUserHandle().equals(mUser)) {
+
+                        // If package removed on a non-owner profile,
+                        // then remove it from the persisted list.
+                        if (DEBUG_MP_SHORTCUT) {
+                            Log.d(TAG, "managed app removed, remove app from list");
+                        }
+                        long userSerial = mUserManager.getSerialNumberForUser(mUser);
+                        String prefKey = PACKAGES_SHORTCUT_SENT + userSerial;
+
+                        SharedPreferences shortcutSentPref = mApp.getSharedPreferences(
+                                SHORTCUT_PREFS, Context.MODE_PRIVATE);
+                        Set<String> installedAppsWithIntentSent = shortcutSentPref
+                                .getStringSet(prefKey,Collections.<String>emptySet());
+
+                        // We will modify the set, so make a copy.
+                        installedAppsWithIntentSent =
+                                new HashSet<String>(installedAppsWithIntentSent);
+                        installedAppsWithIntentSent.removeAll(Arrays.asList(mPackages));
+                        shortcutSentPref.edit().putStringSet(prefKey, installedAppsWithIntentSent)
+                                .apply();
+                    }
+                    // Fall through.
                 case OP_UNAVAILABLE:
                     for (int i=0; i<N; i++) {
                         if (DEBUG_LOADERS) Log.d(TAG, "mAllAppsList.removePackage " + packages[i]);
@@ -2427,6 +2580,18 @@ public class LauncherModel extends BroadcastReceiver {
             // If the intent is null, we can't construct a valid ShortcutInfo, so we return null
             Log.e(TAG, "Can't construct ShorcutInfo with null intent");
             return null;
+        }
+
+        if (data.getIntExtra(LauncherSettings.Favorites.ITEM_TYPE,
+                        LauncherSettings.Favorites.ITEM_TYPE_SHORTCUT)
+                == LauncherSettings.Favorites.ITEM_TYPE_APPLICATION) {
+            ShortcutInfo info = getShortcutInfo(context.getPackageManager(), intent, user, context);
+            if (info == null) {
+                return null;
+            }
+
+            info.intent = intent;
+            return info;
         }
 
         Bitmap icon = null;
