@@ -69,8 +69,6 @@ class ApplicationInfo extends ItemInfo {
 
         this.componentName = info.getComponentName();
         this.container = ItemInfo.NO_ID;
-        this.setActivity(componentName,
-                Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED);
 
         int appFlags = info.getApplicationInfo().flags;
         if ((appFlags & android.content.pm.ApplicationInfo.FLAG_SYSTEM) == 0) {
@@ -85,6 +83,7 @@ class ApplicationInfo extends ItemInfo {
         intent.addCategory(Intent.CATEGORY_LAUNCHER);
         intent.setComponent(info.getComponentName());
         intent.putExtra(EXTRA_PROFILE, user);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED);
         updateUser(intent);
     }
 
