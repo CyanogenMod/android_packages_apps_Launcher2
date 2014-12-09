@@ -84,6 +84,7 @@ class ApplicationInfo extends ItemInfo {
         intent.setComponent(info.getComponentName());
         intent.putExtra(EXTRA_PROFILE, user);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED);
+        itemType = LauncherSettings.BaseLauncherColumns.ITEM_TYPE_APPLICATION;
         updateUser(intent);
     }
 
@@ -94,21 +95,6 @@ class ApplicationInfo extends ItemInfo {
         intent = new Intent(info.intent);
         flags = info.flags;
         firstInstallTime = info.firstInstallTime;
-    }
-
-    /**
-     * Creates the application intent based on a component name and various launch flags.
-     * Sets {@link #itemType} to {@link LauncherSettings.BaseLauncherColumns#ITEM_TYPE_APPLICATION}.
-     *
-     * @param className the class name of the component representing the intent
-     * @param launchFlags the launch flags
-     */
-    final void setActivity(ComponentName className, int launchFlags) {
-        intent = new Intent(Intent.ACTION_MAIN);
-        intent.addCategory(Intent.CATEGORY_LAUNCHER);
-        intent.setComponent(className);
-        intent.setFlags(launchFlags);
-        itemType = LauncherSettings.BaseLauncherColumns.ITEM_TYPE_APPLICATION;
     }
 
     @Override
