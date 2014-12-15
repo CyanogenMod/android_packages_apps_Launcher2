@@ -67,7 +67,7 @@
     <string name="menu_manage_apps" msgid="2308685199463588895">"Rakenduste haldamine"</string>
     <string name="menu_wallpaper" msgid="5837429080911269832">"Taustapilt"</string>
     <string name="menu_search" msgid="4826514464423239041">"Otsing"</string>
-    <string name="menu_notifications" msgid="6424587053194766192">"Teadistused"</string>
+    <string name="menu_notifications" msgid="6424587053194766192">"Märguanded"</string>
     <string name="menu_settings" msgid="3946232973327980394">"Süsteemiseaded"</string>
     <string name="menu_help" msgid="4901160661634590633">"Abi"</string>
     <string name="cab_menu_delete_app" msgid="4089398025537640349">"Rakenduse desinstallimine"</string>
