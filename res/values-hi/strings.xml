@@ -27,7 +27,7 @@
     <string name="wallpaper_instructions" msgid="4215640646180727542">"वॉलपेपर सेट करें"</string>
     <string name="pick_wallpaper" msgid="5630222540525626723">"वॉलपेपर"</string>
     <string name="activity_not_found" msgid="217823393239365967">"ऐप्स इंस्‍टॉल नहीं है."</string>
-    <string name="widgets_tab_label" msgid="9145860100000983599">"विजेट"</string>
+    <string name="widgets_tab_label" msgid="9145860100000983599">"शॉर्टकट"</string>
     <string name="long_press_widget_to_add" msgid="7395697462851217506">"किसी विजेट को चुनने के लिए स्‍पर्श करके रखें."</string>
     <string name="market" msgid="2652226429823445833">"दुकान"</string>
     <string name="widget_dims_format" msgid="1386418557719032947">"%1$d × %2$d"</string>
@@ -36,11 +36,11 @@
     <string name="rename_folder_label" msgid="5646236631298452787">"फ़ोल्‍डर का नाम"</string>
     <string name="rename_folder_title" msgid="4544573104191526550">"फ़ोल्‍डर का नाम बदलें"</string>
     <string name="rename_action" msgid="6016003384693240896">"ठीक है"</string>
-    <string name="cancel_action" msgid="3811860427489435048">"रद्द करें"</string>
+    <string name="cancel_action" msgid="3811860427489435048">"रहने दें"</string>
     <string name="menu_item_add_item" msgid="6233177331075781114">"होम स्‍क्रीन में जोड़ें"</string>
     <string name="group_applications" msgid="2103752818818161976">"ऐप्स"</string>
     <string name="group_shortcuts" msgid="9133529424900391877">"शॉर्टकट"</string>
-    <string name="group_widgets" msgid="6704978494073105844">"विजेट"</string>
+    <string name="group_widgets" msgid="6704978494073105844">"शॉर्टकट"</string>
     <string name="group_wallpapers" msgid="1568191644272224858">"वॉलपेपर"</string>
     <string name="completely_out_of_space" msgid="1759078539443491182">"आपकी मुख्यपृष्ठ स्‍क्रीन पर अधिक स्थान नहीं है."</string>
     <string name="out_of_space" msgid="8365249326091984698">"इस होम स्‍क्रीन पर और स्थान नहीं है."</string>
@@ -67,7 +67,7 @@
     <string name="menu_manage_apps" msgid="2308685199463588895">"ऐप्स  प्रबंधित करें"</string>
     <string name="menu_wallpaper" msgid="5837429080911269832">"वॉलपेपर"</string>
     <string name="menu_search" msgid="4826514464423239041">"खोज"</string>
-    <string name="menu_notifications" msgid="6424587053194766192">"सूचनाएं"</string>
+    <string name="menu_notifications" msgid="6424587053194766192">"नोटिफिकेशन"</string>
     <string name="menu_settings" msgid="3946232973327980394">"सिस्टम सेटिंग"</string>
     <string name="menu_help" msgid="4901160661634590633">"सहायता"</string>
     <string name="cab_menu_delete_app" msgid="4089398025537640349">"ऐप्स अनइंस्‍टॉल करें"</string>
@@ -92,12 +92,12 @@
     <string name="default_scroll_format" msgid="4057140866420001240">"%2$d में से %1$d पृष्ठ"</string>
     <string name="workspace_scroll_format" msgid="1704767047951143301">"%2$d में %1$d होम स्‍क्रीन"</string>
     <string name="apps_customize_apps_scroll_format" msgid="5494241912377704885">"%2$d में से %1$d ऐप्स  पृष्ठ"</string>
-    <string name="apps_customize_widgets_scroll_format" msgid="5383009742241717437">"%2$d में %1$d विजेट पृष्ठ"</string>
-    <string name="workspace_cling_title" msgid="738396473989890567">"जैसा चाहें वैसा उपयोग करें"</string>
-    <string name="workspace_cling_move_item" msgid="791013895761065070">"आप अपने पसंदीदा ऐप्स  यहां रख सकते हैं."</string>
-    <string name="workspace_cling_open_all_apps" msgid="2459977609848572588">"अपने सभी ऐप्स  देखने के लिए, वृत्त को स्‍पर्श करें."</string>
-    <string name="all_apps_cling_title" msgid="2559734712581447107">"कुछ ऐप्स  चुनें"</string>
-    <string name="all_apps_cling_add_item" msgid="5665035103260318891">"किसी ऐप्स  को अपनी मुख्यपृष्ठ स्‍क्रीन से जोड़ने के लिए, उसे स्‍पर्श करके रखें."</string>
+    <string name="apps_customize_widgets_scroll_format" msgid="5383009742241717437">"%2$d में %1$d शॉर्टकट"</string>
+    <string name="workspace_cling_title" msgid="738396473989890567">"और यह रहा आपका मुख्यपृष्ठ"</string>
+    <string name="workspace_cling_move_item" msgid="791013895761065070">"आप अपने पसंदीदा ऐप्स यहां ला सकते हैं."</string>
+    <string name="workspace_cling_open_all_apps" msgid="2459977609848572588">"अपने सभी ऐप्स देखने के लिए, गोले को स्‍पर्श करें."</string>
+    <string name="all_apps_cling_title" msgid="2559734712581447107">"कुछ ऐप्स चुनें"</string>
+    <string name="all_apps_cling_add_item" msgid="5665035103260318891">"किसी ऐप्स को अपनी मुख्य स्‍क्रीन से जोड़ने के लिए, उसे स्‍पर्श करके रखें."</string>
     <string name="folder_cling_title" msgid="4308949882377840953">"अपने ऐप्स  को फ़ोल्डर के साथ व्‍यवस्थित करें"</string>
     <string name="folder_cling_move_item" msgid="270598675060435169">"किसी ऐप्स  को ले जाने के लिए, उसे स्‍पर्श करके रखें."</string>
     <string name="folder_cling_create_folder" msgid="8352867485656129478">"अपने मुख्यपृष्ठ स्‍क्रीन पर कोई नया फ़ोल्डर बनाने के लिए, एक ऐप्स  को दूसरे के शीर्ष पर स्‍टैक करें."</string>

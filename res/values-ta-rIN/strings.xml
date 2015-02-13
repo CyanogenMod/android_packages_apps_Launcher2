@@ -23,12 +23,12 @@
     <string name="home" msgid="5921706419368316758">"முகப்பு"</string>
     <string name="uid_name" msgid="3371120195364560632">"Android முக்கியப் பயன்பாடுகள்"</string>
     <string name="folder_name" msgid="8551881338202938211"></string>
-    <string name="chooser_wallpaper" msgid="6063168087625352235">"இதிலிருந்து வால்பேப்பரைத் தேர்வுசெய்யவும்"</string>
+    <string name="chooser_wallpaper" msgid="6063168087625352235">"வால்பேப்பரைத் தேர்வுசெய்க:"</string>
     <string name="wallpaper_instructions" msgid="4215640646180727542">"வால்பேப்பரை அமை"</string>
     <string name="pick_wallpaper" msgid="5630222540525626723">"வால்பேப்பர்கள்"</string>
     <string name="activity_not_found" msgid="217823393239365967">"பயன்பாடு நிறுவப்படவில்லை."</string>
-    <string name="widgets_tab_label" msgid="9145860100000983599">"விட்ஜெட்கள்"</string>
-    <string name="long_press_widget_to_add" msgid="7395697462851217506">"விட்ஜெட்டைத் தேர்வுசெய்ய தொட்டுப் &amp; பிடிக்கவும்."</string>
+    <string name="widgets_tab_label" msgid="9145860100000983599">"ஷார்ட்கட்ஸ்"</string>
+    <string name="long_press_widget_to_add" msgid="7395697462851217506">"விட்ஜெட்டைத் தேர்வுசெய்ய தொட்டுப் பிடிக்கவும்."</string>
     <string name="market" msgid="2652226429823445833">"ஷாப்"</string>
     <string name="widget_dims_format" msgid="1386418557719032947">"%1$d × %2$d"</string>
     <string name="external_drop_widget_error" msgid="2285187188524172774">"முகப்புத் திரையில் உருப்படியை விட முடியவில்லை."</string>
@@ -40,7 +40,7 @@
     <string name="menu_item_add_item" msgid="6233177331075781114">"முகப்புத் திரையில் சேர்"</string>
     <string name="group_applications" msgid="2103752818818161976">"பயன்பாடுகள்"</string>
     <string name="group_shortcuts" msgid="9133529424900391877">"குறுக்குவழிகள்"</string>
-    <string name="group_widgets" msgid="6704978494073105844">"விட்ஜெட்கள்"</string>
+    <string name="group_widgets" msgid="6704978494073105844">"ஷார்ட்கட்ஸ்"</string>
     <string name="group_wallpapers" msgid="1568191644272224858">"வால்பேப்பர்கள்"</string>
     <string name="completely_out_of_space" msgid="1759078539443491182">"முகப்புத் திரைகளில் இடமில்லை."</string>
     <string name="out_of_space" msgid="8365249326091984698">"முகப்புத் திரையில் இடமில்லை."</string>
@@ -97,9 +97,9 @@
     <string name="workspace_cling_move_item" msgid="791013895761065070">"பிடித்த பயன்பாடுகளை இங்கே வைக்கலாம்."</string>
     <string name="workspace_cling_open_all_apps" msgid="2459977609848572588">"எல்லா பயன்பாடுகளையும் பார்க்க, வட்டத்தைத் தொடவும்."</string>
     <string name="all_apps_cling_title" msgid="2559734712581447107">"சில பயன்பாடுகளைத் தேர்வுசெய்யவும்"</string>
-    <string name="all_apps_cling_add_item" msgid="5665035103260318891">"முகப்புத் திரையில் பயன்பாட்டைச் சேர்க்க, தொட்டுப் &amp; பிடிக்கவும்."</string>
+    <string name="all_apps_cling_add_item" msgid="5665035103260318891">"முகப்புத் திரையில் பயன்பாட்டைச் சேர்க்க, தொட்டுப் பிடிக்கவும்."</string>
     <string name="folder_cling_title" msgid="4308949882377840953">"பயன்பாடுகளைக் கோப்புறைகளுடன் ஒழுங்கமைக்கவும்"</string>
-    <string name="folder_cling_move_item" msgid="270598675060435169">"பயன்பாட்டை நகர்த்த, அதைத் தொட்டுப் &amp; பிடிக்கவும்."</string>
+    <string name="folder_cling_move_item" msgid="270598675060435169">"பயன்பாட்டை நகர்த்த, அதைத் தொட்டுப் பிடிக்கவும்."</string>
     <string name="folder_cling_create_folder" msgid="8352867485656129478">"முகப்புத் திரையில் புதிய கோப்புறையை உருவாக்க, ஒரு பயன்பாட்டின் மீது மற்றொன்றை அடுக்கவும்."</string>
     <string name="cling_dismiss" msgid="2780907108735868381">"சரி"</string>
     <string name="folder_opened" msgid="1262064100943801533">"திறக்கப்பட்டக் கோப்புறை, <xliff:g id="WIDTH">%1$d</xliff:g> x <xliff:g id="HEIGHT">%2$d</xliff:g>"</string>
