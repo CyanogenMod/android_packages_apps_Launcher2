@@ -21,7 +21,7 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="application_name" msgid="8424725141379931883">"አስነሺ"</string>
     <string name="home" msgid="5921706419368316758">"መነሻ"</string>
-    <string name="uid_name" msgid="3371120195364560632">"የAndroid ኮር ትግበራዎች"</string>
+    <string name="uid_name" msgid="3371120195364560632">"የAndroid ኮር መተግበሪያዎች"</string>
     <string name="folder_name" msgid="8551881338202938211"></string>
     <string name="chooser_wallpaper" msgid="6063168087625352235">"ልጣፍ ምረጥ ከ"</string>
     <string name="wallpaper_instructions" msgid="4215640646180727542">"ልጣፍ አዘጋጅ"</string>
@@ -64,7 +64,7 @@
     <string name="accessibility_delete_button" msgid="3628162007991023603">"አስወግድ"</string>
     <string name="delete_zone_label_all_apps_system_app" msgid="3683920959591819044">"ማዘመን አትጫን"</string>
     <string name="menu_add" msgid="3065046628354640854">"አክል"</string>
-    <string name="menu_manage_apps" msgid="2308685199463588895">"ትግበራዎች አደራጅ"</string>
+    <string name="menu_manage_apps" msgid="2308685199463588895">"መተግበሪያዎች አደራጅ"</string>
     <string name="menu_wallpaper" msgid="5837429080911269832">"ልጣፍ"</string>
     <string name="menu_search" msgid="4826514464423239041">"ፍለጋ"</string>
     <string name="menu_notifications" msgid="6424587053194766192">"ማሳወቂያዎች"</string>

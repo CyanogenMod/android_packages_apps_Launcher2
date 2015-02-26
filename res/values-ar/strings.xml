@@ -93,7 +93,7 @@
     <string name="workspace_scroll_format" msgid="1704767047951143301">"‏الشاشة الرئيسية %1$d من %2$d"</string>
     <string name="apps_customize_apps_scroll_format" msgid="5494241912377704885">"‏صفحة التطبيقات %1$d من %2$d"</string>
     <string name="apps_customize_widgets_scroll_format" msgid="5383009742241717437">"‏صفحة الأدوات %1$d من %2$d"</string>
-    <string name="workspace_cling_title" msgid="738396473989890567">"لك مطلق الحرية لتفعل ما تشاء"</string>
+    <string name="workspace_cling_title" msgid="738396473989890567">"يمكنك تنظيم تطبيقاتك كما يحلو لك"</string>
     <string name="workspace_cling_move_item" msgid="791013895761065070">"يمكنك وضع التطبيقات المفضلة هنا."</string>
     <string name="workspace_cling_open_all_apps" msgid="2459977609848572588">"للاطلاع على جميع التطبيقات، المس الدائرة."</string>
     <string name="all_apps_cling_title" msgid="2559734712581447107">"اختر بعض التطبيقات"</string>

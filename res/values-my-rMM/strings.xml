@@ -24,7 +24,7 @@
     <string name="uid_name" msgid="3371120195364560632">"Android ပင်မ အပ်ပလီကေးရှင်းများ"</string>
     <string name="folder_name" msgid="8551881338202938211"></string>
     <string name="chooser_wallpaper" msgid="6063168087625352235">"နောက်ခံကို ဒီထဲမှာ ရွေးချယ်ရန်"</string>
-    <string name="wallpaper_instructions" msgid="4215640646180727542">"နောက်ခံအား သတ်မှတ်ရန်"</string>
+    <string name="wallpaper_instructions" msgid="4215640646180727542">"နောက်ခံပုံ သတ်မှတ်ပါ"</string>
     <string name="pick_wallpaper" msgid="5630222540525626723">"နောက်ခံများ"</string>
     <string name="activity_not_found" msgid="217823393239365967">"အပ်ပလီကေးရှင်း မထည့်သွင်းထားပါ"</string>
     <string name="widgets_tab_label" msgid="9145860100000983599">"ဝဒ်ဂျက်များ"</string>
@@ -35,8 +35,8 @@
     <string name="external_drop_widget_pick_title" msgid="7040647073452295370">"ဝဒ်ဂျက်တစ်ခုအား ပြုလုပ်ရန် ရွေးပါ"</string>
     <string name="rename_folder_label" msgid="5646236631298452787">"အကန့်အမည်"</string>
     <string name="rename_folder_title" msgid="4544573104191526550">"အကန့်အမည်ပြောင်းရန်"</string>
-    <string name="rename_action" msgid="6016003384693240896">"သဘောတူသည်"</string>
-    <string name="cancel_action" msgid="3811860427489435048">"ပယ်ဖျက်သည်"</string>
+    <string name="rename_action" msgid="6016003384693240896">"ကောင်းပြီ"</string>
+    <string name="cancel_action" msgid="3811860427489435048">"ထားတော့"</string>
     <string name="menu_item_add_item" msgid="6233177331075781114">"ပင်မမျက်နှာစာသို့ ထည့်ပါ"</string>
     <string name="group_applications" msgid="2103752818818161976">"အပ်ပလီကေးရှင်းများ"</string>
     <string name="group_shortcuts" msgid="9133529424900391877">"အတိုကောက်မှတ်သားမှုများ"</string>
@@ -93,15 +93,15 @@
     <string name="workspace_scroll_format" msgid="1704767047951143301">"ပင်မစာမျက်နှာ %1$d မှ %2$d"</string>
     <string name="apps_customize_apps_scroll_format" msgid="5494241912377704885">"အပ်ပလီကေးရှင်းပြ စာမျက်နှာ %1$d မှ %2$d"</string>
     <string name="apps_customize_widgets_scroll_format" msgid="5383009742241717437">"ဝဒ်ဂျက်ပြ စာမျက်နှာ %1$d မှ %2$d"</string>
-    <string name="workspace_cling_title" msgid="738396473989890567">"ကိုယ့်အိမ်ကိုယ့်ယာလို သဘောထားပါ"</string>
-    <string name="workspace_cling_move_item" msgid="791013895761065070">"ဤနေရာတွင် သင်အကြိုက်နှစ်သက်ဆုံး အပ်ပလီကေးရှင်းများ ထားနိုင်ပါသည်"</string>
-    <string name="workspace_cling_open_all_apps" msgid="2459977609848572588">"အပ်ပလီကေးရှင်းအကုန် မြင်နိုင်ရန် စက်ဝိုင်းကို ထိကိုင်ပါ"</string>
+    <string name="workspace_cling_title" msgid="738396473989890567">"ကိုယ့်အိမ်လို သဘောထားပါ"</string>
+    <string name="workspace_cling_move_item" msgid="791013895761065070">"အကြိုက်ဆုံး အက်ပ်တွေ ဒီမှာ ထားပါ။"</string>
+    <string name="workspace_cling_open_all_apps" msgid="2459977609848572588">"အက်ပလီကေးရှင်းအကုန် တွေ့နိုင်ရန် စက်ဝိုင်းကို တို့ထိပါ"</string>
     <string name="all_apps_cling_title" msgid="2559734712581447107">"တချို့အပ်ပလီကေးရှင်းများအား ရွေးပါ"</string>
-    <string name="all_apps_cling_add_item" msgid="5665035103260318891">"ပင်မစာမျက်နှာပေါ်တွင် အပ်ပလီကေးရှင်းများ ထပ်ဖြည့်ရန်, ဖိ၍ &amp; ကိုင်ထားပါ"</string>
+    <string name="all_apps_cling_add_item" msgid="5665035103260318891">"ပင်မစာမျက်နှာပေါ် အက်ပ်များ ထည့်လိုပါက ဖိ၍ ကိုင်ထားပါ"</string>
     <string name="folder_cling_title" msgid="4308949882377840953">"အပ်ပလီကေးရှင်းများကို အကန့်ဖြင့်ခွဲ၍ သေသေသပ်သပ်ထားပါ"</string>
-    <string name="folder_cling_move_item" msgid="270598675060435169">"အပ်ပလီကေးရှင်းအား ရွှေ့ရန်, ဖိ၍ &amp; ကိုင်ထားပါ"</string>
+    <string name="folder_cling_move_item" msgid="270598675060435169">"အက်ပ်ကို ရွှေ့လိုပါက ဖိ၍ ကိုင်ထားပါ"</string>
     <string name="folder_cling_create_folder" msgid="8352867485656129478">"ပင်မမျက်နှာစာပေါ်တွင် အကန့်ဆောက်ရန်၊ အပ်ပလီကေးရှင်း တစ်ခုပေါ် တစ်ခု ဆင့်တင်လိုက်ပါ"</string>
-    <string name="cling_dismiss" msgid="2780907108735868381">"သဘောတူသည်"</string>
+    <string name="cling_dismiss" msgid="2780907108735868381">"ကောင်းပြီ"</string>
     <string name="folder_opened" msgid="1262064100943801533">"ဖွင့်ထားသောအကန့်, <xliff:g id="WIDTH">%1$d</xliff:g> by <xliff:g id="HEIGHT">%2$d</xliff:g>"</string>
     <string name="folder_tap_to_close" msgid="1335478160661137579">"ဖိကိုင်ပြီး အကန့်ကို ပိတ်ပါ"</string>
     <string name="folder_tap_to_rename" msgid="5201612989905472442">"အမည်ပြောင်းခြင်း အတည်ပြုရန် ဖိကိုင်ပါ"</string>
