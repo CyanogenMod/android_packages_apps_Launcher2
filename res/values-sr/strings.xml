@@ -84,7 +84,7 @@
     <string name="permdesc_read_settings" msgid="5788109303585403679">"Дозвољава апликацији да чита подешавања и пречице на почетном екрану."</string>
     <string name="permlab_write_settings" msgid="1360567537236705628">"уписивање подешавања и пречица на почетном екрану"</string>
     <string name="permdesc_write_settings" msgid="8530105489115785531">"Дозвољава апликацији да мења подешавања и пречице на почетном екрану."</string>
-    <string name="gadget_error_text" msgid="8359351016167075858">"Проблем приликом учитавања виџета"</string>
+    <string name="gadget_error_text" msgid="8359351016167075858">"Проблем при учитавању виџета"</string>
     <string name="uninstall_system_app_text" msgid="6429814133777046491">"Ово је системска апликација и не може да се деинсталира."</string>
     <string name="dream_name" msgid="2847171357608437154">"Rocket Launcher"</string>
     <string name="folder_hint_text" msgid="8633351560105748141">"Неименовани директоријум"</string>
