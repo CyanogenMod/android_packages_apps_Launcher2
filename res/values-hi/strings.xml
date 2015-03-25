@@ -36,7 +36,7 @@
     <string name="rename_folder_label" msgid="5646236631298452787">"फ़ोल्‍डर का नाम"</string>
     <string name="rename_folder_title" msgid="4544573104191526550">"फ़ोल्‍डर का नाम बदलें"</string>
     <string name="rename_action" msgid="6016003384693240896">"ठीक है"</string>
-    <string name="cancel_action" msgid="3811860427489435048">"रहने दें"</string>
+    <string name="cancel_action" msgid="3811860427489435048">"अभी नहीं"</string>
     <string name="menu_item_add_item" msgid="6233177331075781114">"होम स्‍क्रीन में जोड़ें"</string>
     <string name="group_applications" msgid="2103752818818161976">"ऐप्स"</string>
     <string name="group_shortcuts" msgid="9133529424900391877">"शॉर्टकट"</string>
