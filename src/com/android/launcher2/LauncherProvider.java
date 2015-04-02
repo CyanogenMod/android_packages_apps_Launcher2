@@ -16,6 +16,7 @@
 
 package com.android.launcher2;
 
+import android.annotation.TargetApi;
 import android.app.SearchManager;
 import android.appwidget.AppWidgetHost;
 import android.appwidget.AppWidgetManager;
@@ -42,6 +43,7 @@ import android.database.sqlite.SQLiteStatement;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.UserManager;
 import android.provider.Settings;
@@ -78,9 +80,13 @@ public class LauncherProvider extends ContentProvider {
             "DB_CREATED_BUT_DEFAULT_WORKSPACE_NOT_LOADED";
     static final String DEFAULT_WORKSPACE_RESOURCE_ID =
             "DEFAULT_WORKSPACE_RESOURCE_ID";
+    static final String LAST_RESTRICTION_LAYOUT_ID = "LAST_RESTRICTION_LAYOUT_ID";
 
     private static final String ACTION_APPWIDGET_DEFAULT_WORKSPACE_CONFIGURE =
             "com.android.launcher.action.APPWIDGET_DEFAULT_WORKSPACE_CONFIGURE";
+
+    private static final String RESTRICTION_LAYOUT_NAME =
+            "com.android.launcher2.workspace.configuration.layout.name";
 
     /**
      * {@link Uri} triggered at any registered {@link android.database.ContentObserver} when
@@ -214,22 +220,32 @@ public class LauncherProvider extends ContentProvider {
             boolean overridePrevious) {
         String spKey = LauncherApplication.getSharedPreferencesKey();
         SharedPreferences sp = getContext().getSharedPreferences(spKey, Context.MODE_PRIVATE);
+
+        int restrictionLayoutId = getWorkspaceLayoutIdFromAppRestrictions();
+        boolean restrictionLayoutChanged = didRestrictionLayoutChange(sp, restrictionLayoutId);
+        overridePrevious |= restrictionLayoutChanged;
         boolean dbCreatedNoWorkspace =
                 sp.getBoolean(DB_CREATED_BUT_DEFAULT_WORKSPACE_NOT_LOADED, false);
         if (dbCreatedNoWorkspace || overridePrevious) {
-            int workspaceResId = origWorkspaceResId;
+            SharedPreferences.Editor editor = sp.edit();
+
+            // First try layout from app restrictions if it was found
+            int workspaceResId = restrictionLayoutId;
+
+            // If the restrictions are not set, use the resource passed to this method
+            if (workspaceResId == 0) {
+                workspaceResId = origWorkspaceResId;
+            }
 
             // Use default workspace resource if none provided
             if (workspaceResId == 0) {
                 workspaceResId = sp.getInt(DEFAULT_WORKSPACE_RESOURCE_ID, R.xml.default_workspace);
+            } else {
+                editor.putInt(DEFAULT_WORKSPACE_RESOURCE_ID, workspaceResId);
             }
 
             // Populate favorites table with initial favorites
-            SharedPreferences.Editor editor = sp.edit();
             editor.remove(DB_CREATED_BUT_DEFAULT_WORKSPACE_NOT_LOADED);
-            if (origWorkspaceResId != 0) {
-                editor.putInt(DEFAULT_WORKSPACE_RESOURCE_ID, origWorkspaceResId);
-            }
             if (!dbCreatedNoWorkspace && overridePrevious) {
                 if (LOGD) Log.d(TAG, "Clearing old launcher database");
                 // Workspace has already been loaded, clear the database.
@@ -238,6 +254,48 @@ public class LauncherProvider extends ContentProvider {
             mOpenHelper.loadFavorites(mOpenHelper.getWritableDatabase(), workspaceResId);
             editor.commit();
         }
+    }
+
+    /**
+     * Looks for the workspace layout in app restriction.
+     *
+     * @return the resource id if the layout was found, 0 otherwise.
+     */
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR2)
+    private int getWorkspaceLayoutIdFromAppRestrictions() {
+        // UserManager.getApplicationRestrictions() requires minSdkVersion >= 18
+        if (android.os.Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN_MR2) {
+            return 0;
+        }
+
+        Context ctx = getContext();
+        UserManager um = (UserManager) ctx.getSystemService(Context.USER_SERVICE);
+        Bundle bundle = um.getApplicationRestrictions(ctx.getPackageName());
+        String layoutName = bundle.getString(RESTRICTION_LAYOUT_NAME);
+        if (layoutName != null) {
+            return ctx.getResources().getIdentifier(layoutName, "xml", ctx.getPackageName());
+        } else {
+            return 0;
+        }
+    }
+
+    /**
+     * Compares layout set in restrictions and with the previous value. The methods
+     * updates the previous value with the new one if the layout was changed.
+     *
+     * @param sp shared preferences to use to read the value of the previous layout.
+     * @param newLayoutId new layout id.
+     * @return true if the layout was changed, false otherwise.
+     */
+    private boolean  didRestrictionLayoutChange(SharedPreferences sp, int newLayoutId) {
+        int lastRestrictionLayoutId = sp.getInt(LAST_RESTRICTION_LAYOUT_ID, 0);
+        if (lastRestrictionLayoutId != newLayoutId) {
+            SharedPreferences.Editor editor = sp.edit();
+            editor.putInt(LAST_RESTRICTION_LAYOUT_ID, newLayoutId);
+            editor.commit();
+            return true;
+        }
+        return false;
     }
 
     public void deleteDatabase() {
