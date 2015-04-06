@@ -271,12 +271,13 @@ public class LauncherProvider extends ContentProvider {
         Context ctx = getContext();
         UserManager um = (UserManager) ctx.getSystemService(Context.USER_SERVICE);
         Bundle bundle = um.getApplicationRestrictions(ctx.getPackageName());
-        String layoutName = bundle.getString(RESTRICTION_LAYOUT_NAME);
-        if (layoutName != null) {
-            return ctx.getResources().getIdentifier(layoutName, "xml", ctx.getPackageName());
-        } else {
-            return 0;
+        if (bundle != null) {
+            String layoutName = bundle.getString(RESTRICTION_LAYOUT_NAME);
+            if (layoutName != null) {
+                return ctx.getResources().getIdentifier(layoutName, "xml", ctx.getPackageName());
+            }
         }
+        return 0;
     }
 
     /**
