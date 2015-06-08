@@ -24,7 +24,7 @@
     <string name="uid_name" msgid="3371120195364560632">"Matične aplikacije za Android"</string>
     <string name="folder_name" msgid="8551881338202938211"></string>
     <string name="chooser_wallpaper" msgid="6063168087625352235">"Odabir pozadinske slike iz"</string>
-    <string name="wallpaper_instructions" msgid="4215640646180727542">"Postavi pozadinsku sliku"</string>
+    <string name="wallpaper_instructions" msgid="4215640646180727542">"Postavi pozadinu"</string>
     <string name="pick_wallpaper" msgid="5630222540525626723">"Pozadinske slike"</string>
     <string name="activity_not_found" msgid="217823393239365967">"Aplikacija nije instalirana."</string>
     <string name="widgets_tab_label" msgid="9145860100000983599">"Widgeti"</string>
