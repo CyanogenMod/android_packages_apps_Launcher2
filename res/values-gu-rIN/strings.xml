@@ -21,7 +21,7 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="application_name" msgid="8424725141379931883">"લોન્ચર"</string>
     <string name="home" msgid="5921706419368316758">"હોમ"</string>
-    <string name="uid_name" msgid="3371120195364560632">"Android Core એપ્લિકેશન્સ"</string>
+    <string name="uid_name" msgid="3371120195364560632">"Android Core એપ્લિકેશનો"</string>
     <string name="folder_name" msgid="8551881338202938211"></string>
     <string name="chooser_wallpaper" msgid="6063168087625352235">"આમાંથી વૉલપેપર પસંદ કરો"</string>
     <string name="wallpaper_instructions" msgid="4215640646180727542">"વૉલપેપર સેટ કરો"</string>
@@ -38,7 +38,7 @@
     <string name="rename_action" msgid="6016003384693240896">"ઑકે"</string>
     <string name="cancel_action" msgid="3811860427489435048">"રદ કરો"</string>
     <string name="menu_item_add_item" msgid="6233177331075781114">"હોમ સ્ક્રીન પર ઉમેરો"</string>
-    <string name="group_applications" msgid="2103752818818161976">"એપ્લિકેશન્સ"</string>
+    <string name="group_applications" msgid="2103752818818161976">"એપ્લિકેશનો"</string>
     <string name="group_shortcuts" msgid="9133529424900391877">"શોર્ટકટ્સ"</string>
     <string name="group_widgets" msgid="6704978494073105844">"વિજેટ્સ"</string>
     <string name="group_wallpapers" msgid="1568191644272224858">"વૉલપેપર્સ"</string>
@@ -51,7 +51,7 @@
     <string name="shortcut_duplicate" msgid="4757756326465060694">"\"<xliff:g id="NAME">%s</xliff:g>\" શોર્ટકટ પહેલાંથી અસ્તિત્વમાં છે."</string>
     <string name="title_select_shortcut" msgid="1873670208166882222">"શોર્ટકટ પસંદ કરો"</string>
     <string name="title_select_application" msgid="1793455815754848652">"એપ્લિકેશન પસંદ કરો"</string>
-    <string name="all_apps_button_label" msgid="2578400570124163469">"એપ્લિકેશન્સ"</string>
+    <string name="all_apps_button_label" msgid="2578400570124163469">"એપ્લિકેશનો"</string>
     <string name="all_apps_home_button_label" msgid="1022222300329398558">"હોમ"</string>
     <string name="delete_zone_label_workspace" msgid="7153615831493049150">"દૂર કરો"</string>
     <string name="delete_zone_label_all_apps" msgid="6664588234817475108">"અનઇન્સ્ટોલ કરો"</string>
@@ -60,7 +60,7 @@
     <string name="info_target_label" msgid="4019495079517426980">"એપ્લિકેશન માહિતી"</string>
     <string name="accessibility_search_button" msgid="816822994629942611">"શોધો"</string>
     <string name="accessibility_voice_search_button" msgid="3938249215065842475">"વૉઇસ શોધ"</string>
-    <string name="accessibility_all_apps_button" msgid="8803738611398979849">"એપ્લિકેશન્સ"</string>
+    <string name="accessibility_all_apps_button" msgid="8803738611398979849">"એપ્લિકેશનો"</string>
     <string name="accessibility_delete_button" msgid="3628162007991023603">"દૂર કરો"</string>
     <string name="delete_zone_label_all_apps_system_app" msgid="3683920959591819044">"અપડેટ અનઇન્સ્ટોલ કરો"</string>
     <string name="menu_add" msgid="3065046628354640854">"ઉમેરો"</string>
@@ -91,12 +91,12 @@
     <string name="workspace_description_format" msgid="2968608205939373034">"%1$d હોમ સ્ક્રીન"</string>
     <string name="default_scroll_format" msgid="4057140866420001240">"%2$d માંથી %1$d પૃષ્ઠ"</string>
     <string name="workspace_scroll_format" msgid="1704767047951143301">"%2$d માંથી %1$d હોમ સ્ક્રીન"</string>
-    <string name="apps_customize_apps_scroll_format" msgid="5494241912377704885">"%2$d માંથી %1$d એપ્લિકેશન્સ પૃષ્ઠ"</string>
+    <string name="apps_customize_apps_scroll_format" msgid="5494241912377704885">"%2$d માંથી %1$d એપ્લિકેશનો પૃષ્ઠ"</string>
     <string name="apps_customize_widgets_scroll_format" msgid="5383009742241717437">"%2$d માંથી %1$d વિજેટ્સ પૃષ્ઠ"</string>
     <string name="workspace_cling_title" msgid="738396473989890567">"ઘરે જાતે બનાવો"</string>
     <string name="workspace_cling_move_item" msgid="791013895761065070">"તમે તમારી મનપસંદ એપ્લિકેશન્સને અહીં મૂકી શકો છો."</string>
-    <string name="workspace_cling_open_all_apps" msgid="2459977609848572588">"તમારી બધી એપ્લિકેશન્સ જોવા માટે, વર્તુળને ટચ કરો."</string>
-    <string name="all_apps_cling_title" msgid="2559734712581447107">"કેટલીક એપ્લિકેશન્સ પસંદ કરો"</string>
+    <string name="workspace_cling_open_all_apps" msgid="2459977609848572588">"તમારી બધી એપ્લિકેશનો જોવા માટે, વર્તુળને ટચ કરો."</string>
+    <string name="all_apps_cling_title" msgid="2559734712581447107">"કેટલીક એપ્લિકેશનો પસંદ કરો"</string>
     <string name="all_apps_cling_add_item" msgid="5665035103260318891">"તમારી હોમ સ્ક્રીન પર એપ્લિકેશને ઉમેરવા માટે, તેને ટચ કરો અને પકડી રાખો."</string>
     <string name="folder_cling_title" msgid="4308949882377840953">"ફોલ્ડર્સ સાથે તમારી એપ્લિકેશન્સને ગોઠવો"</string>
     <string name="folder_cling_move_item" msgid="270598675060435169">"એપ્લિકેશનને ખસેડવા માટે, તેને ટચ કરો અને પકડી રાખો."</string>

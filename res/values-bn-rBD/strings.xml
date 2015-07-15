@@ -23,7 +23,7 @@
     <string name="home" msgid="5921706419368316758">"হোম"</string>
     <string name="uid_name" msgid="3371120195364560632">"Android প্রাথমিক অ্যাপ্লিকেশানগুলি"</string>
     <string name="folder_name" msgid="8551881338202938211"></string>
-    <string name="chooser_wallpaper" msgid="6063168087625352235">"এর থেকে ওয়ালপেপার চয়ন করুন"</string>
+    <string name="chooser_wallpaper" msgid="6063168087625352235">"ওয়ালপেপার বেছে নিন"</string>
     <string name="wallpaper_instructions" msgid="4215640646180727542">"ওয়ালপেপার সেট করুন"</string>
     <string name="pick_wallpaper" msgid="5630222540525626723">"ওয়ালপেপারগুলি"</string>
     <string name="activity_not_found" msgid="217823393239365967">"অ্যাপ্লিকেশান ইনস্টল করা নেই৷"</string>
