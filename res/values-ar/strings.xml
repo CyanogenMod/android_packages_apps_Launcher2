@@ -54,15 +54,15 @@
     <string name="all_apps_button_label" msgid="2578400570124163469">"التطبيقات"</string>
     <string name="all_apps_home_button_label" msgid="1022222300329398558">"الرئيسية"</string>
     <string name="delete_zone_label_workspace" msgid="7153615831493049150">"إزالة"</string>
-    <string name="delete_zone_label_all_apps" msgid="6664588234817475108">"إزالة"</string>
+    <string name="delete_zone_label_all_apps" msgid="6664588234817475108">"إلغاء التثبيت"</string>
     <string name="delete_target_label" msgid="665300185123139530">"إزالة"</string>
-    <string name="delete_target_uninstall_label" msgid="748894921183769150">"إزالة"</string>
+    <string name="delete_target_uninstall_label" msgid="748894921183769150">"إلغاء التثبيت"</string>
     <string name="info_target_label" msgid="4019495079517426980">"معلومات التطبيق"</string>
     <string name="accessibility_search_button" msgid="816822994629942611">"بحث"</string>
     <string name="accessibility_voice_search_button" msgid="3938249215065842475">"البحث الصوتي"</string>
     <string name="accessibility_all_apps_button" msgid="8803738611398979849">"التطبيقات"</string>
     <string name="accessibility_delete_button" msgid="3628162007991023603">"إزالة"</string>
-    <string name="delete_zone_label_all_apps_system_app" msgid="3683920959591819044">"إزالة التحديث"</string>
+    <string name="delete_zone_label_all_apps_system_app" msgid="3683920959591819044">"إلغاء تثبيت التحديث"</string>
     <string name="menu_add" msgid="3065046628354640854">"إضافة"</string>
     <string name="menu_manage_apps" msgid="2308685199463588895">"إدارة التطبيقات"</string>
     <string name="menu_wallpaper" msgid="5837429080911269832">"خلفية"</string>
@@ -70,7 +70,7 @@
     <string name="menu_notifications" msgid="6424587053194766192">"الإشعارات"</string>
     <string name="menu_settings" msgid="3946232973327980394">"إعدادات النظام"</string>
     <string name="menu_help" msgid="4901160661634590633">"مساعدة"</string>
-    <string name="cab_menu_delete_app" msgid="4089398025537640349">"إزالة التطبيق"</string>
+    <string name="cab_menu_delete_app" msgid="4089398025537640349">"إلغاء تثبيت التطبيق"</string>
     <string name="cab_menu_app_info" msgid="914548323652698884">"تفاصيل التطبيق"</string>
     <string name="cab_app_selection_text" msgid="6378522164293415735">"تم تحديد تطبيق واحد"</string>
     <string name="cab_widget_selection_text" msgid="962527270506951955">"تم تحديد أداة واحدة"</string>
@@ -78,7 +78,7 @@
     <string name="cab_shortcut_selection_text" msgid="8115847384500412878">"تم تحديد اختصارٍ واحد"</string>
     <string name="permlab_install_shortcut" msgid="1201690825493376489">"اختصارات التثبيت"</string>
     <string name="permdesc_install_shortcut" msgid="8634424803272077038">"للسماح لتطبيق ما بإضافة اختصارات بدون تدخل المستخدم."</string>
-    <string name="permlab_uninstall_shortcut" msgid="7696645932555926449">"إزالة الاختصارات"</string>
+    <string name="permlab_uninstall_shortcut" msgid="7696645932555926449">"إلغاء تثبيت الاختصارات"</string>
     <string name="permdesc_uninstall_shortcut" msgid="274355570620220977">"للسماح للتطبيق بإزالة الاختصارات بدون تدخل المستخدم."</string>
     <string name="permlab_read_settings" msgid="3452408290738106747">"قراءة إعدادات الشاشة الرئيسية والاختصارات"</string>
     <string name="permdesc_read_settings" msgid="5788109303585403679">"للسماح للتطبيق بقراءة الإعدادات والاختصارات في الصفحة الرئيسية."</string>
