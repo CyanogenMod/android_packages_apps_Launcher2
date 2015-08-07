@@ -130,7 +130,7 @@ class AllAppsList {
                         && packageName.equals(component.getPackageName())) {
                     if (!findActivity(matches, component, user)) {
                         removed.add(applicationInfo);
-                        mIconCache.remove(component);
+                        mIconCache.remove(component, user);
                         data.remove(i);
                     }
                 }
@@ -149,7 +149,7 @@ class AllAppsList {
                     add(new ApplicationInfo(info, user,
                             mIconCache, null));
                 } else {
-                    mIconCache.remove(applicationInfo.componentName);
+                    mIconCache.remove(applicationInfo.componentName, user);
                     mIconCache.getTitleAndIcon(applicationInfo, info, null);
                     modified.add(applicationInfo);
                 }
@@ -162,7 +162,7 @@ class AllAppsList {
                 if (user.equals(applicationInfo.user)
                         && packageName.equals(component.getPackageName())) {
                     removed.add(applicationInfo);
-                    mIconCache.remove(component);
+                    mIconCache.remove(component, user);
                     data.remove(i);
                 }
             }
