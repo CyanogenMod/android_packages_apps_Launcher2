@@ -160,9 +160,9 @@ public class IconCache {
     /**
      * Remove any records for the supplied ComponentName.
      */
-    public void remove(ComponentName componentName) {
+    public void remove(ComponentName componentName, UserHandle user) {
         synchronized (mCache) {
-            mCache.remove(componentName);
+            mCache.remove(new CacheKey(componentName, user));
         }
     }
 
