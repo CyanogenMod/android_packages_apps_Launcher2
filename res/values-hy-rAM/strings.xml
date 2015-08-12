@@ -102,11 +102,11 @@
     <string name="folder_cling_move_item" msgid="270598675060435169">"Ծրագիրը տեղափոխելու համար հպեք և պահեք:"</string>
     <string name="folder_cling_create_folder" msgid="8352867485656129478">"Որպեսզի նոր պանակ ստեղծեք ձեր հիմնական էկրանին, մի ծրագիրը պահեք մյուսի գլխավերևում:"</string>
     <string name="cling_dismiss" msgid="2780907108735868381">"Լավ"</string>
-    <string name="folder_opened" msgid="1262064100943801533">"Թղթապանակը բացված է, <xliff:g id="WIDTH">%1$d</xliff:g>-ից <xliff:g id="HEIGHT">%2$d</xliff:g>"</string>
+    <string name="folder_opened" msgid="1262064100943801533">"Պանակը բացված է, <xliff:g id="WIDTH">%1$d</xliff:g>-ից <xliff:g id="HEIGHT">%2$d</xliff:g>"</string>
     <string name="folder_tap_to_close" msgid="1335478160661137579">"Հպեք՝ պանակը փակելու համար"</string>
     <string name="folder_tap_to_rename" msgid="5201612989905472442">"Հպեք՝ վերանվանումը պահպանելու համար"</string>
-    <string name="folder_closed" msgid="3130534551370511932">"Թղթապանակը փակ է"</string>
-    <string name="folder_renamed" msgid="7951233572858053642">"Թղթապանակը վերանվանվեց <xliff:g id="NAME">%1$s</xliff:g>"</string>
+    <string name="folder_closed" msgid="3130534551370511932">"Պանակը փակ է"</string>
+    <string name="folder_renamed" msgid="7951233572858053642">"Պանակը վերանվանվեց <xliff:g id="NAME">%1$s</xliff:g>"</string>
     <string name="folder_name_format" msgid="3051680259794759037">"Թղթապանակ՝ <xliff:g id="NAME">%1$s</xliff:g>"</string>
     <string name="custom_workspace_cling_title_1" msgid="1433009175359948587"></string>
     <string name="custom_workspace_cling_description_1" msgid="6875529190849858047"></string>
