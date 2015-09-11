@@ -42,7 +42,7 @@
     <string name="group_shortcuts" msgid="9133529424900391877">"Sneltoetsen"</string>
     <string name="group_widgets" msgid="6704978494073105844">"Widgets"</string>
     <string name="group_wallpapers" msgid="1568191644272224858">"Achtergronden"</string>
-    <string name="completely_out_of_space" msgid="1759078539443491182">"Er is geen ruimte meer op uw startschermen."</string>
+    <string name="completely_out_of_space" msgid="1759078539443491182">"Er is geen ruimte meer op je startschermen."</string>
     <string name="out_of_space" msgid="8365249326091984698">"Er is geen ruimte meer op dit startscherm."</string>
     <string name="hotseat_out_of_space" msgid="6304886797358479361">"Er is geen ruimte meer op de hotseat."</string>
     <string name="invalid_hotseat_item" msgid="6545340627805449250">"Deze widget is te groot voor de hotseat."</string>
@@ -94,13 +94,13 @@
     <string name="apps_customize_apps_scroll_format" msgid="5494241912377704885">"App-pagina %1$d van %2$d"</string>
     <string name="apps_customize_widgets_scroll_format" msgid="5383009742241717437">"Widgetpagina %1$d van %2$d"</string>
     <string name="workspace_cling_title" msgid="738396473989890567">"Personaliseer het startscherm"</string>
-    <string name="workspace_cling_move_item" msgid="791013895761065070">"U kunt hier uw favoriete apps plaatsen."</string>
-    <string name="workspace_cling_open_all_apps" msgid="2459977609848572588">"Tik op de cirkel om al uw apps te bekijken."</string>
+    <string name="workspace_cling_move_item" msgid="791013895761065070">"Je kunt hier je favoriete apps plaatsen."</string>
+    <string name="workspace_cling_open_all_apps" msgid="2459977609848572588">"Tik op de cirkel om al je apps te bekijken."</string>
     <string name="all_apps_cling_title" msgid="2559734712581447107">"Selecteer een aantal apps"</string>
-    <string name="all_apps_cling_add_item" msgid="5665035103260318891">"Als u een app wilt toevoegen aan het startscherm, tikt u op de app en houdt u deze vast."</string>
-    <string name="folder_cling_title" msgid="4308949882377840953">"Uw apps ordenen met mappen"</string>
-    <string name="folder_cling_move_item" msgid="270598675060435169">"Als u een app wilt verplaatsen, blijft u de app aanraken."</string>
-    <string name="folder_cling_create_folder" msgid="8352867485656129478">"Als u een nieuwe map op het startscherm wilt maken, stapelt u een app boven op een andere app."</string>
+    <string name="all_apps_cling_add_item" msgid="5665035103260318891">"Als je een app wilt toevoegen aan het startscherm, tik je op de app en houd je deze vast."</string>
+    <string name="folder_cling_title" msgid="4308949882377840953">"Je apps ordenen met mappen"</string>
+    <string name="folder_cling_move_item" msgid="270598675060435169">"Als je een app wilt verplaatsen, blijf je de app aanraken."</string>
+    <string name="folder_cling_create_folder" msgid="8352867485656129478">"Als je een nieuwe map op het startscherm wilt maken, stapel je een app boven op een andere app."</string>
     <string name="cling_dismiss" msgid="2780907108735868381">"OK"</string>
     <string name="folder_opened" msgid="1262064100943801533">"Map geopend, <xliff:g id="WIDTH">%1$d</xliff:g> bij <xliff:g id="HEIGHT">%2$d</xliff:g>"</string>
     <string name="folder_tap_to_close" msgid="1335478160661137579">"Raak dit aan om de map te sluiten"</string>
