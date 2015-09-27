@@ -34,7 +34,7 @@
     <string name="external_drop_widget_error" msgid="2285187188524172774">"Nu am putut plasa articolul pe ecranul de pornire."</string>
     <string name="external_drop_widget_pick_title" msgid="7040647073452295370">"Alegeţi widgetul de creare"</string>
     <string name="rename_folder_label" msgid="5646236631298452787">"Nume dosar"</string>
-    <string name="rename_folder_title" msgid="4544573104191526550">"Redenumiţi dosarul"</string>
+    <string name="rename_folder_title" msgid="4544573104191526550">"Redenumiți dosarul"</string>
     <string name="rename_action" msgid="6016003384693240896">"OK"</string>
     <string name="cancel_action" msgid="3811860427489435048">"Anulați"</string>
     <string name="menu_item_add_item" msgid="6233177331075781114">"Adăugaţi la Ecranul de pornire"</string>
