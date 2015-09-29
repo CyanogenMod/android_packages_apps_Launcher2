@@ -23,7 +23,7 @@
     <string name="home" msgid="5921706419368316758">"Почетна"</string>
     <string name="uid_name" msgid="3371120195364560632">"Основне Android апликације"</string>
     <string name="folder_name" msgid="8551881338202938211"></string>
-    <string name="chooser_wallpaper" msgid="6063168087625352235">"Избор позадине из"</string>
+    <string name="chooser_wallpaper" msgid="6063168087625352235">"Изаберите позадину из"</string>
     <string name="wallpaper_instructions" msgid="4215640646180727542">"Подеси позадину"</string>
     <string name="pick_wallpaper" msgid="5630222540525626723">"Позадине"</string>
     <string name="activity_not_found" msgid="217823393239365967">"Апликација није инсталирана."</string>
