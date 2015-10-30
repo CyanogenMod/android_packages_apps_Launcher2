@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="application_name">Llançador</string>
+  <string name="uid_name">Aplicacions base Android</string>
+  <string name="folder_name">Directori</string>
+  <string name="chooser_wallpaper">Selecciona un tipus</string>
+  <string name="wallpaper_instructions">Desa el fons d\'escriptori</string>
+  <string name="pick_wallpaper">Fons de pantalla</string>
+  <string name="activity_not_found">L\'aplicació no està instal·lada.</string>
+  <string name="configure_wallpaper">Configuració...</string>
+  <string name="rename_folder_label">Nom del directori</string>
+  <string name="rename_folder_title">Canvia el nom a la carpeta</string>
+  <string name="rename_action">D\'acord</string>
+  <string name="cancel_action">Cancel·la</string>
+  <string name="menu_item_add_item">Afegeix a la pantalla d\'inici</string>
+  <string name="group_applications">Aplicacions</string>
+  <string name="group_shortcuts">Accessos directes</string>
+  <string name="group_folder">Carpeta nova</string>
+  <string name="group_live_folders">Carpetes</string>
+  <string name="group_widgets">Estris</string>
+  <string name="group_wallpapers">Fons de pantalla</string>
+  <string name="add_folder">Directori</string>
+  <string name="add_clock">Rellotge</string>
+  <string name="add_photo_frame">Marc de fotos</string>
+  <string name="out_of_space">No hi ha més espai en aquesta pantalla d\'inici.</string>
+  <string name="shortcut_installed">S\'ha creat l\'accés directe \"<xliff:g id="name" example="Browser">%s</xliff:g>\".</string>
+  <string name="shortcut_uninstalled">S\'ha eliminat l\'accés directe \"<xliff:g id="name" example="Browser">%s</xliff:g>\".</string>
+  <string name="shortcut_duplicate">L\'accés directe \"<xliff:g id="name" example="Browser">%s</xliff:g>\" ja existeix.</string>
+  <string name="title_select_shortcut">Selecciona l\'accés directe</string>
+  <string name="title_select_live_folder">Tria el directori</string>
+  <string name="all_apps_button_label">Totes les aplicacions</string>
+  <string name="all_apps_home_button_label">Inici</string>
+  <string name="menu_add">Afegeix</string>
+  <string name="menu_wallpaper">Fons</string>
+  <string name="menu_search">Cerca</string>
+  <string name="menu_notifications">Notificacions</string>
+  <string name="menu_gestures">Gestos</string>
+  <string name="menu_settings">Paràmetres</string>
+  <string name="permlab_install_shortcut">instal·la dreceres</string>
+  <string name="permdesc_install_shortcut">Permet a una aplicació afegir dreceres sense la intervenció de l\'usuari.</string>
+  <string name="permlab_uninstall_shortcut">desinstal·la dreceres</string>
+  <string name="permdesc_uninstall_shortcut">Permet que una aplicació elimini accessos directes sense intervenció de l\'usuari.</string>
+  <string name="permlab_read_settings">llegir la configuració d\'inici i accessos directes</string>
+  <string name="permdesc_read_settings">Permet que una aplicació llegeixi la configuració i els accessos directes de l\'inici.</string>
+  <string name="permlab_write_settings">escriure la configuració de l\'inici i accessos directes</string>
+  <string name="permdesc_write_settings">Permet que una aplicació canviï la configuració i els accessos directes de l\'inici.</string>
+  <string name="gadget_error_text">Problema en carregar l\'estri</string>
+</resources>
