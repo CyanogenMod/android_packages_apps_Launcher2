@@ -24,7 +24,7 @@
     <string name="uid_name" msgid="3371120195364560632">"Android’ga asoslangan ilovalar"</string>
     <string name="folder_name" msgid="8551881338202938211"></string>
     <string name="chooser_wallpaper" msgid="6063168087625352235">"Fon rasmini tanlang"</string>
-    <string name="wallpaper_instructions" msgid="4215640646180727542">"Fon rasmini o‘rnatish"</string>
+    <string name="wallpaper_instructions" msgid="4215640646180727542">"Fonga rasm o‘rnatish"</string>
     <string name="pick_wallpaper" msgid="5630222540525626723">"Fon rasmlari"</string>
     <string name="activity_not_found" msgid="217823393239365967">"Ilova o‘rnatilmagan."</string>
     <string name="widgets_tab_label" msgid="9145860100000983599">"Vidjetlar"</string>
@@ -57,7 +57,7 @@
     <string name="delete_zone_label_all_apps" msgid="6664588234817475108">"O‘chirish"</string>
     <string name="delete_target_label" msgid="665300185123139530">"O‘chirish"</string>
     <string name="delete_target_uninstall_label" msgid="748894921183769150">"O‘chirish"</string>
-    <string name="info_target_label" msgid="4019495079517426980">"Ilova ma’lumoti"</string>
+    <string name="info_target_label" msgid="4019495079517426980">"Ilova haqida"</string>
     <string name="accessibility_search_button" msgid="816822994629942611">"Qidiruv"</string>
     <string name="accessibility_voice_search_button" msgid="3938249215065842475">"Ovozli qidiruv"</string>
     <string name="accessibility_all_apps_button" msgid="8803738611398979849">"Ilovalar"</string>
@@ -66,7 +66,7 @@
     <string name="menu_add" msgid="3065046628354640854">"Qo‘shish"</string>
     <string name="menu_manage_apps" msgid="2308685199463588895">"Ilovalarni boshqarish"</string>
     <string name="menu_wallpaper" msgid="5837429080911269832">"Fon rasmi"</string>
-    <string name="menu_search" msgid="4826514464423239041">"Izlash"</string>
+    <string name="menu_search" msgid="4826514464423239041">"Qidirish"</string>
     <string name="menu_notifications" msgid="6424587053194766192">"Xabarnomalar"</string>
     <string name="menu_settings" msgid="3946232973327980394">"Tizim moslamalari"</string>
     <string name="menu_help" msgid="4901160661634590633">"Yordam"</string>
