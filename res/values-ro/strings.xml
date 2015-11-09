@@ -23,7 +23,7 @@
     <string name="home" msgid="5921706419368316758">"Ecran de pornire"</string>
     <string name="uid_name" msgid="3371120195364560632">"Android Core Apps"</string>
     <string name="folder_name" msgid="8551881338202938211"></string>
-    <string name="chooser_wallpaper" msgid="6063168087625352235">"Alegeţi imaginea de fundal din"</string>
+    <string name="chooser_wallpaper" msgid="6063168087625352235">"Alegeți imaginea de fundal din"</string>
     <string name="wallpaper_instructions" msgid="4215640646180727542">"Setaţi imaginea de fundal"</string>
     <string name="pick_wallpaper" msgid="5630222540525626723">"Imagini de fundal"</string>
     <string name="activity_not_found" msgid="217823393239365967">"Aplicaţia nu este instalată."</string>
@@ -32,12 +32,12 @@
     <string name="market" msgid="2652226429823445833">"Cumpăraţi"</string>
     <string name="widget_dims_format" msgid="1386418557719032947">"%1$d × %2$d"</string>
     <string name="external_drop_widget_error" msgid="2285187188524172774">"Nu am putut plasa articolul pe ecranul de pornire."</string>
-    <string name="external_drop_widget_pick_title" msgid="7040647073452295370">"Alegeţi widgetul de creare"</string>
+    <string name="external_drop_widget_pick_title" msgid="7040647073452295370">"Alegeți widgetul de creare"</string>
     <string name="rename_folder_label" msgid="5646236631298452787">"Nume dosar"</string>
     <string name="rename_folder_title" msgid="4544573104191526550">"Redenumiți dosarul"</string>
     <string name="rename_action" msgid="6016003384693240896">"OK"</string>
     <string name="cancel_action" msgid="3811860427489435048">"Anulați"</string>
-    <string name="menu_item_add_item" msgid="6233177331075781114">"Adăugaţi la Ecranul de pornire"</string>
+    <string name="menu_item_add_item" msgid="6233177331075781114">"Adăugați la Ecranul de pornire"</string>
     <string name="group_applications" msgid="2103752818818161976">"Aplicaţii"</string>
     <string name="group_shortcuts" msgid="9133529424900391877">"Comenzi rapide"</string>
     <string name="group_widgets" msgid="6704978494073105844">"Obiecte widget"</string>
@@ -49,21 +49,21 @@
     <string name="shortcut_installed" msgid="7071557296331322355">"Comanda rapidă „<xliff:g id="NAME">%s</xliff:g>”·a fost creată."</string>
     <string name="shortcut_uninstalled" msgid="2129499669449749995">"Comanda rapidă „<xliff:g id="NAME">%s</xliff:g>” a fost eliminată."</string>
     <string name="shortcut_duplicate" msgid="4757756326465060694">"Comanda rapidă „<xliff:g id="NAME">%s</xliff:g>” deja există."</string>
-    <string name="title_select_shortcut" msgid="1873670208166882222">"Alegeţi o comandă rapidă"</string>
-    <string name="title_select_application" msgid="1793455815754848652">"Alegeţi aplicația"</string>
+    <string name="title_select_shortcut" msgid="1873670208166882222">"Alegeți o comandă rapidă"</string>
+    <string name="title_select_application" msgid="1793455815754848652">"Alegeți aplicația"</string>
     <string name="all_apps_button_label" msgid="2578400570124163469">"Aplicaţii"</string>
     <string name="all_apps_home_button_label" msgid="1022222300329398558">"Domiciliu"</string>
     <string name="delete_zone_label_workspace" msgid="7153615831493049150">"Eliminaţi"</string>
     <string name="delete_zone_label_all_apps" msgid="6664588234817475108">"Dezinstalaţi"</string>
     <string name="delete_target_label" msgid="665300185123139530">"Eliminaţi"</string>
     <string name="delete_target_uninstall_label" msgid="748894921183769150">"Dezinstalaţi"</string>
-    <string name="info_target_label" msgid="4019495079517426980">"Informaţii aplicație"</string>
+    <string name="info_target_label" msgid="4019495079517426980">"Informații aplicație"</string>
     <string name="accessibility_search_button" msgid="816822994629942611">"Căutaţi"</string>
     <string name="accessibility_voice_search_button" msgid="3938249215065842475">"Căutare vocală"</string>
     <string name="accessibility_all_apps_button" msgid="8803738611398979849">"Aplicaţii"</string>
     <string name="accessibility_delete_button" msgid="3628162007991023603">"Eliminaţi"</string>
     <string name="delete_zone_label_all_apps_system_app" msgid="3683920959591819044">"Dezinstalaţi actualizarea"</string>
-    <string name="menu_add" msgid="3065046628354640854">"Adăugaţi"</string>
+    <string name="menu_add" msgid="3065046628354640854">"Adăugați"</string>
     <string name="menu_manage_apps" msgid="2308685199463588895">"Gestionați aplicații"</string>
     <string name="menu_wallpaper" msgid="5837429080911269832">"Imagine de fundal"</string>
     <string name="menu_search" msgid="4826514464423239041">"Căutaţi"</string>
