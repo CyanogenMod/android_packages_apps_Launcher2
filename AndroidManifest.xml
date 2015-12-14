@@ -26,7 +26,7 @@
     <permission
         android:name="com.android.launcher.permission.PRELOAD_WORKSPACE"
         android:permissionGroup="android.permission-group.SYSTEM_TOOLS"
-        android:protectionLevel="signatureOrSystem" />
+        android:protectionLevel="signature|privileged" />
     <permission
         android:name="com.android.launcher.permission.INSTALL_SHORTCUT"
         android:permissionGroup="android.permission-group.SYSTEM_TOOLS"
@@ -48,7 +48,7 @@
     <permission
         android:name="com.android.launcher.permission.WRITE_SETTINGS"
         android:permissionGroup="android.permission-group.SYSTEM_TOOLS"
-        android:protectionLevel="signatureOrSystem"
+        android:protectionLevel="signature|privileged"
         android:label="@string/permlab_write_settings"
         android:description="@string/permdesc_write_settings"/>
 
