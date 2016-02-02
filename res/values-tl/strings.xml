@@ -23,7 +23,7 @@
     <string name="home" msgid="5921706419368316758">"Home"</string>
     <string name="uid_name" msgid="3371120195364560632">"Android Core Apps"</string>
     <string name="folder_name" msgid="8551881338202938211"></string>
-    <string name="chooser_wallpaper" msgid="6063168087625352235">"Pumili ng wallpaper mula sa"</string>
+    <string name="chooser_wallpaper" msgid="6063168087625352235">"Pumili ng wallpaper sa"</string>
     <string name="wallpaper_instructions" msgid="4215640646180727542">"Itakda ang wallpaper"</string>
     <string name="pick_wallpaper" msgid="5630222540525626723">"Mga Wallpaper"</string>
     <string name="activity_not_found" msgid="217823393239365967">"Hindi naka-install ang app."</string>

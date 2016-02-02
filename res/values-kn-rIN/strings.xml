@@ -23,7 +23,7 @@
     <string name="home" msgid="5921706419368316758">"ಮುಖಪುಟ"</string>
     <string name="uid_name" msgid="3371120195364560632">"Android Core ಅಪ್ಲಿಕೇಶನ್‌ಗಳು"</string>
     <string name="folder_name" msgid="8551881338202938211"></string>
-    <string name="chooser_wallpaper" msgid="6063168087625352235">"ಇದರಿಂದ ವಾಲ್‌ಪೇಪರ್‌ ಆರಿಸಿ"</string>
+    <string name="chooser_wallpaper" msgid="6063168087625352235">"ವಾಲ್‌ಪೇಪರ್‌ ಆಯ್ಕೆ"</string>
     <string name="wallpaper_instructions" msgid="4215640646180727542">"ವಾಲ್‌ಪೇಪರ್ ಹೊಂದಿಸಿ"</string>
     <string name="pick_wallpaper" msgid="5630222540525626723">"ವಾಲ್‌ಪೇಪರ್‌ಗಳು"</string>
     <string name="activity_not_found" msgid="217823393239365967">"ಅಪ್ಲಿಕೇಶನ್‌ ಸ್ಥಾಪಿಸಲಾಗಿಲ್ಲ."</string>

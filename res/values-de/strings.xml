@@ -42,7 +42,7 @@
     <string name="group_shortcuts" msgid="9133529424900391877">"Verknüpfungen"</string>
     <string name="group_widgets" msgid="6704978494073105844">"Widgets"</string>
     <string name="group_wallpapers" msgid="1568191644272224858">"Hintergründe"</string>
-    <string name="completely_out_of_space" msgid="1759078539443491182">"Auf Ihrem Startbildschirm ist kein Platz mehr vorhanden."</string>
+    <string name="completely_out_of_space" msgid="1759078539443491182">"Auf deinem Startbildschirm ist kein Platz mehr vorhanden."</string>
     <string name="out_of_space" msgid="8365249326091984698">"Auf dem Startbildschirm ist kein Platz mehr vorhanden."</string>
     <string name="hotseat_out_of_space" msgid="6304886797358479361">"Kein Platz mehr auf der App-Leiste"</string>
     <string name="invalid_hotseat_item" msgid="6545340627805449250">"Dieses Widget ist zu groß für die App-Leiste."</string>
@@ -93,14 +93,14 @@
     <string name="workspace_scroll_format" msgid="1704767047951143301">"Startbildschirm %1$d von %2$d"</string>
     <string name="apps_customize_apps_scroll_format" msgid="5494241912377704885">"App-Seite %1$d von %2$d"</string>
     <string name="apps_customize_widgets_scroll_format" msgid="5383009742241717437">"Widget-Seite %1$d von %2$d"</string>
-    <string name="workspace_cling_title" msgid="738396473989890567">"Fühlen Sie sich wie zu Hause"</string>
-    <string name="workspace_cling_move_item" msgid="791013895761065070">"Hier können Sie Ihre Lieblings-Apps ablegen."</string>
-    <string name="workspace_cling_open_all_apps" msgid="2459977609848572588">"Berühren Sie den Kreis für eine Übersicht aller Apps."</string>
+    <string name="workspace_cling_title" msgid="738396473989890567">"Fühle dich wie zu Hause"</string>
+    <string name="workspace_cling_move_item" msgid="791013895761065070">"Hier kannst du deine Lieblings-Apps ablegen."</string>
+    <string name="workspace_cling_open_all_apps" msgid="2459977609848572588">"Berühre den Kreis für eine Übersicht aller Apps."</string>
     <string name="all_apps_cling_title" msgid="2559734712581447107">"Apps auswählen"</string>
-    <string name="all_apps_cling_add_item" msgid="5665035103260318891">"Berühren und halten Sie eine App, um sie zum Startbildschirm hinzuzufügen."</string>
+    <string name="all_apps_cling_add_item" msgid="5665035103260318891">"Berühre und halte eine App, um sie zum Startbildschirm hinzuzufügen."</string>
     <string name="folder_cling_title" msgid="4308949882377840953">"Apps mit Ordnern organisieren"</string>
-    <string name="folder_cling_move_item" msgid="270598675060435169">"Berühren und halten Sie eine App, um sie zu verschieben."</string>
-    <string name="folder_cling_create_folder" msgid="8352867485656129478">"Stapeln Sie Apps übereinander, um einen neuen Ordner auf Ihrem Startbildschirm zu erstellen."</string>
+    <string name="folder_cling_move_item" msgid="270598675060435169">"Berühre und halte eine App, um sie zu verschieben."</string>
+    <string name="folder_cling_create_folder" msgid="8352867485656129478">"Staple Apps übereinander, um einen neuen Ordner auf deinem Startbildschirm zu erstellen."</string>
     <string name="cling_dismiss" msgid="2780907108735868381">"OK"</string>
     <string name="folder_opened" msgid="1262064100943801533">"Ordner geöffnet, <xliff:g id="WIDTH">%1$d</xliff:g> x <xliff:g id="HEIGHT">%2$d</xliff:g>"</string>
     <string name="folder_tap_to_close" msgid="1335478160661137579">"Ordner durch Berühren schließen"</string>
