@@ -35,7 +35,7 @@
     <string name="external_drop_widget_pick_title" msgid="7040647073452295370">"Zgjidh miniaplikacionin për të krijuar"</string>
     <string name="rename_folder_label" msgid="5646236631298452787">"Emri i dosjes"</string>
     <string name="rename_folder_title" msgid="4544573104191526550">"Riemërto dosjen"</string>
-    <string name="rename_action" msgid="6016003384693240896">"Në rregull!"</string>
+    <string name="rename_action" msgid="6016003384693240896">"Në rregull"</string>
     <string name="cancel_action" msgid="3811860427489435048">"Anulo"</string>
     <string name="menu_item_add_item" msgid="6233177331075781114">"Shto në ekranin bazë"</string>
     <string name="group_applications" msgid="2103752818818161976">"Aplikacionet"</string>
@@ -101,7 +101,7 @@
     <string name="folder_cling_title" msgid="4308949882377840953">"Organizoji aplikacionet e tua në dosje"</string>
     <string name="folder_cling_move_item" msgid="270598675060435169">"Për të zhvendosur një aplikacion, prek dhe mbaje të shtypur."</string>
     <string name="folder_cling_create_folder" msgid="8352867485656129478">"Për të krijuar një dosje të re në ekranin tënd bazë, stivoji aplikacionet njëri mbi tjetrin."</string>
-    <string name="cling_dismiss" msgid="2780907108735868381">"Në rregull!"</string>
+    <string name="cling_dismiss" msgid="2780907108735868381">"Në rregull"</string>
     <string name="folder_opened" msgid="1262064100943801533">"Dosja u mbyll, <xliff:g id="WIDTH">%1$d</xliff:g> me <xliff:g id="HEIGHT">%2$d</xliff:g>"</string>
     <string name="folder_tap_to_close" msgid="1335478160661137579">"Prek për të mbyllur dosjen"</string>
     <string name="folder_tap_to_rename" msgid="5201612989905472442">"Prek për të ruajtur riemërtimin"</string>

@@ -20,7 +20,7 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="application_name" msgid="8424725141379931883">"Launcher"</string>
-    <string name="home" msgid="5921706419368316758">"Αρχική σελίδα"</string>
+    <string name="home" msgid="5921706419368316758">"Αρχική οθόνη"</string>
     <string name="uid_name" msgid="3371120195364560632">"Βασικές εφαρμογές Android"</string>
     <string name="folder_name" msgid="8551881338202938211"></string>
     <string name="chooser_wallpaper" msgid="6063168087625352235">"Επιλογή ταπετσαρίας από"</string>
@@ -52,7 +52,7 @@
     <string name="title_select_shortcut" msgid="1873670208166882222">"Επιλέξτε συντόμευση"</string>
     <string name="title_select_application" msgid="1793455815754848652">"Επιλογή εφαρμογής"</string>
     <string name="all_apps_button_label" msgid="2578400570124163469">"Εφαρμογές"</string>
-    <string name="all_apps_home_button_label" msgid="1022222300329398558">"Αρχική σελίδα"</string>
+    <string name="all_apps_home_button_label" msgid="1022222300329398558">"Αρχική οθόνη"</string>
     <string name="delete_zone_label_workspace" msgid="7153615831493049150">"Κατάργηση"</string>
     <string name="delete_zone_label_all_apps" msgid="6664588234817475108">"Κατάργηση εγκατάστασης"</string>
     <string name="delete_target_label" msgid="665300185123139530">"Κατάργηση"</string>

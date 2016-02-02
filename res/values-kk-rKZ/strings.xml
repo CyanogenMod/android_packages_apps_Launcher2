@@ -24,7 +24,7 @@
     <string name="uid_name" msgid="3371120195364560632">"Android Core қолданбалары"</string>
     <string name="folder_name" msgid="8551881338202938211"></string>
     <string name="chooser_wallpaper" msgid="6063168087625352235">"Артқы фон таңдау"</string>
-    <string name="wallpaper_instructions" msgid="4215640646180727542">"Артқы фонды орнату"</string>
+    <string name="wallpaper_instructions" msgid="4215640646180727542">"Тұсқағаз орнату"</string>
     <string name="pick_wallpaper" msgid="5630222540525626723">"Артқы фондар"</string>
     <string name="activity_not_found" msgid="217823393239365967">"Қолданба орнатылмаған."</string>
     <string name="widgets_tab_label" msgid="9145860100000983599">"Виджеттер"</string>
