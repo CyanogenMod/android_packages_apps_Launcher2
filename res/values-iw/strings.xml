@@ -23,7 +23,7 @@
     <string name="home" msgid="5921706419368316758">"בית"</string>
     <string name="uid_name" msgid="3371120195364560632">"‏יישומי ליבה של Android"</string>
     <string name="folder_name" msgid="8551881338202938211"></string>
-    <string name="chooser_wallpaper" msgid="6063168087625352235">"בחר טפט מ-"</string>
+    <string name="chooser_wallpaper" msgid="6063168087625352235">"בחר טפט מתוך"</string>
     <string name="wallpaper_instructions" msgid="4215640646180727542">"הגדר טפט"</string>
     <string name="pick_wallpaper" msgid="5630222540525626723">"טפטים"</string>
     <string name="activity_not_found" msgid="217823393239365967">"האפליקציה לא מותקנת."</string>
