@@ -28,8 +28,8 @@
     <string name="pick_wallpaper" msgid="5630222540525626723">"Imagini de fundal"</string>
     <string name="activity_not_found" msgid="217823393239365967">"Aplicaţia nu este instalată."</string>
     <string name="widgets_tab_label" msgid="9145860100000983599">"Obiecte widget"</string>
-    <string name="long_press_widget_to_add" msgid="7395697462851217506">"Atingeţi/menţineţi apăsat un widget pt. a-l alege."</string>
-    <string name="market" msgid="2652226429823445833">"Cumpăraţi"</string>
+    <string name="long_press_widget_to_add" msgid="7395697462851217506">"Atingeți/mențineți apăsat un widget pt. a-l alege."</string>
+    <string name="market" msgid="2652226429823445833">"Cumpărați"</string>
     <string name="widget_dims_format" msgid="1386418557719032947">"%1$d × %2$d"</string>
     <string name="external_drop_widget_error" msgid="2285187188524172774">"Nu am putut plasa articolul pe ecranul de pornire."</string>
     <string name="external_drop_widget_pick_title" msgid="7040647073452295370">"Alegeți widgetul de creare"</string>
@@ -43,7 +43,7 @@
     <string name="group_widgets" msgid="6704978494073105844">"Obiecte widget"</string>
     <string name="group_wallpapers" msgid="1568191644272224858">"Imagini de fundal"</string>
     <string name="completely_out_of_space" msgid="1759078539443491182">"Nu mai este loc pe ecranele de pornire."</string>
-    <string name="out_of_space" msgid="8365249326091984698">"Niciun spaţiu rămas pe acest Ecran de pornire."</string>
+    <string name="out_of_space" msgid="8365249326091984698">"Niciun spațiu rămas pe acest Ecran de pornire."</string>
     <string name="hotseat_out_of_space" msgid="6304886797358479361">"Nu mai există loc în bara de lansare rapidă."</string>
     <string name="invalid_hotseat_item" msgid="6545340627805449250">"Acest widget este prea mare pentru hotseat."</string>
     <string name="shortcut_installed" msgid="7071557296331322355">"Comanda rapidă „<xliff:g id="NAME">%s</xliff:g>”·a fost creată."</string>
@@ -58,7 +58,7 @@
     <string name="delete_target_label" msgid="665300185123139530">"Eliminaţi"</string>
     <string name="delete_target_uninstall_label" msgid="748894921183769150">"Dezinstalaţi"</string>
     <string name="info_target_label" msgid="4019495079517426980">"Informații aplicație"</string>
-    <string name="accessibility_search_button" msgid="816822994629942611">"Căutaţi"</string>
+    <string name="accessibility_search_button" msgid="816822994629942611">"Căutați"</string>
     <string name="accessibility_voice_search_button" msgid="3938249215065842475">"Căutare vocală"</string>
     <string name="accessibility_all_apps_button" msgid="8803738611398979849">"Aplicaţii"</string>
     <string name="accessibility_delete_button" msgid="3628162007991023603">"Eliminaţi"</string>
@@ -66,7 +66,7 @@
     <string name="menu_add" msgid="3065046628354640854">"Adăugați"</string>
     <string name="menu_manage_apps" msgid="2308685199463588895">"Gestionați aplicații"</string>
     <string name="menu_wallpaper" msgid="5837429080911269832">"Imagine de fundal"</string>
-    <string name="menu_search" msgid="4826514464423239041">"Căutaţi"</string>
+    <string name="menu_search" msgid="4826514464423239041">"Căutați"</string>
     <string name="menu_notifications" msgid="6424587053194766192">"Notificări"</string>
     <string name="menu_settings" msgid="3946232973327980394">"Setări de sistem"</string>
     <string name="menu_help" msgid="4901160661634590633">"Ajutor"</string>
@@ -99,12 +99,12 @@
     <string name="all_apps_cling_title" msgid="2559734712581447107">"Alegeți câteva aplicații"</string>
     <string name="all_apps_cling_add_item" msgid="5665035103260318891">"Atingeți o aplicație și mențineți-o apăsată pentru a o adăuga pe ecranul de pornire."</string>
     <string name="folder_cling_title" msgid="4308949882377840953">"Organizați aplicațiile în dosare"</string>
-    <string name="folder_cling_move_item" msgid="270598675060435169">"Pentru a muta o aplicație, atingeţi și ţineţi apăsat."</string>
+    <string name="folder_cling_move_item" msgid="270598675060435169">"Pentru a muta o aplicație, atingeți și ţineţi apăsat."</string>
     <string name="folder_cling_create_folder" msgid="8352867485656129478">"Pentru a crea un dosar nou pe ecranul de pornire, plasați o aplicație deasupra alteia."</string>
     <string name="cling_dismiss" msgid="2780907108735868381">"OK"</string>
     <string name="folder_opened" msgid="1262064100943801533">"Dosar deschis, <xliff:g id="WIDTH">%1$d</xliff:g> pe <xliff:g id="HEIGHT">%2$d</xliff:g>"</string>
-    <string name="folder_tap_to_close" msgid="1335478160661137579">"Atingeţi pentru a închide dosarul"</string>
-    <string name="folder_tap_to_rename" msgid="5201612989905472442">"Atingeţi pentru a salva redenumirea"</string>
+    <string name="folder_tap_to_close" msgid="1335478160661137579">"Atingeți pentru a închide dosarul"</string>
+    <string name="folder_tap_to_rename" msgid="5201612989905472442">"Atingeți pentru a salva redenumirea"</string>
     <string name="folder_closed" msgid="3130534551370511932">"Dosar închis"</string>
     <string name="folder_renamed" msgid="7951233572858053642">"Dosar redenumit <xliff:g id="NAME">%1$s</xliff:g>"</string>
     <string name="folder_name_format" msgid="3051680259794759037">"Dosar: <xliff:g id="NAME">%1$s</xliff:g>"</string>
