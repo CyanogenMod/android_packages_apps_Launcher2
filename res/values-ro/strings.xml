@@ -24,9 +24,9 @@
     <string name="uid_name" msgid="3371120195364560632">"Android Core Apps"</string>
     <string name="folder_name" msgid="8551881338202938211"></string>
     <string name="chooser_wallpaper" msgid="6063168087625352235">"Alegeți imaginea de fundal din"</string>
-    <string name="wallpaper_instructions" msgid="4215640646180727542">"Setaţi imaginea de fundal"</string>
+    <string name="wallpaper_instructions" msgid="4215640646180727542">"Setați imaginea de fundal"</string>
     <string name="pick_wallpaper" msgid="5630222540525626723">"Imagini de fundal"</string>
-    <string name="activity_not_found" msgid="217823393239365967">"Aplicaţia nu este instalată."</string>
+    <string name="activity_not_found" msgid="217823393239365967">"Aplicația nu este instalată."</string>
     <string name="widgets_tab_label" msgid="9145860100000983599">"Obiecte widget"</string>
     <string name="long_press_widget_to_add" msgid="7395697462851217506">"Atingeți/mențineți apăsat un widget pt. a-l alege."</string>
     <string name="market" msgid="2652226429823445833">"Cumpărați"</string>
@@ -38,7 +38,7 @@
     <string name="rename_action" msgid="6016003384693240896">"OK"</string>
     <string name="cancel_action" msgid="3811860427489435048">"Anulați"</string>
     <string name="menu_item_add_item" msgid="6233177331075781114">"Adăugați la Ecranul de pornire"</string>
-    <string name="group_applications" msgid="2103752818818161976">"Aplicaţii"</string>
+    <string name="group_applications" msgid="2103752818818161976">"Aplicații"</string>
     <string name="group_shortcuts" msgid="9133529424900391877">"Comenzi rapide"</string>
     <string name="group_widgets" msgid="6704978494073105844">"Obiecte widget"</string>
     <string name="group_wallpapers" msgid="1568191644272224858">"Imagini de fundal"</string>
@@ -51,18 +51,18 @@
     <string name="shortcut_duplicate" msgid="4757756326465060694">"Comanda rapidă „<xliff:g id="NAME">%s</xliff:g>” deja există."</string>
     <string name="title_select_shortcut" msgid="1873670208166882222">"Alegeți o comandă rapidă"</string>
     <string name="title_select_application" msgid="1793455815754848652">"Alegeți aplicația"</string>
-    <string name="all_apps_button_label" msgid="2578400570124163469">"Aplicaţii"</string>
+    <string name="all_apps_button_label" msgid="2578400570124163469">"Aplicații"</string>
     <string name="all_apps_home_button_label" msgid="1022222300329398558">"Domiciliu"</string>
-    <string name="delete_zone_label_workspace" msgid="7153615831493049150">"Eliminaţi"</string>
-    <string name="delete_zone_label_all_apps" msgid="6664588234817475108">"Dezinstalaţi"</string>
-    <string name="delete_target_label" msgid="665300185123139530">"Eliminaţi"</string>
-    <string name="delete_target_uninstall_label" msgid="748894921183769150">"Dezinstalaţi"</string>
+    <string name="delete_zone_label_workspace" msgid="7153615831493049150">"Eliminați"</string>
+    <string name="delete_zone_label_all_apps" msgid="6664588234817475108">"Dezinstalați"</string>
+    <string name="delete_target_label" msgid="665300185123139530">"Eliminați"</string>
+    <string name="delete_target_uninstall_label" msgid="748894921183769150">"Dezinstalați"</string>
     <string name="info_target_label" msgid="4019495079517426980">"Informații aplicație"</string>
     <string name="accessibility_search_button" msgid="816822994629942611">"Căutați"</string>
     <string name="accessibility_voice_search_button" msgid="3938249215065842475">"Căutare vocală"</string>
-    <string name="accessibility_all_apps_button" msgid="8803738611398979849">"Aplicaţii"</string>
-    <string name="accessibility_delete_button" msgid="3628162007991023603">"Eliminaţi"</string>
-    <string name="delete_zone_label_all_apps_system_app" msgid="3683920959591819044">"Dezinstalaţi actualizarea"</string>
+    <string name="accessibility_all_apps_button" msgid="8803738611398979849">"Aplicații"</string>
+    <string name="accessibility_delete_button" msgid="3628162007991023603">"Eliminați"</string>
+    <string name="delete_zone_label_all_apps_system_app" msgid="3683920959591819044">"Dezinstalați actualizarea"</string>
     <string name="menu_add" msgid="3065046628354640854">"Adăugați"</string>
     <string name="menu_manage_apps" msgid="2308685199463588895">"Gestionați aplicații"</string>
     <string name="menu_wallpaper" msgid="5837429080911269832">"Imagine de fundal"</string>
@@ -70,19 +70,19 @@
     <string name="menu_notifications" msgid="6424587053194766192">"Notificări"</string>
     <string name="menu_settings" msgid="3946232973327980394">"Setări de sistem"</string>
     <string name="menu_help" msgid="4901160661634590633">"Ajutor"</string>
-    <string name="cab_menu_delete_app" msgid="4089398025537640349">"Dezinstalaţi aplicația"</string>
+    <string name="cab_menu_delete_app" msgid="4089398025537640349">"Dezinstalați aplicația"</string>
     <string name="cab_menu_app_info" msgid="914548323652698884">"Detalii aplicație"</string>
     <string name="cab_app_selection_text" msgid="6378522164293415735">"1 aplicație selectată"</string>
     <string name="cab_widget_selection_text" msgid="962527270506951955">"1 obiect widget selectat"</string>
     <string name="cab_folder_selection_text" msgid="8916111874189565067">"1 dosar selectat"</string>
     <string name="cab_shortcut_selection_text" msgid="8115847384500412878">"1 comandă rapidă selectată"</string>
-    <string name="permlab_install_shortcut" msgid="1201690825493376489">"instalaţi comenzi rapide"</string>
-    <string name="permdesc_install_shortcut" msgid="8634424803272077038">"Permite unei aplicații să adauge comenzi rapide, fără intervenţia utilizatorului."</string>
-    <string name="permlab_uninstall_shortcut" msgid="7696645932555926449">"dezinstalaţi comenzile rapide"</string>
-    <string name="permdesc_uninstall_shortcut" msgid="274355570620220977">"Permite aplicației să elimine comenzile rapide, fără intervenţia utilizatorului."</string>
-    <string name="permlab_read_settings" msgid="3452408290738106747">"citiţi setările Paginii de pornire și comenzile rapide"</string>
+    <string name="permlab_install_shortcut" msgid="1201690825493376489">"instalați comenzi rapide"</string>
+    <string name="permdesc_install_shortcut" msgid="8634424803272077038">"Permite unei aplicații să adauge comenzi rapide, fără intervenția utilizatorului."</string>
+    <string name="permlab_uninstall_shortcut" msgid="7696645932555926449">"dezinstalați comenzile rapide"</string>
+    <string name="permdesc_uninstall_shortcut" msgid="274355570620220977">"Permite aplicației să elimine comenzile rapide, fără intervenția utilizatorului."</string>
+    <string name="permlab_read_settings" msgid="3452408290738106747">"citiți setările Paginii de pornire și comenzile rapide"</string>
     <string name="permdesc_read_settings" msgid="5788109303585403679">"Permite aplicației să citească setările și comenzile rapide din ecranul de pornire."</string>
-    <string name="permlab_write_settings" msgid="1360567537236705628">"scrieţi setări și comenzi rapide pentru Ecranul de pornire"</string>
+    <string name="permlab_write_settings" msgid="1360567537236705628">"scrieți setări și comenzi rapide pentru Ecranul de pornire"</string>
     <string name="permdesc_write_settings" msgid="8530105489115785531">"Permite aplicației să modifice setările și comenzile rapide din ecranul de pornire."</string>
     <string name="gadget_error_text" msgid="8359351016167075858">"Probleme la încărcarea obiectului widget"</string>
     <string name="uninstall_system_app_text" msgid="6429814133777046491">"Aceasta este o aplicație de sistem și nu poate fi dezinstalată."</string>
@@ -99,7 +99,7 @@
     <string name="all_apps_cling_title" msgid="2559734712581447107">"Alegeți câteva aplicații"</string>
     <string name="all_apps_cling_add_item" msgid="5665035103260318891">"Atingeți o aplicație și mențineți-o apăsată pentru a o adăuga pe ecranul de pornire."</string>
     <string name="folder_cling_title" msgid="4308949882377840953">"Organizați aplicațiile în dosare"</string>
-    <string name="folder_cling_move_item" msgid="270598675060435169">"Pentru a muta o aplicație, atingeți și ţineţi apăsat."</string>
+    <string name="folder_cling_move_item" msgid="270598675060435169">"Pentru a muta o aplicație, atingeți și țineți apăsat."</string>
     <string name="folder_cling_create_folder" msgid="8352867485656129478">"Pentru a crea un dosar nou pe ecranul de pornire, plasați o aplicație deasupra alteia."</string>
     <string name="cling_dismiss" msgid="2780907108735868381">"OK"</string>
     <string name="folder_opened" msgid="1262064100943801533">"Dosar deschis, <xliff:g id="WIDTH">%1$d</xliff:g> pe <xliff:g id="HEIGHT">%2$d</xliff:g>"</string>
