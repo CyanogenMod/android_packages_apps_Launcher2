@@ -19,117 +19,74 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- no translation found for application_name (8424725141379931883) -->
-    <skip />
+    <string name="application_name" msgid="8424725141379931883">"Жүргүзгүч"</string>
     <string name="home" msgid="5921706419368316758">"Үйгө"</string>
-    <!-- no translation found for uid_name (3371120195364560632) -->
-    <skip />
+    <string name="uid_name" msgid="3371120195364560632">"Android Core колдонмолору"</string>
     <string name="folder_name" msgid="8551881338202938211"></string>
     <string name="chooser_wallpaper" msgid="6063168087625352235">"Тушкагаз тандоо"</string>
-    <!-- no translation found for wallpaper_instructions (4215640646180727542) -->
-    <skip />
-    <!-- no translation found for pick_wallpaper (5630222540525626723) -->
-    <skip />
+    <string name="wallpaper_instructions" msgid="4215640646180727542">"Тушкагаз орнотуу"</string>
+    <string name="pick_wallpaper" msgid="5630222540525626723">"Тушкагаздар"</string>
     <string name="activity_not_found" msgid="217823393239365967">"Колдонмо орнотулган эмес."</string>
-    <!-- no translation found for widgets_tab_label (9145860100000983599) -->
-    <skip />
+    <string name="widgets_tab_label" msgid="9145860100000983599">"Виджеттер"</string>
     <string name="long_press_widget_to_add" msgid="7395697462851217506">"Виджетти тандаш үчүн басып туруңуз"</string>
-    <!-- no translation found for market (2652226429823445833) -->
-    <skip />
+    <string name="market" msgid="2652226429823445833">"Дүкөн"</string>
     <string name="widget_dims_format" msgid="1386418557719032947">"%1$d × %2$d"</string>
     <string name="external_drop_widget_error" msgid="2285187188524172774">"Муну бул Үй экранына ыргытуу мүмкүн эмес."</string>
     <string name="external_drop_widget_pick_title" msgid="7040647073452295370">"Түзүлүүчү виджетти тандаңыз"</string>
-    <!-- no translation found for rename_folder_label (5646236631298452787) -->
-    <skip />
-    <!-- no translation found for rename_folder_title (4544573104191526550) -->
-    <skip />
-    <!-- no translation found for rename_action (6016003384693240896) -->
-    <skip />
-    <!-- no translation found for cancel_action (3811860427489435048) -->
-    <skip />
-    <!-- no translation found for menu_item_add_item (6233177331075781114) -->
-    <skip />
+    <string name="rename_folder_label" msgid="5646236631298452787">"Куржундун аталышы"</string>
+    <string name="rename_folder_title" msgid="4544573104191526550">"Куржундун аталышын өзгөртүү"</string>
+    <string name="rename_action" msgid="6016003384693240896">"Жарайт"</string>
+    <string name="cancel_action" msgid="3811860427489435048">"Жокко чыгаруу"</string>
+    <string name="menu_item_add_item" msgid="6233177331075781114">"Башкы экранга кошуу"</string>
     <string name="group_applications" msgid="2103752818818161976">"Колдонмолор"</string>
-    <!-- no translation found for group_shortcuts (9133529424900391877) -->
-    <skip />
-    <!-- no translation found for group_widgets (6704978494073105844) -->
-    <skip />
-    <!-- no translation found for group_wallpapers (1568191644272224858) -->
-    <skip />
+    <string name="group_shortcuts" msgid="9133529424900391877">"Кыска жолдор"</string>
+    <string name="group_widgets" msgid="6704978494073105844">"Виджеттер"</string>
+    <string name="group_wallpapers" msgid="1568191644272224858">"Тушкагаздар"</string>
     <string name="completely_out_of_space" msgid="1759078539443491182">"Үй экрандарыңызда бош орун калган жок."</string>
-    <!-- no translation found for out_of_space (8365249326091984698) -->
-    <skip />
+    <string name="out_of_space" msgid="8365249326091984698">"Башкы экранда бош орун жок."</string>
     <string name="hotseat_out_of_space" msgid="6304886797358479361">"Бош ысык орун калган жок."</string>
     <string name="invalid_hotseat_item" msgid="6545340627805449250">"Бул виджет ысык орундар үчүн өтө чоң."</string>
-    <!-- no translation found for shortcut_installed (7071557296331322355) -->
-    <skip />
-    <!-- no translation found for shortcut_uninstalled (2129499669449749995) -->
-    <skip />
-    <!-- no translation found for shortcut_duplicate (4757756326465060694) -->
-    <skip />
+    <string name="shortcut_installed" msgid="7071557296331322355">"\"<xliff:g id="NAME">%s</xliff:g>\" кыска жолу түзүлдү."</string>
+    <string name="shortcut_uninstalled" msgid="2129499669449749995">"\"<xliff:g id="NAME">%s</xliff:g>\" кыска жолу алынып салынды."</string>
+    <string name="shortcut_duplicate" msgid="4757756326465060694">"\"<xliff:g id="NAME">%s</xliff:g>\" кыска жолу мурунтан эле бар."</string>
     <string name="title_select_shortcut" msgid="1873670208166882222">"Тез чакырма тандоо"</string>
     <string name="title_select_application" msgid="1793455815754848652">"Колдонмо тандоо"</string>
-    <!-- no translation found for all_apps_button_label (2578400570124163469) -->
-    <skip />
-    <!-- no translation found for all_apps_home_button_label (1022222300329398558) -->
-    <skip />
-    <!-- no translation found for delete_zone_label_workspace (7153615831493049150) -->
-    <skip />
-    <!-- no translation found for delete_zone_label_all_apps (6664588234817475108) -->
-    <skip />
-    <!-- no translation found for delete_target_label (665300185123139530) -->
-    <skip />
-    <!-- no translation found for delete_target_uninstall_label (748894921183769150) -->
-    <skip />
-    <!-- no translation found for info_target_label (4019495079517426980) -->
-    <skip />
-    <!-- no translation found for accessibility_search_button (816822994629942611) -->
-    <skip />
-    <!-- no translation found for accessibility_voice_search_button (3938249215065842475) -->
-    <skip />
+    <string name="all_apps_button_label" msgid="2578400570124163469">"Колдонмолор"</string>
+    <string name="all_apps_home_button_label" msgid="1022222300329398558">"Башкы бет"</string>
+    <string name="delete_zone_label_workspace" msgid="7153615831493049150">"Алып салуу"</string>
+    <string name="delete_zone_label_all_apps" msgid="6664588234817475108">"Чыгарып салуу"</string>
+    <string name="delete_target_label" msgid="665300185123139530">"Алып салуу"</string>
+    <string name="delete_target_uninstall_label" msgid="748894921183769150">"Чыгарып салуу"</string>
+    <string name="info_target_label" msgid="4019495079517426980">"Колдонмо тууралуу"</string>
+    <string name="accessibility_search_button" msgid="816822994629942611">"Издөө"</string>
+    <string name="accessibility_voice_search_button" msgid="3938249215065842475">"Үн менен издөө"</string>
     <string name="accessibility_all_apps_button" msgid="8803738611398979849">"Колдонмолор"</string>
-    <!-- no translation found for accessibility_delete_button (3628162007991023603) -->
-    <skip />
-    <!-- no translation found for delete_zone_label_all_apps_system_app (3683920959591819044) -->
-    <skip />
-    <!-- no translation found for menu_add (3065046628354640854) -->
-    <skip />
-    <!-- no translation found for menu_manage_apps (2308685199463588895) -->
-    <skip />
-    <!-- no translation found for menu_wallpaper (5837429080911269832) -->
-    <skip />
-    <!-- no translation found for menu_search (4826514464423239041) -->
-    <skip />
-    <!-- no translation found for menu_notifications (6424587053194766192) -->
-    <skip />
+    <string name="accessibility_delete_button" msgid="3628162007991023603">"Алып салуу"</string>
+    <string name="delete_zone_label_all_apps_system_app" msgid="3683920959591819044">"Жаңыртууну чыгарып салуу"</string>
+    <string name="menu_add" msgid="3065046628354640854">"Кошуу"</string>
+    <string name="menu_manage_apps" msgid="2308685199463588895">"Колдонмолорду башкаруу"</string>
+    <string name="menu_wallpaper" msgid="5837429080911269832">"Тушкагаз"</string>
+    <string name="menu_search" msgid="4826514464423239041">"Издөө"</string>
+    <string name="menu_notifications" msgid="6424587053194766192">"Эскертмелер"</string>
     <string name="menu_settings" msgid="3946232973327980394">"Систем тууралоолору"</string>
     <string name="menu_help" msgid="4901160661634590633">"Жардам"</string>
     <string name="cab_menu_delete_app" msgid="4089398025537640349">"Колдонмону чечип салуу"</string>
     <string name="cab_menu_app_info" msgid="914548323652698884">"Колдонмо тууралуу"</string>
     <string name="cab_app_selection_text" msgid="6378522164293415735">"1 колдонмо тандалды"</string>
-    <!-- no translation found for cab_widget_selection_text (962527270506951955) -->
-    <skip />
-    <!-- no translation found for cab_folder_selection_text (8916111874189565067) -->
-    <skip />
-    <!-- no translation found for cab_shortcut_selection_text (8115847384500412878) -->
-    <skip />
-    <!-- no translation found for permlab_install_shortcut (1201690825493376489) -->
-    <skip />
+    <string name="cab_widget_selection_text" msgid="962527270506951955">"1 виджет тандалды"</string>
+    <string name="cab_folder_selection_text" msgid="8916111874189565067">"1 куржун тандалды"</string>
+    <string name="cab_shortcut_selection_text" msgid="8115847384500412878">"1 кыска жол тандалды"</string>
+    <string name="permlab_install_shortcut" msgid="1201690825493376489">"кыска жолдорду орнотуу"</string>
     <string name="permdesc_install_shortcut" msgid="8634424803272077038">"Колдонмого колдонуучуга кайрылбастан тез чакырма кошууга уруксат берет."</string>
-    <!-- no translation found for permlab_uninstall_shortcut (7696645932555926449) -->
-    <skip />
+    <string name="permlab_uninstall_shortcut" msgid="7696645932555926449">"кыска жолдорду чыгарып салуу"</string>
     <string name="permdesc_uninstall_shortcut" msgid="274355570620220977">"Колдонмого колдонуучуга кайрылбастан тез чакырмаларды жок кылууга уруксат берет."</string>
-    <!-- no translation found for permlab_read_settings (3452408290738106747) -->
-    <skip />
+    <string name="permlab_read_settings" msgid="3452408290738106747">"Башкы беттин жөндөөлөрүн жана кыска жолдорун окуу"</string>
     <string name="permdesc_read_settings" msgid="5788109303585403679">"Колдонмого Үйдүн тууралоолорун жана тез чакырмаларын окууга уруксат берет."</string>
-    <!-- no translation found for permlab_write_settings (1360567537236705628) -->
-    <skip />
+    <string name="permlab_write_settings" msgid="1360567537236705628">"Башкы беттин жөндөөлөрүн жана кыска жолдорун жазуу"</string>
     <string name="permdesc_write_settings" msgid="8530105489115785531">"Колдонмого Үйдүн тууралоолорун жана тез чакырмаларын өзгөртүүгө уруксат берет."</string>
-    <!-- no translation found for gadget_error_text (8359351016167075858) -->
-    <skip />
+    <string name="gadget_error_text" msgid="8359351016167075858">"Виджетти жүктөөдө көйгөй чыкты"</string>
     <string name="uninstall_system_app_text" msgid="6429814133777046491">"Бул системдик колдонмо жана аны чечкенге болбойт."</string>
-    <!-- no translation found for dream_name (2847171357608437154) -->
-    <skip />
+    <string name="dream_name" msgid="2847171357608437154">"Rocket Launcher"</string>
     <string name="folder_hint_text" msgid="8633351560105748141">"Аты жок фолдер"</string>
     <string name="workspace_description_format" msgid="2968608205939373034">"Үй экраны %1$d"</string>
     <string name="default_scroll_format" msgid="4057140866420001240">"%2$d ичинен %1$d барак"</string>

@@ -54,9 +54,9 @@
     <string name="all_apps_button_label" msgid="2578400570124163469">"Ilovalar"</string>
     <string name="all_apps_home_button_label" msgid="1022222300329398558">"Uy"</string>
     <string name="delete_zone_label_workspace" msgid="7153615831493049150">"O‘chirish"</string>
-    <string name="delete_zone_label_all_apps" msgid="6664588234817475108">"O‘chirish"</string>
+    <string name="delete_zone_label_all_apps" msgid="6664588234817475108">"O‘chirib tashlash"</string>
     <string name="delete_target_label" msgid="665300185123139530">"O‘chirish"</string>
-    <string name="delete_target_uninstall_label" msgid="748894921183769150">"O‘chirish"</string>
+    <string name="delete_target_uninstall_label" msgid="748894921183769150">"O‘chirib tashlash"</string>
     <string name="info_target_label" msgid="4019495079517426980">"Ilova haqida"</string>
     <string name="accessibility_search_button" msgid="816822994629942611">"Qidiruv"</string>
     <string name="accessibility_voice_search_button" msgid="3938249215065842475">"Ovozli qidiruv"</string>
