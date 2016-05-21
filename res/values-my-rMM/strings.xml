@@ -35,8 +35,8 @@
     <string name="external_drop_widget_pick_title" msgid="7040647073452295370">"ဝဒ်ဂျက်တစ်ခုအား ပြုလုပ်ရန် ရွေးပါ"</string>
     <string name="rename_folder_label" msgid="5646236631298452787">"အကန့်အမည်"</string>
     <string name="rename_folder_title" msgid="4544573104191526550">"အကန့်အမည်ပြောင်းရန်"</string>
-    <string name="rename_action" msgid="6016003384693240896">"ကောင်းပြီ"</string>
-    <string name="cancel_action" msgid="3811860427489435048">"ထားတော့"</string>
+    <string name="rename_action" msgid="6016003384693240896">"အိုကေ"</string>
+    <string name="cancel_action" msgid="3811860427489435048">"ဖျက်သိမ်းရန်"</string>
     <string name="menu_item_add_item" msgid="6233177331075781114">"ပင်မမျက်နှာစာသို့ ထည့်ပါ"</string>
     <string name="group_applications" msgid="2103752818818161976">"အပ်ပလီကေးရှင်းများ"</string>
     <string name="group_shortcuts" msgid="9133529424900391877">"အတိုကောက်မှတ်သားမှုများ"</string>
@@ -101,7 +101,7 @@
     <string name="folder_cling_title" msgid="4308949882377840953">"အပ်ပလီကေးရှင်းများကို အကန့်ဖြင့်ခွဲ၍ သေသေသပ်သပ်ထားပါ"</string>
     <string name="folder_cling_move_item" msgid="270598675060435169">"အက်ပ်ကို ရွှေ့လိုပါက ဖိ၍ ကိုင်ထားပါ"</string>
     <string name="folder_cling_create_folder" msgid="8352867485656129478">"ပင်မမျက်နှာစာပေါ်တွင် အကန့်ဆောက်ရန်၊ အပ်ပလီကေးရှင်း တစ်ခုပေါ် တစ်ခု ဆင့်တင်လိုက်ပါ"</string>
-    <string name="cling_dismiss" msgid="2780907108735868381">"ကောင်းပြီ"</string>
+    <string name="cling_dismiss" msgid="2780907108735868381">"အိုကေ"</string>
     <string name="folder_opened" msgid="1262064100943801533">"ဖွင့်ထားသောအကန့်, <xliff:g id="WIDTH">%1$d</xliff:g> by <xliff:g id="HEIGHT">%2$d</xliff:g>"</string>
     <string name="folder_tap_to_close" msgid="1335478160661137579">"ဖိကိုင်ပြီး အကန့်ကို ပိတ်ပါ"</string>
     <string name="folder_tap_to_rename" msgid="5201612989905472442">"အမည်ပြောင်းခြင်း အတည်ပြုရန် ဖိကိုင်ပါ"</string>

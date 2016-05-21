@@ -24,10 +24,10 @@
     <string name="uid_name" msgid="3371120195364560632">"Android Core ਐਪਸ"</string>
     <string name="folder_name" msgid="8551881338202938211"></string>
     <string name="chooser_wallpaper" msgid="6063168087625352235">"ਇਸਤੋਂ ਵਾਲਪੇਪਰ ਚੁਣੋ"</string>
-    <string name="wallpaper_instructions" msgid="4215640646180727542">"ਵਾਲਪੇਪਰ ਸੈਟ ਕਰੋ"</string>
+    <string name="wallpaper_instructions" msgid="4215640646180727542">"ਵਾਲਪੇਪਰ ਸੈੱਟ ਕਰੋ"</string>
     <string name="pick_wallpaper" msgid="5630222540525626723">"ਵਾਲਪੇਪਰ"</string>
     <string name="activity_not_found" msgid="217823393239365967">"ਐਪ ਇੰਸਟੌਲ ਨਹੀਂ ਕੀਤਾ ਹੋਇਆ ਹੈ।"</string>
-    <string name="widgets_tab_label" msgid="9145860100000983599">"ਵਿਜੇਟਸ"</string>
+    <string name="widgets_tab_label" msgid="9145860100000983599">"ਵਿਜਿਟ"</string>
     <string name="long_press_widget_to_add" msgid="7395697462851217506">"ਇੱਕ ਵਿਜੇਟ ਚੁਣਨ ਲਈ ਛੋਹਵੋ &amp; ਹੋਲਡ ਕਰੋ।"</string>
     <string name="market" msgid="2652226429823445833">"ਦੁਕਾਨ"</string>
     <string name="widget_dims_format" msgid="1386418557719032947">"%1$d × %2$d"</string>
@@ -38,9 +38,9 @@
     <string name="rename_action" msgid="6016003384693240896">"ਠੀਕ"</string>
     <string name="cancel_action" msgid="3811860427489435048">"ਰੱਦ ਕਰੋ"</string>
     <string name="menu_item_add_item" msgid="6233177331075781114">"ਹੋਮ ਸਕ੍ਰੀਨ ਵਿੱਚ ਜੋੜੋ"</string>
-    <string name="group_applications" msgid="2103752818818161976">"ਐਪਸ"</string>
+    <string name="group_applications" msgid="2103752818818161976">"ਐਪਾਂ"</string>
     <string name="group_shortcuts" msgid="9133529424900391877">"ਸ਼ੌਰਟਕਟਸ"</string>
-    <string name="group_widgets" msgid="6704978494073105844">"ਵਿਜੇਟਸ"</string>
+    <string name="group_widgets" msgid="6704978494073105844">"ਵਿਜਿਟ"</string>
     <string name="group_wallpapers" msgid="1568191644272224858">"ਵਾਲਪੇਪਰ"</string>
     <string name="completely_out_of_space" msgid="1759078539443491182">"ਤੁਹਾਡੀਆਂ ਹੋਮ ਸਕ੍ਰੀਨਾਂ ਤੇ ਹੋਰ ਖਾਲੀ ਸਥਾਨ ਨਹੀਂ ਹੈ।"</string>
     <string name="out_of_space" msgid="8365249326091984698">"ਇਸ ਹੋਮ ਸਕ੍ਰੀਨ ਲਈ ਹੋਰ ਖਾਲੀ ਸਥਾਨ ਨਹੀਂ ਹੈ।"</string>
@@ -51,7 +51,7 @@
     <string name="shortcut_duplicate" msgid="4757756326465060694">"ਸ਼ੌਰਟਕਟ \"<xliff:g id="NAME">%s</xliff:g>\" ਪਹਿਲਾਂ ਹੀ ਮੌਜੂਦ ਹੈ।"</string>
     <string name="title_select_shortcut" msgid="1873670208166882222">"ਸ਼ੌਰਟਕਟ ਚੁਣੋ"</string>
     <string name="title_select_application" msgid="1793455815754848652">"ਐਪ ਚੁਣੋ"</string>
-    <string name="all_apps_button_label" msgid="2578400570124163469">"ਐਪਸ"</string>
+    <string name="all_apps_button_label" msgid="2578400570124163469">"ਐਪਾਂ"</string>
     <string name="all_apps_home_button_label" msgid="1022222300329398558">"ਹੋਮ"</string>
     <string name="delete_zone_label_workspace" msgid="7153615831493049150">"ਹਟਾਓ"</string>
     <string name="delete_zone_label_all_apps" msgid="6664588234817475108">"ਅਣਇੰਸਟੌਲ ਕਰੋ"</string>
@@ -60,7 +60,7 @@
     <string name="info_target_label" msgid="4019495079517426980">"ਐਪ ਜਾਣਕਾਰੀ"</string>
     <string name="accessibility_search_button" msgid="816822994629942611">"ਖੋਜੋ"</string>
     <string name="accessibility_voice_search_button" msgid="3938249215065842475">"ਵੌਇਸ ਖੋਜ"</string>
-    <string name="accessibility_all_apps_button" msgid="8803738611398979849">"ਐਪਸ"</string>
+    <string name="accessibility_all_apps_button" msgid="8803738611398979849">"ਐਪਾਂ"</string>
     <string name="accessibility_delete_button" msgid="3628162007991023603">"ਹਟਾਓ"</string>
     <string name="delete_zone_label_all_apps_system_app" msgid="3683920959591819044">"ਅਪਡੇਟ ਅਣਇੰਸਟੌਲ ਕਰੋ"</string>
     <string name="menu_add" msgid="3065046628354640854">"ਜੋੜੋ"</string>
@@ -69,7 +69,7 @@
     <string name="menu_search" msgid="4826514464423239041">"ਖੋਜੋ"</string>
     <string name="menu_notifications" msgid="6424587053194766192">"ਸੂਚਨਾਵਾਂ"</string>
     <string name="menu_settings" msgid="3946232973327980394">"ਸਿਸਟਮ ਸੈਟਿੰਗਾਂ"</string>
-    <string name="menu_help" msgid="4901160661634590633">"ਸਹਾਇਤਾ"</string>
+    <string name="menu_help" msgid="4901160661634590633">"ਮਦਦ"</string>
     <string name="cab_menu_delete_app" msgid="4089398025537640349">"ਐਪ ਅਣਇੰਸਟੌਲ ਕਰੋ"</string>
     <string name="cab_menu_app_info" msgid="914548323652698884">"ਐਪ ਵੇਰਵੇ"</string>
     <string name="cab_app_selection_text" msgid="6378522164293415735">"1 ਐਪ ਚੁਣਿਆ"</string>

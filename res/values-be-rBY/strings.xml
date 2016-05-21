@@ -36,7 +36,7 @@
     <string name="rename_folder_label" msgid="5646236631298452787">"Назва тэчкі"</string>
     <string name="rename_folder_title" msgid="4544573104191526550">"Пераназваць тэчку"</string>
     <string name="rename_action" msgid="6016003384693240896">"ОК"</string>
-    <string name="cancel_action" msgid="3811860427489435048">"Адмяніць"</string>
+    <string name="cancel_action" msgid="3811860427489435048">"Скасаваць"</string>
     <string name="menu_item_add_item" msgid="6233177331075781114">"Дадаць на Галоўную старонку"</string>
     <string name="group_applications" msgid="2103752818818161976">"Прыкладаннi"</string>
     <string name="group_shortcuts" msgid="9133529424900391877">"Хуткі доступ"</string>
@@ -51,7 +51,7 @@
     <string name="shortcut_duplicate" msgid="4757756326465060694">"Цэтлік \"<xliff:g id="NAME">%s</xliff:g>\" ужо існуе."</string>
     <string name="title_select_shortcut" msgid="1873670208166882222">"Выберыце шлях хуткага доступу"</string>
     <string name="title_select_application" msgid="1793455815754848652">"Выберыце прыкладанне"</string>
-    <string name="all_apps_button_label" msgid="2578400570124163469">"Прыкладанні"</string>
+    <string name="all_apps_button_label" msgid="2578400570124163469">"Праграмы"</string>
     <string name="all_apps_home_button_label" msgid="1022222300329398558">"Галоўная старонка"</string>
     <string name="delete_zone_label_workspace" msgid="7153615831493049150">"Выдаліць"</string>
     <string name="delete_zone_label_all_apps" msgid="6664588234817475108">"Выдаліць"</string>

@@ -35,7 +35,7 @@
     <string name="external_drop_widget_pick_title" msgid="7040647073452295370">"Үүсгэх виджетээ сонгоно уу"</string>
     <string name="rename_folder_label" msgid="5646236631298452787">"Фолдерийн нэр"</string>
     <string name="rename_folder_title" msgid="4544573104191526550">"Фолдерийн нэр өөрчлөх"</string>
-    <string name="rename_action" msgid="6016003384693240896">"Тийм"</string>
+    <string name="rename_action" msgid="6016003384693240896">"OK"</string>
     <string name="cancel_action" msgid="3811860427489435048">"Цуцлах"</string>
     <string name="menu_item_add_item" msgid="6233177331075781114">"Нүүр дэлгэцэнд нэмэх"</string>
     <string name="group_applications" msgid="2103752818818161976">"Апп"</string>
@@ -101,7 +101,7 @@
     <string name="folder_cling_title" msgid="4308949882377840953">"Фолдер ашиглан өөрийн апп-уудыг зохион байгуулна уу"</string>
     <string name="folder_cling_move_item" msgid="270598675060435169">"Апп-г шилжүүлэх бол хүрээд барина уу."</string>
     <string name="folder_cling_create_folder" msgid="8352867485656129478">"Нүүр дэлгэцэнд шинэ фолдер үүсгэх бол нэг апп-г өөр апп-н дээр байрлуулна уу."</string>
-    <string name="cling_dismiss" msgid="2780907108735868381">"Тийм"</string>
+    <string name="cling_dismiss" msgid="2780907108735868381">"OK"</string>
     <string name="folder_opened" msgid="1262064100943801533">"<xliff:g id="WIDTH">%1$d</xliff:g> <xliff:g id="HEIGHT">%2$d</xliff:g> фолдер нээгдэв"</string>
     <string name="folder_tap_to_close" msgid="1335478160661137579">"Фолдер хаах бол хүрнэ үү"</string>
     <string name="folder_tap_to_rename" msgid="5201612989905472442">"Шинэ нэрийг хадгалах бол хүрнэ үү"</string>

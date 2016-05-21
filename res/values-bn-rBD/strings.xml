@@ -32,7 +32,7 @@
     <string name="market" msgid="2652226429823445833">"দোকান"</string>
     <string name="widget_dims_format" msgid="1386418557719032947">"%1$d × %2$d"</string>
     <string name="external_drop_widget_error" msgid="2285187188524172774">"এই হোম স্ক্রীনে আইটেম রাখা যায়নি৷"</string>
-    <string name="external_drop_widget_pick_title" msgid="7040647073452295370">"তৈরি করেতে উইজেট চয়ন করুন"</string>
+    <string name="external_drop_widget_pick_title" msgid="7040647073452295370">"তৈরি করেতে উইজেট বেছে নিন"</string>
     <string name="rename_folder_label" msgid="5646236631298452787">"ফোল্ডারের নাম"</string>
     <string name="rename_folder_title" msgid="4544573104191526550">"ফোল্ডার পুনঃনামকরণ করুন"</string>
     <string name="rename_action" msgid="6016003384693240896">"ঠিক আছে"</string>
@@ -49,8 +49,8 @@
     <string name="shortcut_installed" msgid="7071557296331322355">"শর্টকাট \"<xliff:g id="NAME">%s</xliff:g>\" তৈরি করা হয়েছে৷"</string>
     <string name="shortcut_uninstalled" msgid="2129499669449749995">"শর্টকাট \"<xliff:g id="NAME">%s</xliff:g>\" সরানো হয়েছে৷"</string>
     <string name="shortcut_duplicate" msgid="4757756326465060694">"শর্টকাট <xliff:g id="NAME">%s</xliff:g> আগে থেকেই আছে৷"</string>
-    <string name="title_select_shortcut" msgid="1873670208166882222">"শর্টকাট চয়ন করুন"</string>
-    <string name="title_select_application" msgid="1793455815754848652">"অ্যাপ্লিকেশান চয়ন করুন"</string>
+    <string name="title_select_shortcut" msgid="1873670208166882222">"শর্টকাট বেছে নিন"</string>
+    <string name="title_select_application" msgid="1793455815754848652">"অ্যাপ্লিকেশান বেছে নিন"</string>
     <string name="all_apps_button_label" msgid="2578400570124163469">"অ্যাপ্লিকেশানগুলি"</string>
     <string name="all_apps_home_button_label" msgid="1022222300329398558">"হোম"</string>
     <string name="delete_zone_label_workspace" msgid="7153615831493049150">"সরান"</string>
@@ -96,7 +96,7 @@
     <string name="workspace_cling_title" msgid="738396473989890567">"নিজের মতো করে সাজান"</string>
     <string name="workspace_cling_move_item" msgid="791013895761065070">"আপনি এখানে আপনার পছন্দসই অ্যাপ্লিকেশানগুলি সাজিয়ে রাখতে পারেন৷"</string>
     <string name="workspace_cling_open_all_apps" msgid="2459977609848572588">"আপনার সমস্ত অ্যাপ্লিকেশান দেখতে, বৃত্তটি স্পর্শ করুন৷"</string>
-    <string name="all_apps_cling_title" msgid="2559734712581447107">"কিছু অ্যাপ্লিকেশান চয়ন করুন"</string>
+    <string name="all_apps_cling_title" msgid="2559734712581447107">"কিছু অ্যাপ্লিকেশান বেছে নিন"</string>
     <string name="all_apps_cling_add_item" msgid="5665035103260318891">"আপনার হোম স্ক্রীনে অ্যাপ্লিকেশান যোগ করতে, তা স্পর্শ করে ধরে রাখুন৷"</string>
     <string name="folder_cling_title" msgid="4308949882377840953">"ফোল্ডারগুলির সঙ্গে আপনার অ্যাপ্লিকেশানগুলিকে সংগঠিত করুন"</string>
     <string name="folder_cling_move_item" msgid="270598675060435169">"একটি অ্যাপ্লিকেশান সরাতে তা স্পর্শ করে ধরে রাখুন৷"</string>
