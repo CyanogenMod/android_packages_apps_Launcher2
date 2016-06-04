@@ -46,10 +46,10 @@
     <string name="out_of_space" msgid="8365249326091984698">"ਇਸ ਹੋਮ ਸਕ੍ਰੀਨ ਲਈ ਹੋਰ ਖਾਲੀ ਸਥਾਨ ਨਹੀਂ ਹੈ।"</string>
     <string name="hotseat_out_of_space" msgid="6304886797358479361">"ਹੌਟਸੀਟ ਤੇ ਹੋਰ ਖਾਲੀ ਸਥਾਨ ਨਹੀਂ।"</string>
     <string name="invalid_hotseat_item" msgid="6545340627805449250">"ਇਹ ਵਿਜੇਟ ਹੌਟਸੀਟ ਲਈ ਬਹੁਤ ਜ਼ਿਆਦਾ ਵੱਡਾ ਹੈ।"</string>
-    <string name="shortcut_installed" msgid="7071557296331322355">"ਸ਼ੌਰਟਕਟ \"<xliff:g id="NAME">%s</xliff:g>\" ਬਣਾਇਆ ਗਿਆ।"</string>
-    <string name="shortcut_uninstalled" msgid="2129499669449749995">"ਸ਼ੌਰਟਕਟ \"<xliff:g id="NAME">%s</xliff:g>\" ਹਟਾ ਦਿੱਤਾ ਗਿਆ ਸੀ।"</string>
-    <string name="shortcut_duplicate" msgid="4757756326465060694">"ਸ਼ੌਰਟਕਟ \"<xliff:g id="NAME">%s</xliff:g>\" ਪਹਿਲਾਂ ਹੀ ਮੌਜੂਦ ਹੈ।"</string>
-    <string name="title_select_shortcut" msgid="1873670208166882222">"ਸ਼ੌਰਟਕਟ ਚੁਣੋ"</string>
+    <string name="shortcut_installed" msgid="7071557296331322355">"ਸ਼ਾਰਟਕੱਟ \"<xliff:g id="NAME">%s</xliff:g>\" ਬਣਾਇਆ ਗਿਆ।"</string>
+    <string name="shortcut_uninstalled" msgid="2129499669449749995">"ਸ਼ਾਰਟਕੱਟ \"<xliff:g id="NAME">%s</xliff:g>\" ਹਟਾ ਦਿੱਤਾ ਗਿਆ ਸੀ।"</string>
+    <string name="shortcut_duplicate" msgid="4757756326465060694">"ਸ਼ਾਰਟਕੱਟ \"<xliff:g id="NAME">%s</xliff:g>\" ਪਹਿਲਾਂ ਹੀ ਮੌਜੂਦ ਹੈ।"</string>
+    <string name="title_select_shortcut" msgid="1873670208166882222">"ਸ਼ਾਰਟਕੱਟ ਚੁਣੋ"</string>
     <string name="title_select_application" msgid="1793455815754848652">"ਐਪ ਚੁਣੋ"</string>
     <string name="all_apps_button_label" msgid="2578400570124163469">"ਐਪਾਂ"</string>
     <string name="all_apps_home_button_label" msgid="1022222300329398558">"ਹੋਮ"</string>
@@ -75,15 +75,15 @@
     <string name="cab_app_selection_text" msgid="6378522164293415735">"1 ਐਪ ਚੁਣਿਆ"</string>
     <string name="cab_widget_selection_text" msgid="962527270506951955">"1 ਵਿਜੇਟ ਚੁਣਿਆ"</string>
     <string name="cab_folder_selection_text" msgid="8916111874189565067">"1 ਫੋਲਡਰ ਚੁਣਿਆ"</string>
-    <string name="cab_shortcut_selection_text" msgid="8115847384500412878">"1 ਸ਼ੌਰਟਕਟ ਚੁਣਿਆ"</string>
-    <string name="permlab_install_shortcut" msgid="1201690825493376489">"ਸ਼ੌਰਟਕਟ ਇੰਸਟੌਲ ਕਰੋ"</string>
-    <string name="permdesc_install_shortcut" msgid="8634424803272077038">"ਇੱਕ ਐਪ ਨੂੰ ਉਪਭੋਗਤਾ ਦੇ ਦਖ਼ਲ ਤੋਂ ਬਿਨਾਂ ਸ਼ੌਰਟਕਟ ਜੋੜਨ ਦੀ ਆਗਿਆ ਦਿੰਦਾ ਹੈ।"</string>
-    <string name="permlab_uninstall_shortcut" msgid="7696645932555926449">"ਸ਼ੌਰਟਕਟ ਅਣਇੰਸਟੌਲ ਕਰੋ"</string>
-    <string name="permdesc_uninstall_shortcut" msgid="274355570620220977">"ਐਪ ਨੂੰ ਉਪਭੋਗਤਾ ਦਖ਼ਲ ਤੋਂ ਬਿਨਾਂ ਸ਼ੌਰਟਕਟ ਹਟਾਉਣ ਦੀ ਆਗਿਆ ਦਿੰਦਾ ਹੈ।"</string>
-    <string name="permlab_read_settings" msgid="3452408290738106747">"ਹੋਮ ਸੈਟਿੰਗਾਂ ਅਤੇ ਸ਼ੌਰਟਕਟ ਪੜ੍ਹੋ"</string>
-    <string name="permdesc_read_settings" msgid="5788109303585403679">"ਐਪ ਨੂੰ ਹੋਮ ਵਿੱਚ ਸੈਟਿੰਗਾਂ ਅਤੇ ਸ਼ੌਰਟਕਟ ਪੜ੍ਹਨ ਦੀ ਆਗਿਆ ਦਿੰਦਾ ਹੈ।"</string>
-    <string name="permlab_write_settings" msgid="1360567537236705628">"ਹੋਮ ਸੈਟਿੰਗਾਂ ਅਤੇ ਸ਼ੌਰਟਕਟ ਲਿਖੋ"</string>
-    <string name="permdesc_write_settings" msgid="8530105489115785531">"ਐਪ ਨੂੰ ਹੋਮ ਵਿੱਚ ਸੈਟਿੰਗਾਂ ਅਤੇ ਸ਼ੌਰਟਕਟ ਬਦਲਣ ਦੀ ਆਗਿਆ ਦਿੰਦਾ ਹੈ।"</string>
+    <string name="cab_shortcut_selection_text" msgid="8115847384500412878">"1 ਸ਼ਾਰਟਕੱਟ ਚੁਣਿਆ"</string>
+    <string name="permlab_install_shortcut" msgid="1201690825493376489">"ਸ਼ਾਰਟਕੱਟ ਇੰਸਟੌਲ ਕਰੋ"</string>
+    <string name="permdesc_install_shortcut" msgid="8634424803272077038">"ਇੱਕ ਐਪ ਨੂੰ ਉਪਭੋਗਤਾ ਦੇ ਦਖ਼ਲ ਤੋਂ ਬਿਨਾਂ ਸ਼ਾਰਟਕੱਟ ਜੋੜਨ ਦੀ ਆਗਿਆ ਦਿੰਦਾ ਹੈ।"</string>
+    <string name="permlab_uninstall_shortcut" msgid="7696645932555926449">"ਸ਼ਾਰਟਕੱਟ ਅਣਇੰਸਟੌਲ ਕਰੋ"</string>
+    <string name="permdesc_uninstall_shortcut" msgid="274355570620220977">"ਐਪ ਨੂੰ ਉਪਭੋਗਤਾ ਦਖ਼ਲ ਤੋਂ ਬਿਨਾਂ ਸ਼ਾਰਟਕੱਟ ਹਟਾਉਣ ਦੀ ਆਗਿਆ ਦਿੰਦਾ ਹੈ।"</string>
+    <string name="permlab_read_settings" msgid="3452408290738106747">"ਹੋਮ ਸੈਟਿੰਗਾਂ ਅਤੇ ਸ਼ਾਰਟਕੱਟ ਪੜ੍ਹੋ"</string>
+    <string name="permdesc_read_settings" msgid="5788109303585403679">"ਐਪ ਨੂੰ ਹੋਮ ਵਿੱਚ ਸੈਟਿੰਗਾਂ ਅਤੇ ਸ਼ਾਰਟਕੱਟ ਪੜ੍ਹਨ ਦੀ ਆਗਿਆ ਦਿੰਦਾ ਹੈ।"</string>
+    <string name="permlab_write_settings" msgid="1360567537236705628">"ਹੋਮ ਸੈਟਿੰਗਾਂ ਅਤੇ ਸ਼ਾਰਟਕੱਟ ਲਿਖੋ"</string>
+    <string name="permdesc_write_settings" msgid="8530105489115785531">"ਐਪ ਨੂੰ ਹੋਮ ਵਿੱਚ ਸੈਟਿੰਗਾਂ ਅਤੇ ਸ਼ਾਰਟਕੱਟ ਬਦਲਣ ਦੀ ਆਗਿਆ ਦਿੰਦਾ ਹੈ।"</string>
     <string name="gadget_error_text" msgid="8359351016167075858">"ਵਿਜੇਟ ਲੋਡ ਕਰਨ ਵਿੱਚ ਸਮੱਸਿਆ"</string>
     <string name="uninstall_system_app_text" msgid="6429814133777046491">"ਇਹ ਇੱਕ ਸਿਸਟਮ ਐਪ ਹੈ ਅਤੇ ਇਸਨੂੰ ਅਣਇੰਸਟੌਲ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ।"</string>
     <string name="dream_name" msgid="2847171357608437154">"ਰੌਕੇਟ ਲਾਂਚਰ"</string>
@@ -104,7 +104,7 @@
     <string name="cling_dismiss" msgid="2780907108735868381">"ਠੀਕ"</string>
     <string name="folder_opened" msgid="1262064100943801533">"ਫੋਲਡਰ ਖੋਲ੍ਹਿਆ,  <xliff:g id="WIDTH">%1$d</xliff:g> ਬਾਇ <xliff:g id="HEIGHT">%2$d</xliff:g>"</string>
     <string name="folder_tap_to_close" msgid="1335478160661137579">"ਫੋਲਡਰ ਬੰਦ ਕਰਨ ਲਈ ਛੋਹਵੋ"</string>
-    <string name="folder_tap_to_rename" msgid="5201612989905472442">"ਮੁੜ ਨਾਮ ਦਿਓ ਨੂੰ ਸੁਰੱਖਿਅਤ ਕਰਨ ਲਈ ਛੋਹਵੋ"</string>
+    <string name="folder_tap_to_rename" msgid="5201612989905472442">"ਮੁੜ-ਨਾਮਕਰਨ ਕਰੋ ਨੂੰ ਸੁਰੱਖਿਅਤ ਕਰਨ ਲਈ ਛੋਹਵੋ"</string>
     <string name="folder_closed" msgid="3130534551370511932">"ਫੋਲਡਰ ਬੰਦ ਕੀਤਾ"</string>
     <string name="folder_renamed" msgid="7951233572858053642">"ਫੋਲਡਰ ਨੂੰ <xliff:g id="NAME">%1$s</xliff:g> ਮੁੜ ਨਾਮ ਦਿੱਤਾ ਗਿਆ"</string>
     <string name="folder_name_format" msgid="3051680259794759037">"ਫੋਲਡਰ: <xliff:g id="NAME">%1$s</xliff:g>"</string>

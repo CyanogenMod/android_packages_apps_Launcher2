@@ -38,7 +38,7 @@
     <string name="rename_action" msgid="6016003384693240896">"ОК"</string>
     <string name="cancel_action" msgid="3811860427489435048">"Скасаваць"</string>
     <string name="menu_item_add_item" msgid="6233177331075781114">"Дадаць на Галоўную старонку"</string>
-    <string name="group_applications" msgid="2103752818818161976">"Прыкладаннi"</string>
+    <string name="group_applications" msgid="2103752818818161976">"Праграмы"</string>
     <string name="group_shortcuts" msgid="9133529424900391877">"Хуткі доступ"</string>
     <string name="group_widgets" msgid="6704978494073105844">"Віджэты"</string>
     <string name="group_wallpapers" msgid="1568191644272224858">"Шпалеры"</string>
@@ -60,7 +60,7 @@
     <string name="info_target_label" msgid="4019495079517426980">"Інфармацыя прыкладання"</string>
     <string name="accessibility_search_button" msgid="816822994629942611">"Пошук"</string>
     <string name="accessibility_voice_search_button" msgid="3938249215065842475">"Галасавы пошук"</string>
-    <string name="accessibility_all_apps_button" msgid="8803738611398979849">"Прыкладаннi"</string>
+    <string name="accessibility_all_apps_button" msgid="8803738611398979849">"Праграмы"</string>
     <string name="accessibility_delete_button" msgid="3628162007991023603">"Выдаліць"</string>
     <string name="delete_zone_label_all_apps_system_app" msgid="3683920959591819044">"Выдаліць абнаўленні"</string>
     <string name="menu_add" msgid="3065046628354640854">"Дадаць"</string>

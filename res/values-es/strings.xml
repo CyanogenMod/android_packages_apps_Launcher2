@@ -53,15 +53,15 @@
     <string name="title_select_application" msgid="1793455815754848652">"Selecciona una aplicación"</string>
     <string name="all_apps_button_label" msgid="2578400570124163469">"Aplicaciones"</string>
     <string name="all_apps_home_button_label" msgid="1022222300329398558">"Inicio"</string>
-    <string name="delete_zone_label_workspace" msgid="7153615831493049150">"Eliminar del  escritorio"</string>
+    <string name="delete_zone_label_workspace" msgid="7153615831493049150">"Quitar"</string>
     <string name="delete_zone_label_all_apps" msgid="6664588234817475108">"Desinstalar"</string>
-    <string name="delete_target_label" msgid="665300185123139530">"Eliminar"</string>
+    <string name="delete_target_label" msgid="665300185123139530">"Quitar"</string>
     <string name="delete_target_uninstall_label" msgid="748894921183769150">"Desinstalar"</string>
     <string name="info_target_label" msgid="4019495079517426980">"Información de la aplicación"</string>
     <string name="accessibility_search_button" msgid="816822994629942611">"Buscar"</string>
     <string name="accessibility_voice_search_button" msgid="3938249215065842475">"Búsqueda por voz"</string>
     <string name="accessibility_all_apps_button" msgid="8803738611398979849">"Aplicaciones"</string>
-    <string name="accessibility_delete_button" msgid="3628162007991023603">"Eliminar"</string>
+    <string name="accessibility_delete_button" msgid="3628162007991023603">"Quitar"</string>
     <string name="delete_zone_label_all_apps_system_app" msgid="3683920959591819044">"Desinstalar actualización"</string>
     <string name="menu_add" msgid="3065046628354640854">"Añadir"</string>
     <string name="menu_manage_apps" msgid="2308685199463588895">"Administrar aplicaciones"</string>
