@@ -25,7 +25,7 @@
     <string name="folder_name" msgid="8551881338202938211"></string>
     <string name="chooser_wallpaper" msgid="6063168087625352235">"Артқы фон таңдау"</string>
     <string name="wallpaper_instructions" msgid="4215640646180727542">"Тұсқағаз орнату"</string>
-    <string name="pick_wallpaper" msgid="5630222540525626723">"Артқы фондар"</string>
+    <string name="pick_wallpaper" msgid="5630222540525626723">"Тұсқағаздар"</string>
     <string name="activity_not_found" msgid="217823393239365967">"Қолданба орнатылмаған."</string>
     <string name="widgets_tab_label" msgid="9145860100000983599">"Виджеттер"</string>
     <string name="long_press_widget_to_add" msgid="7395697462851217506">"Виджетті таңдау үшін оны түртіп, ұстап тұрыңыз."</string>
@@ -41,7 +41,7 @@
     <string name="group_applications" msgid="2103752818818161976">"Қолданбалар"</string>
     <string name="group_shortcuts" msgid="9133529424900391877">"Төте пернелер"</string>
     <string name="group_widgets" msgid="6704978494073105844">"Виджеттер"</string>
-    <string name="group_wallpapers" msgid="1568191644272224858">"Артқы фондар"</string>
+    <string name="group_wallpapers" msgid="1568191644272224858">"Тұсқағаздар"</string>
     <string name="completely_out_of_space" msgid="1759078539443491182">"Негізгі экрандарда орын қалмады."</string>
     <string name="out_of_space" msgid="8365249326091984698">"Бұл негізгі экранда орын қалмады."</string>
     <string name="hotseat_out_of_space" msgid="6304886797358479361">"Хот сит режимінде орын қалмады."</string>

@@ -28,7 +28,7 @@
     <string name="pick_wallpaper" msgid="5630222540525626723">"ਵਾਲਪੇਪਰ"</string>
     <string name="activity_not_found" msgid="217823393239365967">"ਐਪ ਇੰਸਟੌਲ ਨਹੀਂ ਕੀਤਾ ਹੋਇਆ ਹੈ।"</string>
     <string name="widgets_tab_label" msgid="9145860100000983599">"ਵਿਜਿਟ"</string>
-    <string name="long_press_widget_to_add" msgid="7395697462851217506">"ਇੱਕ ਵਿਜੇਟ ਚੁਣਨ ਲਈ ਛੋਹਵੋ &amp; ਹੋਲਡ ਕਰੋ।"</string>
+    <string name="long_press_widget_to_add" msgid="7395697462851217506">"ਇੱਕ ਵਿਜੇਟ ਚੁਣਨ ਲਈ ਸਪੱਰਸ਼ ਕਰੋ &amp; ਹੋਲਡ ਕਰੋ।"</string>
     <string name="market" msgid="2652226429823445833">"ਦੁਕਾਨ"</string>
     <string name="widget_dims_format" msgid="1386418557719032947">"%1$d × %2$d"</string>
     <string name="external_drop_widget_error" msgid="2285187188524172774">"ਇਸ ਹੋਮ ਸਕ੍ਰੀਨ ਤੇ ਆਈਟਮ ਡ੍ਰੌਪ ਨਹੀਂ ਕਰ ਸਕਿਆ।"</string>
@@ -95,16 +95,16 @@
     <string name="apps_customize_widgets_scroll_format" msgid="5383009742241717437">"ਵਿਜੇਟ ਸਫਾ %2$d ਦਾ %1$d"</string>
     <string name="workspace_cling_title" msgid="738396473989890567">"ਆਪਣੇ ਹੋਮ ਵਰਗਾ ਸਮਝੋ"</string>
     <string name="workspace_cling_move_item" msgid="791013895761065070">"ਤੁਸੀਂ ਆਪਣੇ ਮਨਪਸੰਦ ਐਪਸ ਇੱਥੇ ਰੱਖ ਸਕਦੇ ਹੋ।"</string>
-    <string name="workspace_cling_open_all_apps" msgid="2459977609848572588">"ਆਪਣੇ ਸਾਰੇ ਐਪਸ ਦੇਖਣ ਲਈ, ਗੋਲੇ ਨੂੰ ਛੋਹਵੋ।"</string>
+    <string name="workspace_cling_open_all_apps" msgid="2459977609848572588">"ਆਪਣੇ ਸਾਰੇ ਐਪਸ ਦੇਖਣ ਲਈ, ਗੋਲੇ ਨੂੰ ਸਪੱਰਸ਼ ਕਰੋ।"</string>
     <string name="all_apps_cling_title" msgid="2559734712581447107">"ਕੁਝ ਐਪਸ ਚੁਣੋ"</string>
-    <string name="all_apps_cling_add_item" msgid="5665035103260318891">"ਆਪਣੀ ਹੋਮ ਸਕ੍ਰੀਨ ਵਿੱਚ ਇੱਕ ਐਪ ਜੋੜਨ ਲਈ, ਇਸਨੂੰ ਛੋਹਵੋ &amp; ਅਤੇ ਹੋਲਡ ਕਰੋ।"</string>
+    <string name="all_apps_cling_add_item" msgid="5665035103260318891">"ਆਪਣੀ ਹੋਮ ਸਕ੍ਰੀਨ ਵਿੱਚ ਇੱਕ ਐਪ ਜੋੜਨ ਲਈ, ਇਸਨੂੰ ਸਪੱਰਸ਼ ਕਰੋ &amp; ਅਤੇ ਹੋਲਡ ਕਰੋ।"</string>
     <string name="folder_cling_title" msgid="4308949882377840953">"ਫੋਲਡਰਾਂ ਵਾਲੇ ਆਪਣੇ ਐਪਸ ਨੂੰ  ਵਿਵਸਥਿਤ ਕਰੋ"</string>
-    <string name="folder_cling_move_item" msgid="270598675060435169">"ਇੱਕ ਐਪ ਨੂੰ ਮੂਵ ਕਰਨ ਲਈ, ਇਸਨੂੰ ਛੋਹਵੋ &amp; ਹੋਲਡ ਕਰੋ।"</string>
+    <string name="folder_cling_move_item" msgid="270598675060435169">"ਇੱਕ ਐਪ ਨੂੰ ਮੂਵ ਕਰਨ ਲਈ, ਇਸਨੂੰ ਸਪੱਰਸ਼ ਕਰੋ &amp; ਹੋਲਡ ਕਰੋ।"</string>
     <string name="folder_cling_create_folder" msgid="8352867485656129478">"ਆਪਣੀ ਹੋਮ ਸਕ੍ਰੀਨ ਤੇ ਇੱਕ ਨਵਾਂ ਫੋਲਡਰ ਬਣਾਉਣ ਲਈ, ਦੂਜੇ ਦੇ ਟੌਪ ਤੇ ਇੱਕ ਟੈਪ ਨੂੰ ਸਟੈਕ ਕਰੋ।"</string>
     <string name="cling_dismiss" msgid="2780907108735868381">"ਠੀਕ"</string>
     <string name="folder_opened" msgid="1262064100943801533">"ਫੋਲਡਰ ਖੋਲ੍ਹਿਆ,  <xliff:g id="WIDTH">%1$d</xliff:g> ਬਾਇ <xliff:g id="HEIGHT">%2$d</xliff:g>"</string>
-    <string name="folder_tap_to_close" msgid="1335478160661137579">"ਫੋਲਡਰ ਬੰਦ ਕਰਨ ਲਈ ਛੋਹਵੋ"</string>
-    <string name="folder_tap_to_rename" msgid="5201612989905472442">"ਮੁੜ-ਨਾਮਕਰਨ ਕਰੋ ਨੂੰ ਸੁਰੱਖਿਅਤ ਕਰਨ ਲਈ ਛੋਹਵੋ"</string>
+    <string name="folder_tap_to_close" msgid="1335478160661137579">"ਫੋਲਡਰ ਬੰਦ ਕਰਨ ਲਈ ਸਪੱਰਸ਼ ਕਰੋ"</string>
+    <string name="folder_tap_to_rename" msgid="5201612989905472442">"ਮੁੜ-ਨਾਮਕਰਨ ਕਰੋ ਨੂੰ ਸੁਰੱਖਿਅਤ ਕਰਨ ਲਈ ਸਪੱਰਸ਼ ਕਰੋ"</string>
     <string name="folder_closed" msgid="3130534551370511932">"ਫੋਲਡਰ ਬੰਦ ਕੀਤਾ"</string>
     <string name="folder_renamed" msgid="7951233572858053642">"ਫੋਲਡਰ ਨੂੰ <xliff:g id="NAME">%1$s</xliff:g> ਮੁੜ ਨਾਮ ਦਿੱਤਾ ਗਿਆ"</string>
     <string name="folder_name_format" msgid="3051680259794759037">"ਫੋਲਡਰ: <xliff:g id="NAME">%1$s</xliff:g>"</string>
